@@ -428,6 +428,15 @@ textarea:focus-visible{
   background:var(--paper);border:1px solid var(--border);color:var(--green);
 }
 
+.formulation-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-bottom:22px;}
+.formulation-card{
+  background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-md);padding:20px 20px 22px;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.formulation-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+.formulation-card h4{font-size:0.94rem;font-weight:800;color:var(--green);margin-bottom:8px;line-height:1.4;}
+.formulation-card p{font-size:0.85rem;color:var(--ink-soft);line-height:1.65;}
+
 .clinical-list{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:16px;}
 .clinical-item{
   background:var(--card-bg);border:1px solid var(--border);
@@ -848,13 +857,46 @@ footer.site-footer{background:var(--green-deep);color:var(--cream);padding:clamp
           <div class="process-item"><p data-i18n="tech.step4">향취 및 보존제 블렌딩 — 천연 허브, 자일리톨, 천연 보존제 E-폴리리신을 투입합니다.</p></div>
           <div class="process-item highlight"><p data-i18n="tech.step5">70일 저온 숙성 — 온·습도가 통제된 전용 숙성실에서 저온 숙성하여 제형의 밀도를 높입니다.</p></div>
           <div class="process-item"><p data-i18n="tech.step6">정밀 탈포 및 충진 — 진공 탈포로 미세 기포를 제거한 뒤 전용 튜브에 정량 충진·밀봉합니다.</p></div>
-          <div class="process-item"><p data-i18n="tech.step7">품질 관리 및 포장 — 미생물·점도·pH 등 자체 QC 기준 검사를 거쳐 합격품만 출고합니다.</p></div>
+          <div class="process-item"><p data-i18n="tech.step7">품질 관리 및 포장 — 미생물·점도·pH 등 자체 QC 기준 검사를 거쳐 합격품에 한해 '일월오봉도' 시그니처 패키징 후 최종 출고합니다.</p></div>
         </div>
         <div class="chip-row">
           <span class="chip" data-i18n="tech.chip1">SLS 무첨가</span>
           <span class="chip" data-i18n="tech.chip2">E-폴리리신 천연 보존제</span>
           <span class="chip" data-i18n="tech.chip3">28가지 자연 유래 성분</span>
         </div>
+      </div>
+
+      <div class="tech-block reveal">
+        <div class="tech-block-head">
+          <h3 data-i18n="tech.formulationTitle">K.28 성분 설계 (Formulation Architecture)</h3>
+          <p data-i18n="tech.formulationIntro">K.28은 28가지 자연 유래 성분을 5개 그룹으로 나누어 설계했습니다.</p>
+        </div>
+        <div class="formulation-grid">
+          <div class="formulation-card">
+            <h4 data-i18n="tech.group1Title">미네랄 &amp; 에나멜 케어</h4>
+            <p data-i18n="tech.group1List">칼륨장석, 하이드록시아파타이트, 덴탈타입실리카</p>
+          </div>
+          <div class="formulation-card">
+            <h4 data-i18n="tech.group2Title">허브 &amp; 프로폴리스 케어</h4>
+            <p data-i18n="tech.group2List">프로폴리스추출물, 매스틱오일, 몰약, 라타니아, 카렌듀라, 감초, 키토산</p>
+          </div>
+          <div class="formulation-card">
+            <h4 data-i18n="tech.group3Title">자연 유래 저자극 세정 베이스</h4>
+            <p data-i18n="tech.group3List">코코넛 유래 코코일글루타민산나트륨, 아미노산계 세정 성분, 베이킹소다</p>
+          </div>
+          <div class="formulation-card">
+            <h4 data-i18n="tech.group4Title">천연 감미 &amp; 허브</h4>
+            <p data-i18n="tech.group4List">자일리톨, 효소처리 스테비아, 라즈베리추출물, L-멘톨, 회향유</p>
+          </div>
+          <div class="formulation-card">
+            <h4 data-i18n="tech.group5Title">보습 &amp; 천연 보존</h4>
+            <p data-i18n="tech.group5List">비타민E(토코페롤아세테이트), 알로에, E-폴리리신(천연 항균 펩타이드)</p>
+          </div>
+        </div>
+        <ul class="product-bullets">
+          <li data-i18n="tech.formulationFact1">합성 계면활성제(SLS)를 사용하지 않아, 양치 직후에도 미각 왜곡 없이 자연 유래 거품감을 느낄 수 있습니다.</li>
+          <li data-i18n="tech.formulationFact2">화학 성분에 민감한 사용자부터 온 가족까지 함께 사용할 수 있도록 설계했습니다.</li>
+        </ul>
       </div>
 
       <div class="tech-block reveal">
@@ -1219,10 +1261,24 @@ var I18N = {
     step4:{ko:"향취 및 보존제 블렌딩 — 천연 허브, 자일리톨, 천연 보존제 E-폴리리신을 투입합니다.",en:"Fragrance &amp; Preservative Blending — Natural herbs, xylitol, and the natural preservative E-polylysine are added.",zh:"香气与防腐剂调配——加入天然草本、木糖醇及天然防腐剂E-聚赖氨酸。"},
     step5:{ko:"70일 저온 숙성 — 온·습도가 통제된 전용 숙성실에서 저온 숙성하여 제형의 밀도를 높입니다.",en:"70-Day Cold Aging — Aged in a temperature- and humidity-controlled chamber to increase formula density.",zh:"70天低温熟成——在温湿度可控的专用熟成室中低温熟成,提升配方密度。"},
     step6:{ko:"정밀 탈포 및 충진 — 진공 탈포로 미세 기포를 제거한 뒤 전용 튜브에 정량 충진·밀봉합니다.",en:"Precision Deaeration &amp; Filling — Vacuum deaeration removes micro air bubbles before precise filling and sealing into dedicated tubes.",zh:"精密脱泡与灌装——真空脱泡去除微小气泡后,定量灌装并密封至专用软管。"},
-    step7:{ko:"품질 관리 및 포장 — 미생물·점도·pH 등 자체 QC 기준 검사를 거쳐 합격품만 출고합니다.",en:"Quality Control &amp; Packaging — Products pass internal QC checks (microbial, viscosity, pH) before packaging and shipment.",zh:"品质管控与包装——通过微生物、粘度、pH等自有QC标准检测后方可包装出货。"},
+    step7:{ko:"품질 관리 및 포장 — 미생물·점도·pH 등 자체 QC 기준 검사를 거쳐 합격품에 한해 '일월오봉도' 시그니처 패키징 후 최종 출고합니다.",en:"Quality Control &amp; Packaging — Products pass internal QC checks (microbial, viscosity, pH), and only those that pass are finished with our signature 'Irworobongdo' (Sun, Moon and Five Peaks) packaging before shipment.",zh:"品质管控与包装——通过微生物、粘度、pH等自有QC标准检测后,合格产品方可采用韩国传统“日月五峰图”标志性包装,完成最终出货。"},
     chip1:{ko:"SLS 무첨가",en:"SLS-Free",zh:"不含SLS"},
     chip2:{ko:"E-폴리리신 천연 보존제",en:"E-Polylysine Natural Preservative",zh:"E-聚赖氨酸天然防腐剂"},
     chip3:{ko:"28가지 자연 유래 성분",en:"28 Naturally Derived Ingredients",zh:"28种天然来源成分"},
+    formulationTitle:{ko:"K.28 성분 설계 (Formulation Architecture)",en:"K.28 Formulation Architecture",zh:"K.28成分设计(Formulation Architecture)"},
+    formulationIntro:{ko:"K.28은 28가지 자연 유래 성분을 5개 그룹으로 나누어 설계했습니다.",en:"K.28 is formulated from 28 naturally derived ingredients, organized into five groups.",zh:"K.28由28种天然来源成分构成,分为五大组别设计而成。"},
+    group1Title:{ko:"미네랄 &amp; 에나멜 케어",en:"Mineral &amp; Enamel Care",zh:"矿物与珐琅质护理"},
+    group1List:{ko:"칼륨장석, 하이드록시아파타이트, 덴탈타입실리카",en:"Potassium feldspar, hydroxyapatite, dental-type silica",zh:"钾长石、羟基磷灰石、齿科用二氧化硅"},
+    group2Title:{ko:"허브 &amp; 프로폴리스 케어",en:"Herb &amp; Propolis Care",zh:"草本与蜂胶护理"},
+    group2List:{ko:"프로폴리스추출물, 매스틱오일, 몰약, 라타니아, 카렌듀라, 감초, 키토산",en:"Propolis extract, mastic oil, myrrh, ratanhia, calendula, licorice, chitosan",zh:"蜂胶提取物、乳香黄连木油(Mastic)、没药、拉塔尼亚根提取物、金盏花、甘草、壳聚糖"},
+    group3Title:{ko:"자연 유래 저자극 세정 베이스",en:"Naturally Derived Gentle Cleansing Base",zh:"天然来源温和洁净基质"},
+    group3List:{ko:"코코넛 유래 코코일글루타민산나트륨, 아미노산계 세정 성분, 베이킹소다",en:"Coconut-derived sodium cocoyl glutamate, amino acid–based cleansing agents, baking soda",zh:"椰子来源椰油酰谷氨酸钠、氨基酸系洁净成分、小苏打"},
+    group4Title:{ko:"천연 감미 &amp; 허브",en:"Natural Sweetness &amp; Herbs",zh:"天然甜感与草本"},
+    group4List:{ko:"자일리톨, 효소처리 스테비아, 라즈베리추출물, L-멘톨, 회향유",en:"Xylitol, enzyme-treated stevia, raspberry extract, L-menthol, fennel oil",zh:"木糖醇、酶处理甜叶菊、覆盆子提取物、L-薄荷醇、茴香油"},
+    group5Title:{ko:"보습 &amp; 천연 보존",en:"Moisture &amp; Natural Preservation",zh:"保湿与天然防腐"},
+    group5List:{ko:"비타민E(토코페롤아세테이트), 알로에, E-폴리리신(천연 항균 펩타이드)",en:"Vitamin E (tocopheryl acetate), aloe, ε-polylysine (a naturally derived antimicrobial peptide)",zh:"维生素E(醋酸生育酚)、芦荟、ε-聚赖氨酸(天然来源抗菌肽)"},
+    formulationFact1:{ko:"합성 계면활성제(SLS)를 사용하지 않아, 양치 직후에도 미각 왜곡 없이 자연 유래 거품감을 느낄 수 있습니다.",en:"Free of synthetic surfactants (SLS) — a naturally derived lather that doesn't distort taste right after brushing.",zh:"不添加合成表面活性剂(SLS)——刷牙后也不会出现味觉失真,泡沫来自天然成分。"},
+    formulationFact2:{ko:"화학 성분에 민감한 사용자부터 온 가족까지 함께 사용할 수 있도록 설계했습니다.",en:"Designed with chemically sensitive users in mind, so the whole family can use it together.",zh:"从对化学成分敏感的使用者到全家人,产品设计都将适用性纳入考量。"},
     clinicalTitle:{ko:"KBRC 임상 데이터 상세",en:"KBRC Clinical Data in Detail",zh:"KBRC临床数据详情"},
     clin1:{ko:"피부자극도 0.00 — \"No Irritancy\" 판정 (KBRC 인체적용시험)",en:"Irritation Score 0.00 — \"No Irritancy\" rating (KBRC human application testing)",zh:"皮肤刺激度评分0.00——判定为“无刺激”(KBRC人体应用测试)"},
     clin2:{ko:"경표피수분손실(TEWL) 최대 51.65% 개선 (KBRC 인체적용시험, 2주 기준)",en:"Transepidermal water loss (TEWL) improved by up to 51.65% (KBRC human application testing, 2-week mark)",zh:"经表皮水分流失(TEWL)最高改善51.65%(KBRC人体应用测试,2周节点)"},
