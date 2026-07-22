@@ -175,10 +175,26 @@ textarea:focus-visible{
 .sidebar-lang .lang-btn{color:rgba(244,241,234,0.6);}
 .sidebar-lang .lang-btn.active{background:var(--mustard);color:var(--green);}
 .nav-group{display:flex;flex-direction:column;}
-.nav-sub{display:flex;flex-direction:column;padding-left:18px;margin:0 0 6px;}
-.nav-sub a{padding:9px 14px 9px 24px !important;font-size:0.84rem !important;font-weight:500 !important;color:rgba(244,241,234,0.5) !important;}
-.nav-sub a:hover,.nav-sub a.active{color:var(--cream) !important;}
-.nav-sub a::before{display:none !important;}
+.nav-row{display:flex;align-items:center;}
+.nav-row a{flex:1;}
+.nav-toggle{
+  flex:0 0 auto;background:none;border:none;padding:8px 10px;cursor:pointer;
+  color:rgba(244,241,234,0.55);font-size:0.7rem;transition:transform .2s ease,color .15s ease;
+}
+.nav-toggle:hover{color:var(--cream);}
+.nav-group.open .nav-toggle{transform:rotate(180deg);}
+.sidebar-nav .nav-sub{
+  display:flex;flex-direction:column;padding-left:18px;margin:0;
+  max-height:0;overflow:hidden;transition:max-height .3s ease;
+}
+.sidebar-nav .nav-sub a{padding:9px 14px 9px 24px !important;font-size:0.84rem !important;font-weight:500 !important;color:rgba(244,241,234,0.55) !important;}
+.sidebar-nav .nav-sub a:hover,.sidebar-nav .nav-sub a.active{color:var(--cream) !important;}
+.sidebar-nav .nav-sub a::before{display:none !important;}
+.nav-group.open .nav-sub{max-height:300px;margin-bottom:6px;}
+@media (min-width:1024px){
+  .nav-group:hover .nav-sub{max-height:300px;margin-bottom:6px;}
+  .nav-group:hover .nav-toggle{transform:rotate(180deg);}
+}
 
 /* --- Mobile top bar --- */
 .app-topbar{
@@ -220,10 +236,15 @@ textarea:focus-visible{
 .drawer-nav a.active::before{transform:translateY(-50%) scale(1);}
 .drawer-cta{padding:22px clamp(16px,4vw,28px);border-top:1px solid var(--border);margin-top:4px;}
 .drawer-lang{margin:0 clamp(16px,4vw,28px) 28px;justify-content:center;}
-.drawer-nav .nav-sub{display:flex;flex-direction:column;padding:0 0 4px 16px;}
-.drawer-nav .nav-sub a{font-size:0.92rem;font-weight:600;padding:13px 6px 13px 14px;border-bottom:none;color:var(--ink-soft);}
-.drawer-nav .nav-sub a.active{color:var(--magenta);}
+.drawer-nav .nav-row{display:flex;align-items:center;border-bottom:1px solid var(--border);}
+.drawer-nav .nav-row a{flex:1;border-bottom:none;}
+.drawer-nav .nav-toggle{color:var(--ink-faint);font-size:0.8rem;padding:10px 14px;}
+.drawer-nav .nav-toggle:hover{color:var(--ink);}
+.drawer-nav .nav-sub{display:flex;flex-direction:column;padding:0 0 0 16px;max-height:0;overflow:hidden;transition:max-height .3s ease;}
+.drawer-nav .nav-sub a{font-size:0.92rem;font-weight:600;padding:13px 6px 13px 14px;border-bottom:none;color:var(--ink-soft) !important;}
+.drawer-nav .nav-sub a.active{color:var(--magenta) !important;}
 .drawer-nav .nav-sub a::before{display:none;}
+.drawer-nav .nav-group.open .nav-sub{max-height:300px;padding-bottom:6px;}
 
 .app-content{padding-top:var(--topbar-h);}
 
@@ -611,16 +632,22 @@ footer.site-footer{background:var(--green-deep);color:var(--cream);padding:clamp
   </a>
   <nav class="sidebar-nav">
     <a href="#home" data-view="home" data-i18n="nav.home">홈</a>
-    <div class="nav-group">
-      <a href="#about" data-view="about" data-i18n="nav.about">회사소개</a>
+    <div class="nav-group" data-group="about">
+      <div class="nav-row">
+        <a href="#about" data-view="about" data-i18n="nav.about">회사소개</a>
+        <button type="button" class="nav-toggle" aria-label="세부메뉴 열기" aria-expanded="false">▾</button>
+      </div>
       <div class="nav-sub">
         <a href="#about-story" data-view="about" data-i18n="navSub.aboutStory">스토리</a>
         <a href="#about-vision" data-view="about" data-i18n="navSub.aboutVision">비전과 목표</a>
         <a href="#about-milestones" data-view="about" data-i18n="navSub.aboutMilestones">연혁</a>
       </div>
     </div>
-    <div class="nav-group">
-      <a href="#technology" data-view="technology" data-i18n="nav.tech">원료·기술</a>
+    <div class="nav-group" data-group="technology">
+      <div class="nav-row">
+        <a href="#technology" data-view="technology" data-i18n="nav.tech">원료·기술</a>
+        <button type="button" class="nav-toggle" aria-label="세부메뉴 열기" aria-expanded="false">▾</button>
+      </div>
       <div class="nav-sub">
         <a href="#tech-raw" data-view="technology" data-i18n="navSub.techRaw">원료 스펙</a>
         <a href="#tech-eco" data-view="technology" data-i18n="navSub.techEco">친환경·활용</a>
@@ -628,8 +655,11 @@ footer.site-footer{background:var(--green-deep);color:var(--cream);padding:clamp
         <a href="#tech-clinical" data-view="technology" data-i18n="navSub.techClinical">임상 데이터</a>
       </div>
     </div>
-    <div class="nav-group">
-      <a href="#products" data-view="products" data-i18n="nav.products">제품 라인업</a>
+    <div class="nav-group" data-group="products">
+      <div class="nav-row">
+        <a href="#products" data-view="products" data-i18n="nav.products">제품 라인업</a>
+        <button type="button" class="nav-toggle" aria-label="세부메뉴 열기" aria-expanded="false">▾</button>
+      </div>
       <div class="nav-sub">
         <a href="#products-soap" data-view="products" data-i18n="navSub.productsSoap">카리비누</a>
         <a href="#products-toothpaste" data-view="products" data-i18n="navSub.productsToothpaste">K.28 치약</a>
@@ -676,24 +706,39 @@ footer.site-footer{background:var(--green-deep);color:var(--cream);padding:clamp
   </div>
   <nav class="drawer-nav">
     <a href="#home" data-view="home" data-i18n="nav.home">홈</a>
-    <a href="#about" data-view="about" data-i18n="nav.about">회사소개</a>
-    <div class="nav-sub">
-      <a href="#about-story" data-view="about" data-i18n="navSub.aboutStory">스토리</a>
-      <a href="#about-vision" data-view="about" data-i18n="navSub.aboutVision">비전과 목표</a>
-      <a href="#about-milestones" data-view="about" data-i18n="navSub.aboutMilestones">연혁</a>
+    <div class="nav-group" data-group="about">
+      <div class="nav-row">
+        <a href="#about" data-view="about" data-i18n="nav.about">회사소개</a>
+        <button type="button" class="nav-toggle" aria-label="세부메뉴 열기" aria-expanded="false">▾</button>
+      </div>
+      <div class="nav-sub">
+        <a href="#about-story" data-view="about" data-i18n="navSub.aboutStory">스토리</a>
+        <a href="#about-vision" data-view="about" data-i18n="navSub.aboutVision">비전과 목표</a>
+        <a href="#about-milestones" data-view="about" data-i18n="navSub.aboutMilestones">연혁</a>
+      </div>
     </div>
-    <a href="#technology" data-view="technology" data-i18n="nav.tech">원료·기술</a>
-    <div class="nav-sub">
-      <a href="#tech-raw" data-view="technology" data-i18n="navSub.techRaw">원료 스펙</a>
-      <a href="#tech-eco" data-view="technology" data-i18n="navSub.techEco">친환경·활용</a>
-      <a href="#tech-process" data-view="technology" data-i18n="navSub.techProcess">제조 공정</a>
-      <a href="#tech-clinical" data-view="technology" data-i18n="navSub.techClinical">임상 데이터</a>
+    <div class="nav-group" data-group="technology">
+      <div class="nav-row">
+        <a href="#technology" data-view="technology" data-i18n="nav.tech">원료·기술</a>
+        <button type="button" class="nav-toggle" aria-label="세부메뉴 열기" aria-expanded="false">▾</button>
+      </div>
+      <div class="nav-sub">
+        <a href="#tech-raw" data-view="technology" data-i18n="navSub.techRaw">원료 스펙</a>
+        <a href="#tech-eco" data-view="technology" data-i18n="navSub.techEco">친환경·활용</a>
+        <a href="#tech-process" data-view="technology" data-i18n="navSub.techProcess">제조 공정</a>
+        <a href="#tech-clinical" data-view="technology" data-i18n="navSub.techClinical">임상 데이터</a>
+      </div>
     </div>
-    <a href="#products" data-view="products" data-i18n="nav.products">제품 라인업</a>
-    <div class="nav-sub">
-      <a href="#products-soap" data-view="products" data-i18n="navSub.productsSoap">카리비누</a>
-      <a href="#products-toothpaste" data-view="products" data-i18n="navSub.productsToothpaste">K.28 치약</a>
-      <a href="#products-oem" data-view="products" data-i18n="navSub.productsOem">OEM·원료 공급</a>
+    <div class="nav-group" data-group="products">
+      <div class="nav-row">
+        <a href="#products" data-view="products" data-i18n="nav.products">제품 라인업</a>
+        <button type="button" class="nav-toggle" aria-label="세부메뉴 열기" aria-expanded="false">▾</button>
+      </div>
+      <div class="nav-sub">
+        <a href="#products-soap" data-view="products" data-i18n="navSub.productsSoap">카리비누</a>
+        <a href="#products-toothpaste" data-view="products" data-i18n="navSub.productsToothpaste">K.28 치약</a>
+        <a href="#products-oem" data-view="products" data-i18n="navSub.productsOem">OEM·원료 공급</a>
+      </div>
     </div>
     <a href="#partnership" data-view="partnership" data-i18n="nav.partners">협력사</a>
     <a href="#contact" data-view="contact" data-i18n="nav.contact">문의</a>
@@ -1750,7 +1795,26 @@ document.addEventListener('DOMContentLoaded', function(){
     for (var j=0;j<navAnchors.length;j++){
       navAnchors[j].classList.toggle('active', navAnchors[j].getAttribute('data-view') === viewId);
     }
+    var navGroups = document.querySelectorAll('.nav-group[data-group]');
+    for (var k=0;k<navGroups.length;k++){
+      var isCurrent = navGroups[k].getAttribute('data-group') === viewId;
+      navGroups[k].classList.toggle('open', isCurrent);
+      var toggleBtn = navGroups[k].querySelector('.nav-toggle');
+      if (toggleBtn){ toggleBtn.setAttribute('aria-expanded', isCurrent ? 'true' : 'false'); }
+    }
     closeDrawer();
+  }
+
+  var navToggles = document.querySelectorAll('.nav-toggle');
+  for (var t=0;t<navToggles.length;t++){
+    navToggles[t].addEventListener('click', function(e){
+      e.preventDefault();
+      var group = this.closest('.nav-group');
+      if (!group){ return; }
+      var willOpen = !group.classList.contains('open');
+      group.classList.toggle('open', willOpen);
+      this.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    });
   }
 
   function route(){
