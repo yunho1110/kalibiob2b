@@ -298,7 +298,7 @@ textarea:focus-visible{
   font-size:clamp(2.6rem,6vw,5rem);font-weight:900;line-height:1.05;letter-spacing:-0.03em;
   margin-bottom:24px;color:var(--cream);
 }
-.hero-sub{font-size:clamp(0.98rem,1.8vw,1.15rem);max-width:600px;color:rgba(244,241,234,0.82);line-height:1.75;margin-bottom:36px;}
+.hero-sub{font-size:clamp(1.02rem,1.8vw,1.22rem);max-width:560px;color:rgba(244,241,234,0.88);line-height:1.85;margin-bottom:38px;}
 .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:48px;}
 .hero-ctas .btn-primary{background:var(--magenta-btn);}
 .hero-ctas .btn-primary:hover{box-shadow:0 8px 22px -8px rgba(214,71,148,0.6);}
@@ -454,6 +454,17 @@ textarea:focus-visible{
 .spec-item:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
 .spec-item .spec-value{font-family:var(--font-display);font-size:clamp(1.8rem,3.2vw,2.6rem);font-weight:900;color:var(--cobalt);line-height:1;}
 .spec-item .spec-label{font-size:0.78rem;color:var(--ink-soft);margin-top:10px;}
+.spec-item.spec-highlight{
+  position:relative;background:var(--green);border-color:var(--green);
+  box-shadow:0 14px 34px -16px rgba(30,59,47,0.55);transform:translateY(-4px);
+}
+.spec-item.spec-highlight:hover{transform:translateY(-8px);box-shadow:0 20px 44px -18px rgba(30,59,47,0.6);}
+.spec-item.spec-highlight .spec-value{color:var(--mustard);font-size:clamp(2.1rem,3.8vw,3rem);}
+.spec-item.spec-highlight .spec-label{color:rgba(244,241,234,0.9);font-weight:700;}
+.spec-tag{
+  display:inline-block;margin-bottom:8px;padding:3px 12px;border-radius:999px;
+  background:var(--magenta);color:#fff;font-size:0.66rem;font-weight:800;letter-spacing:0.06em;
+}
 
 .process-list{counter-reset:step;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-bottom:22px;}
 .process-item{
@@ -757,8 +768,8 @@ footer.site-footer{background:var(--green-deep);color:var(--cream);padding:clamp
         <div class="hero-grid">
           <div class="hero-copy">
             <span class="hero-eyebrow" data-i18n="hero.eyebrow">글로벌 B2B · OEM/ODM 제조 파트너</span>
-            <h1 class="hero-headline" data-i18n="hero.headline">12억 년, 자연이 빚어낸 미네랄을 정직하게 잇습니다</h1>
-            <p class="hero-sub" data-i18n="hero.sub">전남 순천에서 채굴한 칼륨장석을 원료로, 카리바이오는 비누와 치약을 만듭니다. 화려한 수식어 대신 숫자로 말합니다 — 한국바이오임상연구센터(KBRC) 인체적용시험 피부자극도 0.00, "No Irritancy" 판정. 우리는 제품을 파는 회사가 아니라, 원료의 출처부터 완제품의 안전성까지 함께 증명하는 파트너입니다.</p>
+            <h1 class="hero-headline" data-i18n="hero.headline">12억 년의 미네랄,<br>데이터로 증명합니다</h1>
+            <p class="hero-sub" data-i18n="hero.sub">전남 순천 자체 광산의 칼륨장석으로 비누와 치약을 만듭니다.<br>수식어 대신 임상 데이터로 증명하는 OEM/ODM 파트너입니다.</p>
             <div class="hero-ctas">
               <a href="#contact" class="btn btn-primary" data-i18n="hero.cta1">파트너십 문의하기</a>
               <a href="#technology" class="btn btn-outline" data-i18n="hero.cta2">기술력 살펴보기</a>
@@ -790,41 +801,41 @@ footer.site-footer{background:var(--green-deep);color:var(--cream);padding:clamp
         <div class="section-head center reveal">
           <span class="eyebrow" data-i18n="homeClinical.eyebrow">KBRC CLINICAL RESULTS</span>
           <h2 class="section-title" data-i18n="homeClinical.title">임상으로 증명된 6가지 개선효과</h2>
-          <p class="section-subtitle" data-i18n="homeClinical.subtitle">"무자극"에서 멈추지 않습니다. 한국바이오임상연구센터(KBRC) 인체적용시험으로 확인한 개선 효과를 수치로 보여드립니다.</p>
+          <p class="section-subtitle" data-i18n="homeClinical.subtitle">KBRC 인체적용시험으로 확인한 개선 효과입니다.</p>
         </div>
         <div class="clinical-list reveal">
           <div class="clinical-item">
             <div class="clinical-num-row"><span class="clinical-num">51.65</span><span class="clinical-unit">%</span></div>
             <div class="clinical-bar-track"><div class="clinical-bar-fill" style="width:51.65%"></div></div>
-            <p data-i18n="tech.clin2">경표피수분손실(TEWL) 최대 51.65% 개선 (KBRC 인체적용시험, 2주 기준)</p>
+            <p data-i18n="homeClinical.c1">피부 수분 손실(TEWL) 개선</p>
           </div>
           <div class="clinical-item">
             <div class="clinical-num-row"><span class="clinical-num">75.55</span><span class="clinical-unit">%</span></div>
             <div class="clinical-bar-track"><div class="clinical-bar-fill" style="width:75.55%"></div></div>
-            <p data-i18n="tech.clin3">가려움 개선도(VAS) 최대 75.55% — 건조로 인한 일시적 가려움 (KBRC 인체적용시험, 4주 기준)</p>
+            <p data-i18n="homeClinical.c2">건조로 인한 가려움 개선</p>
           </div>
           <div class="clinical-item">
             <div class="clinical-num-row"><span class="clinical-num">35.02</span><span class="clinical-unit">%</span></div>
             <div class="clinical-bar-track"><div class="clinical-bar-fill" style="width:35.02%"></div></div>
-            <p data-i18n="tech.clin4">피부 탄력(R7 생체탄력) 최대 35.02% 개선 (KBRC 인체적용시험, 4주 기준)</p>
+            <p data-i18n="homeClinical.c3">피부 탄력 개선</p>
           </div>
           <div class="clinical-item">
             <div class="clinical-num-row"><span class="clinical-num">44.52</span><span class="clinical-unit">%</span></div>
             <div class="clinical-bar-track"><div class="clinical-bar-fill" style="width:44.52%"></div></div>
-            <p data-i18n="tech.clin5">각질 감소 44.52% (KBRC 인체적용시험, 4주 기준)</p>
+            <p data-i18n="homeClinical.c4">각질 감소</p>
           </div>
           <div class="clinical-item">
             <div class="clinical-num-row"><span class="clinical-num">100</span><span class="clinical-unit">%</span></div>
             <div class="clinical-bar-track"><div class="clinical-bar-fill" style="width:100%"></div></div>
-            <p data-i18n="tech.clin6">사용감 평가 만족도 100% — 피부장벽·각질·블랙헤드 개선 항목, 피험자 12명 중 12명 (KBRC 인체적용시험)</p>
+            <p data-i18n="homeClinical.c5">사용 만족도 (12명 중 12명)</p>
           </div>
           <div class="clinical-item">
             <div class="clinical-num-row"><span class="clinical-num">0.00</span></div>
             <div class="clinical-bar-track"><div class="clinical-bar-fill" style="width:2%"></div></div>
-            <p data-i18n="tech.clin1">피부자극도 0.00 — "No Irritancy" 판정 (KBRC 인체적용시험)</p>
+            <p data-i18n="homeClinical.c6">피부자극도 — No Irritancy</p>
           </div>
         </div>
-        <p class="clinical-footnote reveal" data-i18n="tech.footnote">* 위 임상 데이터는 한국바이오임상연구센터(KBRC) 인체적용시험 결과이며, 시험 조건과 기간을 함께 표기합니다. 개별 사용 결과는 사용자에 따라 다를 수 있습니다.</p>
+        <p class="clinical-footnote reveal" data-i18n="homeClinical.note">* KBRC 인체적용시험 결과. 시험 조건·기간은 <a href="#tech-clinical" style="text-decoration:underline;">임상 데이터</a>에서 확인하실 수 있습니다.</p>
       </div>
     </div>
 
@@ -839,7 +850,7 @@ footer.site-footer{background:var(--green-deep);color:var(--cream);padding:clamp
           <div class="why-card reveal">
             <span class="why-card-num">01</span>
             <h3 data-i18n="why.card1.title">자체 광산 독점 원료 — 공급 안정성과 추적성</h3>
-            <p data-i18n="why.card1.desc">전남 순천에서 원료를 직접 채굴하기 때문에, 채굴부터 배합까지 원료 출처를 100% 추적할 수 있습니다. 외부 원료 수급에 흔들리지 않는 안정적인 공급망입니다.</p>
+            <p data-i18n="why.card1.desc">전남 순천 자체 광산에서 직접 채굴합니다. 채굴부터 배합까지 원료 출처 100% 추적 가능, 외부 수급에 흔들리지 않는 공급망입니다.</p>
           </div>
           <div class="why-card reveal">
             <span class="why-card-num">02</span>
@@ -1037,7 +1048,11 @@ footer.site-footer{background:var(--green-deep);color:var(--cream);padding:clamp
         <div class="spec-grid">
           <div class="spec-item"><div class="spec-value">65.1%</div><div class="spec-label">SiO₂</div></div>
           <div class="spec-item"><div class="spec-value">18.9%</div><div class="spec-label">Al₂O₃</div></div>
-          <div class="spec-item"><div class="spec-value">11.5%</div><div class="spec-label">K₂O</div></div>
+          <div class="spec-item spec-highlight">
+            <span class="spec-tag" data-i18n="tech.k2oTag">핵심 원료</span>
+            <div class="spec-value">11.5%</div>
+            <div class="spec-label">K₂O <span data-i18n="tech.k2oSub">칼륨 함량</span></div>
+          </div>
           <div class="spec-item"><div class="spec-value">9.34</div><div class="spec-label" data-i18n="tech.phLabel">pH (약알칼리성)</div></div>
         </div>
       </div>
@@ -1404,11 +1419,11 @@ var I18N = {
   },
   hero:{
     eyebrow:{ko:"글로벌 B2B · OEM/ODM 제조 파트너",en:"Global B2B · OEM/ODM Manufacturing Partner",zh:"全球B2B · OEM/ODM制造合作伙伴"},
-    headline:{ko:"12억 년, 자연이 빚어낸 미네랄을 정직하게 잇습니다",en:"1.2 Billion Years of Nature. Formulated with Proof, Not Promises.",zh:"12亿年的自然馈赠,用数据说话,不用辞藻堆砌"},
+    headline:{ko:"12억 년의 미네랄,<br>데이터로 증명합니다",en:"1.2 Billion Years of Nature,<br>Proven by Data",zh:"12亿年的天然矿物,<br>用数据说话"},
     sub:{
-      ko:"전남 순천에서 채굴한 칼륨장석을 원료로, 카리바이오는 비누와 치약을 만듭니다. 화려한 수식어 대신 숫자로 말합니다 — 한국바이오임상연구센터(KBRC) 인체적용시험에서 경표피수분손실(TEWL) 최대 51.65% 개선, 가려움 개선도 최대 75.55%를 확인했고, 피부자극도는 0.00으로 \"No Irritancy\" 판정을 받았습니다. 우리는 제품을 파는 회사가 아니라, 원료의 출처부터 개선 효과까지 함께 증명하는 파트너입니다.",
-      en:"Karibio sources potassium feldspar directly from our own mine in Suncheon, South Korea, and turns it into soap and toothpaste built on verifiable data — including up to 51.65% improvement in transepidermal water loss (TEWL) and up to 75.55% improvement in itching relief, alongside a 0.00 irritation score (\"no irritancy\") from clinical testing at the Korea Bio Research Center (KBRC). We don't just supply ingredients. We partner with brands and manufacturers who care as much about the proof as the promise.",
-      zh:"卡里生物(Karibio)以韩国顺天自有矿山出产的天然矿物钾长石为核心原料,专注天然皂类与牙膏的研发生产。我们不靠华丽辞藻,而是用检测数据说话:经韩国生物临床研究中心(KBRC)人体测试验证,经表皮水分流失(TEWL)最高改善51.65%,瘙痒缓解度最高改善75.55%,同时皮肤刺激度为0.00,判定为“无刺激”。我们不只是原料供应商,而是与您一起把原料溯源到改善效果每一步都做到透明可查的合作伙伴。"
+      ko:"전남 순천 자체 광산의 칼륨장석으로 비누와 치약을 만듭니다.<br>수식어 대신 임상 데이터로 증명하는 OEM/ODM 파트너입니다.",
+      en:"Soap and toothpaste made from potassium feldspar, mined at our own site in Suncheon, South Korea.<br>An OEM/ODM partner that proves results with clinical data, not adjectives.",
+      zh:"以韩国顺天自有矿山的钾长石,打造天然皂类与牙膏。<br>不靠辞藻,用临床数据说话的OEM/ODM合作伙伴。"
     },
     cta1:{ko:"파트너십 문의하기",en:"Start a Partnership Inquiry",zh:"发起合作咨询"},
     cta2:{ko:"기술력 살펴보기",en:"Explore Our Technology",zh:"了解我们的技术实力"},
@@ -1419,9 +1434,18 @@ var I18N = {
   homeClinical:{
     eyebrow:{ko:"KBRC 임상 결과",en:"KBRC CLINICAL RESULTS",zh:"KBRC临床结果"},
     title:{ko:"임상으로 증명된 6가지 개선효과",en:"6 Improvement Effects, Proven by Clinical Testing",zh:"临床验证的6项改善效果"},
-    subtitle:{ko:"\"무자극\"에서 멈추지 않습니다. 한국바이오임상연구센터(KBRC) 인체적용시험으로 확인한 개선 효과를 수치로 보여드립니다.",
-      en:"We don't stop at \"no irritancy.\" Here are the improvement effects verified in human application testing at the Korea Bio Research Center (KBRC).",
-      zh:"我们不止步于“无刺激”。以下是经韩国生物临床研究中心(KBRC)人体应用测试验证的改善效果数据。"}
+    c1:{ko:"피부 수분 손실(TEWL) 개선",en:"Water loss (TEWL) improved",zh:"水分流失(TEWL)改善"},
+    c2:{ko:"건조로 인한 가려움 개선",en:"Dryness-related itching relieved",zh:"干燥引起的瘙痒缓解"},
+    c3:{ko:"피부 탄력 개선",en:"Skin elasticity improved",zh:"皮肤弹性改善"},
+    c4:{ko:"각질 감소",en:"Texture/keratin reduced",zh:"角质减少"},
+    c5:{ko:"사용 만족도 (12명 중 12명)",en:"User satisfaction (12 of 12)",zh:"使用满意度(12/12)"},
+    c6:{ko:"피부자극도 — No Irritancy",en:"Irritation score — No Irritancy",zh:"刺激度——无刺激"},
+    note:{ko:"* KBRC 인체적용시험 결과. 시험 조건·기간은 <a href=\"#tech-clinical\" style=\"text-decoration:underline;\">임상 데이터</a>에서 확인하실 수 있습니다.",
+      en:"* KBRC human application testing. See <a href=\"#tech-clinical\" style=\"text-decoration:underline;\">Clinical Data</a> for test conditions and duration.",
+      zh:"* KBRC人体应用测试结果。测试条件与周期请见<a href=\"#tech-clinical\" style=\"text-decoration:underline;\">临床数据</a>。"},
+    subtitle:{ko:"KBRC 인체적용시험으로 확인한 개선 효과입니다.",
+      en:"Improvement effects verified in KBRC human application testing.",
+      zh:"经KBRC人体应用测试验证的改善效果。"}
   },
   why:{
     eyebrow:{ko:"WHY KARIBIO",en:"WHY KARIBIO",zh:"核心优势"},
@@ -1429,7 +1453,7 @@ var I18N = {
     subtitle:{ko:"화려한 형용사 대신, 증명 가능한 세 가지 사실입니다.",en:"Not adjectives — three facts we can prove.",zh:"不靠华丽辞藻,只讲三个可验证的事实。"},
     card1:{
       title:{ko:"자체 광산 독점 원료 — 공급 안정성과 추적성",en:"Proprietary Mine — Supply Stability &amp; Traceability",zh:"自有矿山独家原料——供应稳定与全程可追溯"},
-      desc:{ko:"전남 순천에서 원료를 직접 채굴하기 때문에, 채굴부터 배합까지 원료 출처를 100% 추적할 수 있습니다. 외부 원료 수급에 흔들리지 않는 안정적인 공급망입니다.",
+      desc:{ko:"전남 순천 자체 광산에서 직접 채굴합니다. 채굴부터 배합까지 원료 출처 100% 추적 가능, 외부 수급에 흔들리지 않는 공급망입니다.",
         en:"We mine our own potassium feldspar at our own mine in Suncheon, South Korea, which means every batch is 100% traceable from extraction to formulation — a supply chain that isn't exposed to third-party raw material risk.",
         zh:"钾长石原料开采自我们位于韩国顺天的自有矿山,从开采到调配,原料来源可实现100%可追溯,不受第三方原料供应波动影响。"}
     },
@@ -1506,6 +1530,8 @@ var I18N = {
       en:"Potassium feldspar mined at our own site in Suncheon was verified by the Korea Mine Reclamation and Mining Community Corp Research Institute (test period 2024.4.30–5.22, KS E 3098:2004 and related standards) to have the following composition.",
       zh:"开采自韩国顺天矿山的钾长石,经韩国矿害矿业公团技术研究院检测(检测周期2024年4月30日至5月22日,依据KS E 3098:2004等标准),确认成分构成如下。"},
     phLabel:{ko:"pH (약알칼리성)",en:"pH (mildly alkaline)",zh:"pH值(弱碱性)"},
+    k2oTag:{ko:"핵심 원료",en:"CORE MINERAL",zh:"核心原料"},
+    k2oSub:{ko:"칼륨 함량",en:"Potassium content",zh:"钾含量"},
     ecoTitle:{ko:"칼륨(K)의 다양한 활용 — 비료에서 친환경 소재까지",en:"The Many Uses of Potassium — From Fertilizer to Eco-Friendly Materials",zh:"钾(K)的多元应用——从肥料到环保材料"},
     ecoIntro:{ko:"칼륨장석은 화장품·구강용품 원료를 넘어, 오랫동안 여러 산업에서 활용되어 온 미네랄입니다.",en:"Potassium feldspar is a mineral that has long been used across multiple industries, beyond cosmetics and oral care raw materials.",zh:"钾长石不仅是化妆品、口腔护理原料,更是长期应用于多个产业的矿物。"},
     ecoFact1:{ko:"농업용 비료 — 칼륨(K)은 질소(N)·인(P)과 함께 비료의 3대 필수 성분 중 하나로, 전 세계 농업에서 토양 개량과 작물 생장에 폭넓게 사용되는 미네랄입니다.",
