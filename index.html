@@ -8,7 +8,7 @@
 <meta property="og:title" content="KALIBIO — Global B2B Manufacturing &amp; Partnership">
 <meta property="og:description" content="자체 광산 칼륨장석으로 만드는 비누·치약. 수식어 대신 임상 데이터로 증명하는 OEM/ODM 파트너.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="assets/img/mine.jpg">
+<meta property="og:image" content="assets/img/lineup-scene.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -191,10 +191,10 @@
               <clipPath id="clipN"><circle cx="52" cy="52" r="52"/></clipPath>
             </defs>
 
-            <path class="cyc-arrow" d="M293.4 94.1 A150 150 0 0 1 366 166.6" marker-end="url(#cycHead)"/>
-            <path class="cyc-arrow" d="M365.9 293.4 A150 150 0 0 1 293.4 365.9" marker-end="url(#cycHead)"/>
-            <path class="cyc-arrow" d="M166.6 365.9 A150 150 0 0 1 94.1 293.4" marker-end="url(#cycHead)"/>
-            <path class="cyc-arrow" d="M94.1 166.6 A150 150 0 0 1 166.6 94.1" marker-end="url(#cycHead)"/>
+            <path class="cyc-arrow" d="M270.4 119.1 A118 118 0 0 1 340.9 189.6" marker-end="url(#cycHead)"/>
+            <path class="cyc-arrow" d="M340.9 270.4 A118 118 0 0 1 270.4 340.9" marker-end="url(#cycHead)"/>
+            <path class="cyc-arrow" d="M189.6 340.9 A118 118 0 0 1 119.1 270.4" marker-end="url(#cycHead)"/>
+            <path class="cyc-arrow" d="M119.1 189.6 A118 118 0 0 1 189.6 119.1" marker-end="url(#cycHead)"/>
 
             <g class="cyc-node" transform="translate(178,28)">
               <circle cx="52" cy="52" r="52"/>
@@ -209,11 +209,11 @@
             <g class="cyc-node" transform="translate(178,328)">
               <circle cx="52" cy="52" r="52"/>
               <image href="assets/img/soap-03.webp" width="104" height="104" clip-path="url(#clipN)" preserveAspectRatio="xMidYMid slice"></image>
-              <text class="cyc-label" x="52" y="126" data-i18n="hero.cycle3">비누 · 치약</text>
+              <text class="cyc-label" x="52" y="130" data-i18n="hero.cycle3">비누 · 치약</text>
             </g>
             <g class="cyc-node" transform="translate(28,178)">
               <circle cx="52" cy="52" r="52"/>
-              <image href="assets/img/mine.webp" width="104" height="104" clip-path="url(#clipN)" preserveAspectRatio="xMidYMid slice"></image>
+              <image href="assets/img/lineup-scene.webp" width="104" height="104" clip-path="url(#clipN)" preserveAspectRatio="xMidYMid slice"></image>
               <text class="cyc-label" x="52" y="134" data-i18n="hero.cycle4">지속가능한 일상</text>
             </g>
 
@@ -412,7 +412,6 @@
       <div id="about-overview" class="tech-block">
         <div class="tech-block-head reveal">
           <h3 data-i18n="overview.title">기업 개요</h3>
-          <p data-i18n="overview.subtitle">확인 가능한 사실만 적었습니다.</p>
         </div>
         <div class="reveal" style="overflow-x:auto;">
           <table class="co-table">
@@ -447,23 +446,32 @@
 
       <!-- 스토리 -->
       <div id="about-story" class="tech-block" hidden>
-        <div class="about-copy reveal">
-          <p data-i18n="about.p1"></p>
-          <p data-i18n="about.p2"></p>
-          <p data-i18n="about.p3"></p>
+        <div class="story-layout reveal">
+          <div class="about-copy">
+            <p class="story-lead" data-i18n="about.p1"></p>
+            <p data-i18n="about.p2"></p>
+            <p data-i18n="about.p3"></p>
+          </div>
+          <aside class="story-side">
+            <figure class="story-figure">
+              <img src="assets/img/feldspar-rock.webp" alt="Potassium feldspar raw rock from the Suncheon mine" loading="lazy" width="1000" height="1000">
+              <figcaption data-i18n="about.figCaption">전남 순천 황전면 — 12억 년 전 형성된 칼륨장석 채굴 현장</figcaption>
+            </figure>
+            <div class="about-location">
+              <div class="label" data-i18n="about.locLabel">본사·사무실</div>
+              <div class="value" data-i18n="about.locValue"></div>
+            </div>
+          </aside>
         </div>
-        <div class="about-location reveal">
-          <span data-i18n="about.locLabel">본사·사무실</span>
-          <p data-i18n="about.locValue"></p>
-        </div>
+
         <div class="values-block reveal">
           <p class="values-title" data-i18n="about.valuesIntro">다섯 가지 원칙이 우리의 모든 의사결정 기준입니다.</p>
           <div class="values-grid">
-            <div class="value-chip"><strong>Natural</strong><span data-i18n="about.value1"></span></div>
-            <div class="value-chip"><strong>Science</strong><span data-i18n="about.value2"></span></div>
-            <div class="value-chip"><strong>Health</strong><span data-i18n="about.value3"></span></div>
-            <div class="value-chip"><strong>Sustainability</strong><span data-i18n="about.value4"></span></div>
-            <div class="value-chip"><strong>Innovation</strong><span data-i18n="about.value5"></span></div>
+            <div class="value-chip"><div class="v-name">Natural</div><p class="v-desc" data-i18n="about.value1"></p></div>
+            <div class="value-chip"><div class="v-name">Science</div><p class="v-desc" data-i18n="about.value2"></p></div>
+            <div class="value-chip"><div class="v-name">Health</div><p class="v-desc" data-i18n="about.value3"></p></div>
+            <div class="value-chip"><div class="v-name">Sustainability</div><p class="v-desc" data-i18n="about.value4"></p></div>
+            <div class="value-chip"><div class="v-name">Innovation</div><p class="v-desc" data-i18n="about.value5"></p></div>
           </div>
           <p class="values-disclaimer" data-i18n="about.valuesDisclaimer"></p>
         </div>
@@ -471,14 +479,26 @@
 
       <!-- 비전과 목표 -->
       <div id="about-vision" class="tech-block" hidden>
-        <div class="vision-block reveal">
+        <div class="vision-statement-band reveal">
           <span class="eyebrow" data-i18n="vision.eyebrow">VISION &amp; GOALS</span>
-          <p class="section-subtitle" data-i18n="vision.statement"></p>
-          <div class="vision-goals">
-            <div class="vision-goal"><strong>01</strong><p data-i18n="vision.goal1"></p></div>
-            <div class="vision-goal"><strong>02</strong><p data-i18n="vision.goal2"></p></div>
-            <div class="vision-goal"><strong>03</strong><p data-i18n="vision.goal3"></p></div>
-          </div>
+          <p class="vision-statement" data-i18n="vision.statement"></p>
+        </div>
+        <div class="vision-goals reveal">
+          <article class="vision-goal">
+            <span class="vg-num">01</span>
+            <h4 class="vg-title" data-i18n="vision.goal1t">투명한 원료 공급</h4>
+            <p data-i18n="vision.goal1"></p>
+          </article>
+          <article class="vision-goal">
+            <span class="vg-num">02</span>
+            <h4 class="vg-title" data-i18n="vision.goal2t">활용 범위 확장</h4>
+            <p data-i18n="vision.goal2"></p>
+          </article>
+          <article class="vision-goal">
+            <span class="vg-num">03</span>
+            <h4 class="vg-title" data-i18n="vision.goal3t">공개하는 공급망</h4>
+            <p data-i18n="vision.goal3"></p>
+          </article>
         </div>
       </div>
 
@@ -697,23 +717,25 @@
           <p data-i18n="tech.certIntro"></p>
         </div>
         <div class="cert-grid reveal">
-          <article class="cert-card">
+          <figure class="cert-card">
             <div class="cert-thumb"><img src="assets/img/kbrc-report.webp" alt="KBRC 인체적용시험 결과보고서" loading="lazy" width="900" height="720"></div>
-            <div class="cert-meta">
+            <figcaption>
               <span class="cert-org" data-i18n="tech.cert1Org"></span>
               <strong class="cert-name" data-i18n="tech.cert1Name"></strong>
-              <span data-i18n="tech.cert1Meta"></span>
-              <span class="cert-placeholder" data-i18n="tech.certPending"></span>
+              <span class="cert-meta" data-i18n="tech.cert1Meta"></span>
+            </figcaption>
+          </figure>
+          <figure class="cert-card">
+            <div class="cert-thumb cert-thumb-doc" aria-hidden="true">
+              <svg viewBox="0 0 48 60"><path d="M8 2h22l10 10v46H8z"/><path d="M30 2v10h10"/><path d="M15 26h18M15 34h18M15 42h11"/></svg>
+              <span class="cert-doc-label">KOMIR</span>
             </div>
-          </article>
-          <article class="cert-card">
-            <div class="cert-meta">
+            <figcaption>
               <span class="cert-org" data-i18n="tech.cert2Org"></span>
               <strong class="cert-name" data-i18n="tech.cert2Name"></strong>
-              <span data-i18n="tech.cert2Meta"></span>
-              <span class="cert-placeholder" data-i18n="tech.cert2Pending"></span>
-            </div>
-          </article>
+              <span class="cert-meta" data-i18n="tech.cert2Meta"></span>
+            </figcaption>
+          </figure>
         </div>
         <p class="clinical-footnote reveal" data-i18n="tech.certNote"></p>
         <div class="reveal" style="margin-top:18px;">
@@ -1024,35 +1046,34 @@
 </main>
 
 <!-- ===================== FOOTER ===================== -->
-<footer class="footer">
+<footer class="site-footer">
   <div class="container">
-    <div class="footer-grid">
+    <div class="footer-top">
       <div class="footer-brand">
         <span class="brand-mark">KALI<span>.</span></span>
         <p data-i18n="footer.tagline"></p>
+      </div>
+      <div class="footer-reach">
+        <a class="f-reach" href="tel:+82617251031"><span data-i18n="footer.phoneLabel">전화</span>+82-61-725-1031</a>
+        <a class="f-reach" href="mailto:kalibio1101@naver.com"><span data-i18n="footer.emailLabel">이메일</span>kalibio1101@naver.com</a>
+        <a class="f-reach" href="https://www.kalibio.co.kr" target="_blank" rel="noopener"><span data-i18n="footer.siteLabel">웹사이트</span>www.kalibio.co.kr</a>
         <div class="lang-switch footer-lang" role="group" aria-label="Language">
           <button type="button" class="lang-btn" data-lang="ko">KO</button>
           <button type="button" class="lang-btn" data-lang="en">EN</button>
           <button type="button" class="lang-btn" data-lang="zh">ZH</button>
         </div>
       </div>
-      <div class="footer-col">
-        <strong data-i18n="footer.companyTitle">회사 정보</strong>
-        <p><span data-i18n="footer.nameLabel">상호</span> <span data-i18n="footer.nameValue">주식회사 카리바이오 (KALIBIO Co., Ltd.)</span></p>
-        <p><span data-i18n="footer.repLabel">대표</span> <span data-i18n="footer.repValue">김준영 (Kim Jun-young)</span></p>
-        <p><span data-i18n="footer.addrLabel">주소</span></p>
-        <p data-i18n="footer.addrValue"></p>
-      </div>
-      <div class="footer-col">
-        <strong data-i18n="footer.contactTitle">연락처 &amp; 등록정보</strong>
-        <p><span data-i18n="footer.phoneLabel">전화</span> <a href="tel:+82617251031">+82-61-725-1031</a></p>
-        <p><span data-i18n="footer.emailLabel">이메일</span> <a href="mailto:kalibio1101@naver.com">kalibio1101@naver.com</a></p>
-        <p><a href="https://www.kalibio.co.kr" target="_blank" rel="noopener">www.kalibio.co.kr</a></p>
-        <p><span data-i18n="footer.bizLabel">사업자등록번호</span> 803-86-03036</p>
-        <p><span data-i18n="footer.mailorderLabel">통신판매업 신고</span> <span data-i18n="footer.mailorderValue"></span></p>
-      </div>
     </div>
-    <div class="footer-bottom" data-i18n="footer.copyright"></div>
+
+    <dl class="footer-facts">
+      <div class="f-fact"><dt data-i18n="footer.nameLabel">상호</dt><dd data-i18n="footer.nameValue">주식회사 카리바이오 (KALIBIO Co., Ltd.)</dd></div>
+      <div class="f-fact"><dt data-i18n="footer.repLabel">대표</dt><dd data-i18n="footer.repValue">김준영 (Kim Jun-young)</dd></div>
+      <div class="f-fact"><dt data-i18n="footer.bizLabel">사업자등록번호</dt><dd>803-86-03036</dd></div>
+      <div class="f-fact"><dt data-i18n="footer.mailorderLabel">통신판매업 신고</dt><dd data-i18n="footer.mailorderValue"></dd></div>
+      <div class="f-fact f-fact-wide"><dt data-i18n="footer.addrLabel">주소</dt><dd data-i18n="footer.addrValue"></dd></div>
+    </dl>
+
+    <div class="footer-bottom"><p data-i18n="footer.copyright"></p></div>
   </div>
 </footer>
 </div>
