@@ -82,20 +82,26 @@
     }
 
     /* ===== Hash routing ===== */
-    var VALID_VIEWS = ['home', 'about', 'technology', 'products', 'partnership', 'contact'];
-    var HASH_ALIASES = { hero: 'home', why: 'home', partners: 'partnership', business: 'home' };
+    var VALID_VIEWS = ['home', 'about', 'business', 'material', 'products', 'partnership', 'contact'];
+    var HASH_ALIASES = { hero: 'home', why: 'about', partners: 'partnership', technology: 'material' };
     var SUBVIEW_GROUPS = {
       about: ['about-overview', 'about-story', 'about-vision', 'about-milestones'],
-      technology: ['tech-raw', 'tech-industry', 'tech-process', 'tech-clinical', 'tech-cert'],
-      products: ['products-soap', 'products-toothpaste', 'products-oem']
+      material: ['mat-components', 'mat-value', 'mat-efficacy', 'mat-cert'],
+      products: ['products-soap', 'products-toothpaste', 'products-process', 'products-oem']
     };
-    var SUBVIEW_DEFAULT = { about: 'about-overview', technology: 'tech-raw', products: 'products-soap' };
+    var SUBVIEW_DEFAULT = { about: 'about-overview', material: 'mat-components', products: 'products-soap' };
     var SUBSECTIONS = {};
     Object.keys(SUBVIEW_GROUPS).forEach(function (view) {
       SUBVIEW_GROUPS[view].forEach(function (id) { SUBSECTIONS[id] = view; });
     });
-    /* legacy hash kept working after the eco section became the industry matrix */
-    SUBSECTIONS['tech-eco'] = 'technology';
+    /* old bookmarks keep working after the technology view was split in two */
+    var LEGACY_SUBS = {
+      'tech-raw': 'mat-components', 'tech-eco': 'mat-value', 'tech-industry': 'mat-value',
+      'tech-clinical': 'mat-efficacy', 'tech-cert': 'mat-cert', 'tech-process': 'products-process'
+    };
+    Object.keys(LEGACY_SUBS).forEach(function (old) {
+      SUBSECTIONS[old] = SUBSECTIONS[LEGACY_SUBS[old]];
+    });
 
     var appContent = document.getElementById('appContent');
 
@@ -110,7 +116,7 @@
 
     function getSubsectionFromHash() {
       var h = currentHash();
-      if (h === 'tech-eco') { return 'tech-industry'; }
+      if (LEGACY_SUBS[h]) { return LEGACY_SUBS[h]; }
       return SUBSECTIONS[h] ? h : null;
     }
 

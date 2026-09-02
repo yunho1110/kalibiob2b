@@ -1,23 +1,32 @@
 var I18N = {
+  brand:{
+    sub:{ko:"주식회사 카리바이오",en:"KALIBIO Co., Ltd.",zh:"卡里生物股份有限公司"},
+    full:{ko:"카리바이오",en:"KALIBIO",zh:"卡里生物"}
+  },
   nav:{
     home:{ko:"홈",en:"Home",zh:"首页"},
     why:{ko:"왜 카리바이오",en:"Why KALIBIO",zh:"核心优势"},
-    business:{ko:"사업 영역",en:"Business Areas",zh:"业务领域"},
-    about:{ko:"회사소개",en:"About",zh:"关于我们"},
-    tech:{ko:"원료·기술",en:"Technology",zh:"技术与工艺"},
-    products:{ko:"제품 라인업",en:"Products",zh:"产品线"},
+    business:{ko:"주요 사업분야",en:"Business Areas",zh:"主要业务领域"},
+    about:{ko:"기업소개",en:"About",zh:"关于我们"},
+    tech:{ko:"칼륨장석의 기능과 가치",en:"Feldspar: Function &amp; Value",zh:"钾长石的功能与价值"},
+    products:{ko:"제품 및 주요 공정",en:"Products &amp; Process",zh:"产品与主要工艺"},
     partners:{ko:"협력사",en:"Partners",zh:"合作网络"},
     contact:{ko:"문의",en:"Contact",zh:"联系我们"},
     cta:{ko:"파트너십 문의",en:"Partnership Inquiry",zh:"合作咨询"}
   },
   navSub:{
-    aboutOverview:{ko:"기업 개요",en:"Company Overview",zh:"企业概要"},
-    aboutStory:{ko:"스토리",en:"Story",zh:"品牌故事"},
+    aboutOverview:{ko:"주요 개요",en:"Overview",zh:"主要概要"},
+    aboutStory:{ko:"기원",en:"Origin",zh:"起源"},
     aboutVision:{ko:"비전과 목표",en:"Vision & Goals",zh:"愿景与目标"},
     aboutMilestones:{ko:"연혁",en:"Milestones",zh:"发展历程"},
     techRaw:{ko:"원료 스펙",en:"Raw Material Spec",zh:"原料规格"},
     techEco:{ko:"친환경·활용",en:"Eco-Friendly & Uses",zh:"环保与应用"},
     techIndustry:{ko:"산업 확장",en:"Industrial Applications",zh:"产业应用"},
+    matComponents:{ko:"구성요소",en:"Composition",zh:"组成成分"},
+    matValue:{ko:"가치",en:"Value",zh:"价值"},
+    matEfficacy:{ko:"효능",en:"Efficacy",zh:"功效"},
+    matCert:{ko:"시험·인증서",en:"Test Reports",zh:"检测与认证"},
+    productsProcess:{ko:"주요 공정",en:"Manufacturing Process",zh:"主要工艺"},
     techProcess:{ko:"제조 공정",en:"Manufacturing Process",zh:"制造工艺"},
     techClinical:{ko:"임상 데이터",en:"Clinical Data",zh:"临床数据"},
     techCert:{ko:"시험·인증서",en:"Test Reports",zh:"检测与认证"},
@@ -383,6 +392,24 @@ var I18N = {
   },
   stickyCta:{ko:"파트너십 문의",en:"Partnership Inquiry",zh:"合作咨询"},
   viewNext:{ko:"다음 섹션 보기 →",en:"Next Section →",zh:"查看下一节 →"},
+  material:{
+    eyebrow:{ko:"POTASSIUM FELDSPAR",en:"POTASSIUM FELDSPAR",zh:"钾长石"},
+    title:{ko:"칼륨장석의 기능과 가치",en:"The Function and Value of Potassium Feldspar",zh:"钾长石的功能与价值"},
+    subtitle:{ko:"카리바이오의 모든 제품은 하나의 원료에서 출발합니다. 그 원료가 무엇으로 이루어져 있고, 어디까지 쓰일 수 있으며, 무엇이 검증되었는지 순서대로 보여드립니다.",
+      en:"Every KALIBIO product starts from a single raw material. Here is what it is made of, how far it can be applied, and what has been verified — in that order.",
+      zh:"卡里生物的每一款产品都源自同一种原料。以下依次说明它的组成、可延伸的应用范围,以及已获验证的功效。"},
+    compTitle:{ko:"구성요소 — 무엇으로 이루어져 있는가",en:"Composition — What It Is Made Of",zh:"组成成分——由什么构成"},
+    valueTitle:{ko:"가치 — 어디까지 쓰일 수 있는가",en:"Value — How Far It Reaches",zh:"价值——可延伸至何处"},
+    efficacyTitle:{ko:"효능 — 무엇이 검증되었는가",en:"Efficacy — What Has Been Verified",zh:"功效——已验证了什么"},
+    certTitle:{ko:"시험·인증 — 무엇으로 뒷받침되는가",en:"Test Reports — What Backs It Up",zh:"检测与认证——由什么支撑"}
+  },
+  process:{
+    eyebrow:{ko:"MANUFACTURING PROCESS",en:"MANUFACTURING PROCESS",zh:"制造工艺"},
+    title:{ko:"주요 공정",en:"Manufacturing Process",zh:"主要工艺"},
+    subtitle:{ko:"비누는 4단계, K.28 치약은 70일에 걸친 7단계 공정을 거칩니다.",
+      en:"Soap goes through 4 steps; K.28 toothpaste through 7 steps across 70 days.",
+      zh:"皂类经过4道工序,K.28牙膏则历经70天、7道工序。"}
+  },
   overview:{
     eyebrow:{ko:"COMPANY OVERVIEW",en:"COMPANY OVERVIEW",zh:"企业概要"},
     title:{ko:"기업 개요",en:"Company Overview",zh:"企业概要"},
