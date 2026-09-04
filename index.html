@@ -17,32 +17,69 @@
 </head>
 <body>
 
-<!-- ===================== DESKTOP SIDEBAR ===================== -->
-<aside class="app-sidebar" id="appSidebar">
-  <a href="#home" class="brand">
-    <span class="brand-mark">KALI<span>.</span></span>
-    <span class="brand-name" data-i18n="brand.sub">주식회사 카리바이오</span>
-    <span class="brand-sub">KALIBIO Co., Ltd.</span>
-  </a>
-  <nav class="sidebar-nav">
-    <a href="#home" data-view="home" data-i18n="nav.home">홈</a>
-    <a href="#about" data-view="about" data-i18n="nav.about">기업소개</a>
-    <a href="#business" data-view="business" data-i18n="nav.business">주요 사업분야</a>
-    <a href="#material" data-view="material" data-i18n="nav.tech">칼륨장석의 기능과 가치</a>
-    <a href="#products" data-view="products" data-i18n="nav.products">제품 및 주요 공정</a>
-    <a href="#partnership" data-view="partnership" data-i18n="nav.partners">협력사</a>
-    <a href="#contact" data-view="contact" data-i18n="nav.contact">문의</a>
-  </nav>
-  <div class="sidebar-bottom">
-    <a href="#contact" class="btn btn-primary btn-block" data-i18n="nav.cta">파트너십 문의</a>
+<!-- ===================== DESKTOP TOP NAVIGATION ===================== -->
+<header class="site-nav" id="siteNav">
+  <div class="nav-top">
+    <div class="container nav-top-inner">
+      <a href="#home" class="brand">
+        <span class="brand-mark">KALI<span>.</span></span>
+        <span class="brand-name" data-i18n="brand.sub">주식회사 카리바이오</span>
+      </a>
+      <div class="nav-top-right">
+        <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" class="lang-btn" data-lang="ko">KO</button>
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+      <button type="button" class="lang-btn" data-lang="zh">ZH</button>
+        </div>
+        <a href="#contact" class="btn btn-primary nav-cta" data-i18n="nav.cta">파트너십 문의</a>
+      </div>
+    </div>
   </div>
-</aside>
-
-<div class="lang-switch lang-switch-fixed" role="group" aria-label="Language">
-  <button type="button" class="lang-btn" data-lang="ko">KO</button>
-  <button type="button" class="lang-btn" data-lang="en">EN</button>
-  <button type="button" class="lang-btn" data-lang="zh">ZH</button>
-</div>
+  <div class="nav-bar">
+    <nav class="container main-nav" aria-label="주요 메뉴">
+      <a href="#home" data-view="home" data-i18n="nav.home">홈</a>
+      <div class="nav-group" data-group="about">
+        <div class="nav-row">
+          <a href="#about" data-view="about" data-i18n="nav.about">기업소개</a>
+          <button type="button" class="nav-toggle" aria-label="하위 메뉴 열기" aria-expanded="false">▾</button>
+        </div>
+        <div class="nav-sub">
+          <a href="#about-overview" class="subview-tab" data-subview="about-overview" data-i18n="navSub.aboutOverview">주요 개요</a>
+          <a href="#about-story" class="subview-tab" data-subview="about-story" data-i18n="navSub.aboutStory">기원</a>
+          <a href="#about-vision" class="subview-tab" data-subview="about-vision" data-i18n="navSub.aboutVision">비전과 목표</a>
+          <a href="#about-milestones" class="subview-tab" data-subview="about-milestones" data-i18n="navSub.aboutMilestones">연혁</a>
+        </div>
+      </div>
+      <a href="#business" data-view="business" data-i18n="nav.business">주요 사업분야</a>
+      <div class="nav-group" data-group="material">
+        <div class="nav-row">
+          <a href="#material" data-view="material" data-i18n="nav.tech">칼륨장석의 기능과 가치</a>
+          <button type="button" class="nav-toggle" aria-label="하위 메뉴 열기" aria-expanded="false">▾</button>
+        </div>
+        <div class="nav-sub">
+          <a href="#mat-components" class="subview-tab" data-subview="mat-components" data-i18n="navSub.matComponents">구성요소</a>
+          <a href="#mat-value" class="subview-tab" data-subview="mat-value" data-i18n="navSub.matValue">가치</a>
+          <a href="#mat-efficacy" class="subview-tab" data-subview="mat-efficacy" data-i18n="navSub.matEfficacy">효능</a>
+          <a href="#mat-cert" class="subview-tab" data-subview="mat-cert" data-i18n="navSub.matCert">시험·인증서</a>
+        </div>
+      </div>
+      <div class="nav-group" data-group="products">
+        <div class="nav-row">
+          <a href="#products" data-view="products" data-i18n="nav.products">제품 및 주요 공정</a>
+          <button type="button" class="nav-toggle" aria-label="하위 메뉴 열기" aria-expanded="false">▾</button>
+        </div>
+        <div class="nav-sub">
+          <a href="#products-soap" class="subview-tab" data-subview="products-soap" data-i18n="navSub.productsSoap">카리비누</a>
+          <a href="#products-toothpaste" class="subview-tab" data-subview="products-toothpaste" data-i18n="navSub.productsToothpaste">K.28 치약</a>
+          <a href="#products-process" class="subview-tab" data-subview="products-process" data-i18n="navSub.productsProcess">주요 공정</a>
+          <a href="#products-oem" class="subview-tab" data-subview="products-oem" data-i18n="navSub.productsOem">OEM·원료 공급</a>
+        </div>
+      </div>
+      <a href="#partnership" data-view="partnership" data-i18n="nav.partners">협력사</a>
+      <a href="#contact" data-view="contact" data-i18n="nav.contact">문의</a>
+    </nav>
+  </div>
+</header>
 
 <!-- ===================== MOBILE TOP BAR ===================== -->
 <header class="app-topbar" id="appTopbar">
@@ -70,10 +107,43 @@
   </div>
   <nav class="drawer-nav">
     <a href="#home" data-view="home" data-i18n="nav.home">홈</a>
-    <a href="#about" data-view="about" data-i18n="nav.about">기업소개</a>
+    <div class="nav-group" data-group="about">
+      <div class="nav-row">
+        <a href="#about" data-view="about" data-i18n="nav.about">기업소개</a>
+        <button type="button" class="nav-toggle" aria-label="하위 메뉴 열기" aria-expanded="false">▾</button>
+      </div>
+      <div class="nav-sub">
+        <a href="#about-overview" class="subview-tab" data-subview="about-overview" data-i18n="navSub.aboutOverview">주요 개요</a>
+        <a href="#about-story" class="subview-tab" data-subview="about-story" data-i18n="navSub.aboutStory">기원</a>
+        <a href="#about-vision" class="subview-tab" data-subview="about-vision" data-i18n="navSub.aboutVision">비전과 목표</a>
+        <a href="#about-milestones" class="subview-tab" data-subview="about-milestones" data-i18n="navSub.aboutMilestones">연혁</a>
+      </div>
+    </div>
     <a href="#business" data-view="business" data-i18n="nav.business">주요 사업분야</a>
-    <a href="#material" data-view="material" data-i18n="nav.tech">칼륨장석의 기능과 가치</a>
-    <a href="#products" data-view="products" data-i18n="nav.products">제품 및 주요 공정</a>
+    <div class="nav-group" data-group="material">
+      <div class="nav-row">
+        <a href="#material" data-view="material" data-i18n="nav.tech">칼륨장석의 기능과 가치</a>
+        <button type="button" class="nav-toggle" aria-label="하위 메뉴 열기" aria-expanded="false">▾</button>
+      </div>
+      <div class="nav-sub">
+        <a href="#mat-components" class="subview-tab" data-subview="mat-components" data-i18n="navSub.matComponents">구성요소</a>
+        <a href="#mat-value" class="subview-tab" data-subview="mat-value" data-i18n="navSub.matValue">가치</a>
+        <a href="#mat-efficacy" class="subview-tab" data-subview="mat-efficacy" data-i18n="navSub.matEfficacy">효능</a>
+        <a href="#mat-cert" class="subview-tab" data-subview="mat-cert" data-i18n="navSub.matCert">시험·인증서</a>
+      </div>
+    </div>
+    <div class="nav-group" data-group="products">
+      <div class="nav-row">
+        <a href="#products" data-view="products" data-i18n="nav.products">제품 및 주요 공정</a>
+        <button type="button" class="nav-toggle" aria-label="하위 메뉴 열기" aria-expanded="false">▾</button>
+      </div>
+      <div class="nav-sub">
+        <a href="#products-soap" class="subview-tab" data-subview="products-soap" data-i18n="navSub.productsSoap">카리비누</a>
+        <a href="#products-toothpaste" class="subview-tab" data-subview="products-toothpaste" data-i18n="navSub.productsToothpaste">K.28 치약</a>
+        <a href="#products-process" class="subview-tab" data-subview="products-process" data-i18n="navSub.productsProcess">주요 공정</a>
+        <a href="#products-oem" class="subview-tab" data-subview="products-oem" data-i18n="navSub.productsOem">OEM·원료 공급</a>
+      </div>
+    </div>
     <a href="#partnership" data-view="partnership" data-i18n="nav.partners">협력사</a>
     <a href="#contact" data-view="contact" data-i18n="nav.contact">문의</a>
   </nav>
@@ -173,12 +243,6 @@
         <p class="section-subtitle" data-i18n="about.title">하나의 원료에서 시작된 회사</p>
       </div>
 
-      <nav class="toc" aria-label="기업소개 목차">
-        <a class="subview-tab" data-subview="about-overview" href="#about-overview" data-i18n="navSub.aboutOverview">주요 개요</a>
-        <a class="subview-tab" data-subview="about-story" href="#about-story" data-i18n="navSub.aboutStory">기원</a>
-        <a class="subview-tab" data-subview="about-vision" href="#about-vision" data-i18n="navSub.aboutVision">비전과 목표</a>
-        <a class="subview-tab" data-subview="about-milestones" href="#about-milestones" data-i18n="navSub.aboutMilestones">연혁</a>
-      </nav>
 
       <!-- 주요 개요 -->
       <div id="about-overview" class="tech-block">
@@ -188,19 +252,13 @@
             <tbody>
               <tr><th data-i18n="overview.tIndustry">산업 유형</th><td data-i18n="overview.vIndustry">화장품 제조업, 무역업</td></tr>
               <tr><th data-i18n="overview.tType">사업 형태</th><td data-i18n="overview.vType">중소기업</td></tr>
+              <tr class="is-key"><th data-i18n="overview.tMaterial">주원료</th><td data-i18n="overview.vMaterial">칼륨장석 (K₂O 11.5% — 타 장석의 4배)</td></tr>
               <tr><th data-i18n="overview.tCeo">대표이사</th><td data-i18n="overview.vCeo">김준영</td></tr>
               <tr><th data-i18n="overview.tFounded">설립일</th><td data-i18n="overview.vFounded">2023년 10월 23일</td></tr>
               <tr><th data-i18n="overview.tAddr">주소</th><td data-i18n="about.locValue"></td></tr>
             </tbody>
           </table>
         </div>
-        <div class="quad-grid reveal" style="margin-top:26px;">
-          <div class="quad-card"><span class="quad-pill" data-i18n="overview.q1t"></span><div class="quad-body" data-i18n="overview.q1b"></div></div>
-          <div class="quad-card"><span class="quad-pill" data-i18n="overview.q2t"></span><div class="quad-body" data-i18n="overview.q2b"></div></div>
-          <div class="quad-card"><span class="quad-pill" data-i18n="overview.q3t"></span><div class="quad-body" data-i18n="overview.q3b"></div></div>
-          <div class="quad-card"><span class="quad-pill" data-i18n="overview.q4t"></span><div class="quad-body" data-i18n="overview.q4b"></div></div>
-        </div>
-
         <h3 class="block-title reveal" style="margin-top:44px;" data-i18n="why.title">카리바이오를 파트너로 선택해야 하는 이유</h3>
         <div class="why-grid reveal">
           <article class="why-card">
@@ -352,12 +410,6 @@
         <p class="section-subtitle" data-i18n="material.subtitle"></p>
       </div>
 
-      <nav class="toc" aria-label="칼륨장석 목차">
-        <a class="subview-tab" data-subview="mat-components" href="#mat-components" data-i18n="navSub.matComponents">구성요소</a>
-        <a class="subview-tab" data-subview="mat-value" href="#mat-value" data-i18n="navSub.matValue">가치</a>
-        <a class="subview-tab" data-subview="mat-efficacy" href="#mat-efficacy" data-i18n="navSub.matEfficacy">효능</a>
-        <a class="subview-tab" data-subview="mat-cert" href="#mat-cert" data-i18n="navSub.matCert">시험·인증서</a>
-      </nav>
 
       <!-- 구성요소 -->
       <div id="mat-components" class="tech-block">
@@ -507,12 +559,6 @@
         <p class="section-subtitle" data-i18n="products.subtitle"></p>
       </div>
 
-      <nav class="toc" aria-label="제품 목차">
-        <a class="subview-tab" data-subview="products-soap" href="#products-soap" data-i18n="navSub.productsSoap">카리비누</a>
-        <a class="subview-tab" data-subview="products-toothpaste" href="#products-toothpaste" data-i18n="navSub.productsToothpaste">K.28 치약</a>
-        <a class="subview-tab" data-subview="products-process" href="#products-process" data-i18n="navSub.productsProcess">주요 공정</a>
-        <a class="subview-tab" data-subview="products-oem" href="#products-oem" data-i18n="navSub.productsOem">OEM·원료 공급</a>
-      </nav>
 
       <!-- 카리비누 -->
       <div id="products-soap" class="product-group">

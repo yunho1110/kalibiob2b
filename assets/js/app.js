@@ -143,12 +143,15 @@
       for (var j = 0; j < navAnchors.length; j++) {
         navAnchors[j].classList.toggle('active', navAnchors[j].getAttribute('data-view') === viewId);
       }
+      /* Mark the owning group, but never force a dropdown open — on desktop the
+         sub-menu is a hover/click panel, not a permanently expanded tree. */
       var navGroups = document.querySelectorAll('.nav-group[data-group]');
       for (var k = 0; k < navGroups.length; k++) {
         var isCurrent = navGroups[k].getAttribute('data-group') === viewId;
-        navGroups[k].classList.toggle('open', isCurrent);
+        navGroups[k].classList.toggle('is-current', isCurrent);
+        navGroups[k].classList.remove('open');
         var toggleBtn = navGroups[k].querySelector('.nav-toggle');
-        if (toggleBtn) { toggleBtn.setAttribute('aria-expanded', isCurrent ? 'true' : 'false'); }
+        if (toggleBtn) { toggleBtn.setAttribute('aria-expanded', 'false'); }
       }
       closeDrawer();
     }
@@ -164,6 +167,17 @@
         this.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
       });
     }
+
+    /* click outside closes any open dropdown */
+    document.addEventListener('click', function (e) {
+      if (e.target.closest && e.target.closest('.nav-group')) { return; }
+      var open = document.querySelectorAll('.nav-group.open');
+      for (var i = 0; i < open.length; i++) {
+        open[i].classList.remove('open');
+        var t = open[i].querySelector('.nav-toggle');
+        if (t) { t.setAttribute('aria-expanded', 'false'); }
+      }
+    });
 
     function revealAll() {
       var pending = document.querySelectorAll('.view.is-active .reveal:not(.is-visible)');
@@ -191,6 +205,8 @@
     document.addEventListener('keydown', function (e) {
       if (e.key !== 'Escape') { return; }
       if (drawer && drawer.classList.contains('open')) { closeDrawer(); }
+      var openGroups = document.querySelectorAll('.nav-group.open');
+      for (var g = 0; g < openGroups.length; g++) { openGroups[g].classList.remove('open'); }
       if (certLb && certLb.classList.contains('open')) { closeCertLb(); }
     });
 

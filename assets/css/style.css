@@ -696,14 +696,6 @@ footer.site-footer{background:var(--green-deep);color:var(--cream);padding:clamp
 }
 @keyframes cycDraw{to{stroke-dashoffset:0;}}
 
-/* ---- 4-quadrant company summary (brochure p5) ---- */
-.quad-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
-@media (max-width:640px){.quad-grid{grid-template-columns:1fr;}}
-.quad-card{background:var(--lime-soft);border-radius:16px;padding:20px 18px 22px;text-align:center;}
-.quad-pill{display:inline-block;background:#fff;border-radius:999px;padding:8px 20px;font-weight:800;font-size:0.92rem;color:var(--green);margin-bottom:12px;box-shadow:0 2px 8px -4px rgba(31,74,60,.25);}
-.quad-body{font-size:0.9rem;color:var(--ink-soft);line-height:1.6;}
-.quad-body strong{color:var(--ink);font-weight:800;}
-
 /* ---- Business pillars (brochure p5 사업 영역) ---- */
 .pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 @media (max-width:860px){.pillar-grid{grid-template-columns:1fr;}}
@@ -1068,3 +1060,119 @@ html[lang="zh"] .vision-statement{max-width:30ch;}
 .spec-item .spec-value{color:var(--green);}
 .spec-item.spec-highlight .spec-value{color:var(--lime);}
 .why-card:nth-child(2) .why-card-num{color:var(--green-mid);}
+
+/* ========================================================================
+   ROUND 4 — horizontal top navigation (replaces the left sidebar)
+   ======================================================================== */
+:root{--navtop-h:66px;--navbar-h:50px;--nav-h:116px;}
+
+.site-nav{
+  display:none;position:fixed;top:0;left:0;right:0;z-index:1200;
+  background:rgba(253,253,248,0.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
+@media (min-width:1024px){
+  .site-nav{display:block;}
+  .app-topbar{display:none;}
+  .app-content{margin-left:0;padding-top:var(--nav-h);}
+}
+
+/* --- row 1: identity, language, CTA --- */
+.nav-top{height:var(--navtop-h);display:flex;align-items:center;}
+.nav-top-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;width:100%;}
+.site-nav .brand{flex-direction:row;align-items:baseline;gap:12px;}
+.site-nav .brand-mark{font-size:1.45rem;color:var(--ink);}
+.site-nav .brand-mark span{color:var(--lime-deep);}
+.site-nav .brand-name{
+  margin:0;font-size:1.02rem;font-weight:800;color:var(--ink);letter-spacing:-0.01em;
+  padding-left:12px;border-left:1px solid var(--border);
+}
+.nav-top-right{display:flex;align-items:center;gap:14px;}
+.nav-cta{padding:9px 20px;font-size:0.85rem;}
+
+/* --- row 2: the menu itself --- */
+.nav-bar{border-top:1px solid var(--border);background:rgba(247,247,240,0.7);}
+.main-nav{display:flex;align-items:stretch;gap:clamp(4px,1.4vw,20px);height:var(--navbar-h);}
+.main-nav > a,.main-nav .nav-row > a{
+  display:flex;align-items:center;padding:0 4px;
+  font-size:0.94rem;font-weight:700;color:var(--ink-soft);white-space:nowrap;
+  position:relative;transition:color .15s ease;
+}
+.main-nav > a::after,.main-nav .nav-row > a::after{
+  content:'';position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--lime);
+  transform:scaleX(0);transform-origin:left;transition:transform .2s ease;
+}
+.main-nav > a:hover,.main-nav .nav-row > a:hover{color:var(--green);}
+.main-nav a.active{color:var(--green);}
+.main-nav a.active::after{transform:scaleX(1);}
+.main-nav .nav-group{position:relative;flex-direction:row;}
+.main-nav .nav-row{align-items:center;height:100%;gap:2px;}
+.main-nav .nav-toggle{
+  background:none;border:none;padding:0 2px;font-size:0.62rem;color:var(--ink-faint);
+  transition:transform .2s ease,color .15s ease;line-height:1;
+}
+.main-nav .nav-group:hover .nav-toggle,
+.main-nav .nav-group.open .nav-toggle{transform:rotate(180deg);color:var(--green);}
+
+/* --- dropdown panel --- */
+.main-nav .nav-sub{
+  position:absolute;top:100%;left:-14px;min-width:210px;z-index:20;
+  display:flex;flex-direction:column;padding:8px;margin:0;max-height:none;overflow:visible;
+  background:var(--card-bg);border:1px solid var(--border);border-radius:14px;
+  box-shadow:0 18px 40px -18px rgba(31,74,60,0.35);
+  opacity:0;visibility:hidden;transform:translateY(-6px);
+  transition:opacity .16s ease,transform .16s ease,visibility .16s;
+}
+.main-nav .nav-group:hover .nav-sub,
+.main-nav .nav-group:focus-within .nav-sub,
+.main-nav .nav-group.open .nav-sub{opacity:1;visibility:visible;transform:translateY(0);}
+.main-nav .nav-sub a{
+  padding:10px 14px !important;border-radius:9px;font-size:0.89rem !important;font-weight:600 !important;
+  color:var(--ink-soft) !important;white-space:nowrap;
+}
+.main-nav .nav-sub a:hover{background:var(--lime-tint);color:var(--green) !important;}
+.main-nav .nav-sub a.active{background:var(--green);color:#fff !important;}
+.main-nav .nav-sub a::after{display:none;}
+
+/* the group's parent link stays lit while you are inside that section */
+.main-nav .nav-group.is-current > .nav-row > a{color:var(--green);}
+.main-nav .nav-group.is-current > .nav-row > a::after{transform:scaleX(1);}
+
+/* --- mobile top bar keeps the company name legible --- */
+.app-topbar .brand{flex-direction:row;align-items:baseline;gap:8px;}
+.app-topbar .brand-sub{
+  display:inline;font-size:0.78rem;font-weight:800;color:var(--ink);
+  letter-spacing:-0.01em;text-transform:none;margin-top:0;
+}
+@media (max-width:400px){.app-topbar .brand-sub{display:none;}}
+
+/* --- hero fills what is left of the viewport under the header --- */
+.hero-solo{min-height:calc(100vh - var(--topbar-h));}
+@media (min-width:1024px){.hero-solo{min-height:calc(100vh - var(--nav-h));}}
+
+/* --- narrower desktops: let the menu scroll rather than wrap --- */
+@media (min-width:1024px) and (max-width:1180px){
+  .main-nav{overflow-x:auto;overflow-y:visible;scrollbar-width:none;}
+  .main-nav::-webkit-scrollbar{display:none;}
+  .main-nav > a,.main-nav .nav-row > a{font-size:0.88rem;}
+}
+
+/* dropdown entries inherit .subview-tab chrome — strip it back to a plain menu row */
+.main-nav .nav-sub a.subview-tab{
+  border:none;background:transparent;box-shadow:none;
+}
+.main-nav .nav-sub a.subview-tab:hover{background:var(--lime-tint);}
+.main-nav .nav-sub a.subview-tab.active{background:var(--green);}
+
+/* drawer sub-links: same de-chroming as the desktop dropdown */
+.drawer-nav .nav-sub a.subview-tab{
+  border:none;background:transparent;box-shadow:none;border-radius:8px;
+  padding:13px 14px !important;font-size:0.92rem !important;font-weight:600 !important;
+}
+.drawer-nav .nav-sub a.subview-tab:hover{background:var(--lime-tint);}
+.drawer-nav .nav-sub a.subview-tab.active{background:var(--green);color:#fff !important;}
+
+/* the differentiating row in the company table gets the emphasis the
+   old pale quadrant cards were failing to give it */
+.co-table tr.is-key th{background:var(--lime);color:#fff;}
+.co-table tr.is-key td{background:var(--lime-tint);color:var(--ink);font-weight:700;}

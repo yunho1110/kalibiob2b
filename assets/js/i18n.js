@@ -423,14 +423,10 @@ var I18N = {
     tFounded:{ko:"설립일",en:"Founded",zh:"成立日期"},
     vFounded:{ko:"2023년 10월 23일",en:"October 23, 2023",zh:"2023年10月23日"},
     tAddr:{ko:"주소",en:"Address",zh:"地址"},
-    q1t:{ko:"법인 설립",en:"Incorporation",zh:"法人设立"},
-    q1b:{ko:"<strong>2023.10</strong> 순천 기반 소재기업",en:"Suncheon-based materials company, <strong>est. Oct 2023</strong>",zh:"<strong>2023年10月</strong>成立的顺天矿物材料企业"},
-    q2t:{ko:"제품 라인업",en:"Product Lineup",zh:"产品线"},
-    q2b:{ko:"비누 <strong>4종</strong>, 치약 <strong>1종</strong>, 칼륨 분말 소재",en:"<strong>4</strong> soaps, <strong>1</strong> toothpaste, potassium feldspar powder",zh:"皂类<strong>4款</strong>、牙膏<strong>1款</strong>、钾长石粉体原料"},
-    q3t:{ko:"주원료 칼륨 함유량",en:"Potassium Content",zh:"主原料钾含量"},
-    q3b:{ko:"타 장석의 <strong>4배 (K₂O 11.5%)</strong>",en:"<strong>11.5% K₂O — 4× that of other feldspars</strong>",zh:"<strong>K₂O 11.5%——为其他长石的4倍</strong>"},
-    q4t:{ko:"주요 파트너십",en:"Key Partnerships",zh:"主要合作伙伴"},
-    q4b:{ko:"픽슨, 전남TP, 국립순천대학교 GTEP",en:"PIXON, Jeonnam Technopark, Sunchon National University GTEP",zh:"PIXON、全罗南道科技园、国立顺天大学GTEP"}
+    tMaterial:{ko:"주원료",en:"Core Material",zh:"主原料"},
+    vMaterial:{ko:"칼륨장석 (K₂O 11.5% — 타 장석의 4배)",
+      en:"Potassium feldspar (11.5% K₂O — 4× that of other feldspars)",
+      zh:"钾长石(K₂O 11.5%——为其他长石的4倍)"}
   },
   pillars:{
     eyebrow:{ko:"BUSINESS AREAS",en:"BUSINESS AREAS",zh:"业务领域"},
