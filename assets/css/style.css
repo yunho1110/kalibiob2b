@@ -1061,84 +1061,99 @@ html[lang="zh"] .vision-statement{max-width:30ch;}
 .spec-item.spec-highlight .spec-value{color:var(--lime);}
 .why-card:nth-child(2) .why-card-num{color:var(--green-mid);}
 
+/* the differentiating row in the company table gets the emphasis the
+   old pale quadrant cards were failing to give it */
+.co-table tr.is-key th{background:var(--lime);color:#fff;}
+.co-table tr.is-key td{background:var(--lime-tint);color:var(--ink);font-weight:700;}
+
 /* ========================================================================
-   ROUND 4 — horizontal top navigation (replaces the left sidebar)
+   TOP NAVIGATION — single row: identity left, menu + CTA right
+   Sub-menus are their own component (.nav-sub-link); they deliberately share
+   no class with the in-page pill tabs, so they can never inherit that chrome.
    ======================================================================== */
-:root{--navtop-h:66px;--navbar-h:50px;--nav-h:116px;}
+:root{--nav-h:76px;}
 
 .site-nav{
-  display:none;position:fixed;top:0;left:0;right:0;z-index:1200;
-  background:rgba(253,253,248,0.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--border);
+  display:none;position:fixed;top:0;left:0;right:0;z-index:1200;height:var(--nav-h);
+  background:#fff;border-bottom:1px solid var(--border);
+  box-shadow:0 1px 12px -6px rgba(31,74,60,0.25);
 }
 @media (min-width:1024px){
   .site-nav{display:block;}
   .app-topbar{display:none;}
   .app-content{margin-left:0;padding-top:var(--nav-h);}
 }
+.site-nav-inner{
+  display:flex;align-items:center;gap:clamp(18px,2.4vw,34px);
+  height:100%;max-width:1400px;
+}
 
-/* --- row 1: identity, language, CTA --- */
-.nav-top{height:var(--navtop-h);display:flex;align-items:center;}
-.nav-top-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;width:100%;}
-.site-nav .brand{flex-direction:row;align-items:baseline;gap:12px;}
-.site-nav .brand-mark{font-size:1.45rem;color:var(--ink);}
+/* --- identity --- */
+.site-nav .brand{flex:0 0 auto;flex-direction:row;align-items:center;gap:11px;}
+.site-nav .brand-mark{font-size:1.5rem;color:var(--ink);line-height:1;}
 .site-nav .brand-mark span{color:var(--lime-deep);}
 .site-nav .brand-name{
-  margin:0;font-size:1.02rem;font-weight:800;color:var(--ink);letter-spacing:-0.01em;
-  padding-left:12px;border-left:1px solid var(--border);
+  margin:0;font-size:1.06rem;font-weight:800;color:var(--ink);
+  letter-spacing:-0.02em;white-space:nowrap;line-height:1;
 }
-.nav-top-right{display:flex;align-items:center;gap:14px;}
-.nav-cta{padding:9px 20px;font-size:0.85rem;}
 
-/* --- row 2: the menu itself --- */
-.nav-bar{border-top:1px solid var(--border);background:rgba(247,247,240,0.7);}
-.main-nav{display:flex;align-items:stretch;gap:clamp(4px,1.4vw,20px);height:var(--navbar-h);}
-.main-nav > a,.main-nav .nav-row > a{
-  display:flex;align-items:center;padding:0 4px;
+/* --- the menu --- */
+.main-nav{
+  display:flex;align-items:center;height:100%;
+  margin-left:auto;gap:clamp(14px,2.2vw,32px);
+}
+.main-nav > a,.main-nav .nav-parent{
+  display:flex;align-items:center;height:100%;position:relative;
   font-size:0.94rem;font-weight:700;color:var(--ink-soft);white-space:nowrap;
-  position:relative;transition:color .15s ease;
+  transition:color .15s ease;
 }
-.main-nav > a::after,.main-nav .nav-row > a::after{
+.main-nav > a::after,.main-nav .nav-parent::after{
   content:'';position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--lime);
-  transform:scaleX(0);transform-origin:left;transition:transform .2s ease;
+  transform:scaleX(0);transform-origin:center;transition:transform .2s ease;
 }
-.main-nav > a:hover,.main-nav .nav-row > a:hover{color:var(--green);}
-.main-nav a.active{color:var(--green);}
-.main-nav a.active::after{transform:scaleX(1);}
-.main-nav .nav-group{position:relative;flex-direction:row;}
-.main-nav .nav-row{align-items:center;height:100%;gap:2px;}
-.main-nav .nav-toggle{
-  background:none;border:none;padding:0 2px;font-size:0.62rem;color:var(--ink-faint);
-  transition:transform .2s ease,color .15s ease;line-height:1;
-}
-.main-nav .nav-group:hover .nav-toggle,
-.main-nav .nav-group.open .nav-toggle{transform:rotate(180deg);color:var(--green);}
+.main-nav > a:hover,.main-nav .nav-parent:hover{color:var(--green);}
+.main-nav a.active,.main-nav .nav-group.is-current > .nav-parent{color:var(--green);}
+.main-nav a.active::after,.main-nav .nav-group.is-current > .nav-parent::after{transform:scaleX(1);}
 
-/* --- dropdown panel --- */
+/* --- hover drop-down --- */
+.main-nav .nav-group{position:relative;display:flex;align-items:center;height:100%;}
 .main-nav .nav-sub{
-  position:absolute;top:100%;left:-14px;min-width:210px;z-index:20;
-  display:flex;flex-direction:column;padding:8px;margin:0;max-height:none;overflow:visible;
-  background:var(--card-bg);border:1px solid var(--border);border-radius:14px;
-  box-shadow:0 18px 40px -18px rgba(31,74,60,0.35);
-  opacity:0;visibility:hidden;transform:translateY(-6px);
-  transition:opacity .16s ease,transform .16s ease,visibility .16s;
+  display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);
+  min-width:190px;z-index:30;flex-direction:column;
+  background:#fff;border:1px solid var(--border);border-radius:12px;
+  /* transparent top border keeps the pointer inside the group while it travels */
+  border-top:14px solid transparent;background-clip:padding-box;
+  box-shadow:0 16px 34px -14px rgba(31,74,60,0.32);
+  padding:8px;
 }
 .main-nav .nav-group:hover .nav-sub,
-.main-nav .nav-group:focus-within .nav-sub,
-.main-nav .nav-group.open .nav-sub{opacity:1;visibility:visible;transform:translateY(0);}
-.main-nav .nav-sub a{
-  padding:10px 14px !important;border-radius:9px;font-size:0.89rem !important;font-weight:600 !important;
-  color:var(--ink-soft) !important;white-space:nowrap;
+.main-nav .nav-group:focus-within .nav-sub{display:flex;}
+.main-nav .nav-sub-link{
+  display:block;padding:11px 18px;border-radius:8px;text-align:center;
+  font-size:0.9rem;font-weight:600;color:var(--ink-soft);white-space:nowrap;
+  transition:background .14s ease,color .14s ease;
 }
-.main-nav .nav-sub a:hover{background:var(--lime-tint);color:var(--green) !important;}
-.main-nav .nav-sub a.active{background:var(--green);color:#fff !important;}
-.main-nav .nav-sub a::after{display:none;}
+.main-nav .nav-sub-link:hover{background:var(--lime-tint);color:var(--green);}
+.main-nav .nav-sub-link.active{background:var(--green);color:#fff;}
 
-/* the group's parent link stays lit while you are inside that section */
-.main-nav .nav-group.is-current > .nav-row > a{color:var(--green);}
-.main-nav .nav-group.is-current > .nav-row > a::after{transform:scaleX(1);}
+/* --- language + CTA --- */
+.site-nav-right{display:flex;align-items:center;gap:12px;flex:0 0 auto;}
+.nav-lang{padding:2px;background:var(--paper);}
+.nav-lang .lang-btn{padding:5px 9px;font-size:0.72rem;}
+.nav-cta{padding:9px 18px;font-size:0.85rem;}
 
-/* --- mobile top bar keeps the company name legible --- */
+/* --- tighter desktops --- */
+@media (min-width:1024px) and (max-width:1279px){
+  .site-nav-inner{gap:16px;}
+  .main-nav{gap:16px;}
+  .main-nav > a,.main-nav .nav-parent{font-size:0.86rem;}
+  .site-nav .brand-name{font-size:0.94rem;}
+}
+@media (min-width:1024px) and (max-width:1139px){
+  .nav-cta{display:none;}
+}
+
+/* --- mobile bar keeps the company name --- */
 .app-topbar .brand{flex-direction:row;align-items:baseline;gap:8px;}
 .app-topbar .brand-sub{
   display:inline;font-size:0.78rem;font-weight:800;color:var(--ink);
@@ -1146,33 +1161,29 @@ html[lang="zh"] .vision-statement{max-width:30ch;}
 }
 @media (max-width:400px){.app-topbar .brand-sub{display:none;}}
 
-/* --- hero fills what is left of the viewport under the header --- */
+/* --- drawer sub-links match the dropdown, not the pill tabs --- */
+.drawer-nav .nav-sub-link{
+  padding:13px 14px;border-radius:8px;font-size:0.92rem;font-weight:600;
+  color:var(--ink-soft);border-bottom:none;
+}
+.drawer-nav .nav-sub-link::before{display:none;}
+.drawer-nav .nav-sub-link:hover{background:var(--lime-tint);}
+.drawer-nav .nav-sub-link.active{background:var(--green);color:#fff;}
+
+/* --- hero fills the rest of the viewport --- */
 .hero-solo{min-height:calc(100vh - var(--topbar-h));}
 @media (min-width:1024px){.hero-solo{min-height:calc(100vh - var(--nav-h));}}
 
-/* --- narrower desktops: let the menu scroll rather than wrap --- */
-@media (min-width:1024px) and (max-width:1180px){
-  .main-nav{overflow-x:auto;overflow-y:visible;scrollbar-width:none;}
-  .main-nav::-webkit-scrollbar{display:none;}
-  .main-nav > a,.main-nav .nav-row > a{font-size:0.88rem;}
+/* ---- drawer: the chevron needs a finger-sized target ---- */
+.drawer-nav .nav-toggle{
+  width:52px;height:52px;padding:0;flex:0 0 auto;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.9rem;color:var(--ink-faint);
+  transition:transform .25s ease,color .15s ease;
 }
-
-/* dropdown entries inherit .subview-tab chrome — strip it back to a plain menu row */
-.main-nav .nav-sub a.subview-tab{
-  border:none;background:transparent;box-shadow:none;
-}
-.main-nav .nav-sub a.subview-tab:hover{background:var(--lime-tint);}
-.main-nav .nav-sub a.subview-tab.active{background:var(--green);}
-
-/* drawer sub-links: same de-chroming as the desktop dropdown */
-.drawer-nav .nav-sub a.subview-tab{
-  border:none;background:transparent;box-shadow:none;border-radius:8px;
-  padding:13px 14px !important;font-size:0.92rem !important;font-weight:600 !important;
-}
-.drawer-nav .nav-sub a.subview-tab:hover{background:var(--lime-tint);}
-.drawer-nav .nav-sub a.subview-tab.active{background:var(--green);color:#fff !important;}
-
-/* the differentiating row in the company table gets the emphasis the
-   old pale quadrant cards were failing to give it */
-.co-table tr.is-key th{background:var(--lime);color:#fff;}
-.co-table tr.is-key td{background:var(--lime-tint);color:var(--ink);font-weight:700;}
+.drawer-nav .nav-group.open .nav-toggle{transform:rotate(180deg);color:var(--green);}
+.drawer-nav .nav-row{align-items:center;}
+.drawer-nav .nav-row > a{padding-right:4px;}
+/* sub-rows read as a nested list, not as more top-level items */
+.drawer-nav .nav-sub{border-left:2px solid var(--lime);margin-left:6px;}
+.drawer-nav .nav-group.open .nav-sub{max-height:420px;padding:4px 0 10px;}

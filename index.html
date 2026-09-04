@@ -19,65 +19,54 @@
 
 <!-- ===================== DESKTOP TOP NAVIGATION ===================== -->
 <header class="site-nav" id="siteNav">
-  <div class="nav-top">
-    <div class="container nav-top-inner">
-      <a href="#home" class="brand">
-        <span class="brand-mark">KALI<span>.</span></span>
-        <span class="brand-name" data-i18n="brand.sub">주식회사 카리바이오</span>
-      </a>
-      <div class="nav-top-right">
-        <div class="lang-switch" role="group" aria-label="Language">
-      <button type="button" class="lang-btn" data-lang="ko">KO</button>
-      <button type="button" class="lang-btn" data-lang="en">EN</button>
-      <button type="button" class="lang-btn" data-lang="zh">ZH</button>
-        </div>
-        <a href="#contact" class="btn btn-primary nav-cta" data-i18n="nav.cta">파트너십 문의</a>
-      </div>
-    </div>
-  </div>
-  <div class="nav-bar">
-    <nav class="container main-nav" aria-label="주요 메뉴">
+  <div class="container site-nav-inner">
+    <a href="#home" class="brand">
+      <span class="brand-mark">KALI<span>.</span></span>
+      <span class="brand-name" data-i18n="brand.sub">주식회사 카리바이오</span>
+    </a>
+
+    <nav class="main-nav" aria-label="주요 메뉴">
       <a href="#home" data-view="home" data-i18n="nav.home">홈</a>
       <div class="nav-group" data-group="about">
-        <div class="nav-row">
-          <a href="#about" data-view="about" data-i18n="nav.about">기업소개</a>
-          <button type="button" class="nav-toggle" aria-label="하위 메뉴 열기" aria-expanded="false">▾</button>
-        </div>
+        <a class="nav-parent" href="#about" data-view="about" data-i18n="nav.about">기업소개</a>
         <div class="nav-sub">
-          <a href="#about-overview" class="subview-tab" data-subview="about-overview" data-i18n="navSub.aboutOverview">주요 개요</a>
-          <a href="#about-story" class="subview-tab" data-subview="about-story" data-i18n="navSub.aboutStory">기원</a>
-          <a href="#about-vision" class="subview-tab" data-subview="about-vision" data-i18n="navSub.aboutVision">비전과 목표</a>
-          <a href="#about-milestones" class="subview-tab" data-subview="about-milestones" data-i18n="navSub.aboutMilestones">연혁</a>
+          <a href="#about-overview" class="nav-sub-link" data-subview="about-overview" data-i18n="navSub.aboutOverview">주요 개요</a>
+          <a href="#about-story" class="nav-sub-link" data-subview="about-story" data-i18n="navSub.aboutStory">기원</a>
+          <a href="#about-vision" class="nav-sub-link" data-subview="about-vision" data-i18n="navSub.aboutVision">비전과 목표</a>
+          <a href="#about-milestones" class="nav-sub-link" data-subview="about-milestones" data-i18n="navSub.aboutMilestones">연혁</a>
         </div>
       </div>
       <a href="#business" data-view="business" data-i18n="nav.business">주요 사업분야</a>
       <div class="nav-group" data-group="material">
-        <div class="nav-row">
-          <a href="#material" data-view="material" data-i18n="nav.tech">칼륨장석의 기능과 가치</a>
-          <button type="button" class="nav-toggle" aria-label="하위 메뉴 열기" aria-expanded="false">▾</button>
-        </div>
+        <a class="nav-parent" href="#material" data-view="material" data-i18n="nav.tech">칼륨장석의 기능과 가치</a>
         <div class="nav-sub">
-          <a href="#mat-components" class="subview-tab" data-subview="mat-components" data-i18n="navSub.matComponents">구성요소</a>
-          <a href="#mat-value" class="subview-tab" data-subview="mat-value" data-i18n="navSub.matValue">가치</a>
-          <a href="#mat-efficacy" class="subview-tab" data-subview="mat-efficacy" data-i18n="navSub.matEfficacy">효능</a>
-          <a href="#mat-cert" class="subview-tab" data-subview="mat-cert" data-i18n="navSub.matCert">시험·인증서</a>
+          <a href="#mat-components" class="nav-sub-link" data-subview="mat-components" data-i18n="navSub.matComponents">구성요소</a>
+          <a href="#mat-value" class="nav-sub-link" data-subview="mat-value" data-i18n="navSub.matValue">가치</a>
+          <a href="#mat-efficacy" class="nav-sub-link" data-subview="mat-efficacy" data-i18n="navSub.matEfficacy">효능</a>
+          <a href="#mat-cert" class="nav-sub-link" data-subview="mat-cert" data-i18n="navSub.matCert">시험·인증서</a>
         </div>
       </div>
       <div class="nav-group" data-group="products">
-        <div class="nav-row">
-          <a href="#products" data-view="products" data-i18n="nav.products">제품 및 주요 공정</a>
-          <button type="button" class="nav-toggle" aria-label="하위 메뉴 열기" aria-expanded="false">▾</button>
-        </div>
+        <a class="nav-parent" href="#products" data-view="products" data-i18n="nav.products">제품 및 주요 공정</a>
         <div class="nav-sub">
-          <a href="#products-soap" class="subview-tab" data-subview="products-soap" data-i18n="navSub.productsSoap">카리비누</a>
-          <a href="#products-toothpaste" class="subview-tab" data-subview="products-toothpaste" data-i18n="navSub.productsToothpaste">K.28 치약</a>
-          <a href="#products-process" class="subview-tab" data-subview="products-process" data-i18n="navSub.productsProcess">주요 공정</a>
-          <a href="#products-oem" class="subview-tab" data-subview="products-oem" data-i18n="navSub.productsOem">OEM·원료 공급</a>
+          <a href="#products-soap" class="nav-sub-link" data-subview="products-soap" data-i18n="navSub.productsSoap">카리비누</a>
+          <a href="#products-toothpaste" class="nav-sub-link" data-subview="products-toothpaste" data-i18n="navSub.productsToothpaste">K.28 치약</a>
+          <a href="#products-process" class="nav-sub-link" data-subview="products-process" data-i18n="navSub.productsProcess">주요 공정</a>
+          <a href="#products-oem" class="nav-sub-link" data-subview="products-oem" data-i18n="navSub.productsOem">OEM·원료 공급</a>
         </div>
       </div>
       <a href="#partnership" data-view="partnership" data-i18n="nav.partners">협력사</a>
       <a href="#contact" data-view="contact" data-i18n="nav.contact">문의</a>
     </nav>
+
+    <div class="site-nav-right">
+      <div class="lang-switch nav-lang" role="group" aria-label="Language">
+        <button type="button" class="lang-btn" data-lang="ko">KO</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="zh">ZH</button>
+      </div>
+      <a href="#contact" class="btn btn-primary nav-cta" data-i18n="nav.cta">파트너십 문의</a>
+    </div>
   </div>
 </header>
 
@@ -113,10 +102,10 @@
         <button type="button" class="nav-toggle" aria-label="하위 메뉴 열기" aria-expanded="false">▾</button>
       </div>
       <div class="nav-sub">
-        <a href="#about-overview" class="subview-tab" data-subview="about-overview" data-i18n="navSub.aboutOverview">주요 개요</a>
-        <a href="#about-story" class="subview-tab" data-subview="about-story" data-i18n="navSub.aboutStory">기원</a>
-        <a href="#about-vision" class="subview-tab" data-subview="about-vision" data-i18n="navSub.aboutVision">비전과 목표</a>
-        <a href="#about-milestones" class="subview-tab" data-subview="about-milestones" data-i18n="navSub.aboutMilestones">연혁</a>
+        <a href="#about-overview" class="nav-sub-link" data-subview="about-overview" data-i18n="navSub.aboutOverview">주요 개요</a>
+        <a href="#about-story" class="nav-sub-link" data-subview="about-story" data-i18n="navSub.aboutStory">기원</a>
+        <a href="#about-vision" class="nav-sub-link" data-subview="about-vision" data-i18n="navSub.aboutVision">비전과 목표</a>
+        <a href="#about-milestones" class="nav-sub-link" data-subview="about-milestones" data-i18n="navSub.aboutMilestones">연혁</a>
       </div>
     </div>
     <a href="#business" data-view="business" data-i18n="nav.business">주요 사업분야</a>
@@ -126,10 +115,10 @@
         <button type="button" class="nav-toggle" aria-label="하위 메뉴 열기" aria-expanded="false">▾</button>
       </div>
       <div class="nav-sub">
-        <a href="#mat-components" class="subview-tab" data-subview="mat-components" data-i18n="navSub.matComponents">구성요소</a>
-        <a href="#mat-value" class="subview-tab" data-subview="mat-value" data-i18n="navSub.matValue">가치</a>
-        <a href="#mat-efficacy" class="subview-tab" data-subview="mat-efficacy" data-i18n="navSub.matEfficacy">효능</a>
-        <a href="#mat-cert" class="subview-tab" data-subview="mat-cert" data-i18n="navSub.matCert">시험·인증서</a>
+        <a href="#mat-components" class="nav-sub-link" data-subview="mat-components" data-i18n="navSub.matComponents">구성요소</a>
+        <a href="#mat-value" class="nav-sub-link" data-subview="mat-value" data-i18n="navSub.matValue">가치</a>
+        <a href="#mat-efficacy" class="nav-sub-link" data-subview="mat-efficacy" data-i18n="navSub.matEfficacy">효능</a>
+        <a href="#mat-cert" class="nav-sub-link" data-subview="mat-cert" data-i18n="navSub.matCert">시험·인증서</a>
       </div>
     </div>
     <div class="nav-group" data-group="products">
@@ -138,10 +127,10 @@
         <button type="button" class="nav-toggle" aria-label="하위 메뉴 열기" aria-expanded="false">▾</button>
       </div>
       <div class="nav-sub">
-        <a href="#products-soap" class="subview-tab" data-subview="products-soap" data-i18n="navSub.productsSoap">카리비누</a>
-        <a href="#products-toothpaste" class="subview-tab" data-subview="products-toothpaste" data-i18n="navSub.productsToothpaste">K.28 치약</a>
-        <a href="#products-process" class="subview-tab" data-subview="products-process" data-i18n="navSub.productsProcess">주요 공정</a>
-        <a href="#products-oem" class="subview-tab" data-subview="products-oem" data-i18n="navSub.productsOem">OEM·원료 공급</a>
+        <a href="#products-soap" class="nav-sub-link" data-subview="products-soap" data-i18n="navSub.productsSoap">카리비누</a>
+        <a href="#products-toothpaste" class="nav-sub-link" data-subview="products-toothpaste" data-i18n="navSub.productsToothpaste">K.28 치약</a>
+        <a href="#products-process" class="nav-sub-link" data-subview="products-process" data-i18n="navSub.productsProcess">주요 공정</a>
+        <a href="#products-oem" class="nav-sub-link" data-subview="products-oem" data-i18n="navSub.productsOem">OEM·원료 공급</a>
       </div>
     </div>
     <a href="#partnership" data-view="partnership" data-i18n="nav.partners">협력사</a>

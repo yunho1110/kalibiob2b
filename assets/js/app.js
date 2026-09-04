@@ -55,6 +55,16 @@
 
     function openDrawer() {
       if (!drawer) { return; }
+      /* Expand the section the visitor is already in, so its sub-pages are
+         visible the moment the menu opens rather than hidden behind a chevron. */
+      var activeView = (document.querySelector('.view.is-active') || {}).id;
+      var groups = drawer.querySelectorAll('.nav-group[data-group]');
+      for (var g = 0; g < groups.length; g++) {
+        var match = groups[g].getAttribute('data-group') === activeView;
+        groups[g].classList.toggle('open', match);
+        var tg = groups[g].querySelector('.nav-toggle');
+        if (tg) { tg.setAttribute('aria-expanded', match ? 'true' : 'false'); }
+      }
       drawer.classList.add('open');
       drawer.setAttribute('aria-hidden', 'false');
       if (hamburger) { hamburger.setAttribute('aria-expanded', 'true'); }
@@ -122,13 +132,18 @@
 
     function showSubview(viewId, target) {
       var group = SUBVIEW_GROUPS[viewId];
-      if (!group) { return; }
+      if (!group) {
+        /* a view without sub-pages must not leave a stale menu highlight behind */
+        var stale = document.querySelectorAll('[data-subview].active');
+        for (var s = 0; s < stale.length; s++) { stale[s].classList.remove('active'); }
+        return;
+      }
       var active = (target && group.indexOf(target) !== -1) ? target : SUBVIEW_DEFAULT[viewId];
       for (var i = 0; i < group.length; i++) {
         var el = document.getElementById(group[i]);
         if (el) { el.hidden = (group[i] !== active); }
       }
-      var tabs = document.querySelectorAll('.subview-tab[data-subview]');
+      var tabs = document.querySelectorAll('[data-subview]');
       for (var j = 0; j < tabs.length; j++) {
         tabs[j].classList.toggle('active', tabs[j].getAttribute('data-subview') === active);
       }
@@ -168,10 +183,11 @@
       });
     }
 
-    /* click outside closes any open dropdown */
+    /* Click outside closes an open desktop dropdown. Scoped to .main-nav so it
+       never collapses the drawer accordion, whose groups are opened deliberately. */
     document.addEventListener('click', function (e) {
       if (e.target.closest && e.target.closest('.nav-group')) { return; }
-      var open = document.querySelectorAll('.nav-group.open');
+      var open = document.querySelectorAll('.main-nav .nav-group.open');
       for (var i = 0; i < open.length; i++) {
         open[i].classList.remove('open');
         var t = open[i].querySelector('.nav-toggle');
@@ -205,7 +221,7 @@
     document.addEventListener('keydown', function (e) {
       if (e.key !== 'Escape') { return; }
       if (drawer && drawer.classList.contains('open')) { closeDrawer(); }
-      var openGroups = document.querySelectorAll('.nav-group.open');
+      var openGroups = document.querySelectorAll('.main-nav .nav-group.open');
       for (var g = 0; g < openGroups.length; g++) { openGroups[g].classList.remove('open'); }
       if (certLb && certLb.classList.contains('open')) { closeCertLb(); }
     });
