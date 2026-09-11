@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+<a class="skip-link" href="#viewport">본문으로 건너뛰기</a>
 
 <!-- ===================== DESKTOP TOP NAVIGATION ===================== -->
 <header class="site-nav" id="siteNav">
@@ -27,6 +28,16 @@
 
     <nav class="main-nav" aria-label="주요 메뉴">
       <a href="#home" data-view="home" data-i18n="nav.home">홈</a>
+      <div class="nav-group" data-group="about">
+        <a class="nav-parent" href="#about" data-view="about" data-i18n="nav.about">기업소개</a>
+        <div class="nav-sub">
+          <a href="#about-info" class="nav-sub-link" data-subview="about-info" data-i18n="navSub.aboutInfo">기업 정보</a>
+          <a href="#about-origin" class="nav-sub-link" data-subview="about-origin" data-i18n="navSub.aboutOrigin">기원</a>
+          <a href="#about-vision" class="nav-sub-link" data-subview="about-vision" data-i18n="navSub.aboutVision">비전과 목표</a>
+          <a href="#about-why" class="nav-sub-link" data-subview="about-why" data-i18n="navSub.aboutWhy">선택해야 하는 이유</a>
+          <a href="#about-principles" class="nav-sub-link" data-subview="about-principles" data-i18n="navSub.aboutPrinciples">원칙과 기준</a>
+        </div>
+      </div>
       <div class="nav-group" data-group="material">
         <a class="nav-parent" href="#material" data-view="material" data-i18n="nav.material">칼륨장석</a>
         <div class="nav-sub">
@@ -51,16 +62,6 @@
           <a href="#prod-soap" class="nav-sub-link" data-subview="prod-soap" data-i18n="navSub.prodSoap">카리비누</a>
           <a href="#prod-paste" class="nav-sub-link" data-subview="prod-paste" data-i18n="navSub.prodPaste">K.28 치약</a>
           <a href="#prod-process" class="nav-sub-link" data-subview="prod-process" data-i18n="navSub.prodProcess">주요공정</a>
-        </div>
-      </div>
-      <div class="nav-group" data-group="about">
-        <a class="nav-parent" href="#about" data-view="about" data-i18n="nav.about">기업소개</a>
-        <div class="nav-sub">
-          <a href="#about-info" class="nav-sub-link" data-subview="about-info" data-i18n="navSub.aboutInfo">기업 정보</a>
-          <a href="#about-origin" class="nav-sub-link" data-subview="about-origin" data-i18n="navSub.aboutOrigin">기원</a>
-          <a href="#about-vision" class="nav-sub-link" data-subview="about-vision" data-i18n="navSub.aboutVision">비전과 목표</a>
-          <a href="#about-why" class="nav-sub-link" data-subview="about-why" data-i18n="navSub.aboutWhy">선택해야 하는 이유</a>
-          <a href="#about-principles" class="nav-sub-link" data-subview="about-principles" data-i18n="navSub.aboutPrinciples">원칙과 기준</a>
         </div>
       </div>
       <div class="nav-group" data-group="partnership">
@@ -103,7 +104,7 @@
       <button type="button" class="lang-btn" data-lang="en">EN</button>
       <button type="button" class="lang-btn" data-lang="zh">ZH</button>
     </div>
-    <button type="button" class="hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false" aria-controls="mobileDrawer">
+    <button type="button" class="hamburger nav-toggle-lg" id="hamburgerBtn" aria-label="Menu" aria-expanded="false" aria-controls="mobileDrawer">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -117,6 +118,19 @@
   </div>
   <nav class="drawer-nav">
     <a href="#home" data-view="home" data-i18n="nav.home">홈</a>
+    <div class="nav-group" data-group="about">
+      <div class="nav-row">
+        <a href="#about" data-view="about" data-i18n="nav.about">기업소개</a>
+        <button type="button" class="nav-toggle" aria-label="하위 메뉴 열기" aria-expanded="false">▾</button>
+      </div>
+      <div class="nav-sub">
+        <a href="#about-info" class="nav-sub-link" data-subview="about-info" data-i18n="navSub.aboutInfo">기업 정보</a>
+        <a href="#about-origin" class="nav-sub-link" data-subview="about-origin" data-i18n="navSub.aboutOrigin">기원</a>
+        <a href="#about-vision" class="nav-sub-link" data-subview="about-vision" data-i18n="navSub.aboutVision">비전과 목표</a>
+        <a href="#about-why" class="nav-sub-link" data-subview="about-why" data-i18n="navSub.aboutWhy">선택해야 하는 이유</a>
+        <a href="#about-principles" class="nav-sub-link" data-subview="about-principles" data-i18n="navSub.aboutPrinciples">원칙과 기준</a>
+      </div>
+    </div>
     <div class="nav-group" data-group="material">
       <div class="nav-row">
         <a href="#material" data-view="material" data-i18n="nav.material">칼륨장석</a>
@@ -152,19 +166,6 @@
         <a href="#prod-process" class="nav-sub-link" data-subview="prod-process" data-i18n="navSub.prodProcess">주요공정</a>
       </div>
     </div>
-    <div class="nav-group" data-group="about">
-      <div class="nav-row">
-        <a href="#about" data-view="about" data-i18n="nav.about">기업소개</a>
-        <button type="button" class="nav-toggle" aria-label="하위 메뉴 열기" aria-expanded="false">▾</button>
-      </div>
-      <div class="nav-sub">
-        <a href="#about-info" class="nav-sub-link" data-subview="about-info" data-i18n="navSub.aboutInfo">기업 정보</a>
-        <a href="#about-origin" class="nav-sub-link" data-subview="about-origin" data-i18n="navSub.aboutOrigin">기원</a>
-        <a href="#about-vision" class="nav-sub-link" data-subview="about-vision" data-i18n="navSub.aboutVision">비전과 목표</a>
-        <a href="#about-why" class="nav-sub-link" data-subview="about-why" data-i18n="navSub.aboutWhy">선택해야 하는 이유</a>
-        <a href="#about-principles" class="nav-sub-link" data-subview="about-principles" data-i18n="navSub.aboutPrinciples">원칙과 기준</a>
-      </div>
-    </div>
     <div class="nav-group" data-group="partnership">
       <div class="nav-row">
         <a href="#partnership" data-view="partnership" data-i18n="nav.partners">파트너십</a>
@@ -187,6 +188,11 @@
       </div>
     </div>
   </nav>
+  <div class="lang-switch drawer-lang" role="group" aria-label="Language">
+    <button type="button" class="lang-btn" data-lang="ko">KO</button>
+    <button type="button" class="lang-btn" data-lang="en">EN</button>
+    <button type="button" class="lang-btn" data-lang="zh">ZH</button>
+  </div>
   <div class="drawer-cta">
     <a href="#contact" class="btn btn-primary btn-block" data-i18n="nav.cta">파트너십 문의</a>
   </div>
@@ -206,6 +212,11 @@
           <span class="hero-eyebrow" data-i18n="hero.eyebrow">천연 미네랄 소재 기업 · 전남 순천</span>
           <h1 class="hero-headline" data-i18n="hero.headline">자연이 만든 가치를,<br>사람의 일상으로.</h1>
           <p class="hero-sub" data-i18n="hero.sub"></p>
+          <ul class="hero-model" aria-label="사업 모델">
+            <li data-i18n="hero.m1">기능성 소재 공급</li>
+            <li data-i18n="hero.m2">생활용품 완제품</li>
+            <li data-i18n="hero.m3">OEM · ODM</li>
+          </ul>
           <div class="hero-ctas">
             <a href="#contact" class="btn btn-primary" data-i18n="hero.cta1">파트너십 문의</a>
             <a href="#material" class="btn btn-outline" data-i18n="hero.cta2">칼륨장석 알아보기</a>
@@ -247,6 +258,7 @@
 <section class="view" id="material">
   <div class="section">
     <div class="container">
+      <nav class="crumb" aria-label="현재 위치"></nav>
       <div class="page-head reveal">
         <span class="eyebrow" data-i18n="mat.eyebrow">POTASSIUM FELDSPAR</span>
         <h2 class="section-title" data-i18n="mat.title">칼륨장석</h2>
@@ -427,6 +439,7 @@
 <section class="view" id="business">
   <div class="section">
     <div class="container">
+      <nav class="crumb" aria-label="현재 위치"></nav>
       <div class="page-head reveal">
         <span class="eyebrow" data-i18n="biz.eyebrow">BUSINESS</span>
         <h2 class="section-title" data-i18n="biz.title">사업분야</h2>
@@ -468,7 +481,7 @@
             <a href="#products" class="btn btn-outline" data-i18n="nav.products">제품</a>
           </div>
           <figure class="biz-media">
-            <img src="assets/img/showroom.webp" alt="카리바이오 제품 전시" loading="lazy" width="1100" height="573">
+            <img src="assets/img/bundle.webp" alt="카리비누 선물세트 구성" loading="lazy" width="1200" height="535">
           </figure>
         </div>
       </div>
@@ -501,6 +514,7 @@
 <section class="view" id="products">
   <div class="section">
     <div class="container">
+      <nav class="crumb" aria-label="현재 위치"></nav>
       <div class="page-head reveal">
         <span class="eyebrow" data-i18n="products.eyebrow">PRODUCT</span>
         <h2 class="section-title" data-i18n="nav.products">제품</h2>
@@ -636,9 +650,6 @@
         </div>
 
         <h4 class="sub-title reveal" style="margin-top:44px;" data-i18n="tech.k28Title"></h4>
-        <figure class="process-figure reveal">
-          <img src="assets/img/process-iso.webp" alt="K.28 치약 제조 공정 도식" loading="lazy" width="900" height="535">
-        </figure>
         <ol class="process-list reveal">
           <li class="process-item" data-i18n="tech.step1"></li>
           <li class="process-item" data-i18n="tech.step2"></li>
@@ -674,6 +685,7 @@
 <section class="view" id="about">
   <div class="section">
     <div class="container">
+      <nav class="crumb" aria-label="현재 위치"></nav>
       <div class="page-head reveal">
         <span class="eyebrow" data-i18n="about.eyebrow">ABOUT KALIBIO</span>
         <h2 class="section-title" data-i18n="nav.about">기업소개</h2>
@@ -695,8 +707,8 @@
           </table>
         </div>
         <div class="photo-duo reveal">
-          <figure><img src="assets/img/jntp.webp" alt="전남테크노파크 지식산업센터" loading="lazy" width="760" height="733"><figcaption>전남테크노파크 지식산업센터</figcaption></figure>
-          <figure><img src="assets/img/office.webp" alt="카리바이오 사무실" loading="lazy" width="760" height="746"><figcaption>카리바이오 사무실</figcaption></figure>
+          <figure><img src="assets/img/jntp.webp" alt="전남테크노파크 지식산업센터" loading="lazy" width="394" height="380"><figcaption>전남테크노파크 지식산업센터</figcaption></figure>
+          <figure><img src="assets/img/office.webp" alt="카리바이오 사무실" loading="lazy" width="390" height="383"><figcaption>카리바이오 사무실</figcaption></figure>
         </div>
         <h4 class="sub-title reveal" style="margin-top:40px;" data-i18n="about.milestonesTitle">회사 연혁</h4>
         <div class="milestones reveal">
@@ -722,8 +734,8 @@
           </div>
           <aside class="story-side">
             <figure class="story-figure">
-              <img src="assets/img/suncheon.webp" alt="전남 순천 일대" loading="lazy" width="1100" height="573">
-              <figcaption>전남 순천 — 카리바이오의 원료가 생산되는 지역</figcaption>
+              <img src="assets/img/feldspar-rock.webp" alt="칼륨장석 원석" loading="lazy" width="1000" height="1000">
+              <figcaption>전남 순천에서 생산된 칼륨장석 원석</figcaption>
             </figure>
           </aside>
         </div>
@@ -763,10 +775,6 @@
             <p data-i18n="why.card3.desc"></p>
           </article>
         </div>
-        <figure class="wide-figure reveal">
-          <img src="assets/img/lab.webp" alt="원료 계량 및 연구" loading="lazy" width="900" height="597">
-          <figcaption>원료 계량과 배합 — 자사 원료로 직접 검증합니다</figcaption>
-        </figure>
       </div>
 
       <div id="about-principles" class="tech-block" hidden>
@@ -791,6 +799,7 @@
 <section class="view" id="partnership">
   <div class="section">
     <div class="container">
+      <nav class="crumb" aria-label="현재 위치"></nav>
       <div class="page-head reveal">
         <span class="eyebrow" data-i18n="partners.eyebrow">PARTNERSHIP</span>
         <h2 class="section-title" data-i18n="nav.partners">파트너십</h2>
@@ -806,9 +815,6 @@
           <div class="partner-chip" data-i18n="partners.p7"></div>
           <div class="partner-chip" data-i18n="partners.p8"></div>
         </div>
-        <figure class="wide-figure reveal">
-          <img src="assets/img/partnership.webp" alt="파트너십 미팅" loading="lazy" width="1100" height="306">
-        </figure>
       </div>
 
       <div id="part-history" class="tech-block" hidden>
@@ -844,6 +850,7 @@
 <section class="view" id="contact">
   <div class="section">
     <div class="container">
+      <nav class="crumb" aria-label="현재 위치"></nav>
       <div class="page-head reveal">
         <span class="eyebrow" data-i18n="contact.eyebrow">CONTACT</span>
         <h2 class="section-title" data-i18n="contact.title">파트너십을 제안해 주세요</h2>
@@ -883,15 +890,28 @@
                 <option value="oem" data-i18n="contact.opt1">OEM/ODM 문의</option>
                 <option value="bulk" data-i18n="contact.opt2">벌크 구매</option>
                 <option value="distribution" data-i18n="contact.opt3">유통 파트너십</option>
+                <option value="sample" data-i18n="contact.optSample">샘플 요청</option>
                 <option value="other" data-i18n="contact.opt4">기타</option>
               </select>
             </div>
             <div class="form-row">
-              <label for="company" data-i18n="contact.f2">회사명</label>
+              <label for="company"><span data-i18n="contact.f2">회사명</span> <span class="req" data-i18n="contact.required"></span></label>
               <input type="text" id="company" name="company" required>
             </div>
             <div class="form-row">
-              <label for="country" data-i18n="contact.f3">국가</label>
+              <label for="name"><span data-i18n="contact.lName">담당자명</span> <span class="req" data-i18n="contact.required"></span></label>
+              <input type="text" id="name" name="name" required data-i18n-attr="placeholder:contact.phName">
+            </div>
+            <div class="form-row">
+              <label for="email"><span data-i18n="contact.lEmail">이메일</span> <span class="req" data-i18n="contact.required"></span></label>
+              <input type="email" id="email" name="email" required data-i18n-attr="placeholder:contact.phEmail">
+            </div>
+            <div class="form-row">
+              <label for="phone" data-i18n="contact.lPhone">연락처</label>
+              <input type="tel" id="phone" name="phone" data-i18n-attr="placeholder:contact.phPhone">
+            </div>
+            <div class="form-row">
+              <label for="country"><span data-i18n="contact.f3">국가</span> <span class="req" data-i18n="contact.required"></span></label>
               <input type="text" id="country" name="country" required>
             </div>
             <div class="form-row">
@@ -899,10 +919,11 @@
               <input type="text" id="volume" name="volume">
             </div>
             <div class="form-row">
-              <label for="message" data-i18n="contact.f5">메시지</label>
+              <label for="message"><span data-i18n="contact.f5">메시지</span> <span class="req" data-i18n="contact.required"></span></label>
               <textarea id="message" name="message" rows="5" required></textarea>
             </div>
             <button type="submit" class="btn btn-primary btn-block" data-i18n="contact.submit">문의 보내기</button>
+            <p class="form-note" id="formNote" hidden data-i18n="contact.sent">문의가 접수되었습니다. 빠르게 답변드리겠습니다.</p>
           </form>
         </div>
       </div>

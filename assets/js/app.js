@@ -129,7 +129,11 @@
 
     var appContent = document.getElementById('appContent');
 
-    function currentHash() { return (window.location.hash || '').replace('#', ''); }
+    var routedHash = null;
+    function currentHash() {
+      if (routedHash !== null) { return routedHash; }
+      return (window.location.hash || '').replace('#', '');
+    }
 
     function getViewFromHash() {
       var h = currentHash();
@@ -148,9 +152,9 @@
       var group = SUBVIEW_GROUPS[viewId];
       if (!group) {
         /* a view without sub-pages must not leave a stale menu highlight behind */
-        var stale = document.querySelectorAll('[data-subview].active');
-        for (var s = 0; s < stale.length; s++) { stale[s].classList.remove('active'); }
-        return;
+        var stale = document.querySelectorAll('[data-subview].active, [data-subview][aria-current]');
+        for (var s = 0; s < stale.length; s++) { stale[s].classList.remove('active'); stale[s].removeAttribute('aria-current'); }
+        return null;
       }
       var active = (target && group.indexOf(target) !== -1) ? target : SUBVIEW_DEFAULT[viewId];
       for (var i = 0; i < group.length; i++) {
@@ -159,8 +163,11 @@
       }
       var tabs = document.querySelectorAll('[data-subview]');
       for (var j = 0; j < tabs.length; j++) {
-        tabs[j].classList.toggle('active', tabs[j].getAttribute('data-subview') === active);
+        var isTabActive = tabs[j].getAttribute('data-subview') === active;
+        tabs[j].classList.toggle('active', isTabActive);
+        if (isTabActive) { tabs[j].setAttribute('aria-current', 'page'); } else { tabs[j].removeAttribute('aria-current'); }
       }
+      return active;
     }
 
     function showView(viewId) {
@@ -168,9 +175,11 @@
       for (var i = 0; i < views.length; i++) {
         views[i].classList.toggle('is-active', views[i].id === viewId);
       }
-      var navAnchors = document.querySelectorAll('.sidebar-nav a[data-view], .drawer-nav a[data-view]');
+      var navAnchors = document.querySelectorAll('.sidebar-nav a[data-view], .drawer-nav a[data-view], .main-nav a[data-view]');
       for (var j = 0; j < navAnchors.length; j++) {
-        navAnchors[j].classList.toggle('active', navAnchors[j].getAttribute('data-view') === viewId);
+        var isNavActive = navAnchors[j].getAttribute('data-view') === viewId;
+        navAnchors[j].classList.toggle('active', isNavActive);
+        if (isNavActive) { navAnchors[j].setAttribute('aria-current', 'page'); } else { navAnchors[j].removeAttribute('aria-current'); }
       }
       /* Mark the owning group, but never force a dropdown open — on desktop the
          sub-menu is a hover/click panel, not a permanently expanded tree. */
@@ -243,23 +252,141 @@
       for (var i = 0; i < pending.length; i++) { pending[i].classList.add('is-visible'); }
     }
 
-    function route() {
-      var viewId = getViewFromHash();
-      showView(viewId);
-      showSubview(viewId, getSubsectionFromHash());
-      var resetScroll = function () {
-        window.scrollTo(0, 0);
-        if (appContent) { appContent.scrollTop = 0; }
-      };
-      resetScroll();
-      setTimeout(function () { resetScroll(); revealAll(); }, 0);
+    /* ===== Page title + breadcrumb, driven by the already-translated nav text
+       so this never needs its own string table. ===== */
+    function updateNavContext(viewId, subId) {
+      var crumb = document.querySelector('.view.is-active .crumb');
+      if (viewId === 'home') {
+        document.title = '주식회사 카리바이오 — 천연 미네랄 소재';
+        if (crumb) { crumb.textContent = ''; }
+        return;
+      }
+      var viewLink = document.querySelector('.main-nav [data-view="' + viewId + '"]');
+      var viewName = viewLink ? viewLink.textContent.trim() : '';
+      var subName = '';
+      if (subId) {
+        var subLink = document.querySelector('.main-nav [data-subview="' + subId + '"]');
+        subName = subLink ? subLink.textContent.trim() : '';
+      }
+      document.title = (subName ? subName + ' · ' : '') + viewName + ' | 주식회사 카리바이오';
+
+      if (crumb) {
+        crumb.textContent = '';
+        if (subName) {
+          crumb.appendChild(document.createTextNode(viewName + ' '));
+          var sep = document.createElement('span');
+          sep.textContent = '›';
+          crumb.appendChild(sep);
+          crumb.appendChild(document.createTextNode(' '));
+          var strong = document.createElement('strong');
+          strong.textContent = subName;
+          crumb.appendChild(strong);
+        }
+      }
     }
 
-    window.addEventListener('hashchange', route);
+    /* ===== Focus the new content's heading after a user-driven navigation,
+       so keyboard/screen-reader users land somewhere meaningful. Never runs
+       on the very first page load. ===== */
+    function focusActiveTitle(viewId, subId) {
+      var titleEl = null;
+      if (subId) {
+        var subEl = document.getElementById(subId);
+        titleEl = subEl && subEl.querySelector('.block-title');
+      }
+      if (!titleEl) {
+        var viewEl = document.getElementById(viewId);
+        titleEl = viewEl && viewEl.querySelector('.section-title, .hero-headline');
+      }
+      if (!titleEl) { return; }
+      if (!titleEl.hasAttribute('tabindex')) { titleEl.setAttribute('tabindex', '-1'); }
+      titleEl.focus({ preventScroll: true });
+    }
+
+    /* A hash change can come from a normal in-page link click (should still
+       jump to the top of the new page/subview) or from the browser's
+       back/forward navigation (should leave scroll position alone, since the
+       visitor is returning to where they were). We tag the former by
+       watching clicks on internal hash links just before the browser acts on
+       them; anything else that changes the hash is treated as history
+       navigation. */
+    var scrollGuardUntil = 0;
+    var scrollGuardRunning = false;
+    var releaseGuard = function () { scrollGuardUntil = 0; };
+    window.addEventListener('wheel', releaseGuard, { passive: true });
+    window.addEventListener('touchstart', releaseGuard, { passive: true });
+    window.addEventListener('keydown', releaseGuard);
+
+    var navigatedByClick = false;
+    document.addEventListener('click', function (e) {
+      var link = e.target && e.target.closest && e.target.closest('a[href^="#"]');
+      if (link) { navigatedByClick = true; }
+    }, true);
+
+    function route(isInitial, isHistoryNav) {
+      var viewId = getViewFromHash();
+      showView(viewId);
+      var activeSub = showSubview(viewId, getSubsectionFromHash());
+      updateNavContext(viewId, activeSub);
+      revealAll();
+      if (true) { /* every route change opens its page at the top */
+        /* The browser performs its own fragment jump once the document has
+           finished loading, which lands the visitor mid-page under the fixed
+           header. Reset on the next frame and again on load so a deep link
+           still opens at the top of its page. */
+        var toTop = function () {
+          window.scrollTo(0, 0);
+          if (appContent) { appContent.scrollTop = 0; }
+        };
+        toTop();
+        /* Every hash here names a page, but the browser also treats it as an
+           anchor and jumps to that element once it is rendered — which lands
+           the visitor mid-page, under the fixed header. Hold the top for a
+           moment, and stop the moment the visitor scrolls on their own. */
+        scrollGuardUntil = Date.now() + 1200;
+        if (!scrollGuardRunning) {
+          scrollGuardRunning = true;
+          (function hold() {
+            if (Date.now() > scrollGuardUntil) { scrollGuardRunning = false; return; }
+            if (window.scrollY !== 0) { toTop(); }
+            requestAnimationFrame(hold);
+          })();
+        }
+      }
+      if (!isInitial) { focusActiveTitle(viewId, activeSub); }
+    }
+
+    window.addEventListener('hashchange', function () {
+      var isHistoryNav = !navigatedByClick;
+      navigatedByClick = false;
+      route(false, isHistoryNav);
+    });
+    if (window.history && 'scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
     if (!window.location.hash && window.history && window.history.replaceState) {
       window.history.replaceState(null, '', '#home');
     }
-    route();
+
+    /* A deep link such as index.html#mat-tests names a page for us, but to the
+       browser it is also an anchor: once that element is rendered it scrolls
+       there, dropping the visitor into the middle of the page beneath the
+       fixed header. Clearing the hash before routing and writing it back with
+       replaceState afterwards gives us the route without the jump. */
+    (function openAtTop() {
+      var entry = window.location.hash;
+      var base = window.location.pathname + window.location.search;
+      var canRewrite = !!(window.history && window.history.replaceState) && entry && entry !== '#home';
+      if (canRewrite) {
+        routedHash = entry.replace('#', '');
+        window.history.replaceState(null, '', base);
+      }
+      route(true, false);
+      if (canRewrite) {
+        window.history.replaceState(null, '', base + entry);
+        routedHash = null;
+      }
+    })();
 
     document.addEventListener('keydown', function (e) {
       if (e.key !== 'Escape') { return; }
@@ -281,6 +408,7 @@
 
     /* ===== Contact form → mailto ===== */
     var form = document.getElementById('contactForm');
+    var formNote = document.getElementById('formNote');
     if (form) {
       form.addEventListener('submit', function (e) {
         e.preventDefault();
@@ -289,11 +417,15 @@
         var body = encodeURIComponent(
           'Inquiry Type: ' + type + '\n' +
           'Company: ' + form.company.value + '\n' +
+          'Name: ' + form.name.value + '\n' +
+          'Email: ' + form.email.value + '\n' +
+          'Phone: ' + form.phone.value + '\n' +
           'Country: ' + form.country.value + '\n' +
           'Expected Volume: ' + form.volume.value + '\n\n' +
           'Message:\n' + form.message.value
         );
         window.location.href = 'mailto:kalibio1101@naver.com?subject=' + subject + '&body=' + body;
+        if (formNote) { formNote.hidden = false; }
       });
     }
 
