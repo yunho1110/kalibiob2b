@@ -85,29 +85,43 @@
     }
     if (drawerCloseBtn) { drawerCloseBtn.addEventListener('click', closeDrawer); }
     if (drawer) {
+      /* Parent rows that own a sub-list must NOT close the drawer — tapping them
+         opens the list instead (see the handler further down). */
       var drawerLinks = drawer.querySelectorAll('a');
       for (var k = 0; k < drawerLinks.length; k++) {
+        var owner = drawerLinks[k].closest('.nav-group');
+        if (drawerLinks[k].closest('.nav-row') && owner && owner.querySelector('.nav-sub')) { continue; }
         drawerLinks[k].addEventListener('click', closeDrawer);
       }
     }
 
     /* ===== Hash routing ===== */
-    var VALID_VIEWS = ['home', 'about', 'business', 'material', 'products', 'partnership', 'contact'];
+    var VALID_VIEWS = ['home', 'material', 'business', 'products', 'about', 'partnership', 'contact'];
     var HASH_ALIASES = { hero: 'home', why: 'about', partners: 'partnership', technology: 'material' };
     var SUBVIEW_GROUPS = {
-      about: ['about-overview', 'about-story', 'about-vision', 'about-milestones'],
-      material: ['mat-components', 'mat-value', 'mat-efficacy', 'mat-cert'],
-      products: ['products-soap', 'products-toothpaste', 'products-process', 'products-oem']
+      material: ['mat-story', 'mat-comp', 'mat-uses', 'mat-props', 'mat-tests'],
+      business: ['biz-material', 'biz-goods', 'biz-oem'],
+      products: ['prod-soap', 'prod-paste', 'prod-process'],
+      about: ['about-info', 'about-origin', 'about-vision', 'about-why', 'about-principles'],
+      partnership: ['part-current', 'part-history', 'part-global'],
+      contact: ['contact-form', 'contact-faq']
     };
-    var SUBVIEW_DEFAULT = { about: 'about-overview', material: 'mat-components', products: 'products-soap' };
+    var SUBVIEW_DEFAULT = {
+      material: 'mat-story', business: 'biz-material', products: 'prod-soap',
+      about: 'about-info', partnership: 'part-current', contact: 'contact-form'
+    };
     var SUBSECTIONS = {};
     Object.keys(SUBVIEW_GROUPS).forEach(function (view) {
       SUBVIEW_GROUPS[view].forEach(function (id) { SUBSECTIONS[id] = view; });
     });
     /* old bookmarks keep working after the technology view was split in two */
     var LEGACY_SUBS = {
-      'tech-raw': 'mat-components', 'tech-eco': 'mat-value', 'tech-industry': 'mat-value',
-      'tech-clinical': 'mat-efficacy', 'tech-cert': 'mat-cert', 'tech-process': 'products-process'
+      'tech-raw': 'mat-comp', 'tech-eco': 'mat-uses', 'tech-industry': 'mat-uses',
+      'tech-clinical': 'mat-props', 'tech-cert': 'mat-tests', 'tech-process': 'prod-process',
+      'mat-components': 'mat-comp', 'mat-value': 'mat-uses', 'mat-efficacy': 'mat-props',
+      'mat-cert': 'mat-tests', 'products-soap': 'prod-soap', 'products-toothpaste': 'prod-paste',
+      'products-process': 'prod-process', 'products-oem': 'biz-oem',
+      'about-overview': 'about-info', 'about-story': 'about-origin', 'about-milestones': 'about-info'
     };
     Object.keys(LEGACY_SUBS).forEach(function (old) {
       SUBSECTIONS[old] = SUBSECTIONS[LEGACY_SUBS[old]];
@@ -177,9 +191,38 @@
         e.preventDefault();
         var group = this.closest('.nav-group');
         if (!group) { return; }
+        collapseDrawerGroups(group);
         var willOpen = !group.classList.contains('open');
         group.classList.toggle('open', willOpen);
         this.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      });
+    }
+
+    /* Only one drawer section stays open at a time, so the list never gets long. */
+    function collapseDrawerGroups(keep) {
+      var open = document.querySelectorAll('.drawer-nav .nav-group.open');
+      for (var i = 0; i < open.length; i++) {
+        if (open[i] === keep) { continue; }
+        open[i].classList.remove('open');
+        var t = open[i].querySelector('.nav-toggle');
+        if (t) { t.setAttribute('aria-expanded', 'false'); }
+      }
+    }
+
+    /* On the phone there is no hover. Tapping a top-level item used to jump
+       straight into the section, so its sub-pages were never seen. Now it opens
+       the list; the section is reached by choosing one of those sub-pages. */
+    var drawerParents = document.querySelectorAll('.drawer-nav .nav-group > .nav-row > a');
+    for (var dp = 0; dp < drawerParents.length; dp++) {
+      drawerParents[dp].addEventListener('click', function (e) {
+        var group = this.closest('.nav-group');
+        if (!group || !group.querySelector('.nav-sub')) { return; }
+        e.preventDefault();
+        collapseDrawerGroups(group);
+        var willOpen = !group.classList.contains('open');
+        group.classList.toggle('open', willOpen);
+        var t = group.querySelector('.nav-toggle');
+        if (t) { t.setAttribute('aria-expanded', willOpen ? 'true' : 'false'); }
       });
     }
 

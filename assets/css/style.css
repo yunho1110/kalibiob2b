@@ -1187,3 +1187,195 @@ html[lang="zh"] .vision-statement{max-width:30ch;}
 /* sub-rows read as a nested list, not as more top-level items */
 .drawer-nav .nav-sub{border-left:2px solid var(--lime);margin-left:6px;}
 .drawer-nav .nav-group.open .nav-sub{max-height:420px;padding:4px 0 10px;}
+
+/* =========================================================
+   NEW COMPONENTS — appended additions below this line only.
+   No existing rule above is modified or removed.
+   ========================================================= */
+
+/* ---- 1. .hero-media: right-hand image in a 50:50 hero ---- */
+.hero-solo .hero-grid{grid-template-columns:1fr 1fr;align-items:center;}
+.hero-media{margin:0;}
+.hero-media img{
+  width:100%;height:100%;display:block;border-radius:var(--radius-lg);
+  object-fit:cover;aspect-ratio:4/3;box-shadow:var(--shadow);
+}
+@media (max-width:900px){
+  .hero-solo .hero-grid{grid-template-columns:1fr;}
+  .hero-media{order:-1;} /* image first on mobile */
+}
+
+/* ---- 2. .lead-line: large lead sentence, cream on dark bands ---- */
+.lead-line{
+  font-size:clamp(1.15rem,2.2vw,1.55rem);font-weight:700;color:var(--green);
+  line-height:1.5;max-width:40ch;margin-bottom:20px;word-break:keep-all;
+}
+.hero .lead-line,
+.vision-statement-band .lead-line{color:var(--cream);}
+
+/* ---- 3. .fact-grid: three plain facts under the home hero ---- */
+.fact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;}
+@media (max-width:860px){.fact-grid{grid-template-columns:1fr;}}
+.fact-mark{width:44px;height:4px;background:var(--lime);border-radius:4px;margin-bottom:14px;}
+.fact-t{font-size:clamp(1.05rem,1.8vw,1.3rem);font-weight:800;margin:0 0 10px;word-break:keep-all;}
+.fact-d{font-size:1rem;color:var(--ink-soft);line-height:1.8;margin:0;word-break:keep-all;}
+
+/* ---- 4. .elem-grid: chemical composition tiles ---- */
+.elem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+@media (max-width:700px){.elem-grid{grid-template-columns:1fr;}}
+.elem{
+  background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:28px 24px;
+}
+.elem-sym{
+  font-family:var(--font-display);font-size:clamp(2.4rem,5vw,3.4rem);font-weight:900;
+  color:var(--green);line-height:1;margin:0 0 10px;
+}
+.elem-sym span{font-size:0.45em;font-weight:700;color:var(--ink-faint);}
+.elem-pct{font-size:1.5rem;font-weight:800;color:var(--lime-deep);margin:0 0 6px;}
+.elem-name{font-size:1.05rem;font-weight:700;margin:0 0 10px;word-break:keep-all;}
+.elem-note{font-size:0.9rem;color:var(--ink-soft);line-height:1.7;margin:0;word-break:keep-all;}
+/* highlighted / core element variant — deep green card, cream text */
+.elem.is-core{background:var(--green-deep);border-color:var(--green-deep);}
+.elem.is-core .elem-sym{color:var(--cream);}
+.elem.is-core .elem-sym span{color:rgba(247,247,240,0.65);}
+.elem.is-core .elem-pct{color:var(--lime);}
+.elem.is-core .elem-name{color:var(--cream);}
+.elem.is-core .elem-note{color:rgba(247,247,240,0.78);}
+
+/* ---- 5. .formula-line: centred chemistry sentence ---- */
+.formula-line{
+  font-size:1.05rem;font-weight:600;color:var(--green);text-align:center;
+  padding:20px;background:var(--lime-tint);border-radius:14px;word-break:keep-all;
+}
+
+/* ---- 6. .ph-scale: pH 0-14 gradient bar with a marker pin ---- */
+.ph-scale{position:relative;margin:18px 0 24px;}
+.ph-bar{
+  height:14px;width:100%;border-radius:999px;
+  /* acid (warm) -> neutral (grey) -> alkaline (green); gradient stops only, no new brand hues */
+  background:linear-gradient(to right,#D9764A 0%,var(--ink-faint) 50%,var(--green) 100%);
+}
+.ph-marker{
+  position:absolute;top:-14px;bottom:-4px;width:3px;background:var(--ink);
+  transform:translateX(-50%);
+}
+.ph-marker b{
+  position:absolute;top:-30px;left:0;transform:translateX(-50%);
+  display:inline-block;white-space:nowrap;background:var(--green-deep);color:#fff;
+  font-size:0.8rem;font-weight:700;padding:3px 10px;border-radius:999px;
+}
+.ph-ticks{display:flex;justify-content:space-between;margin-top:8px;font-size:0.78rem;color:var(--ink-faint);}
+
+/* ---- 7. .biz-layout: business-area page copy + media ---- */
+.biz-layout{display:grid;grid-template-columns:1.1fr 0.9fr;gap:clamp(28px,4vw,56px);align-items:start;}
+@media (max-width:900px){
+  .biz-layout{grid-template-columns:1fr;}
+  .biz-media{order:2;}
+  .biz-copy{order:1;}
+}
+.biz-copy{word-break:keep-all;}
+.biz-media{margin:0;}
+.biz-media img{width:100%;border-radius:var(--radius-lg);object-fit:cover;aspect-ratio:4/3;}
+.biz-head{font-size:1.15rem;font-weight:800;color:var(--ink);margin:0 0 10px;word-break:keep-all;}
+.biz-spec{margin:0;}
+.biz-spec div{
+  display:grid;grid-template-columns:110px 1fr;gap:8px 16px;
+  padding:12px 0;border-top:1px solid var(--border);
+}
+@media (max-width:560px){.biz-spec div{grid-template-columns:1fr;gap:4px;}}
+.biz-spec dt{
+  font-size:0.78rem;font-weight:700;letter-spacing:0.06em;color:var(--ink-faint);
+  margin:0;text-transform:uppercase;
+}
+.biz-spec dd{margin:0;font-size:0.95rem;color:var(--ink-soft);line-height:1.7;word-break:keep-all;}
+
+/* ---- 8. .test-list: test-report entries with a thumbnail ---- */
+.test-list{display:flex;flex-direction:column;gap:16px;}
+.test{
+  background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);
+  overflow:hidden;box-shadow:var(--shadow);
+  display:grid;grid-template-columns:1fr 220px;
+}
+@media (max-width:700px){
+  .test{grid-template-columns:1fr;}
+  .test-thumb{order:-1;}
+}
+.test-body{padding:24px;}
+.test-t{font-size:1.1rem;font-weight:800;margin:0 0 8px;word-break:keep-all;}
+.test-d{font-size:0.98rem;color:var(--ink-soft);line-height:1.75;margin:0;word-break:keep-all;}
+.test-m{
+  font-size:0.85rem;color:var(--ink-faint);padding-top:12px;margin-top:12px;
+  border-top:1px dashed var(--border);
+}
+.test-thumb{display:flex;align-items:center;justify-content:center;background:var(--warm-gray);}
+.test-thumb img{width:100%;height:100%;object-fit:contain;background:#fff;}
+/* placeholder variant when there is no scanned document yet */
+.test-thumb-doc{
+  background:linear-gradient(160deg,var(--lime-tint),var(--warm-gray));
+  flex-direction:column;gap:12px;
+}
+.test-thumb-doc svg{
+  width:56px;height:70px;fill:none;stroke:currentColor;stroke-width:2.4;
+  color:var(--green);opacity:0.55;
+}
+
+/* ---- 9. .photo-duo: two photos side by side ---- */
+.photo-duo{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+@media (max-width:620px){.photo-duo{grid-template-columns:1fr;}}
+.photo-duo figure{margin:0;}
+.photo-duo img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:16px;}
+.photo-duo figcaption{font-size:0.85rem;color:var(--ink-faint);margin-top:8px;word-break:keep-all;}
+
+/* ---- 10. .wide-figure: full-width photo ---- */
+.wide-figure{margin:26px 0 0;}
+.wide-figure img{width:100%;border-radius:var(--radius-lg);object-fit:cover;max-height:340px;}
+.wide-figure figcaption{font-size:0.85rem;color:var(--ink-faint);margin-top:10px;word-break:keep-all;}
+
+/* ---- 11. .process-figure: wide-figure variant for diagrams (contain, not crop) ---- */
+.process-figure{margin:26px 0 0;}
+.process-figure img{
+  width:100%;max-height:420px;object-fit:contain;border-radius:var(--radius-lg);
+  background:var(--card-bg);border:1px solid var(--border);padding:16px;
+}
+.process-figure figcaption{font-size:0.85rem;color:var(--ink-faint);margin-top:10px;word-break:keep-all;}
+
+/* ---- 12. .faq-list: native details/summary accordion ---- */
+.faq-list{margin:0;}
+.faq-item{
+  background:var(--card-bg);border:1px solid var(--border);border-radius:14px;
+  margin-bottom:12px;overflow:hidden;
+}
+.faq-item summary{
+  padding:18px 22px;padding-right:52px;font-weight:700;font-size:1.02rem;
+  cursor:pointer;list-style:none;position:relative;word-break:keep-all;
+  transition:background .15s ease;
+}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{
+  content:'+';position:absolute;right:22px;top:50%;transform:translateY(-50%);
+  font-size:1.3rem;font-weight:700;color:var(--green);line-height:1;
+}
+.faq-item details[open] summary::after{content:'\2212';} /* minus sign */
+.faq-item details[open] summary{background:var(--lime-tint);}
+.faq-item p{padding:0 22px 20px;margin:0;color:var(--ink-soft);line-height:1.8;font-size:0.97rem;word-break:keep-all;}
+
+/* ---- 13. .brand-logo: KALI wordmark image, sized per context ---- */
+.brand{display:flex;align-items:center;gap:10px;}
+.site-nav .brand-logo{height:26px;width:auto;display:block;}
+.app-topbar .brand-logo{height:22px;width:auto;display:block;}
+.drawer-header .brand-logo{height:24px;width:auto;display:block;}
+.footer-brand .brand-logo{height:30px;width:auto;display:block;margin-bottom:12px;}
+
+/* ---- 14. Typography lift: modest size increase requested by client ---- */
+/* Body copy grows only on larger screens so mobile layouts stay untouched. */
+@media (min-width:1024px){
+  body{font-size:17px;}
+}
+.block-desc{font-size:1.02rem;}
+.section-subtitle{font-size:clamp(1.02rem,1.6vw,1.15rem);}
+
+/* Drawer parent rows are now tap-to-expand, so make the whole row read as a control */
+.drawer-nav .nav-group > .nav-row{cursor:pointer;}
+.drawer-nav .nav-group > .nav-row:active{background:var(--lime-tint);}
+.drawer-nav .nav-group.open > .nav-row > a{color:var(--green);}
