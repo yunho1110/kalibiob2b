@@ -405,7 +405,6 @@
       if (drawer && drawer.classList.contains('open')) { closeDrawer(); }
       var openGroups = document.querySelectorAll('.main-nav .nav-group.open');
       for (var g = 0; g < openGroups.length; g++) { openGroups[g].classList.remove('open'); }
-      if (certLb && certLb.classList.contains('open')) { closeCertLb(); }
     });
 
     /* ===== Product CTA prefills the inquiry type ===== */
@@ -442,41 +441,6 @@
     }
 
     /* ===== Certificate lightbox ===== */
-    var certLb = document.getElementById('certLightbox');
-    var certLbImg = document.getElementById('certLightboxImg');
-    var certLbClose = document.getElementById('certLightboxClose');
-
-    function openCertLb(src, alt) {
-      if (!certLb) { return; }
-      certLbImg.setAttribute('src', src);
-      certLbImg.setAttribute('alt', alt || '');
-      certLb.classList.add('open');
-      certLb.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeCertLb() {
-      if (!certLb) { return; }
-      certLb.classList.remove('open');
-      certLb.setAttribute('aria-hidden', 'true');
-      certLbImg.setAttribute('src', '');
-      document.body.style.overflow = '';
-    }
-    var certCards = document.querySelectorAll('.cert-card');
-    for (var c = 0; c < certCards.length; c++) {
-      (function (card) {
-        var img = card.querySelector('.cert-thumb img');
-        if (!img) { return; }
-        card.setAttribute('data-has-image', 'true');
-        card.querySelector('.cert-thumb').addEventListener('click', function () {
-          openCertLb(img.getAttribute('src'), img.getAttribute('alt'));
-        });
-      })(certCards[c]);
-    }
-    if (certLbClose) { certLbClose.addEventListener('click', closeCertLb); }
-    if (certLb) {
-      certLb.addEventListener('click', function (e) { if (e.target === certLb) { closeCertLb(); } });
-    }
-
     /* ===== Reveal on scroll ===== */
     if ('IntersectionObserver' in window) {
       var observer = new IntersectionObserver(function (entries) {
