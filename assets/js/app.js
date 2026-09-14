@@ -11,6 +11,9 @@
 
   var SUPPORTED = ['ko', 'en', 'zh'];
   var currentLang = 'ko';
+  /* Set once routing is wired up, so switching language also re-reads the
+     nav labels that the big page heading is built from. */
+  var onLangApplied = null;
 
   function setLang(lang) {
     if (SUPPORTED.indexOf(lang) === -1) { lang = 'ko'; }
@@ -36,6 +39,8 @@
     for (var j = 0; j < langBtns.length; j++) {
       langBtns[j].classList.toggle('active', langBtns[j].getAttribute('data-lang') === lang);
     }
+
+    if (onLangApplied) { onLangApplied(); }
   }
 
   document.addEventListener('DOMContentLoaded', function () {
@@ -103,7 +108,7 @@
       business: ['biz-material', 'biz-goods', 'biz-oem'],
       products: ['prod-soap', 'prod-paste', 'prod-process'],
       about: ['about-info', 'about-origin', 'about-vision', 'about-why', 'about-principles'],
-      partnership: ['part-current', 'part-history', 'part-global'],
+      partnership: ['part-current', 'part-global'],
       contact: ['contact-form', 'contact-faq']
     };
     var SUBVIEW_DEFAULT = {
@@ -252,13 +257,14 @@
       for (var i = 0; i < pending.length; i++) { pending[i].classList.add('is-visible'); }
     }
 
-    /* ===== Page title + breadcrumb, driven by the already-translated nav text
-       so this never needs its own string table. ===== */
+    /* ===== Page title, driven by the already-translated nav text so this
+       never needs its own string table. The big heading at the top of each
+       view now names the sub-page the visitor is on, which is why the view
+       name and its lead line were removed from the markup. ===== */
     function updateNavContext(viewId, subId) {
-      var crumb = document.querySelector('.view.is-active .crumb');
+      var slot = document.querySelector('.view.is-active [data-page-title]');
       if (viewId === 'home') {
         document.title = '주식회사 카리바이오 — 천연 미네랄 소재';
-        if (crumb) { crumb.textContent = ''; }
         return;
       }
       var viewLink = document.querySelector('.main-nav [data-view="' + viewId + '"]');
@@ -269,19 +275,16 @@
         subName = subLink ? subLink.textContent.trim() : '';
       }
       document.title = (subName ? subName + ' · ' : '') + viewName + ' | 주식회사 카리바이오';
+      if (slot) { slot.textContent = subName || viewName; }
 
-      if (crumb) {
-        crumb.textContent = '';
-        if (subName) {
-          crumb.appendChild(document.createTextNode(viewName + ' '));
-          var sep = document.createElement('span');
-          sep.textContent = '›';
-          crumb.appendChild(sep);
-          crumb.appendChild(document.createTextNode(' '));
-          var strong = document.createElement('strong');
-          strong.textContent = subName;
-          crumb.appendChild(strong);
-        }
+      /* Several sub-pages open with a heading that repeats the page title we
+         just set. Showing the same words twice reads as a mistake, so the
+         inner one steps aside where it is an exact repeat. */
+      var heads = document.querySelectorAll('.view.is-active .tech-block:not([hidden]) > .block-title, .view.is-active .product-group:not([hidden]) > .block-title');
+      for (var h = 0; h < heads.length; h++) {
+        var norm = function (t) { return t.replace(/\s+/g, ''); };
+        var dup = norm(heads[h].textContent) === norm(subName || viewName);
+        heads[h].hidden = dup;
       }
     }
 
@@ -310,6 +313,8 @@
        watching clicks on internal hash links just before the browser acts on
        them; anything else that changes the hash is treated as history
        navigation. */
+    var lastView = null;
+    var lastSub = null;
     var scrollGuardUntil = 0;
     var scrollGuardRunning = false;
     var releaseGuard = function () { scrollGuardUntil = 0; };
@@ -327,6 +332,8 @@
       var viewId = getViewFromHash();
       showView(viewId);
       var activeSub = showSubview(viewId, getSubsectionFromHash());
+      lastView = viewId;
+      lastSub = activeSub;
       updateNavContext(viewId, activeSub);
       revealAll();
       if (true) { /* every route change opens its page at the top */
@@ -355,6 +362,11 @@
       }
       if (!isInitial) { focusActiveTitle(viewId, activeSub); }
     }
+
+    /* Re-label the heading only — a language switch must not move the page. */
+    onLangApplied = function () {
+      if (lastView) { updateNavContext(lastView, lastSub); }
+    };
 
     window.addEventListener('hashchange', function () {
       var isHistoryNav = !navigatedByClick;
@@ -393,7 +405,6 @@
       if (drawer && drawer.classList.contains('open')) { closeDrawer(); }
       var openGroups = document.querySelectorAll('.main-nav .nav-group.open');
       for (var g = 0; g < openGroups.length; g++) { openGroups[g].classList.remove('open'); }
-      if (certLb && certLb.classList.contains('open')) { closeCertLb(); }
     });
 
     /* ===== Product CTA prefills the inquiry type ===== */
@@ -430,41 +441,6 @@
     }
 
     /* ===== Certificate lightbox ===== */
-    var certLb = document.getElementById('certLightbox');
-    var certLbImg = document.getElementById('certLightboxImg');
-    var certLbClose = document.getElementById('certLightboxClose');
-
-    function openCertLb(src, alt) {
-      if (!certLb) { return; }
-      certLbImg.setAttribute('src', src);
-      certLbImg.setAttribute('alt', alt || '');
-      certLb.classList.add('open');
-      certLb.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeCertLb() {
-      if (!certLb) { return; }
-      certLb.classList.remove('open');
-      certLb.setAttribute('aria-hidden', 'true');
-      certLbImg.setAttribute('src', '');
-      document.body.style.overflow = '';
-    }
-    var certCards = document.querySelectorAll('.cert-card');
-    for (var c = 0; c < certCards.length; c++) {
-      (function (card) {
-        var img = card.querySelector('.cert-thumb img');
-        if (!img) { return; }
-        card.setAttribute('data-has-image', 'true');
-        card.querySelector('.cert-thumb').addEventListener('click', function () {
-          openCertLb(img.getAttribute('src'), img.getAttribute('alt'));
-        });
-      })(certCards[c]);
-    }
-    if (certLbClose) { certLbClose.addEventListener('click', closeCertLb); }
-    if (certLb) {
-      certLb.addEventListener('click', function (e) { if (e.target === certLb) { closeCertLb(); } });
-    }
-
     /* ===== Reveal on scroll ===== */
     if ('IntersectionObserver' in window) {
       var observer = new IntersectionObserver(function (entries) {
