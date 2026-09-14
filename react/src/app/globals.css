@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+/*
+  KaliBio design tokens.
+  Per the active design-taste ruleset: neutral base (zinc) + exactly ONE
+  accent color (lime). --brand-green is a large-surface brand color (hero /
+  dark sections), not a competing accent — it never appears on an
+  interactive element next to lime. Mustard, used as a secondary accent on
+  the original site, was retired here to honor the single-accent rule.
+*/
+:root {
+  --background: #fafafa; /* zinc-50 */
+  --foreground: #09090b; /* zinc-950 */
+
+  --brand-green: #1f4a3c;
+  --brand-green-deep: #163a2e;
+  --brand-lime: #8dc63f;
+  --brand-lime-deep: #6fa52c;
+  --brand-lime-text: #4e7a1c; /* AA-safe on light backgrounds */
+  --brand-lime-tint: #f2f8e7;
+
+  --radius-card: 1.75rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-brand-green: var(--brand-green);
+  --color-brand-green-deep: var(--brand-green-deep);
+  --color-brand-lime: var(--brand-lime);
+  --color-brand-lime-deep: var(--brand-lime-deep);
+  --color-brand-lime-text: var(--brand-lime-text);
+  --color-brand-lime-tint: var(--brand-lime-tint);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-kr: var(--font-noto-kr);
+  --font-sc: var(--font-noto-sc);
+
+  --radius-card: var(--radius-card);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+::selection {
+  background: var(--brand-lime-tint);
+  color: var(--brand-green-deep);
+}
