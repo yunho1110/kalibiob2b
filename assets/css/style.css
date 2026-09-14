@@ -8,10 +8,10 @@
   --ink:#1B1C16;
   --ink-soft:#54564A;
   --ink-faint:#707164;
-  --green:#1F4A3C;
+  --green:var(--primitive-color-primary-500, #1F4A3C);
   --green-deep:#163A2E;
   --green-mid:#2E6B55;
-  --lime:#8DC63F;
+  --lime:var(--primitive-color-accent-500, #8DC63F);
   --lime-deep:#6FA52C;
   --lime-soft:#E7F2D2;
   --lime-tint:#F2F8E7;
@@ -24,7 +24,7 @@
   --cobalt:#2F5FA8;
   --accent:#8DC63F;
   --accent-btn:#6FA52C;
-  --mustard:#C9A94A;
+  --mustard:var(--primitive-color-secondary-500, #C9A94A);
   --border:#DCDCC9;
   --card-bg:#FFFFFF;
   --radius-lg:20px;
@@ -65,7 +65,8 @@ a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 select:focus-visible,
-textarea:focus-visible{
+textarea:focus-visible,
+[tabindex="-1"]:focus-visible{
   outline:2.5px solid var(--green);outline-offset:2px;border-radius:4px;
 }
 .lang-btn:focus-visible{outline-offset:1px;}
@@ -195,15 +196,18 @@ textarea:focus-visible{
 .nav-toggle:hover{color:var(--cream);}
 .nav-group.open .nav-toggle{transform:rotate(180deg);}
 .sidebar-nav .nav-sub{
-  display:flex;flex-direction:column;padding-left:18px;margin:0;
-  max-height:0;overflow:hidden;transition:max-height .3s ease;
+  display:grid;grid-template-rows:0fr;margin:0;
+  transition:grid-template-rows .3s ease;
+}
+.sidebar-nav .nav-sub-inner{
+  display:flex;flex-direction:column;padding-left:18px;overflow:hidden;
 }
 .sidebar-nav .nav-sub a{padding:9px 14px 9px 24px !important;font-size:0.88rem !important;font-weight:500 !important;color:rgba(247,247,240,0.55) !important;}
 .sidebar-nav .nav-sub a:hover,.sidebar-nav .nav-sub a.active{color:var(--cream) !important;}
 .sidebar-nav .nav-sub a::before{display:none !important;}
-.nav-group.open .nav-sub{max-height:300px;margin-bottom:6px;}
+.nav-group.open .nav-sub{grid-template-rows:1fr;margin-bottom:6px;}
 @media (min-width:1024px){
-  .nav-group:hover .nav-sub{max-height:300px;margin-bottom:6px;}
+  .nav-group:hover .nav-sub{grid-template-rows:1fr;margin-bottom:6px;}
   .nav-group:hover .nav-toggle{transform:rotate(180deg);}
 }
 
@@ -251,11 +255,12 @@ textarea:focus-visible{
 .drawer-nav .nav-row a{flex:1;border-bottom:none;}
 .drawer-nav .nav-toggle{color:var(--ink-faint);font-size:0.80rem;padding:10px 14px;}
 .drawer-nav .nav-toggle:hover{color:var(--ink);}
-.drawer-nav .nav-sub{display:flex;flex-direction:column;padding:0 0 0 16px;max-height:0;overflow:hidden;transition:max-height .3s ease;}
+.drawer-nav .nav-sub{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease;}
+.drawer-nav .nav-sub-inner{display:flex;flex-direction:column;padding:0 0 6px 16px;overflow:hidden;}
 .drawer-nav .nav-sub a{font-size:0.95rem;font-weight:600;padding:13px 6px 13px 14px;border-bottom:none;color:var(--ink-soft) !important;}
 .drawer-nav .nav-sub a.active{color:var(--lime-text) !important;}
 .drawer-nav .nav-sub a::before{display:none;}
-.drawer-nav .nav-group.open .nav-sub{max-height:300px;padding-bottom:6px;}
+.drawer-nav .nav-group.open .nav-sub{grid-template-rows:1fr;}
 
 .app-content{padding-top:var(--topbar-h);}
 
@@ -639,7 +644,6 @@ textarea:focus-visible{
   background:var(--paper);color:var(--ink);
 }
 .form-row textarea{min-height:110px;resize:vertical;}
-.form-row input:focus,.form-row select:focus,.form-row textarea:focus{outline:2px solid var(--green);outline-offset:1px;}
 
 @media (max-width:900px){
   .contact-layout{grid-template-columns:1fr;}
@@ -1205,7 +1209,8 @@ footer.site-footer{background:var(--green-deep);color:var(--cream);padding:clamp
 .drawer-nav .nav-row > a{padding-right:4px;}
 /* sub-rows read as a nested list, not as more top-level items */
 .drawer-nav .nav-sub{border-left:2px solid var(--lime);margin-left:6px;}
-.drawer-nav .nav-group.open .nav-sub{max-height:420px;padding:4px 0 10px;}
+.drawer-nav .nav-group.open .nav-sub{grid-template-rows:1fr;}
+.drawer-nav .nav-group.open .nav-sub-inner{padding:4px 0 10px;}
 
 /* =========================================================
    NEW COMPONENTS — appended additions below this line only.
@@ -1551,17 +1556,29 @@ figure img{height:auto;}
 
 .home-hero-inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:clamp(28px,5vh,52px);text-align:center;}
 
-/* ---- cycle diagram ---- */
-.home-cycle{position:relative;width:min(100%,560px);aspect-ratio:1/1;margin:0 auto;}
+/* ---- cycle diagram ----
+   Consolidated. This used to be four separate patch blocks (each a later
+   "fix" layered on the last, each redeclaring the same properties at
+   different values) that fought each other in the cascade — that's what
+   caused nodes/arrows/labels to overlap. One definition per property now. */
+.home-hero-inner{width:100%;gap:clamp(14px, 2.2vh, 26px);}
+.home-hero{padding-block:clamp(16px, 2.4vh, 40px);}
+
+.home-cycle{
+  position:relative;align-self:center;margin:0 auto;
+  width:min(100%, 560px, 52vh);aspect-ratio:1/1;
+}
+@media (min-width:1280px){ .home-cycle{width:min(100%, 620px, 54vh);} }
+
 .home-cycle-arrows{position:absolute;inset:0;width:100%;height:100%;overflow:visible;}
-.home-cyc-arc{fill:none;stroke:var(--green);stroke-width:0.9;stroke-linecap:round;opacity:0.55;}
+.home-cyc-arc{fill:none;stroke:var(--green);stroke-width:1.6;stroke-linecap:round;opacity:0.55;}
 
 .home-cyc-list{position:static;list-style:none;margin:0;padding:0;}
 .home-cyc-node{
   position:absolute;left:var(--nx);top:var(--ny);
   transform:translate(-50%,-50%);
   display:flex;flex-direction:column;align-items:center;gap:8px;
-  width:clamp(64px,15%,104px);
+  width:22%;
 }
 .home-cyc-node--1{--nx:50%;--ny:8%;}
 .home-cyc-node--2{--nx:90%;--ny:37%;}
@@ -1571,47 +1588,53 @@ figure img{height:auto;}
 
 .home-cyc-media{
   display:block;width:100%;aspect-ratio:1/1;border-radius:50%;
-  background:var(--green);padding:10%;box-shadow:var(--shadow);
+  background:var(--green);padding:8%;box-shadow:var(--shadow);
   overflow:hidden;
 }
 .home-cyc-media img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;}
+/* 사진이 없는 '일상' 단계도 나머지 고리와 같은 부류로 읽히게 */
 .home-cyc-media--type{
-  display:flex;align-items:center;justify-content:center;text-align:center;
-  color:var(--cream);font-family:var(--font-display);font-weight:800;
-  font-size:clamp(0.72rem,2vw,0.95rem);letter-spacing:0.01em;line-height:1.25;word-break:keep-all;
-  padding:0;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--shadow), inset 0 0 0 3px rgba(247,247,240,.28);
 }
-.home-cyc-label{font-size:clamp(0.72rem,1.6vw,0.86rem);font-weight:700;color:var(--ink-soft);letter-spacing:0.01em;}
+.home-cyc-media--type svg{width:46%;height:46%;color:var(--cream);}
+
 /* 라벨이 호 위에 얹혀 글자와 선이 겹쳐 읽혔다. 배경으로 선을 끊는다. */
-.home-cyc-label{background:var(--cream);padding:0 4px;border-radius:3px;}
+.home-cyc-label{
+  font-size:0.86rem;font-weight:700;color:var(--ink-soft);letter-spacing:0.01em;
+  background:var(--cream);padding:0 4px;border-radius:3px;
+}
 
 .home-cycle-core{
   position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:56%;display:flex;flex-direction:column;align-items:center;gap:14px;
+  width:38%;display:flex;flex-direction:column;align-items:center;gap:8px;
   text-align:center;
 }
-.home-cycle-logo{width:clamp(96px,20vw,150px);height:auto;}
-.home-cycle-sub{margin:0;font-family:var(--font-display);color:var(--ink);line-height:1.3;word-break:keep-all;}
+.home-cycle-logo{width:100%;max-width:180px;height:auto;}
+.home-cycle-sub{
+  margin:0;font-family:var(--font-display);color:var(--ink);
+  line-height:1.3;word-break:keep-all;font-size:0.95rem;font-weight:600;
+}
 .home-cycle-sub .home-num{
-  display:block;color:var(--green);font-weight:900;
+  display:block;color:var(--green);font-weight:900;white-space:nowrap;
   font-size:clamp(1.5rem,5vw,2.7rem);letter-spacing:-0.02em;line-height:1.08;margin-bottom:2px;
 }
-.home-cycle-sub{font-size:clamp(0.86rem,1.8vw,1.05rem);font-weight:600;}
 
-@media (max-width:640px){
-  .home-cycle{width:min(100%,340px);}
-  .home-cycle-core{width:60%;gap:10px;}
+@media (max-width:900px){
+  .home-cycle-core{width:34%;}
+  .home-cycle-sub{font-size:0.85rem;}
 }
 
 /* ---- bottom tagline: the single H1 of the page ---- */
 .home-tagline{
   margin:0;max-width:18ch;
   font-family:var(--font-display);font-weight:900;color:var(--ink);
-  font-size:clamp(1.5rem,4.4vw,2.5rem);line-height:1.22;letter-spacing:-0.02em;word-break:keep-all;
+  font-size:clamp(1.5rem,3.2vw,2.6rem);line-height:1.28;letter-spacing:-0.02em;word-break:keep-all;
+  margin-top:clamp(4px,1vh,16px);
 }
 
 /* ---- secondary block: business-model chips, CTAs, intro copy (below the fold) ---- */
-.home-below{padding-top:clamp(48px,7vw,88px);}
+.home-below{padding-top:clamp(40px,5vw,72px);}
 .home-below-intro{max-width:640px;margin:0 auto var(--s6);text-align:center;}
 .home-below .hero-eyebrow{
   color:var(--green);border-color:var(--border);background:var(--lime-tint);
@@ -1622,6 +1645,14 @@ figure img{height:auto;}
 .home-below .hero-ctas{justify-content:center;margin-bottom:0;}
 .home-hero .hero-ctas .btn-outline{border-color:var(--border);color:var(--ink-soft);}
 .home-hero .hero-ctas .btn-outline:hover{border-color:var(--green);color:var(--green);}
+
+/* 어두운 배경용 .hero-eyebrow(크림색 글자)는 크림 배경 위에서 안 보여서
+   여기서 밝은 배경용 값으로 다시 잡는다. */
+.home-hero .hero-eyebrow{
+  margin:0;color:var(--green);background:var(--lime-tint);border:1px solid var(--border);
+}
+.home-hero .hero-ctas{justify-content:center;margin:0;}
+.home-hero .hero-ctas .btn{padding:13px var(--s5);}
 
 @media (prefers-reduced-motion:no-preference) and (min-width:641px){
   .home-cyc-node{animation:homeCycIn .7s cubic-bezier(.2,.7,.3,1) both;}
@@ -1635,109 +1666,23 @@ figure img{height:auto;}
   @keyframes homeArcIn{from{opacity:0;}to{opacity:0.55;}}
 }
 
+/* 좁은 화면: 원형 배치를 버리고 작은 원 + 옆 라벨의 두 칸짜리 목록으로. */
 @media (max-width:640px){
+  .home-cycle{width:auto;aspect-ratio:auto;}
   .home-cycle-arrows{display:none;}
-  .home-cycle{width:auto;aspect-ratio:auto;display:flex;flex-direction:column;align-items:center;}
-  .home-cyc-list{display:flex;flex-direction:column;align-items:center;gap:0;}
-  .home-cyc-node{position:static;transform:none;width:min(58vw,220px);}
-  .home-cyc-node + .home-cyc-node{margin-top:18px;}
-  .home-cyc-node + .home-cyc-node::before{
-    content:"";display:block;width:14px;height:14px;margin:0 auto 18px;
-    border-right:2px solid var(--green);border-bottom:2px solid var(--green);
-    transform:rotate(45deg);opacity:0.5;
-  }
-  .home-cycle-core{position:static;transform:none;width:auto;margin-bottom:24px;order:-1;}
-}
-
-
-/* === HOME REDESIGN — 마감 보정 ===
-   서브에이전트가 만든 기본 구조 위에 얹는 단일 보정 블록.
-   (1) .home-hero 가 flex 컨테이너라 .home-hero-inner 가 콘텐츠 폭으로 줄어
-       순환도가 400px에 갇혀 있었다. (2) 노드 크기를 뷰포트가 아니라 순환도
-       폭에 비례시켜야 원끼리, 그리고 가운데 로고와 겹치지 않는다.
-   (3) 순환도와 태그라인이 첫 화면 안에 함께 들어와야 하므로 높이도 본다. */
-.home-hero-inner{width:100%; gap:clamp(14px, 2.2vh, 26px);}
-.home-hero{padding-block:clamp(24px, 4vh, 56px);}
-
-.home-cycle{align-self:center; width:min(100%, 560px, 56vh);}
-@media (min-width:1280px){ .home-cycle{width:min(100%, 620px, 58vh);} }
-
-.home-cyc-node{width:22%;}
-.home-cyc-media{padding:8%;}
-.home-cyc-label{font-size:0.86rem; font-weight:700; margin-top:4px;}
-.home-cycle-core{width:34%; gap:8px;}
-.home-cycle-logo{width:100%; max-width:180px;}
-.home-cycle-sub{font-size:0.95rem;}
-.home-cycle-sub .home-num{line-height:1.05;}
-.home-cycle-arrows [stroke]{stroke-width:1.6;}
-
-/* 사진이 없는 '일상' 단계도 나머지 고리와 같은 부류로 읽히게 */
-.home-cyc-media--type{box-shadow:var(--shadow), inset 0 0 0 3px rgba(247,247,240,.28);}
-
-.home-tagline{font-size:clamp(1.5rem, 3.2vw, 2.6rem); line-height:1.28; margin-top:clamp(4px,1vh,16px);}
-.home-below{padding-top:clamp(40px, 5vw, 72px);}
-
-@media (max-width:900px){
-  .home-cycle-core{width:38%;}
-  .home-cycle-sub{font-size:0.85rem;}
-}
-
-/* 좁은 화면: 원형 배치를 버리고 작은 원 + 옆 라벨의 한 줄짜리 흐름으로.
-   이 정리 전에는 노드가 화면 폭만큼 커져 첫 화면만 1만 픽셀을 넘었다. */
-@media (max-width:640px){
-  .home-cycle{width:auto; aspect-ratio:auto;}
   .home-cyc-list{
-    display:grid; grid-template-columns:76px 1fr; gap:14px 16px;
-    align-items:center; width:min(100%, 250px); margin:0 auto;
+    display:grid;grid-template-columns:76px 1fr;gap:14px 16px;
+    align-items:center;width:min(100%, 250px);margin:0 auto;
   }
-  .home-cyc-node,
-  .home-cyc-node + .home-cyc-node{
-    display:contents !important; width:auto !important; margin:0 !important;
-    position:static !important; transform:none !important;
-  }
-  .home-cyc-node + .home-cyc-node::before,
-  .home-cyc-node::after{display:none !important;}
-  .home-cyc-media{width:76px; height:76px; aspect-ratio:auto; padding:6px; justify-self:center;}
+  .home-cyc-node{display:contents;}
+  .home-cyc-media{width:76px;height:76px;aspect-ratio:auto;padding:6px;justify-self:center;}
   .home-cyc-media--type{font-size:0.8rem;}
-  .home-cyc-label{justify-self:start; text-align:left; margin:0; font-size:0.98rem;}
-  .home-cycle-core{
-    position:static !important; transform:none !important;
-    width:auto; margin:0 0 22px; order:-1;
-  }
+  .home-cyc-media--type svg{width:42%;height:42%;}
+  .home-cyc-label{justify-self:start;text-align:left;margin:0;font-size:0.98rem;background:none;padding:0;}
+  .home-cycle-core{position:static;transform:none;width:auto;margin:0 0 22px;order:-1;}
   .home-cycle-logo{max-width:138px;}
   .home-cycle-sub{font-size:0.92rem;}
-}
 
-/* === 첫 화면: 순환도가 혼자 서 있지 않게 ===
-   순환도만으로는 "무슨 회사인지"와 "다음에 뭘 하면 되는지"가 비어 있었다.
-   위에 정체를 밝히는 한 줄, 아래에 행동 하나. 순환도 자체는 그대로 둔다.
-   기존 .hero-eyebrow 는 어두운 배경용(크림색 글자)이라 크림 배경에서는
-   보이지 않는다. 밝은 배경용 값으로 여기서 다시 잡는다. */
-.home-hero .hero-eyebrow{
-  margin:0;
-  color:var(--green);
-  background:var(--lime-tint);
-  border:1px solid var(--border);
-}
-
-.home-hero .hero-ctas{justify-content:center;margin:0;}
-.home-hero .hero-ctas .btn{padding:13px var(--s5);}
-
-/* 순환도는 첫 화면의 주인공이되, 새로 들어온 두 줄의 자리를 남긴다.
-   너무 줄이면 가운데 "12억 년"이 두 줄로 접히고 라벨이 원에 붙는다. */
-.home-cycle{width:min(100%, 560px, 52vh);}
-@media (min-width:1280px){ .home-cycle{width:min(100%, 620px, 54vh);} }
-.home-hero{padding-block:clamp(16px, 2.4vh, 40px);}
-.home-hero-inner{gap:clamp(12px, 1.8vh, 22px);}
-.home-cycle-core{width:38%;}
-.home-cycle-sub .home-num{white-space:nowrap;}
-
-@media (max-width:640px){
   .home-hero .hero-ctas{width:100%;flex-direction:column;align-items:stretch;}
   .home-hero .hero-ctas .btn{width:100%;}
 }
-
-/* 사진이 없는 '일상' 단계 — 바로 옆 라벨과 같은 글자를 원 안에 또 넣지 않고
-   단순한 선 아이콘으로 닫는다. */
-.home-cyc-media--type svg{width:46%; height:46%; color:var(--cream);}
-@media (max-width:640px){ .home-cyc-media--type svg{width:42%; height:42%;} }
