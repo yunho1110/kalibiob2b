@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /assets/docs/
+
+Sitemap: https://yunho1110.github.io/kalibiob2b/sitemap.xml

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 이 사이트는 해시 라우팅 단일 페이지입니다. 색인 가능한 URL은 언어 변형
+     세 개뿐이므로 그대로 신고합니다. 섹션별 URL이 필요해지면 뷰마다 정적
+     파일을 만들거나 서버 rewrite를 붙여야 합니다. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://yunho1110.github.io/kalibiob2b/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://yunho1110.github.io/kalibiob2b/?lang=ko"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yunho1110.github.io/kalibiob2b/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://yunho1110.github.io/kalibiob2b/?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yunho1110.github.io/kalibiob2b/"/>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://yunho1110.github.io/kalibiob2b/?lang=en</loc>
+    <lastmod>2026-09-15</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yunho1110.github.io/kalibiob2b/?lang=zh</loc>
+    <lastmod>2026-09-15</lastmod>
+    <priority>0.8</priority>
+  </url>
+</urlset>
