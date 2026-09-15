@@ -600,15 +600,16 @@ summary:focus-visible{
   }
 }
 
+/* 사진을 원형으로 잘라 사각 경계를 없앤다. 페이드 오버레이를 덧씌우는
+   대신 형태로 해결하는 쪽이 순환도의 원들과도 맞는다. */
 .home-hero-texture{
   position:absolute;top:-18%;right:-14%;width:min(90vw,640px);aspect-ratio:1/1;
-  opacity:0.16;filter:blur(2px) saturate(0.9);mix-blend-mode:multiply;
+  border-radius:50%;overflow:hidden;
+  opacity:0.14;filter:blur(3px) saturate(0.9);mix-blend-mode:multiply;
   pointer-events:none;z-index:var(--z-below);
 }
-.home-hero-texture::after{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(circle at 30% 30%,transparent 40%,var(--cream) 92%);
-}
+/* 페이드 오버레이 제거. 원본 사진의 밝은 배경이 mix-blend-mode:multiply
+   에서 크림 바탕에 그대로 녹아들어, 덮개 없이도 경계가 생기지 않는다. */
 .home-hero-texture img{width:100%;height:100%;object-fit:cover;}
 @media (max-width:640px){
   .home-hero-texture{width:min(120vw,620px);top:-26%;right:-38%;opacity:0.14;}
@@ -1003,7 +1004,7 @@ summary:focus-visible{
 .test-thumb{display:flex;align-items:center;justify-content:center;background:var(--warm);}
 .test-thumb img{width:100%;height:100%;object-fit:contain;background:#fff;}
 .test-thumb-doc{
-  background:linear-gradient(160deg,var(--lime-tint),var(--warm));
+  background:var(--lime-tint);
   flex-direction:column;gap:var(--s3);color:var(--green);
 }
 .test-thumb-doc svg{
@@ -1113,8 +1114,9 @@ summary:focus-visible{
 .soap-process{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3);align-items:stretch;}
 @media (max-width:860px){ .soap-process{grid-template-columns:repeat(2,1fr);} }
 @media (max-width:460px){ .soap-process{grid-template-columns:1fr;} }
+/* 다른 카드와 같은 흰 바탕. 단계 구분은 .sp-num 의 라임 텍스트가 맡는다. */
 .sp-step{
-  position:relative;background:linear-gradient(180deg,var(--lime-tint),var(--white));
+  position:relative;background:var(--white);
   box-shadow:var(--shadow);border-radius:var(--r-lg);
   padding:var(--s6) var(--s5);text-align:center;
 }
@@ -1237,7 +1239,6 @@ summary:focus-visible{
 .vision-statement-band{
   background:var(--green);color:var(--cream);border-radius:var(--r-lg);
   padding:clamp(32px,4.5vw,56px) clamp(var(--s5),4vw,var(--s7));
-  background-image:radial-gradient(circle at 88% 12%,rgba(141,198,63,0.22),transparent 55%);
 }
 .vision-statement-band .eyebrow{
   color:var(--lime);margin-bottom:var(--s5);
