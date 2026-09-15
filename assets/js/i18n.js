@@ -100,7 +100,10 @@ var I18N = {
     t1m: { ko: "한국광해광업공단 기술연구원 · 2024.4.30~5.22 · KS E 3098:2004", en: "KOMIR Research Institute · 30 Apr – 22 May 2024 · KS E 3098:2004", zh: "韩国矿害矿业公团技术研究院 · 2024.4.30~5.22 · KS E 3098:2004" },
     t2t: { ko: "인체적용시험", en: "Human application study", zh: "人体应用试验" },
     t2d: { ko: "분말을 피부에 적용했을 때의 변화를 확인했습니다.", en: "Measured the changes when the powder is applied to skin.", zh: "确认将粉体应用于皮肤时的变化。" },
-    t2m: { ko: "한국바이오임상연구센터 · 피험자 12명 · 8개 항목 + 피부자극 테스트", en: "Korea Bio Research Center · 12 subjects · 8 measures + irritation test", zh: "韩国生物临床研究中心 · 受试者12名 · 8个项目 + 皮肤刺激测试" }
+    t2m: { ko: "한국바이오임상연구센터 · 피험자 12명 · 8개 항목 + 피부자극 테스트", en: "Korea Bio Research Center · 12 subjects · 8 measures + irritation test", zh: "韩国生物临床研究中心 · 受试者12名 · 8个项目 + 皮肤刺激测试" },
+    phAcid: { ko: "0 · 산성", en: "0 · Acidic", zh: "0 · 酸性" },
+    phNeutral: { ko: "7 · 중성", en: "7 · Neutral", zh: "7 · 中性" },
+    phAlkaline: { ko: "14 · 알칼리성", en: "14 · Alkaline", zh: "14 · 碱性" }
   },
   biz: {
     eyebrow: { ko: "BUSINESS", en: "BUSINESS", zh: "业务领域" },
@@ -154,7 +157,8 @@ var I18N = {
     originTitle: { ko: "기원", en: "Origin", zh: "起源" },
     originP1: { ko: "12억 년 전 형성된 천연 미네랄 칼륨장석. 자체 광산에서 이 광물을 마주한 것이 시작이었습니다.", en: "Potassium feldspar, a natural mineral formed 1.2 billion years ago. Meeting it at our own mine is where this began.", zh: "12亿年前形成的天然矿物钾长石。在自有矿山与这一矿物相遇，便是一切的开始。" },
     originP2: { ko: "카리바이오는 이 광물이 가진 가치와 활용 가능성에 주목했고, 생활 분야에 적용하기 위한 연구 개발을 시작했습니다. 친환경 소재와 생활용품, 바이오 분야로 이어질 수 있다고 판단했습니다.", en: "KALIBIO saw the value and the range of uses this mineral holds, and began the research needed to bring it into everyday life — eco-friendly materials, household goods and bio applications.", zh: "卡里生物关注到这一矿物所具有的价值与应用可能性，开始了将其应用于生活领域的研发，并判断其可延伸至环保材料、生活用品与生物领域。" },
-    originP3: { ko: "산학협력을 기반으로 소재의 과학적 가치와 산업적 활용성을 확인해 왔습니다. 천연 자원의 가치를 제품으로 연결하는 것이 카리바이오가 창업한 이유입니다.", en: "Working with academia, we have been establishing the material's scientific value and industrial usefulness. Connecting a natural resource to products is the reason this company exists.", zh: "以产学合作为基础,持续确认该材料的科学价值与产业应用性。把天然资源的价值连接到产品,正是卡里生物创业的理由。" }
+    originP3: { ko: "산학협력을 기반으로 소재의 과학적 가치와 산업적 활용성을 확인해 왔습니다. 천연 자원의 가치를 제품으로 연결하는 것이 카리바이오가 창업한 이유입니다.", en: "Working with academia, we have been establishing the material's scientific value and industrial usefulness. Connecting a natural resource to products is the reason this company exists.", zh: "以产学合作为基础,持续确认该材料的科学价值与产业应用性。把天然资源的价值连接到产品,正是卡里生物创业的理由。" },
+    originCap: { ko: "자체 광산에서 채취한 칼륨장석 원석", en: "Potassium feldspar rock from our own mine", zh: "取自自有矿山的钾长石原石" }
   },
   part2: {
     currentTitle: { ko: "지금 함께하는 기관들", en: "Current Partners", zh: "目前携手同行的机构" },
@@ -473,5 +477,8 @@ var I18N = {
     h7: { ko: "개인정보 보호책임자", en: "Data protection officer", zh: "个人信息保护负责人" },
     b7: { ko: "주식회사 카리바이오 · 대표 김준영 · kalibio1101@naver.com · +82-61-725-1031", en: "KALIBIO Co., Ltd. · Jun-young Kim, CEO · kalibio1101@naver.com · +82-61-725-1031", zh: "卡里生物股份有限公司 · 代表 金俊荣 · kalibio1101@naver.com · +82-61-725-1031" },
     updated: { ko: "본 방침은 2026년 9월 15일부터 적용됩니다.", en: "This policy is effective from 15 September 2026.", zh: "本方针自2026年9月15日起适用。" }
+  },
+  a11y: {
+    skip: { ko: "본문으로 건너뛰기", en: "Skip to content", zh: "跳至正文" }
   }
 };

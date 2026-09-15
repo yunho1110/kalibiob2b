@@ -80,7 +80,7 @@
 </script>
 </head>
 <body>
-<a class="skip-link" href="#viewport">본문으로 건너뛰기</a>
+<a class="skip-link" href="#viewport" data-i18n="a11y.skip">본문으로 건너뛰기</a>
 
 <!-- ===================== DESKTOP TOP NAVIGATION ===================== -->
 <header class="site-nav" id="siteNav">
@@ -95,7 +95,7 @@
       <div class="nav-group" data-group="about">
         <a class="nav-parent" href="#about" data-view="about" data-i18n="nav.about">기업소개</a>
         <div class="nav-sub">
-          <a href="#about-info" class="nav-sub-link" data-subview="about-info" data-i18n="navSub.aboutInfo">기업 정보</a>
+          <a href="#about-info" class="nav-sub-link" data-subview="about-info" data-i18n="navSub.aboutInfo">기업 정보 및 연혁</a>
           <a href="#about-origin" class="nav-sub-link" data-subview="about-origin" data-i18n="navSub.aboutOrigin">기원</a>
           <a href="#about-vision" class="nav-sub-link" data-subview="about-vision" data-i18n="navSub.aboutVision">비전과 목표</a>
           <a href="#about-why" class="nav-sub-link" data-subview="about-why" data-i18n="navSub.aboutWhy">선택 이유</a>
@@ -151,7 +151,7 @@
         <button type="button" class="lang-btn" data-lang="en">EN</button>
         <button type="button" class="lang-btn" data-lang="zh">ZH</button>
       </div>
-      <a href="#contact" class="btn btn-primary nav-cta" data-i18n="nav.cta">파트너십 문의</a>
+      <a href="#contact" class="btn btn-primary nav-cta" data-i18n="nav.cta">파트너십 제안하기</a>
     </div>
   </div>
 </header>
@@ -188,7 +188,7 @@
         <span class="nav-toggle" aria-hidden="true">▾</span>
       </button>
       <div class="nav-sub" id="drawer-sub-about">
-        <a href="#about-info" class="nav-sub-link" data-subview="about-info" data-i18n="navSub.aboutInfo">기업 정보</a>
+        <a href="#about-info" class="nav-sub-link" data-subview="about-info" data-i18n="navSub.aboutInfo">기업 정보 및 연혁</a>
         <a href="#about-origin" class="nav-sub-link" data-subview="about-origin" data-i18n="navSub.aboutOrigin">기원</a>
         <a href="#about-vision" class="nav-sub-link" data-subview="about-vision" data-i18n="navSub.aboutVision">비전과 목표</a>
         <a href="#about-why" class="nav-sub-link" data-subview="about-why" data-i18n="navSub.aboutWhy">선택 이유</a>
@@ -258,7 +258,7 @@
     <button type="button" class="lang-btn" data-lang="zh">ZH</button>
   </div>
   <div class="drawer-cta">
-    <a href="#contact" class="btn btn-primary btn-block" data-i18n="nav.cta">파트너십 문의</a>
+    <a href="#contact" class="btn btn-primary btn-block" data-i18n="nav.cta">파트너십 제안하기</a>
   </div>
 </div>
 
@@ -314,7 +314,7 @@
 
         <div class="home-cycle-core">
           <img class="home-cycle-logo" src="assets/img/logo-kali-mark.png" alt="KALI" width="1368" height="389">
-          <p class="home-cycle-sub" data-i18n="home.subcopy">12억 년 자연의 가치를 일상으로</p>
+          <p class="home-cycle-sub" data-i18n="home.subcopy"><span class="home-num">12억 년</span> 자연의 가치를 일상으로</p>
         </div>
       </div>
 
@@ -325,15 +325,15 @@
   <div class="home-below">
     <div class="container">
       <div class="home-below-intro reveal">
-        <span class="hero-eyebrow" data-i18n="hero.eyebrow">천연 미네랄 소재 기업 · 전남 순천</span>
-        <p class="hero-sub" data-i18n="hero.sub">12억 년 전 전남 순천에서 만들어진 천연 미네랄 칼륨장석.<br>카리바이오는 이 하나의 원료를 연구해 비누와 치약으로, 그리고 더 넓은 산업의 소재로 넓혀갑니다.</p>
+        <span class="hero-eyebrow" data-i18n="hero.eyebrow">천연 미네랄 소재 및 생활용품 제조 기업</span>
+        <p class="hero-sub" data-i18n="hero.sub">12억 년 전 형성된 천연 미네랄 칼륨장석.<br>카리바이오는 이 원료를 연구해<br>프리미엄 생활용품과 다양한 산업 소재로 넓혀나갑니다.</p>
         <ul class="hero-model" aria-label="사업 모델">
           <li data-i18n="hero.m1">기능성 소재 공급</li>
-          <li data-i18n="hero.m2">생활용품 완제품</li>
-          <li data-i18n="hero.m3">OEM · ODM</li>
+          <li data-i18n="hero.m2">프리미엄 생활용품 공급</li>
+          <li data-i18n="hero.m3">OEM · ODM 지원</li>
         </ul>
         <div class="hero-ctas">
-          <a href="#contact" class="btn btn-primary" data-i18n="hero.cta1">파트너십 문의</a>
+          <a href="#contact" class="btn btn-primary" data-i18n="hero.cta1">파트너십 제안하기</a>
           <a href="#material" class="btn btn-outline" data-i18n="hero.cta2">칼륨장석 알아보기</a>
         </div>
       </div>
@@ -342,7 +342,7 @@
         <article class="fact">
           <span class="fact-mark" aria-hidden="true"></span>
           <h2 class="fact-t" data-i18n="hero.f1t">원료를 직접 생산합니다</h2>
-          <p class="fact-d" data-i18n="hero.f1d">대부분의 생활용품 기업은 원료를 사서 씁니다. 카리바이오는 순천 지역 광산의 칼륨장석을 원석에서 분말까지 직접 다룹니다.</p>
+          <p class="fact-d" data-i18n="hero.f1d">대부분의 생활용품 기업은 원료를 사서 씁니다. 카리바이오는 자체 광산의 칼륨장석을 원석에서 분말까지 직접 다룹니다.</p>
         </article>
         <article class="fact">
           <span class="fact-mark" aria-hidden="true"></span>
@@ -377,13 +377,13 @@
           <aside class="story-side">
             <figure class="story-figure">
               <img src="assets/img/feldspar-powder.webp" alt="정제·미세 분말화한 칼륨장석" loading="lazy" width="1000" height="1000">
-              <figcaption data-i18n="mat.storyCap">전남 순천에서 생산된 칼륨장석을 정제·미세 분말화한 상태</figcaption>
+              <figcaption data-i18n="mat.storyCap">정제·미세 분말화한 칼륨장석</figcaption>
             </figure>
           </aside>
           <ul class="mat-checklist">
             <li class="mat-check">
               <span class="mat-check-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>
-              <span data-i18n="mat.storyCk1">순천에 위치한 광산에서 직접 채취한 칼륨장석 분말</span>
+              <span data-i18n="mat.storyCk1">자체 광산에서 직접 채취한 칼륨장석 분말</span>
             </li>
             <li class="mat-check">
               <span class="mat-check-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>
@@ -399,8 +399,8 @@
 
       <!-- 구성요소 -->
       <div id="mat-comp" class="tech-block" hidden>
-        <h2 class="block-title reveal" data-i18n="mat.compTitle">이 원료를 이루는 것</h2>
-        <p class="block-desc reveal" data-i18n="mat.compIntro">순천에서 생산된 칼륨장석을 한국광해광업공단 기술연구원에 의뢰해 분석했습니다.<br>그 결과 다음과 같은 구성요소로 확인되었습니다.</p>
+        <h2 class="block-title reveal" data-i18n="mat.compTitle">주요 구성 요소 3가지</h2>
+        <p class="block-desc reveal" data-i18n="mat.compIntro">칼륨장석을 한국광해광업공단 기술연구원에 의뢰해 분석했습니다.<br>그 결과 다음과 같은 구성요소로 확인되었습니다.</p>
         <div class="elem-grid reveal">
           <div class="elem is-core">
             <div class="elem-sym">K<span>₂O</span></div>
@@ -427,7 +427,7 @@
 
       <!-- 장점과 용처 -->
       <div id="mat-uses" class="tech-block" hidden>
-        <h2 class="block-title reveal" data-i18n="mat.usesTitle">돌 하나가 갈 수 있는 곳</h2>
+        <h2 class="block-title reveal" data-i18n="mat.usesTitle">칼륨장석의 장점</h2>
         <p class="lead-line reveal" data-i18n="mat.usesLead">자연이 선사한 미네랄, 칼륨장석의 새로운 가치</p>
         <p class="block-desc reveal" data-i18n="mat.usesP1">자연에서 얻은 칼륨장석의 고유한 특성과 미네랄의 가치를 바탕으로, 피부에 새로운 가능성을 제시하고 다양한 소재로의 활용 범위를 넓혀갑니다.</p>
 
@@ -449,7 +449,7 @@
           </div>
         </div>
 
-        <h3 class="sub-title sub-title--spaced reveal" data-i18n="matrix.title">산업 분야로 확장되는 가치</h3>
+        <h3 class="sub-title sub-title--spaced reveal" data-i18n="matrix.title">칼륨장석의 용처</h3>
         <div class="matrix-wrap reveal" tabindex="0" role="region" aria-label="산업 활용 매트릭스 — 가로로 스크롤할 수 있습니다">
           <table class="matrix">
             <thead><tr>
@@ -471,7 +471,7 @@
 
       <!-- 특성과 효능 -->
       <div id="mat-props" class="tech-block" hidden>
-        <h2 class="block-title reveal" data-i18n="mat.propsTitle">약알칼리성이라는 성질</h2>
+        <h2 class="block-title reveal" data-i18n="mat.propsTitle">칼륨장석의 특성</h2>
 
         <div class="prop-step reveal">
           <p class="block-desc" data-i18n="mat.p1d">화학적으로 안정적이어서 다양한 제형에 섞여도 잘 변하지 않습니다.<br>물에 잘 녹지 않는 광물이라, 분말 상태로 배합해도 제형 안에서 고르게 남아있습니다.</p>
@@ -481,14 +481,14 @@
           <h3 class="sub-title" data-i18n="mat.p2t">약알칼리성 (pH 9.34)</h3>
           <div class="ph-scale" role="img" aria-label="pH 0에서 14 중 9.34 위치">
             <div class="ph-bar"><span class="ph-marker" style="left:66.7%"><b>9.34</b></span></div>
-            <div class="ph-ticks"><span>0 · 산성</span><span>7 · 중성</span><span>14 · 알칼리성</span></div>
+            <div class="ph-ticks"><span data-i18n="mat.phAcid">0 · 산성</span><span data-i18n="mat.phNeutral">7 · 중성</span><span data-i18n="mat.phAlkaline">14 · 알칼리성</span></div>
           </div>
           <p class="block-desc" data-i18n="mat.p2d">pH는 산성과 알칼리성의 정도를 0~14로 나타낸 값입니다.<br>7이 중성이고, 숫자가 클수록 알칼리성입니다.<br>카리바이오의 칼륨장석 분말은 9.34로, 강하지 않은 알칼리성에 해당합니다.</p>
           <p class="block-desc" data-i18n="mat.p2e">비누는 원래 알칼리성에서 만들어집니다.<br>그래서 약알칼리성 미네랄 분말은 비누 제형과 성질이 맞아, 따로 중화 과정을 거치지 않고도 안정적으로 배합됩니다.</p>
         </div>
 
         <div class="prop-step reveal">
-          <h3 class="sub-title" data-i18n="mat.p3t">피부에 적용했을 때</h3>
+          <h3 class="sub-title" data-i18n="mat.p3t">칼륨장석의 효능</h3>
           <p class="block-desc" data-i18n="mat.p3d">한국바이오임상연구센터(KBRC)에서 칼륨장석 분말을 대상으로 인체적용시험을 진행했습니다. 피험자 12명, 8개 항목 전부에서 통계적으로 유의한 변화가 확인되었습니다.</p>
           <div class="clinical-list">
             <div class="clinical-item"><div class="clinical-title" data-i18n="clin.i2">건조로 인한 가려움 완화</div><div class="clinical-num-row"><span class="clinical-upto" data-i18n="clin.upTo">최대</span><span class="clinical-num">75.55</span><span class="clinical-unit">%</span></div><div class="clinical-bar-track"><div class="clinical-bar-fill" style="width:75.55%"></div></div><p data-i18n="clin.i2n">가려움 개선도(VAS) · 4주</p></div>
@@ -510,7 +510,7 @@
 
       <!-- 시험과 분석 -->
       <div id="mat-tests" class="tech-block" hidden>
-        <h2 class="block-title reveal" data-i18n="mat.testsTitle">확인한 것과 확인한 곳</h2>
+        <h2 class="block-title reveal" data-i18n="mat.testsTitle">칼륨장석 시험과 분석</h2>
         <p class="block-desc reveal" data-i18n="mat.testsIntro">사이트에 적은 수치는 모두 아래 시험에 근거합니다. 성적서 원본은 파트너십 문의 시 제공해드립니다.</p>
 
         <div class="test-list reveal">
@@ -565,13 +565,13 @@
           <div class="biz-copy">
             <p class="biz-head" data-i18n="biz.b1h">성분 검증된 칼륨장석 분말, 벌크 단위로 공급합니다</p>
             <p class="lead-line" data-i18n="biz.b1lead">완제품이 필요 없는 곳에는, 원료만 공급합니다.</p>
-            <p class="block-desc" data-i18n="biz.b1d">순천에서 채취한 칼륨장석을 정제하고 미세 분말로 가공한 뒤, 벌크 단위로 공급합니다. 성분 성적서를 함께 드리므로 배합 설계를 바로 시작하실 수 있습니다.</p>
+            <p class="block-desc" data-i18n="biz.b1d">칼륨장석 원석을 정제하고 미세 분말로 가공한 뒤, 벌크 단위로 공급합니다. 성분 성적서를 함께 드리므로 배합 설계를 바로 시작하실 수 있습니다.</p>
             <dl class="biz-spec">
-              <div><dt data-i18n="biz.b1a">연결 제품</dt><dd data-i18n="biz.b1av">칼륨장석 미세 분말</dd></div>
+              <div><dt data-i18n="biz.b1a">공급 제품</dt><dd data-i18n="biz.b1av">칼륨장석 미세 분말</dd></div>
               <div><dt data-i18n="biz.b1b">제공 가치</dt><dd data-i18n="biz.b1bv">원석부터 분말까지 한 곳에서 처리 — 로트별 출처가 끊기지 않습니다</dd></div>
               <div><dt data-i18n="biz.b1c">적용 분야</dt><dd data-i18n="biz.b1cv">화장품 및 구강용품 원료 · 세라믹 소성 보조제 · 유리 융제(flux) · 도료·충전재</dd></div>
             </dl>
-            <a href="#contact" class="btn btn-outline product-cta" data-inquiry="bulk" data-i18n="products.cta">문의하기</a>
+            <a href="#contact" class="btn btn-outline product-cta" data-inquiry="bulk" data-i18n="products.cta">OEM/ODM 문의</a>
           </div>
           <figure class="biz-media">
             <img src="assets/img/feldspar-powder.webp" alt="칼륨장석 미세 분말" loading="lazy" width="1000" height="1000">
@@ -597,7 +597,7 @@
                 <tbody>
                   <tr>
                     <th data-i18n="biz.gtRow1Label">제품 특징</th>
-                    <td data-i18n="biz.gtRow1Soap">피부 — 개선 효과 확인 <a href="#prod-soap" class="table-link">자세히 보기 →</a></td>
+                    <td data-i18n="biz.gtRow1Soap">피부 — 개선 효과 확인 <a href="#prod-soap">자세히 보기 →</a></td>
                     <td data-i18n="biz.gtRow1Paste">치약 — 시린 이, 구취 등 구강 고민에 사용</td>
                   </tr>
                   <tr>
@@ -638,7 +638,7 @@
                 </tbody>
               </table>
             </div>
-            <a href="#contact" class="btn btn-outline product-cta" data-inquiry="oem" data-i18n="products.cta">문의하기</a>
+            <a href="#contact" class="btn btn-outline product-cta" data-inquiry="oem" data-i18n="products.cta">OEM/ODM 문의</a>
           </div>
           <figure class="biz-media">
             <img src="assets/img/giftset.webp" alt="브랜드 전용 구성 선물세트" loading="lazy" width="1125" height="1006">
@@ -656,7 +656,7 @@
   <div class="section">
     <div class="container">
       <div class="page-head reveal">
-        <span class="eyebrow" data-i18n="products.eyebrow">PRODUCT</span>
+        <span class="eyebrow" data-i18n="products.eyebrow">PRODUCT LINEUP</span>
         <h1 class="section-title" data-page-title>제품</h1>
       </div>
 
@@ -766,7 +766,7 @@
       </div>
 
       <div id="prod-process" class="product-group" hidden>
-        <h2 class="block-title reveal" data-i18n="process.title">주요공정</h2>
+        <h2 class="block-title reveal" data-i18n="process.title">주요 공정</h2>
 
         <h3 class="sub-title reveal" data-i18n="soapProc.title">비누 제조 공정 — 4단계</h3>
         <div class="soap-process reveal">
@@ -846,7 +846,7 @@
         </div>
 
         <div class="key-callout reveal">
-          <p data-i18n="tech.calloutDesc">핵심 차별점: 70일 저온 숙성 공정으로 유효 성분 안정화 및 프리미엄 품질 구현</p>
+          <p data-i18n="tech.calloutDesc">70일 저온 숙성 공정으로 유효 성분 안정화 및 프리미엄 품질 구현</p>
         </div>
       </div>
     </div>
@@ -865,7 +865,7 @@
       </div>
 
       <div id="about-info" class="tech-block">
-        <h2 class="block-title reveal" data-i18n="navSub.aboutInfo">기업 정보</h2>
+        <h2 class="block-title reveal" data-i18n="navSub.aboutInfo">기업 정보 및 연혁</h2>
         <h3 class="sub-title reveal" data-i18n="about.milestonesTitle">회사 연혁</h3>
         <div class="milestones reveal">
           <div class="timeline-track">
@@ -904,14 +904,14 @@
         <h2 class="block-title reveal" data-i18n="about2.originTitle">기원</h2>
         <div class="story-layout reveal">
           <div class="about-copy">
-            <p class="story-lead" data-i18n="about2.originP1">전남 순천 황전면의 자체 광산. 이곳에서 12억 년 전 형성된 천연 미네랄 칼륨장석을 마주한 것이 시작이었습니다.</p>
-            <p data-i18n="about2.originP2">이 광물이 가진 소재로서의 가치와 활용 가능성에 주목했고, 생활 분야에 적용하기 위한 연구 개발을 시작했습니다. 친환경 소재와 생활용품, 바이오 분야로 이어질 수 있다고 판단했습니다.</p>
+            <p class="story-lead" data-i18n="about2.originP1">12억 년 전 형성된 천연 미네랄 칼륨장석. 자체 광산에서 이 광물을 마주한 것이 시작이었습니다.</p>
+            <p data-i18n="about2.originP2">카리바이오는 이 광물이 가진 가치와 활용 가능성에 주목했고, 생활 분야에 적용하기 위한 연구 개발을 시작했습니다. 친환경 소재와 생활용품, 바이오 분야로 이어질 수 있다고 판단했습니다.</p>
             <p data-i18n="about2.originP3">산학협력을 기반으로 소재의 과학적 가치와 산업적 활용성을 확인해 왔습니다. 천연 자원의 가치를 제품으로 연결하는 것이 카리바이오가 창업한 이유입니다.</p>
           </div>
           <aside class="story-side">
             <figure class="story-figure">
               <img src="assets/img/feldspar-rock.webp" alt="칼륨장석 원석" loading="lazy" width="1000" height="1000">
-              <figcaption>전남 순천에서 생산된 칼륨장석 원석</figcaption>
+              <figcaption data-i18n="about2.originCap">자체 광산에서 채취한 칼륨장석 원석</figcaption>
             </figure>
           </aside>
         </div>
@@ -921,16 +921,16 @@
         <h2 class="block-title reveal" data-i18n="navSub.aboutVision">비전과 목표</h2>
         <div class="vision-statement-band reveal">
           <span class="eyebrow" data-i18n="about2.visionLabel">VISION — 어디를 향하는가</span>
-          <p class="vision-statement" data-i18n="vision.statement">자연에서 시작된 가치를 더 나은 일상으로 이끄는 기업이 되겠습니다.</p>
+          <p class="vision-statement" data-i18n="vision.statement">자연에서 시작된 가치, 더 나은 일상으로 연결하는 기업이 되겠습니다.</p>
         </div>
         <h3 class="sub-title sub-title--spaced reveal" data-i18n="about2.goalLabel">GOAL — 무엇을 할 것인가</h3>
         <div class="goal-statement reveal">
-          <p data-i18n="vision.goalStatement">하나의 원료, 칼륨장석의 가능성을 끝까지 검증해<br>사람과 환경 모두에게 안전한 생활 소재를 만드는<br>글로벌 B2B 파트너가 되겠습니다.</p>
+          <p data-i18n="vision.goalStatement">칼륨장석의 가능성을 끝까지 검증해<br>사람과 환경 모두에게 안전한 생활 소재를 만드는<br>글로벌 프리미엄 생활용품 B2B 파트너가 되겠습니다.</p>
         </div>
       </div>
 
       <div id="about-why" class="tech-block" hidden>
-        <h2 class="block-title reveal" data-i18n="about2.whyTitle">선택해야 하는 이유</h2>
+        <h2 class="block-title reveal" data-i18n="about2.whyTitle">선택 이유</h2>
         <p class="block-desc reveal" data-i18n="why.subtitle">화려한 형용사 대신, 증명 가능한 세 가지 사실입니다.</p>
         <div class="why-grid reveal">
           <article class="why-card">
@@ -946,7 +946,7 @@
           <article class="why-card">
             <div class="why-card-num">03</div>
             <h3 data-i18n="why.card3.title">지역 기관과 함께 검증된 신뢰</h3>
-            <p data-i18n="why.card3.desc">전남테크노파크, 순천시청, 순천교육청 등 지역 기관과 협력하며 성장해 온, 로컬에서 검증된 제조 파트너입니다.</p>
+            <p data-i18n="why.card3.desc">지자체·대학·테크노파크 등 공공기관과 협력하며 성장해 온, 검증된 제조 파트너입니다.</p>
           </article>
         </div>
       </div>
@@ -994,12 +994,12 @@
   <div class="section">
     <div class="container">
       <div class="page-head reveal">
-        <span class="eyebrow" data-i18n="partners.eyebrow">PARTNERSHIP</span>
+        <span class="eyebrow" data-i18n="partners.eyebrow">PARTNERSHIP NETWORK</span>
         <h1 class="section-title" data-page-title>파트너십</h1>
       </div>
 
       <div id="part-current" class="tech-block">
-        <h2 class="block-title reveal" data-i18n="part2.currentTitle">협력 현황</h2>
+        <h2 class="block-title reveal" data-i18n="part2.currentTitle">지금 함께하는 기관들</h2>
         <p class="block-desc reveal" data-i18n="partners.coreNote">우리는 칼륨장석의 가능성을 검증하고,<br>그 결과를 세계 각지의 파트너와 나눕니다.</p>
         <!-- 로고 파일 미확보 — 확보 시 .lc-name 을 <img>로 교체.
              "모집 중"은 실적이 아니므로 이 그리드에서 빼고 아래 CTA로 옮겼습니다. -->
@@ -1011,7 +1011,7 @@
         </div>
 
         <h3 class="sub-title sub-title--spaced reveal" data-i18n="partners.regionalTitle">지역 협력 이력</h3>
-        <p class="block-desc reveal" data-i18n="partners.regionalNote">순천 지역 기관과 협력하며 성장해 온 이력입니다.</p>
+        <p class="block-desc reveal" data-i18n="partners.regionalNote">지역 기관과 협력하며 성장해 온 이력입니다.</p>
         <div class="logo-grid reveal">
           <div class="logo-cell"><span class="lc-name" data-i18n="partners.p2">순천시청</span></div>
           <div class="logo-cell"><span class="lc-name" data-i18n="partners.p3">순천교육청</span></div>
@@ -1033,7 +1033,7 @@
           <div class="recruit-card" data-i18n="recruit.r3">공동 연구·제품 개발에 관심 있는 기관</div>
         </div>
         <div class="reveal block-cta">
-          <a href="#contact" class="btn btn-primary" data-i18n="nav.cta">파트너십 문의</a>
+          <a href="#contact" class="btn btn-primary" data-i18n="nav.cta">파트너십 제안하기</a>
         </div>
       </div>
     </div>
@@ -1047,7 +1047,7 @@
   <div class="section">
     <div class="container">
       <div class="page-head reveal">
-        <span class="eyebrow" data-i18n="contact.eyebrow">CONTACT</span>
+        <span class="eyebrow" data-i18n="contact.eyebrow">PARTNERSHIP INQUIRY</span>
         <h1 class="section-title" data-page-title>파트너십을 제안해 주세요</h1>
       </div>
 
@@ -1122,7 +1122,7 @@
               <input type="checkbox" id="privacyConsent" name="privacyConsent" required>
               <label for="privacyConsent">
                 <span data-i18n="contact.consent">개인정보 수집·이용에 동의합니다. (회사명·담당자명·이메일·연락처·국가, 문의 처리 목적, 접수일로부터 3년 보관)</span>
-                <a href="#contact-privacy" data-i18n="contact.consentLink">개인정보처리방침 보기</a>
+                <a href="#contact-privacy" data-i18n="contact.consentLink">개인정보처리방침 전문 보기</a>
               </label>
             </div>
 
@@ -1223,7 +1223,7 @@
 </footer>
 </div>
 
-<a href="#contact" class="sticky-cta" data-i18n="stickyCta">파트너십 문의</a>
+<a href="#contact" class="sticky-cta" data-i18n="stickyCta">파트너십 제안하기</a>
 
 
 <script src="assets/js/i18n.js"></script>
