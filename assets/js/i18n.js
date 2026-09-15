@@ -480,5 +480,9 @@ var I18N = {
   },
   a11y: {
     skip: { ko: "본문으로 건너뛰기", en: "Skip to content", zh: "跳至正文" }
+  },
+  equip: {
+    pendingNote: { ko: "설비 사진은 준비 중입니다. 공정과 설비를 직접 확인하고 싶으시면 실사 일정을 잡아드립니다.", en: "Photographs of our equipment are being prepared. If you would like to see the line and the process for yourself, we will arrange a visit.", zh: "设备照片正在准备中。如需实地查看产线与工艺，我们可为您安排考察。" },
+    pendingCta: { ko: "실사 문의하기", en: "Arrange a visit", zh: "预约实地考察" }
   }
 };
