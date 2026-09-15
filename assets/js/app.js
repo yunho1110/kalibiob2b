@@ -298,6 +298,9 @@
         return null;
       }
       var active = (target && group.indexOf(target) !== -1) ? target : SUBVIEW_DEFAULT[viewId];
+      /* lets CSS target one sub-page, e.g. a larger title on 비전과 목표 */
+      var viewEl = document.getElementById(viewId);
+      if (viewEl) { viewEl.setAttribute('data-sub', active); }
       for (var i = 0; i < group.length; i++) {
         var el = document.getElementById(group[i]);
         if (el) { el.hidden = (group[i] !== active); }
@@ -396,15 +399,21 @@
       document.title = (subName ? subName + ' · ' : '') + viewName + ' | ' + siteName;
       if (slot) { slot.textContent = subName || viewName; }
 
-      /* Several sub-pages open with a heading that repeats the page title we
-         just set. Showing the same words twice reads as a mistake, so the
-         inner one steps aside where it is an exact repeat. */
+      /* Several sub-pages open with a heading that repeats the page title, and
+         showing the same words twice reads as a mistake — so the inner one
+         steps aside where it is an exact repeat.
+
+         It may only step aside when the page title is ACTUALLY ON SCREEN.
+         Business has no [data-page-title] slot: its big heading is the view
+         name ("사업분야"), so the sub-page name lives only in this block
+         heading. Hiding it there left those pages with no heading at all. */
       var heads = document.querySelectorAll(
         '.view.is-active .tech-block:not([hidden]) > .block-title, ' +
         '.view.is-active .product-group:not([hidden]) > .block-title');
       var norm = function (x) { return x.replace(/\s+/g, ''); };
+      var shown = slot ? norm(slot.textContent) : null;
       for (var h = 0; h < heads.length; h++) {
-        heads[h].hidden = norm(heads[h].textContent) === norm(subName || viewName);
+        heads[h].hidden = shown !== null && norm(heads[h].textContent) === shown;
       }
     }
 

@@ -221,9 +221,9 @@ summary:focus-visible{
 .eyebrow{
   position:relative;display:inline-block;
   font-family:var(--font-latin);
-  font-size:var(--fs-sm);font-weight:700;letter-spacing:0.24em;
+  font-size:clamp(1rem,1.9vw,1.35rem);font-weight:800;letter-spacing:0.2em;
   text-transform:uppercase;color:var(--green);
-  margin-bottom:var(--s4);padding-bottom:12px;
+  margin-bottom:var(--s4);padding-bottom:14px;
 }
 .eyebrow::after{
   content:'';position:absolute;left:0;bottom:0;
@@ -1209,7 +1209,7 @@ summary:focus-visible{
 }
 .vision-statement-band .eyebrow{
   color:var(--lime);margin-bottom:var(--s5);
-  font-size:var(--fs-sm);letter-spacing:0.2em;
+  font-size:clamp(1rem,1.9vw,1.3rem);letter-spacing:0.18em;
 }
 .vision-statement-band .eyebrow::after{background:var(--lime);}
 .vision-statement{
@@ -1227,8 +1227,9 @@ html[lang="zh"] .vision-statement{max-width:30ch;}
 }
 .goal-statement p{
   margin:0;font-family:var(--font-display);font-weight:800;color:var(--green);
-  font-size:var(--fs-xl);line-height:var(--lh-snug);letter-spacing:-0.01em;
-  word-break:keep-all;
+  /* 비전 문구와 같은 급으로 맞춘다 */
+  font-size:var(--fs-2xl);line-height:var(--lh-snug);letter-spacing:-0.02em;
+  word-break:keep-all;text-wrap:balance;
 }
 
 /* --- about: timeline --- */
@@ -1423,11 +1424,10 @@ html[lang="zh"] .vision-statement{max-width:30ch;}
 .co-table tr.is-key th{background:var(--green);color:#fff;}
 .co-table tr.is-key td{background:var(--lime-tint);color:var(--ink);font-weight:700;}
 
-.info-photos{display:flex;flex-wrap:wrap;gap:var(--s5);padding:var(--s1) 0;}
+/* 표 안에서 한 행에 한 장씩, 라벨과 균형이 맞는 크기로 */
 .info-photo{margin:0;}
 .info-photo img{
-  width:clamp(110px,24vw,150px);height:clamp(110px,24vw,150px);
-  max-width:190px;max-height:190px;
+  width:clamp(84px,16vw,112px);height:clamp(84px,16vw,112px);
   border-radius:50%;object-fit:cover;box-shadow:var(--shadow);
 }
 
@@ -1554,7 +1554,10 @@ html[lang="zh"] .vision-statement{max-width:30ch;}
   gap:var(--s5);padding-bottom:var(--s5);
   border-bottom:1px solid rgba(255,255,255,0.16);
 }
-.footer-brand{display:flex;flex-direction:column;gap:var(--s3);}
+/* 세로 flex의 기본 align-items:stretch 가 로고 이미지의 가로폭을 컨테이너
+   전체로 늘려버려, height 만 고정된 로고가 납작하게 눌려 보였다. */
+.footer-brand{display:flex;flex-direction:column;align-items:flex-start;gap:var(--s3);}
+.footer-brand .brand-logo{align-self:flex-start;flex:none;}
 .footer-brand .brand-logo{height:32px;}
 .footer-brand p{margin:0;max-width:46ch;font-size:var(--fs-sm);line-height:var(--lh-body);color:rgba(247,247,240,0.78);}
 
@@ -1644,3 +1647,17 @@ html[lang="zh"] .vision-statement{max-width:30ch;}
   margin-top:var(--s3);border-color:var(--green);color:var(--green);
 }
 .form-note--error .form-copy{border-color:#7A3225;color:#7A3225;}
+
+/* ---- 24. 비전과 목표 페이지의 제목은 한 단계 크게 ----
+   app.js 가 활성 하위 페이지를 data-sub 로 표시해 주므로, 페이지 제목
+   하나만 예외를 줄 수 있다. */
+#about[data-sub="about-vision"] .section-title{
+  font-size:clamp(2.4rem,5.4vw,3.9rem);
+}
+#about[data-sub="about-vision"] .page-head{margin-bottom:var(--space-block);}
+
+/* GOAL 소제목은 VISION 밴드와 같은 무게로 */
+#about[data-sub="about-vision"] .sub-title{
+  font-family:var(--font-display);font-weight:900;color:var(--green);
+  font-size:clamp(1.25rem,2.6vw,1.75rem);letter-spacing:0.04em;
+}

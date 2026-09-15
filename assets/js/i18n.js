@@ -30,7 +30,7 @@ var I18N = {
     prodSoap: { ko: "카리비누", en: "KALI Soap", zh: "卡里皂" },
     prodPaste: { ko: "K.28 치약", en: "K.28 Toothpaste", zh: "K.28牙膏" },
     prodProcess: { ko: "주요공정", en: "Process", zh: "主要工艺" },
-    aboutInfo: { ko: "기업 정보", en: "Company Profile", zh: "企业信息" },
+    aboutInfo: { ko: "기업 정보 및 연혁", en: "Company &amp; History", zh: "企业信息与沿革" },
     aboutOrigin: { ko: "기원", en: "Origin", zh: "起源" },
     aboutVision: { ko: "비전과 목표", en: "Vision &amp; Goals", zh: "愿景与目标" },
     aboutWhy: { ko: "선택 이유", en: "Why KALIBIO", zh: "选择理由" },
@@ -42,15 +42,15 @@ var I18N = {
     contactPrivacy: { ko: "개인정보처리방침", en: "Privacy Policy", zh: "隐私政策" }
   },
   hero: {
-    eyebrow: { ko: "천연 미네랄 소재 기업 · 전남 순천", en: "Natural Mineral Materials · Suncheon, Korea", zh: "天然矿物材料企业 · 韩国顺天" },
+    eyebrow: { ko: "천연 미네랄 소재 및 생활용품 제조 기업", en: "Natural Mineral Materials &amp; Premium Household Goods", zh: "天然矿物材料及生活用品制造企业" },
     m1: { ko: "기능성 소재 공급", en: "Functional Material Supply", zh: "功能性原料供应" },
-    m2: { ko: "생활용품 완제품", en: "Finished Personal-Care Goods", zh: "生活用品成品" },
-    m3: { ko: "OEM · ODM", en: "OEM · ODM", zh: "OEM · ODM" },
-    sub: { ko: "12억 년 전 전남 순천에서 만들어진 천연 미네랄 칼륨장석.<br>카리바이오는 이 하나의 원료를 연구해 비누와 치약으로, 그리고 더 넓은 산업의 소재로 넓혀갑니다.", en: "Potassium feldspar — a natural mineral formed 1.2 billion years ago in Suncheon, Korea.<br>We study this single material and extend it into soap, toothpaste, and materials for wider industry.", zh: "钾长石——12亿年前形成于韩国顺天的天然矿物。<br>卡里生物研究这一种原料,将其延伸为皂类、牙膏,以及更广泛产业的材料。" },
+    m2: { ko: "프리미엄 생활용품 공급", en: "Premium household goods", zh: "高端生活用品供应" },
+    m3: { ko: "OEM · ODM 지원", en: "OEM · ODM support", zh: "OEM · ODM 支持" },
+    sub: { ko: "12억 년 전 형성된 천연 미네랄 칼륨장석.<br>카리바이오는 이 원료를 연구해<br>프리미엄 생활용품과 다양한 산업 소재로 넓혀나갑니다.", en: "Potassium feldspar, a natural mineral formed 1.2 billion years ago.<br>KALIBIO studies this single material and extends it<br>into premium household goods and a wider range of industrial materials.", zh: "12亿年前形成的天然矿物钾长石。<br>卡里生物研究这一原料，<br>并将其拓展为高端生活用品与多种产业材料。" },
     cta1: { ko: "파트너십 제안하기", en: "Propose a Partnership", zh: "提出合作提案" },
     cta2: { ko: "칼륨장석 알아보기", en: "About the Material", zh: "了解钾长石" },
     f1t: { ko: "원료를 직접 생산합니다", en: "We produce the material ourselves", zh: "我们自行生产原料" },
-    f1d: { ko: "대부분의 생활용품 기업은 원료를 사서 씁니다. 카리바이오는 순천 지역 광산의 칼륨장석을 원석에서 분말까지 직접 다룹니다.", en: "Most household goods companies buy their raw materials. We handle potassium feldspar from our regional mine in Suncheon ourselves — from rock to powder.", zh: "多数日用品企业外购原料。卡里生物从顺天当地矿山的钾长石原矿到粉体,全程自行处理。" },
+    f1d: { ko: "대부분의 생활용품 기업은 원료를 사서 씁니다. 카리바이오는 자체 광산의 칼륨장석을 원석에서 분말까지 직접 다룹니다.", en: "Most household-goods companies buy their raw material. KALIBIO handles potassium feldspar from its own mine end to end, from rock to powder.", zh: "多数生活用品企业采购原料。卡里生物拥有自有矿山，从原石到粉末全程亲自处理钾长石。" },
     f2t: { ko: "원료의 성질을 시험으로 확인합니다", en: "We verify the material by testing", zh: "我们以检测确认原料性质" },
     f2d: { ko: "구성요소는 한국광해광업공단, 피부 적용 결과는 한국바이오임상연구센터에서 확인했습니다.", en: "Composition verified by KOMIR; skin application results by the Korea Bio Research Center.", zh: "成分由韩国矿害矿业公团确认,皮肤应用结果由韩国生物临床研究中心确认。" },
     f3t: { ko: "같은 원료로 제품을 나눕니다", en: "One material, four products", zh: "同一原料,分出不同产品" },
@@ -68,12 +68,12 @@ var I18N = {
   mat: {
     eyebrow: { ko: "POTASSIUM FELDSPAR", en: "POTASSIUM FELDSPAR", zh: "钾长石" },
     storyTitle: { ko: "12억 년의 가치를 담은 장석", en: "Feldspar Holding the Value of 1.2 Billion Years", zh: "凝聚12亿年价值的长石" },
-    storyCap: { ko: "전남 순천에서 생산된 칼륨장석을 정제·미세 분말화한 상태", en: "Potassium feldspar produced in Suncheon, refined and micronised", zh: "产自顺天的钾长石,经精制与微粉化后的状态" },
-    storyCk1: { ko: "순천에 위치한 광산에서 직접 채취한 칼륨장석 분말", en: "Potassium feldspar powder extracted directly from our mine in Suncheon", zh: "直接采自顺天矿山的钾长石粉体" },
+    storyCap: { ko: "정제·미세 분말화한 칼륨장석", en: "Potassium feldspar, refined and milled to a fine powder", zh: "经提纯并微细粉碎的钾长石" },
+    storyCk1: { ko: "자체 광산에서 직접 채취한 칼륨장석 분말", en: "Potassium feldspar powder extracted from our own mine", zh: "取自自有矿山的钾长石粉末" },
     storyCk2: { ko: "자연에서 채취해 가공한, 화학 첨가물 없는 미네랄 원료", en: "A naturally sourced mineral raw material, processed without chemical additives", zh: "取自自然并加工而成、无化学添加的矿物原料" },
     storyCk3: { ko: "세라믹, 유리 등 공업 소재부터 뷰티 산업까지 활용 가능", en: "Usable from industrial materials such as ceramics and glass through to the beauty industry", zh: "可用于陶瓷、玻璃等工业材料乃至美妆产业" },
     compTitle: { ko: "주요 구성 요소 3가지", en: "3 Key Components", zh: "三大核心成分" },
-    compIntro: { ko: "순천에서 생산된 칼륨장석을 한국광해광업공단 기술연구원에 의뢰해 분석했습니다.<br>그 결과 다음과 같은 구성요소로 확인되었습니다.", en: "We commissioned KOMIR's research institute to analyse the potassium feldspar produced in Suncheon.<br>It was confirmed to consist of the following components.", zh: "我们委托韩国矿害矿业公团技术研究院对产自顺天的钾长石进行分析,<br>确认其组成成分如下。" },
+    compIntro: { ko: "칼륨장석을 한국광해광업공단 기술연구원에 의뢰해 분석했습니다.<br>그 결과 다음과 같은 구성요소로 확인되었습니다.", en: "We commissioned KOMIR's technology research institute to analyse our potassium feldspar.<br>The composition was confirmed as follows.", zh: "我们委托韩国矿害矿业公团技术研究院对钾长石进行分析，<br>确认其构成如下。" },
     k: { ko: "칼륨", en: "Potassium", zh: "钾" },
     kNote: { ko: "K₂O 함량 11.5% — 카리바이오가 이 원료를 선택한 이유입니다.", en: "K₂O content of 11.5% — the reason we chose this material.", zh: "K₂O含量11.5%——这正是卡里生物选择这一原料的理由。" },
     si: { ko: "규소", en: "Silicon", zh: "硅" },
@@ -113,7 +113,7 @@ var I18N = {
     b1t: { ko: "기능성 소재", en: "Functional Materials", zh: "功能性原料" },
     b1h: { ko: "성분 검증된 칼륨장석 분말, 벌크 단위로 공급합니다", en: "Composition-verified potassium feldspar powder, supplied in bulk", zh: "成分经验证的钾长石粉体,以散装形式供应" },
     b1lead: { ko: "완제품이 필요 없는 곳에는, 원료만 공급합니다.", en: "Where finished goods are not needed, we supply the material alone.", zh: "不需要成品的地方,我们只供应原料。" },
-    b1d: { ko: "순천에서 채취한 칼륨장석을 정제하고 미세 분말로 가공한 뒤, 벌크 단위로 공급합니다. 성분 성적서를 함께 드리므로 배합 설계를 바로 시작하실 수 있습니다.", en: "We refine and micronise potassium feldspar extracted in Suncheon and supply it in bulk — with the composition report, so formulation work can start immediately.", zh: "将采自顺天的钾长石精制并微粉化后以散装供应,并附上成分报告,便于立即展开配方设计。" },
+    b1d: { ko: "칼륨장석 원석을 정제하고 미세 분말로 가공한 뒤, 벌크 단위로 공급합니다. 성분 성적서를 함께 드리므로 배합 설계를 바로 시작하실 수 있습니다.", en: "We refine potassium feldspar rock into a fine powder and supply it in bulk. A composition report comes with it, so you can begin formulation straight away.", zh: "我们将钾长石原石提纯并加工成微细粉末，以散装形式供应。随附成分检测报告，便于您立即开始配方设计。" },
     b1a: { ko: "공급 제품", en: "Product Supplied", zh: "供应产品" },
     b1av: { ko: "칼륨장석 미세 분말", en: "Micronised potassium feldspar powder", zh: "钾长石微细粉体" },
     b1b: { ko: "제공 가치", en: "Value", zh: "提供价值" },
@@ -146,14 +146,14 @@ var I18N = {
     b3cv: { ko: "퍼스널케어, 구강용품 신규 브랜드 론칭", en: "Launching new personal care and oral care brands", zh: "个人护理、口腔护理新品牌打造" }
   },
   about2: {
-    whyTitle: { ko: "카리바이오를 파트너로 선택하는 이유", en: "Why KALIBIO", zh: "选择卡里生物作为合作伙伴的理由" },
+    whyTitle: { ko: "선택 이유", en: "Why KALIBIO", zh: "选择理由" },
     prinTitle: { ko: "원칙과 기준", en: "Principles and Standards", zh: "原则与标准" },
     prinIntro: { ko: "다섯 가지 원칙이 원료를 고르고 제품을 만드는 모든 판단의 기준입니다.", en: "Five principles govern how we choose materials and make products.", zh: "五项原则是我们挑选原料与制造产品的判断标准。" },
     visionLabel: { ko: "VISION — 어디를 향하는가", en: "VISION — Where we are headed", zh: "VISION — 我们要去哪里" },
     goalLabel: { ko: "GOAL — 무엇을 할 것인가", en: "GOAL — What we will do", zh: "GOAL — 我们要做什么" },
     originTitle: { ko: "기원", en: "Origin", zh: "起源" },
-    originP1: { ko: "전남 순천 황전면의 자체 광산. 이곳에서 12억 년 전 형성된 천연 미네랄 칼륨장석을 마주한 것이 시작이었습니다.", en: "Our own mine in Hwangjeon-myeon, Suncheon. It began with encountering the potassium feldspar formed there 1.2 billion years ago.", zh: "位于顺天黄田面的自有矿山。与那里12亿年前形成的天然矿物钾长石相遇,便是一切的开始。" },
-    originP2: { ko: "이 광물이 가진 소재로서의 가치와 활용 가능성에 주목했고, 생활 분야에 적용하기 위한 연구 개발을 시작했습니다. 친환경 소재와 생활용품, 바이오 분야로 이어질 수 있다고 판단했습니다.", en: "We saw its value and potential as a material, and began research to apply it in everyday life — reasoning that it could extend into eco-friendly materials, household goods and bio applications.", zh: "我们看到它作为材料的价值与应用可能性,并着手研究如何将其用于日常生活,判断它能延伸至环保材料、日用品与生物领域。" },
+    originP1: { ko: "12억 년 전 형성된 천연 미네랄 칼륨장석. 자체 광산에서 이 광물을 마주한 것이 시작이었습니다.", en: "Potassium feldspar, a natural mineral formed 1.2 billion years ago. Meeting it at our own mine is where this began.", zh: "12亿年前形成的天然矿物钾长石。在自有矿山与这一矿物相遇，便是一切的开始。" },
+    originP2: { ko: "카리바이오는 이 광물이 가진 가치와 활용 가능성에 주목했고, 생활 분야에 적용하기 위한 연구 개발을 시작했습니다. 친환경 소재와 생활용품, 바이오 분야로 이어질 수 있다고 판단했습니다.", en: "KALIBIO saw the value and the range of uses this mineral holds, and began the research needed to bring it into everyday life — eco-friendly materials, household goods and bio applications.", zh: "卡里生物关注到这一矿物所具有的价值与应用可能性，开始了将其应用于生活领域的研发，并判断其可延伸至环保材料、生活用品与生物领域。" },
     originP3: { ko: "산학협력을 기반으로 소재의 과학적 가치와 산업적 활용성을 확인해 왔습니다. 천연 자원의 가치를 제품으로 연결하는 것이 카리바이오가 창업한 이유입니다.", en: "Working with academia, we have been establishing the material's scientific value and industrial usefulness. Connecting a natural resource to products is the reason this company exists.", zh: "以产学合作为基础,持续确认该材料的科学价值与产业应用性。把天然资源的价值连接到产品,正是卡里生物创业的理由。" }
   },
   part2: {
@@ -203,7 +203,7 @@ var I18N = {
     },
     card3: {
       title: { ko: "지역 기관과 함께 검증된 신뢰", en: "Trust Verified Through Local Institutional Partnerships", zh: "地方机构共同验证的信任" },
-      desc: { ko: "전남테크노파크, 순천시청, 순천교육청 등 지역 기관과 협력하며 성장해 온, 로컬에서 검증된 제조 파트너입니다.", en: "We've grown through collaboration with regional institutions — including the Jeonnam Technopark, Suncheon City Hall, and the Suncheon Office of Education — a locally verified manufacturing partner built for the long term.", zh: "我们与全罗南道科技园区、顺天市政府、顺天市教育厅等地方机构长期合作、共同成长,是经得起本地检验的长期制造合作伙伴。" }
+      desc: { ko: "지자체·대학·테크노파크 등 공공기관과 협력하며 성장해 온, 검증된 제조 파트너입니다.", en: "A proven manufacturing partner, grown through work with local governments, universities and technoparks.", zh: "在与地方政府、高校及科技园等公共机构的合作中成长起来的、经过验证的制造伙伴。" }
     }
   },
   about: {
@@ -224,8 +224,8 @@ var I18N = {
     milestonesTitle: { ko: "회사 연혁", en: "Company Milestones", zh: "公司发展历程" }
   },
   vision: {
-    statement: { ko: "자연에서 시작된 가치를 더 나은 일상으로 이끄는 기업이 되겠습니다.", en: "We aim to be a company that turns value born from nature into a better everyday life.", zh: "我们致力成为将源自自然的价值,引向更美好日常生活的企业。" },
-    goalStatement: { ko: "하나의 원료, 칼륨장석의 가능성을 끝까지 검증해<br>사람과 환경 모두에게 안전한 생활 소재를 만드는<br>글로벌 B2B 파트너가 되겠습니다.", en: "To fully validate the potential of a single raw material, potassium feldspar,<br>and become a global B2B partner that creates everyday materials<br>safe for both people and the environment.", zh: "彻底验证钾长石这一原料的潜力,<br>成为为人类与环境共同打造安全生活材料的<br>全球B2B合作伙伴。" }
+    statement: { ko: "자연에서 시작된 가치, 더 나은 일상으로 연결하는 기업이 되겠습니다.", en: "We will be the company that connects value born in nature to a better everyday life.", zh: "我们将成为把源于自然的价值连接到更美好日常的企业。" },
+    goalStatement: { ko: "칼륨장석의 가능성을 끝까지 검증해<br>사람과 환경 모두에게 안전한 생활 소재를 만드는<br>글로벌 프리미엄 생활용품 B2B 파트너가 되겠습니다.", en: "To verify the potential of potassium feldspar to the end,<br>to make everyday materials safe for both people and the environment,<br>and to become a global B2B partner in premium household goods.", zh: "彻底验证钾长石的可能性，<br>打造对人与环境都安全的生活材料，<br>成为全球高端生活用品B2B伙伴。" }
   },
   tech: {
     k28Title: { ko: "K.28 제조공정 — 7단계, 70일", en: "K.28 Manufacturing Process — 7 Steps, 70 Days", zh: "K.28制造工艺——7道工序,70天" },
@@ -287,7 +287,7 @@ var I18N = {
     coreTitle: { ko: "핵심 파트너십", en: "Key Partnerships", zh: "核心合作伙伴" },
     coreNote: { ko: "우리는 칼륨장석의 가능성을 검증하고,<br>그 결과를 세계 각지의 파트너와 나눕니다.", en: "We validate the potential of potassium feldspar,<br>and share the results with partners around the world.", zh: "我们验证钾长石的潜力,<br>并将成果与世界各地的伙伴分享。" },
     regionalTitle: { ko: "지역 협력 이력", en: "Regional Collaboration", zh: "地方合作履历" },
-    regionalNote: { ko: "순천 지역 기관과 협력하며 성장해 온 이력입니다.", en: "A track record of growing alongside institutions in the Suncheon region.", zh: "与顺天地区机构携手成长的合作履历。" },
+    regionalNote: { ko: "지역 기관과 협력하며 성장해 온 이력입니다.", en: "A track record of growing alongside public institutions.", zh: "与地方机构携手成长的合作履历。" },
     p7: { ko: "국립순천대학교 GTEP사업단", en: "Sunchon National University GTEP", zh: "国立顺天大学GTEP事业团" },
     p1: { ko: "전남테크노파크", en: "Jeonnam Technopark", zh: "全罗南道科技园" },
     p2: { ko: "순천시청", en: "Suncheon City Hall", zh: "顺天市政府" },
@@ -358,7 +358,9 @@ var I18N = {
     vFounded: { ko: "2023년 10월 23일", en: "October 23, 2023", zh: "2023年10月23日" },
     tAddr: { ko: "주소", en: "Address", zh: "地址" },
     tMaterial: { ko: "주원료", en: "Core Material", zh: "主原料" },
-    vMaterial: { ko: "칼륨장석 (K₂O 11.5%)", en: "Potassium feldspar (11.5% K₂O)", zh: "钾长石(K₂O 11.5%)" }
+    vMaterial: { ko: "칼륨장석 (K₂O 11.5%)", en: "Potassium feldspar (11.5% K₂O)", zh: "钾长石(K₂O 11.5%)" },
+    tExterior: { ko: "회사 전경", en: "Building", zh: "公司外观" },
+    tOffice: { ko: "회사 사무실", en: "Office", zh: "公司办公室" }
   },
   matrix: {
     title: { ko: "칼륨장석의 용처", en: "Where Potassium Feldspar Is Used", zh: "钾长石的用途" },
