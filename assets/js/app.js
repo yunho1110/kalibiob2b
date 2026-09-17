@@ -314,8 +314,6 @@
        watching clicks on internal hash links just before the browser acts on
        them; anything else that changes the hash is treated as history
        navigation. */
-    var onHomeEnter = null;
-    var onHomeLeave = null;
     var lastView = null;
     var lastSub = null;
     var scrollGuardUntil = 0;
@@ -335,8 +333,6 @@
       var viewId = getViewFromHash();
       showView(viewId);
       var activeSub = showSubview(viewId, getSubsectionFromHash());
-      if (viewId === 'home' && lastView !== 'home' && onHomeEnter) { onHomeEnter(); }
-      if (viewId !== 'home' && lastView === 'home' && onHomeLeave) { onHomeLeave(); }
       lastView = viewId;
       lastSub = activeSub;
       updateNavContext(viewId, activeSub);
@@ -391,74 +387,29 @@
        fixed header. Clearing the hash before routing and writing it back with
        replaceState afterwards gives us the route without the jump. */
     (function openAtTop() {
-      var entry = window.location.hash;
+      /* 해시는 페이지 이름이지만 브라우저에겐 앵커이기도 하다. URL 에 남아
+         있는 동안 브라우저는 그 요소로 계속 스크롤을 시도하고, 늦게 뜨는
+         이미지가 레이아웃을 바꿀 때마다 다시 시도한다. 그래서 로드 내내
+         해시를 URL 에서 빼두고, 브라우저가 더 찾지 않을 때 되돌려 놓는다. */
+      var entry = window.location.hash || '#home';
       var base = window.location.pathname + window.location.search;
-      var canRewrite = !!(window.history && window.history.replaceState) && entry && entry !== '#home';
-      if (canRewrite) {
-        routedHash = entry.replace('#', '');
-        window.history.replaceState(null, '', base);
-      }
+      var canRewrite = !!(window.history && window.history.replaceState);
+
+      if (!canRewrite) { route(true, false); return; }
+
+      routedHash = entry.replace('#', '');
+      window.history.replaceState(null, '', base);
       route(true, false);
-      if (canRewrite) {
-        window.history.replaceState(null, '', base + entry);
+
+      var restore = function () {
+        if (routedHash === null) { return; }
+        window.history.replaceState(null, '', window.location.pathname + window.location.search + entry);
         routedHash = null;
-      }
-    })();
-
-    /* ===== 메인 화면 두 장면 =====
-       1) 기업 전경으로 신뢰를 먼저 보여주고
-       2) 잠시 뒤 Innovation(순환도)으로 저절로 넘어간다.
-       스크롤이나 클릭 없이 넘어가되, 사용자가 직접 움직이면 자동 전환은 멈춘다. */
-    var stage = document.getElementById('homeStage');
-    if (stage) {
-      var scenes = stage.querySelectorAll('.home-scene');
-      var dots = stage.querySelectorAll('.home-scene-dot');
-      var sceneTimer = null;
-      var autoDone = false;
-
-      function showScene(n) {
-        for (var i = 0; i < scenes.length; i++) {
-          scenes[i].classList.toggle('is-active', scenes[i].getAttribute('data-scene') === String(n));
-        }
-        for (var d = 0; d < dots.length; d++) {
-          var on = dots[d].getAttribute('data-goto') === String(n);
-          dots[d].classList.toggle('is-active', on);
-          dots[d].setAttribute('aria-selected', on ? 'true' : 'false');
-        }
-      }
-
-      function stopAuto() {
-        autoDone = true;
-        if (sceneTimer) { clearTimeout(sceneTimer); sceneTimer = null; }
-      }
-
-      function startAuto() {
-        if (autoDone) { return; }
-        if (sceneTimer) { clearTimeout(sceneTimer); }
-        sceneTimer = setTimeout(function () {
-          sceneTimer = null;
-          if (!autoDone) { showScene(2); autoDone = true; }
-        }, 4500);
-      }
-
-      for (var k = 0; k < dots.length; k++) {
-        dots[k].addEventListener('click', function () {
-          stopAuto();
-          showScene(this.getAttribute('data-goto'));
-        });
-      }
-      window.addEventListener('wheel', stopAuto, { passive: true, once: true });
-      window.addEventListener('touchmove', stopAuto, { passive: true, once: true });
-
-      /* Returning to the home view restarts the sequence from the facility shot. */
-      onHomeEnter = function () {
-        autoDone = false;
-        showScene(1);
-        startAuto();
       };
-      onHomeLeave = stopAuto;
-      onHomeEnter();
-    }
+      if (document.readyState === 'complete') { window.setTimeout(restore, 60); }
+      else { window.addEventListener('load', function () { window.setTimeout(restore, 60); }); }
+      window.setTimeout(restore, 4000);   /* load 가 끝내 안 오는 경우 대비 */
+    })();
 
     document.addEventListener('keydown', function (e) {
       if (e.key !== 'Escape') { return; }

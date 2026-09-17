@@ -198,18 +198,7 @@
      ===================================================================== -->
 <section class="view" id="home">
   <div class="home-stage" id="homeStage">
-    <!-- 장면 1 : 기업 전경 -->
-    <section class="home-scene home-scene--facility is-active" data-scene="1" aria-label="기업 전경">
-      <img class="home-scene-bg" src="assets/img/facility-aerial.webp" alt="카리바이오 전경" width="1840" height="1035" fetchpriority="high">
-      <div class="home-scene-veil" aria-hidden="true"></div>
-      <div class="container home-scene-copy">
-        <h1 class="home-facility-title" data-i18n="home.facTitle">천연 미네랄 소재 및 생활용품 제조 기업</h1>
-        <p class="home-facility-sub" data-i18n="home.facSub">전남테크노파크 지식산업센터</p>
-      </div>
-    </section>
-
-    <!-- 장면 2 : Innovation -->
-    <section class="home-scene home-scene--innovation" data-scene="2" aria-label="Innovation">
+    <section class="home-scene home-scene--innovation is-active" data-scene="2" aria-label="Innovation">
       <div class="home-hero-texture" aria-hidden="true">
         <img src="assets/img/feldspar-powder.webp" alt="" width="1000" height="1000" fetchpriority="high">
       </div>
@@ -246,7 +235,7 @@
               <span class="home-cyc-label" data-i18n="home.cyc4">치약</span>
             </li>
             <li class="home-cyc-node home-cyc-node--5">
-              <span class="home-cyc-media home-cyc-media--type" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V11l7-5 7 5v10"/><path d="M10 21v-5h4v5"/></svg></span>
+              <span class="home-cyc-media"><img src="assets/img/daily-life.webp" alt="칼륨장석 제품이 쓰이는 일상 — 녹지가 이어진 도시 풍경" width="300" height="300" loading="lazy"></span>
               <span class="home-cyc-label" data-i18n="home.cyc5">일상</span>
             </li>
           </ol>
@@ -260,13 +249,7 @@
         <p class="home-innov-label">Innovation</p>
         <p class="home-innov-desc" data-i18n="home.innovDesc">자연에서 시작해, 일상으로 이어지는 혁신<br>카리바이오는 자연의 원료를 연구하고 새로운 가치로 확장합니다</p>
       </div>
-    </section>
-
-    <div class="home-scene-dots" role="tablist" aria-label="메인 화면 전환">
-      <button type="button" class="home-scene-dot is-active" data-goto="1" aria-label="기업 전경 보기"></button>
-      <button type="button" class="home-scene-dot" data-goto="2" aria-label="Innovation 보기"></button>
-    </div>
-  </div>
+    </section>  </div>
 
   <div class="section home-below">
     <div class="container">
@@ -303,7 +286,6 @@
         </article>
       </div>
       <div class="hero-ctas reveal">
-        <a href="#contact" class="btn btn-primary" data-i18n="hero.cta1">파트너십 문의</a>
         <a href="#material" class="btn btn-outline" data-i18n="hero.cta2">칼륨장석 알아보기</a>
       </div>
     </div>
@@ -522,7 +504,6 @@
                 </tbody>
               </table>
             </div>
-            <a href="#contact" class="btn btn-outline product-cta" data-inquiry="bulk" data-i18n="products.cta">문의하기</a>
           </div>
           <figure class="biz-media">
             <img src="assets/img/feldspar-powder.webp" alt="칼륨장석 미세 분말" loading="lazy" width="1000" height="1000">
@@ -565,7 +546,6 @@
                 </tbody>
               </table>
             </div>
-            <a href="#products" class="btn btn-outline" data-i18n="nav.products">제품</a>
           </div>
           <figure class="biz-media">
             <img src="assets/img/bundle.webp" alt="카리비누 선물세트 구성" loading="lazy" width="1200" height="535">
@@ -588,7 +568,6 @@
                 </tbody>
               </table>
             </div>
-            <a href="#contact" class="btn btn-outline product-cta" data-inquiry="oem" data-i18n="products.cta">문의하기</a>
           </div>
           <figure class="biz-media">
             <img src="assets/img/giftset.webp" alt="브랜드 전용 구성 선물세트" loading="lazy" width="1125" height="1006">
@@ -1098,7 +1077,6 @@
     <div class="footer-top">
       <div class="footer-brand">
         <img class="brand-logo" src="assets/img/logo-kali-cream.png" alt="KALI." width="1368" height="389">
-        <p data-i18n="footer.tagline"></p>
       </div>
       <div class="footer-reach">
         <a class="f-reach" href="tel:+82617251031"><span data-i18n="footer.phoneLabel">전화</span>+82-61-725-1031</a>
