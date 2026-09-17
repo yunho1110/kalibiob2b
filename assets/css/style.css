@@ -2029,3 +2029,50 @@ figure img{height:auto;}
 @media (max-width:520px){ .timeline-track{grid-template-columns:1fr;} }
 /* 제목 위 구분선은 카드 격자와 겹쳐 보여 제거 */
 .milestones{border-top:none; padding-top:0;}
+
+/* ========================================================================
+   수정요청 반영 — 2026-09-17
+   ======================================================================== */
+
+/* 14쪽 — 협력 기관 로고: 흰 카드 안 중앙, 여백 확보 */
+.logo-cell .logo-img{
+  max-width:min(160px, 78%);
+  max-height:56px;
+  width:auto;height:auto;
+  object-fit:contain;
+  display:block;margin:0 auto;
+}
+
+/* 10쪽 — 비누 제품 사진 65~70% 로 축소.
+   카드 폭은 그대로 두고 이미지 영역만 낮춘다(4:3 → 약 2:1). */
+.soap-grid-2x2 .product-media{aspect-ratio:16/9;}
+.soap-grid-2x2 .product-media img{object-position:center 45%;}
+
+/* 11쪽 — K₂O·SiO₂·Al₂O₃ 카드 설명 문구 70% 로 축소 */
+.elem-note{font-size:clamp(0.78rem, 1.4vw, 1.18rem);}
+
+/* 9쪽 — 비전 밴드를 GOAL 블록과 같은 결로.
+   딥그린 + 방사형 글로우를 걷어내고 흰 배경 + 라임 좌측 바로 통일한다. */
+.vision-statement-band{
+  background:var(--white);
+  background-image:none;
+  color:var(--ink);
+  border-left:4px solid var(--lime);
+  border-radius:0 var(--radius-md) var(--radius-md) 0;
+  box-shadow:var(--shadow);
+  padding:var(--s6) clamp(var(--s5),3vw,var(--s6));
+}
+.vision-statement-band .eyebrow{color:var(--lime-text);}
+.vision-statement-band .eyebrow::after{background:var(--lime);}
+.vision-statement{color:var(--green);}
+
+/* 9쪽 — VISION / GOAL 아래 문구 크기 축소 */
+.vision-statement{font-size:clamp(1.05rem, 1.9vw, 1.45rem);}
+.goal-statement p{font-size:clamp(1.05rem, 1.9vw, 1.45rem);}
+
+/* 9쪽 — 모집 카드 문구를 상자 중앙에 */
+.recruit-card{
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  min-height:132px;
+}
