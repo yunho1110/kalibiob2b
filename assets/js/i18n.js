@@ -446,9 +446,9 @@ brand:{
     statement:{ko:"자연에서 시작된 가치를 더 나은 일상으로 이끄는 기업이 되겠습니다.",
       en:"We aim to be a company that turns value born from nature into a better everyday life.",
       zh:"我们致力成为将源自自然的价值,引向更美好日常生活的企业。"},
-    goalStatement:{ko:"하나의 원료, 칼륨장석의 가능성을 끝까지 검증해<br>사람과 환경 모두에게 안전한 생활 소재를 만드는<br>글로벌 B2B 파트너가 되겠습니다.",
-      en:"To fully validate the potential of a single raw material, potassium feldspar,<br>and become a global B2B partner that creates everyday materials<br>safe for both people and the environment.",
-      zh:"彻底验证钾长石这一原料的潜力,<br>成为为人类与环境共同打造安全生活材料的<br>全球B2B合作伙伴。"},
+    goalStatement:{ko:"칼륨장석의 가능성을 끝까지 검증해<br>사람과 환경 모두에게 안전한 생활 소재를 만드는<br>글로벌 B2B 파트너가 되겠습니다.",
+      en:"To fully validate the potential of potassium feldspar<br>and become a global B2B partner that creates everyday materials<br>safe for both people and the environment.",
+      zh:"彻底验证钾长石的潜力,<br>成为为人类与环境共同打造安全生活材料的<br>全球B2B合作伙伴。"},
     goal1t:{ko:"투명한 원료 공급",en:"Transparent Material Supply",zh:"透明的原料供应"},
     goal2t:{ko:"활용 범위 확장",en:"Wider Applications",zh:"应用范围拓展"},
     goal3t:{ko:"공개하는 공급망",en:"An Open Supply Chain",zh:"公开的供应链"},
@@ -571,7 +571,7 @@ brand:{
   products:{
     eyebrow:{ko:"PRODUCT LINEUP",en:"PRODUCT LINEUP",zh:"产品线"},
     title:{ko:"스펙으로 말하는 제품 라인업",en:"A Product Lineup That Speaks in Specs",zh:"用规格说话的产品线"},
-    subtitle:{ko:"좋은 원료를 썼다는 말 보다는, 임상 데이터로 증명합니다",en:"Rather than telling you we used good materials, we prove it with clinical data.",zh:"与其说使用了优质原料,不如用临床数据证明。"},
+    subtitle:{ko:"원료 분말은 인체적용시험 8개 항목을 거쳤고, 칼륨장석 함량에 따라 3·5·8·13% 네 가지로 만들었습니다.",en:"The raw powder underwent 8 human application test items, and from it we made four soaps — 3%, 5%, 8%, and 13% potassium feldspar.",zh:"原料粉末通过了人体应用测试的8个项目,并据此打造出钾长石含量3%、5%、8%、13%的四款产品。"},
     cta:{ko:"OEM/ODM 문의",en:"OEM/ODM Inquiry",zh:"OEM/ODM咨询"},
     soap03:{
       name:{ko:"카리비누 03",en:"KALI Soap 03",zh:"卡里皂 03"},
@@ -715,7 +715,8 @@ brand:{
     tMaterial:{ko:"주원료",en:"Core Material",zh:"主原料"},
     vMaterial:{ko:"칼륨장석 (K₂O 11.5%)",
       en:"Potassium feldspar (11.5% K₂O)",
-      zh:"钾长石(K₂O 11.5%)"}
+      zh:"钾长石(K₂O 11.5%)"},
+    lFacility:{ko:"사무실",en:"Office",zh:"办公室"}
   },
   pillars:{
     eyebrow:{ko:"BUSINESS AREAS",en:"BUSINESS AREAS",zh:"业务领域"},

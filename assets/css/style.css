@@ -399,39 +399,30 @@ textarea:focus-visible{
 .milestones-head{margin-bottom:clamp(28px,4vw,40px);}
 .milestones-title{font-size:clamp(1.3rem,2.6vw,1.75rem);font-weight:900;letter-spacing:-0.01em;}
 
-.timeline-track{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
-.timeline-track::before{
-  content:'';position:absolute;top:23px;left:4%;right:4%;height:2px;
-  background:repeating-linear-gradient(90deg,var(--magenta) 0 6px,transparent 6px 12px);z-index:0;
-}
-.tl-node{position:relative;z-index:1;}
-.tl-dot-wrap{display:flex;justify-content:center;margin-bottom:16px;}
-.tl-dot{
-  width:16px;height:16px;border-radius:50%;background:var(--magenta);
-  border:3px solid var(--cream);box-shadow:0 0 0 1px var(--border);flex:0 0 auto;
-}
-.tl-card{
-  background:var(--white);border-radius:var(--radius-md);
-  box-shadow:var(--shadow);padding:var(--s6) 16px;text-align:center;
-  display:flex;flex-direction:column;gap:8px;min-height:158px;
+/* 2-6 fix: the horizontal 5-column timeline broke with 6 items (the 6th
+   wrapped alone) and the dashed connector line ran through the year labels.
+   Replaced with a plain responsive grid of self-contained cards — no
+   connector line, no fixed row count, no dot. .tl-node is now the card
+   itself; .tl-dot-wrap holds just the year at the top, .tl-card holds the
+   text below it (kept unstyled here so there is only one visible box). */
+.timeline-track{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;}
+.tl-node{
+  background:var(--white);border-radius:var(--radius-md);box-shadow:var(--shadow);
+  padding:var(--s6) 18px;display:flex;flex-direction:column;gap:10px;
   transition:transform .2s ease, box-shadow .2s ease;
 }
-.tl-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);}
-.tl-year{font-family:var(--font-display);font-size:clamp(1.4rem,2.4vw,1.9rem);font-weight:900;color:var(--green);letter-spacing:-0.02em;}
-.tl-text{font-size:0.80rem;color:var(--ink-soft);line-height:1.6;}
+.tl-node:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);}
+.tl-dot-wrap{display:block;margin-bottom:0;}
+.tl-dot{display:none;}
+.tl-card{
+  background:none;border-radius:0;box-shadow:none;padding:0;text-align:left;
+  display:block;min-height:0;
+}
+.tl-year{font-family:var(--font-display);font-size:clamp(1.3rem,2.2vw,1.7rem);font-weight:900;color:var(--green);letter-spacing:-0.02em;}
+.tl-text{font-size:0.85rem;color:var(--ink-soft);line-height:1.6;}
 
-@media (max-width:900px){
-  .timeline-track{
-    display:block;grid-template-columns:none;position:relative;padding-left:30px;
-  }
-  .timeline-track::before{
-    top:8px;bottom:8px;left:7px;right:auto;width:2px;height:auto;
-    background:repeating-linear-gradient(180deg,var(--magenta) 0 6px,transparent 6px 12px);
-  }
-  .tl-node{margin-bottom:18px;}
-  .tl-node:last-child{margin-bottom:0;}
-  .tl-dot-wrap{position:absolute;left:-30px;top:22px;margin-bottom:0;}
-  .tl-card{text-align:left;min-height:0;}
+@media (max-width:640px){
+  .timeline-track{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;}
 }
 
 /* ===== Technology ===== */
@@ -728,11 +719,11 @@ textarea:focus-visible{
 .matrix{width:100%;border-collapse:collapse;min-width:620px;font-size:0.88rem;}
 .matrix th,.matrix td{padding:14px 16px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top;line-height:1.55;}
 .matrix thead th{background:var(--lime-soft);color:var(--green);font-weight:800;font-size:0.88rem;letter-spacing:0.02em;border-bottom:2px solid var(--lime);}
-/* mat-uses "칼륨장석의 용처" table: all text ~2x per spec (own scroll container, so
-   the wider min-width never causes page-level horizontal scroll) */
-#mat-uses .matrix{min-width:900px;font-size:1.7rem;}
-#mat-uses .matrix th,#mat-uses .matrix td{padding:20px 22px;}
-#mat-uses .matrix thead th{font-size:1.7rem;}
+/* 2-3 fix: previous "2x" sizing was too large — bring back near the base
+   .matrix size so it reads consistently with the other page tables */
+#mat-uses .matrix{min-width:640px;font-size:1.06rem;}
+#mat-uses .matrix th,#mat-uses .matrix td{padding:15px 16px;}
+#mat-uses .matrix thead th{font-size:1.06rem;}
 .matrix tbody th{background:var(--lime-tint);font-weight:800;color:var(--ink);white-space:nowrap;width:1%;}
 .matrix tbody tr:last-child th,.matrix tbody tr:last-child td{border-bottom:none;}
 .matrix td{color:var(--ink-soft);}
@@ -919,6 +910,19 @@ html[lang="ko"] body,html[lang="zh"] body{word-break:keep-all;}
 .story-figure figcaption{padding:12px 16px 14px;font-size:0.80rem;color:var(--ink-soft);line-height:1.55;background:var(--card-bg);}
 .about-location{margin-top:0;max-width:none;}
 
+/* 2-2 fix: in #mat-story the image (.story-side) is the FIRST child, so the
+   shared .story-layout grid hands it the larger 1.35fr track and leaves the
+   checklist squeezed into 0.65fr — the reverse of #about-origin. Give this
+   instance its own narrower, capped image track so the checklist gets the
+   room and the two columns read as similar weight. */
+@media (min-width:901px){
+  #mat-story .story-layout{grid-template-columns:minmax(220px,420px) minmax(280px,1fr);}
+  #mat-story .story-figure{max-width:520px;}
+}
+@media (max-width:900px){
+  #mat-story .story-figure{max-width:420px;margin:0 auto;}
+}
+
 /* ---- Values: name and description were colliding ---- */
 .values-block{margin-top:0;}
 .values-title{font-size:clamp(1.05rem,1.7vw,1.25rem);color:var(--ink);margin-bottom:20px;}
@@ -952,10 +956,12 @@ html[lang="ko"] body,html[lang="zh"] body{word-break:keep-all;}
   font-size:clamp(1.15rem,2.4vw,1.6rem);letter-spacing:0.14em;
 }
 .vision-statement-band .eyebrow::after{background:var(--lime);}
-/* GOAL heading (work item 3): more impact than a generic sub-title */
+/* 2-1 fix: GOAL label must render at the same size/weight/tracking as the
+   VISION eyebrow above it (.vision-statement-band .eyebrow) — it was
+   noticeably larger before */
 #about-vision > .sub-title{
-  font-family:var(--font-display);font-weight:900;color:var(--green);
-  font-size:clamp(1.5rem,3vw,2.1rem);letter-spacing:0.06em;
+  font-family:var(--font-display);font-weight:800;color:var(--green);
+  font-size:clamp(1.15rem,2.4vw,1.6rem);letter-spacing:0.14em;
 }
 .vision-statement{
   font-family:var(--font-display);font-weight:900;color:var(--cream);
@@ -971,8 +977,9 @@ html[lang="zh"] .vision-statement{max-width:30ch;}
   padding:var(--s6) clamp(var(--s5),3vw,var(--s6));box-shadow:var(--shadow);
 }
 .goal-statement p{
+  /* 2-1 fix: match .vision-statement's body size so VISION/GOAL read as one pair */
   margin:0;font-family:var(--font-display);font-weight:800;color:var(--green);
-  font-size:clamp(1.15rem,2.1vw,1.55rem);line-height:1.6;letter-spacing:-0.01em;word-break:keep-all;
+  font-size:clamp(1.3rem,2.5vw,1.95rem);line-height:1.6;letter-spacing:-0.01em;word-break:keep-all;
 }
 .vision-goals{gap:20px;}
 .vision-goal{
@@ -1343,12 +1350,12 @@ footer.site-footer{background:var(--green-deep);color:var(--cream);padding:clamp
   .test-thumb{order:-1;}
 }
 .test-body{padding:var(--s6);}
-/* every text element in the test box, ~2x the original size per spec;
-   scaled back on narrow screens so nothing overflows the card */
-.test-t{font-size:clamp(1.4rem,3.6vw,2.2rem);font-weight:800;margin:0 0 10px;word-break:keep-all;}
-.test-d{font-size:clamp(1.15rem,3vw,1.9rem);color:var(--ink-soft);line-height:1.65;margin:0;word-break:keep-all;}
+/* 2-4 fix: previous "2x" sizing was too large — back to ~1.0-1.15x normal
+   body copy, in line with .block-title / .block-desc elsewhere */
+.test-t{font-size:clamp(1.05rem,2vw,1.25rem);font-weight:800;margin:0 0 10px;word-break:keep-all;}
+.test-d{font-size:clamp(0.95rem,1.6vw,1.05rem);color:var(--ink-soft);line-height:1.65;margin:0;word-break:keep-all;}
 .test-m{
-  font-size:clamp(1.05rem,2.6vw,1.7rem);color:var(--ink-faint);padding-top:14px;margin-top:14px;
+  font-size:clamp(0.85rem,1.4vw,0.95rem);color:var(--ink-faint);padding-top:14px;margin-top:14px;
   border-top:1px dashed var(--border);word-break:keep-all;
 }
 .test-thumb{display:flex;align-items:center;justify-content:center;background:var(--warm-gray);}
@@ -1473,20 +1480,20 @@ figure img{height:auto;}
    ======================================================================== */
 
 /* ---- .mat-checklist / .mat-check / .mat-check-ico: 원료 이야기 체크리스트 ---- */
-.mat-checklist{display:flex;flex-direction:column;gap:22px;justify-content:center;margin:0;}
-.mat-check{display:flex;align-items:flex-start;gap:14px;}
+/* 2-2 fix: larger gap + larger type so the checklist carries visual weight
+   now that the photo column has been narrowed */
+.mat-checklist{display:flex;flex-direction:column;gap:30px;justify-content:center;margin:0;}
+.mat-check{display:flex;align-items:flex-start;gap:16px;}
 .mat-check-ico{
-  flex:none;width:26px;height:26px;margin-top:1px;padding:5px;box-sizing:border-box;
+  flex:none;width:28px;height:28px;margin-top:1px;padding:5px;box-sizing:border-box;
   border-radius:50%;background:var(--green);color:#fff;
 }
 .mat-check-ico svg{width:100%;height:100%;stroke:currentColor;fill:none;}
-.mat-check > span:last-child{font-size:1.02rem;color:var(--ink);line-height:1.7;word-break:keep-all;}
+.mat-check > span:last-child{font-size:clamp(1.05rem,1.6vw,1.15rem);color:var(--ink);line-height:1.75;word-break:keep-all;}
 
-/* ---- .biz-tab-sum: 탭 레이블 아래 한 줄 요약 ---- */
-.biz-tab-sum{
-  font-size:0.92rem;font-weight:600;color:var(--ink-soft);
-  margin:-8px 0 28px;letter-spacing:0.01em;word-break:keep-all;
-}
+/* 2-7: .biz-tab-sum element removed from markup — rule deleted.
+   .block-title + .reveal (margin-top:26px) now applies automatically to the
+   .biz-layout that follows, so spacing stays reasonable without it. */
 
 /* ---- .table-link: 표 안 인라인 링크 ---- */
 .table-link{color:var(--green);font-weight:700;text-decoration:underline;text-underline-offset:3px;white-space:nowrap;}
@@ -1943,6 +1950,14 @@ figure img{height:auto;}
   .k28-split{grid-template-columns:1fr; gap:20px;}
   .k28-split-media{max-width:420px; margin:0 auto;}
 }
+/* 2-5 fix: on desktop the photo column was left much shorter than the text
+   column, leaving a big empty gap under the image. Stretch the row and let
+   the photo fill the matched height instead of keeping its own aspect ratio. */
+@media (min-width:821px){
+  .k28-split{align-items:stretch;}
+  .k28-split-media{max-width:none; width:100%; margin:0; height:100%; aspect-ratio:auto;}
+  .k28-split-media img{width:100%; height:100%; object-fit:cover;}
+}
 
 /* ---- 임상 데이터로 가는 버튼 : 텍스트 링크는 눈에 띄지 않았다 ---- */
 .btn-clinical{
@@ -2000,3 +2015,14 @@ figure img{height:auto;}
   .home-scene-dots{bottom:10px;}
   .home-scene--innovation .home-hero-inner{padding-bottom:0;}
 }
+
+/* 선택 이유·원칙과 기준을 기업 정보 안으로 합치면서 생긴 하위 구획 */
+.info-section{margin-top:clamp(52px, 6vw, 84px);}
+.info-section > .block-title{margin-bottom:20px;}
+
+/* 연혁: 6개 항목이 5열로 깔려 마지막 한 장만 다음 줄에 혼자 남았다. 3열로 3+3 */
+.timeline-track{grid-template-columns:repeat(3,1fr);}
+@media (max-width:900px){ .timeline-track{grid-template-columns:repeat(2,1fr);} }
+@media (max-width:520px){ .timeline-track{grid-template-columns:1fr;} }
+/* 제목 위 구분선은 카드 격자와 겹쳐 보여 제거 */
+.milestones{border-top:none; padding-top:0;}

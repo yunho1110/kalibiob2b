@@ -107,7 +107,7 @@
       material: ['mat-story', 'mat-comp', 'mat-uses', 'mat-props', 'mat-tests'],
       business: ['biz-material', 'biz-goods', 'biz-oem'],
       products: ['prod-soap', 'prod-paste', 'prod-process'],
-      about: ['about-info', 'about-origin', 'about-vision', 'about-why', 'about-principles'],
+      about: ['about-info', 'about-origin', 'about-vision'],
       partnership: ['part-current', 'part-global'],
       contact: ['contact-form', 'contact-faq']
     };
@@ -126,7 +126,8 @@
       'mat-components': 'mat-comp', 'mat-value': 'mat-uses', 'mat-efficacy': 'mat-props',
       'mat-cert': 'mat-tests', 'products-soap': 'prod-soap', 'products-toothpaste': 'prod-paste',
       'products-process': 'prod-process', 'products-oem': 'biz-oem',
-      'about-overview': 'about-info', 'about-story': 'about-origin', 'about-milestones': 'about-info'
+      'about-overview': 'about-info', 'about-story': 'about-origin', 'about-milestones': 'about-info',
+      'about-why': 'about-info', 'about-principles': 'about-info'
     };
     Object.keys(LEGACY_SUBS).forEach(function (old) {
       SUBSECTIONS[old] = SUBSECTIONS[LEGACY_SUBS[old]];

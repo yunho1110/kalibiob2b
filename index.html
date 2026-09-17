@@ -33,8 +33,6 @@
           <a href="#about-info" class="nav-sub-link" data-subview="about-info" data-i18n="navSub.aboutInfo">기업 정보</a>
           <a href="#about-origin" class="nav-sub-link" data-subview="about-origin" data-i18n="navSub.aboutOrigin">기원</a>
           <a href="#about-vision" class="nav-sub-link" data-subview="about-vision" data-i18n="navSub.aboutVision">비전과 목표</a>
-          <a href="#about-why" class="nav-sub-link" data-subview="about-why" data-i18n="navSub.aboutWhy">선택 이유</a>
-          <a href="#about-principles" class="nav-sub-link" data-subview="about-principles" data-i18n="navSub.aboutPrinciples">원칙과 기준</a>
         </div>
       </div>
       <div class="nav-group" data-group="material">
@@ -124,8 +122,6 @@
         <a href="#about-info" class="nav-sub-link" data-subview="about-info" data-i18n="navSub.aboutInfo">기업 정보</a>
         <a href="#about-origin" class="nav-sub-link" data-subview="about-origin" data-i18n="navSub.aboutOrigin">기원</a>
         <a href="#about-vision" class="nav-sub-link" data-subview="about-vision" data-i18n="navSub.aboutVision">비전과 목표</a>
-        <a href="#about-why" class="nav-sub-link" data-subview="about-why" data-i18n="navSub.aboutWhy">선택 이유</a>
-        <a href="#about-principles" class="nav-sub-link" data-subview="about-principles" data-i18n="navSub.aboutPrinciples">원칙과 기준</a>
       </div>
     </div>
     <div class="nav-group" data-group="material">
@@ -508,13 +504,11 @@
     <div class="container">
       <div class="page-head reveal">
         <span class="eyebrow" data-i18n="biz.eyebrow">BUSINESS</span>
-        <span class="page-cat" data-i18n="biz.cat">사업분야</span>
-        <h2 class="section-title" data-i18n="biz.title">원료부터 완제품까지, 세 가지 협력 방식</h2>
+        <h2 class="section-title" data-page-title>기능성 소재</h2>
       </div>
 
       <div id="biz-material" class="tech-block">
         <h3 class="block-title reveal" data-i18n="biz.b1t">기능성 소재</h3>
-        <p class="biz-tab-sum reveal" data-i18n="biz.t1sum">원료만 필요한 곳</p>
         <div class="biz-layout reveal">
           <div class="biz-copy">
             <p class="lead-line" data-i18n="biz.b1lead"></p>
@@ -538,7 +532,6 @@
 
       <div id="biz-goods" class="tech-block" hidden>
         <h3 class="block-title reveal" data-i18n="biz.b2t">프리미엄 생활용품</h3>
-        <p class="biz-tab-sum reveal" data-i18n="biz.t2sum">완제품이 필요한 곳</p>
         <div class="biz-layout reveal">
           <div class="biz-copy">
             <p class="lead-line" data-i18n="biz.b2lead"></p>
@@ -582,7 +575,6 @@
 
       <div id="biz-oem" class="tech-block" hidden>
         <h3 class="block-title reveal" data-i18n="biz.b3t">OEM · ODM</h3>
-        <p class="biz-tab-sum reveal" data-i18n="biz.t3sum">브랜드를 처음부터 만들려는 곳</p>
         <div class="biz-layout reveal">
           <div class="biz-copy">
             <p class="lead-line" data-i18n="biz.b3lead"></p>
@@ -824,7 +816,7 @@
               <tr><th data-i18n="overview.tFounded">설립일</th><td data-i18n="overview.vFounded"></td></tr>
               <tr><th data-i18n="overview.tAddr">주소</th><td data-i18n="about.locValue"></td></tr>
               <tr>
-                <th></th>
+                <th data-i18n="overview.lFacility">사무실</th>
                 <td>
                   <div class="info-photos">
                     <figure class="info-photo"><img src="assets/img/office-room.webp" alt="카리바이오 사무실" loading="lazy" width="640" height="360"></figure>
@@ -834,7 +826,8 @@
             </tbody>
           </table>
         </div>
-        <h4 class="sub-title reveal" style="margin-top:40px;" data-i18n="about.milestonesTitle">회사 연혁</h4>
+      <div id="about-history" class="info-section">
+        <h3 class="block-title reveal" data-i18n="about.milestonesTitle">회사 연혁</h3>
         <div class="milestones reveal">
           <div class="timeline-track">
             <div class="tl-node"><div class="tl-dot-wrap"><span class="tl-year">2023.10</span><span class="tl-dot"></span></div><div class="tl-card"><p class="tl-text" data-i18n="about.tl1"></p></div></div>
@@ -847,36 +840,7 @@
         </div>
       </div>
 
-      <div id="about-origin" class="tech-block" hidden>
-        <h3 class="block-title reveal" data-i18n="about2.originTitle">기원</h3>
-        <div class="story-layout reveal">
-          <div class="about-copy">
-            <p class="story-lead" data-i18n="about2.originP1"></p>
-            <p data-i18n="about2.originP2"></p>
-            <p data-i18n="about2.originP3"></p>
-          </div>
-          <aside class="story-side">
-            <figure class="story-figure">
-              <img src="assets/img/feldspar-rock.webp" alt="칼륨장석 원석" loading="lazy" width="1000" height="1000">
-              <figcaption>전남 순천에서 생산된 칼륨장석 원석</figcaption>
-            </figure>
-          </aside>
-        </div>
-      </div>
-
-      <div id="about-vision" class="tech-block" hidden>
-        <h3 class="block-title reveal" data-i18n="navSub.aboutVision">비전과 목표</h3>
-        <div class="vision-statement-band reveal">
-          <span class="eyebrow" data-i18n="about2.visionLabel">VISION — 어디를 향하는가</span>
-          <p class="vision-statement" data-i18n="vision.statement">자연에서 시작된 가치를 더 나은 일상으로 이끄는 기업이 되겠습니다.</p>
-        </div>
-        <h4 class="sub-title reveal" style="margin-top:36px;" data-i18n="about2.goalLabel">GOAL — 무엇을 할 것인가</h4>
-        <div class="goal-statement reveal">
-          <p data-i18n="vision.goalStatement">하나의 원료, 칼륨장석의 가능성을 끝까지 검증해<br>사람과 환경 모두에게 안전한 생활 소재를 만드는<br>글로벌 B2B 파트너가 되겠습니다.</p>
-        </div>
-      </div>
-
-      <div id="about-why" class="tech-block" hidden>
+      <div id="about-why" class="info-section">
         <h3 class="block-title reveal" data-i18n="about2.whyTitle">선택해야 하는 이유</h3>
         <div class="why-grid reveal">
           <article class="why-card">
@@ -897,7 +861,7 @@
         </div>
       </div>
 
-      <div id="about-principles" class="tech-block" hidden>
+      <div id="about-principles" class="info-section">
         <h3 class="block-title reveal" data-i18n="about2.prinTitle">원칙과 기준</h3>
         <p class="block-desc reveal" data-i18n="about2.prinIntro"></p>
         <div class="values-grid reveal">
@@ -928,6 +892,36 @@
           </div>
         </div>
         <p class="values-disclaimer reveal" data-i18n="about.valuesDisclaimer"></p>
+      </div>
+      </div>
+
+      <div id="about-origin" class="tech-block" hidden>
+        <h3 class="block-title reveal" data-i18n="about2.originTitle">기원</h3>
+        <div class="story-layout reveal">
+          <div class="about-copy">
+            <p class="story-lead" data-i18n="about2.originP1"></p>
+            <p data-i18n="about2.originP2"></p>
+            <p data-i18n="about2.originP3"></p>
+          </div>
+          <aside class="story-side">
+            <figure class="story-figure">
+              <img src="assets/img/feldspar-rock.webp" alt="칼륨장석 원석" loading="lazy" width="1000" height="1000">
+              <figcaption>전남 순천에서 생산된 칼륨장석 원석</figcaption>
+            </figure>
+          </aside>
+        </div>
+      </div>
+
+      <div id="about-vision" class="tech-block" hidden>
+        <h3 class="block-title reveal" data-i18n="navSub.aboutVision">비전과 목표</h3>
+        <div class="vision-statement-band reveal">
+          <span class="eyebrow" data-i18n="about2.visionLabel">VISION — 어디를 향하는가</span>
+          <p class="vision-statement" data-i18n="vision.statement">자연에서 시작된 가치를 더 나은 일상으로 이끄는 기업이 되겠습니다.</p>
+        </div>
+        <h4 class="sub-title reveal" style="margin-top:36px;" data-i18n="about2.goalLabel">GOAL — 무엇을 할 것인가</h4>
+        <div class="goal-statement reveal">
+          <p data-i18n="vision.goalStatement">하나의 원료, 칼륨장석의 가능성을 끝까지 검증해<br>사람과 환경 모두에게 안전한 생활 소재를 만드는<br>글로벌 B2B 파트너가 되겠습니다.</p>
+        </div>
       </div>
     </div>
   </div>
