@@ -310,9 +310,6 @@ textarea:focus-visible{
   margin-bottom:24px;color:var(--cream);
 }
 .hero-sub{font-size:clamp(1.02rem,1.8vw,1.22rem);max-width:560px;color:rgba(247,247,240,0.88);line-height:1.85;margin-bottom:38px;}
-.hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:48px;}
-.hero-ctas .btn-primary{background:var(--magenta-btn);}
-.hero-ctas .btn-primary:hover{box-shadow:0 8px 22px -8px rgba(214,71,148,0.6);}
 /* The label states the benefit and leads; the figure supports it underneath. */
 .hero-stat-label{
   display:block;font-size:clamp(1.05rem,1.6vw,1.28rem);font-weight:800;color:var(--cream);
@@ -832,8 +829,6 @@ textarea:focus-visible{
 .hero .cycle .cyc-label{fill:rgba(247,247,240,0.86);}
 .hero .cycle .cyc-core{fill:#F7F7F0;}
 .hero .cycle .cyc-core-sub{fill:rgba(247,247,240,0.72);}
-.hero-ctas .btn-primary{background:var(--lime-deep);color:#fff;}
-.hero-ctas .btn-primary:hover{box-shadow:0 8px 22px -8px rgba(141,198,63,0.75);}
 .hero-stat-value{color:var(--lime);}
 
 /* ---- product cards: spec table sits above the bullets ---- */
@@ -1645,9 +1640,6 @@ figure img{height:auto;}
 .home-below .hero-sub{color:var(--ink-soft);max-width:640px;margin:14px auto 0;}
 .home-below .hero-model{justify-content:center;margin:0 0 32px;}
 .home-below .hero-model li{color:var(--ink-soft);}
-.home-below .hero-ctas{justify-content:center;margin-bottom:0;}
-.home-below .hero-ctas .btn-outline{border-color:var(--ink);color:var(--ink);}
-.home-below .hero-ctas .btn-outline:hover{border-color:var(--green);color:var(--green);}
 
 @media (prefers-reduced-motion:no-preference) and (min-width:641px){
   .home-cyc-node{animation:homeCycIn .7s cubic-bezier(.2,.7,.3,1) both;}
@@ -1884,7 +1876,6 @@ figure img{height:auto;}
   margin:0 0 14px; font-family:var(--font-display); font-weight:900; color:var(--ink);
   font-size:clamp(1.25rem, 2.3vw, 1.8rem); letter-spacing:-0.02em; word-break:keep-all;
 }
-.home-below .hero-ctas{margin-top:var(--s7); justify-content:center;}
 
 /* =====================================================================
    설비 카드 사진 · K.28 좌우 배치 · 임상 데이터 버튼 · 표 확대
