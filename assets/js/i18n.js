@@ -255,7 +255,6 @@ var I18N = {
       desc: { ko: "지자체·대학·테크노파크 등 공공기관과 협력하며 성장해 온, 검증된 제조 파트너입니다.", en: "A proven manufacturing partner, grown through work with local governments, universities and technoparks.", zh: "在与地方政府、高校及科技园等公共机构的合作中成长起来的、经过验证的制造伙伴。" }
     },
     stat1: { ko: "자극도 — KBRC 인체적용시험", en: "Irritation Score — KBRC Testing", zh: "刺激度评分——KBRC测试" },
-    stat2: { ko: "원료 추적성 — 자체 광산", en: "Traceability — Own Mine", zh: "原料可追溯度——自有矿山" },
     stat3: { ko: "SLS 사용 — K.28 치약 기준", en: "SLS Used — K.28 Toothpaste", zh: "SLS添加量——K.28牙膏" },
     stat4: { ko: "자연 유래 성분 — K.28 치약", en: "Naturally Derived Ingredients — K.28", zh: "天然来源成分——K.28牙膏" }
   },
@@ -266,7 +265,6 @@ var I18N = {
     p2: { ko: "회사명 '카리(Kali)'는 칼륨(Potassium)을 뜻하는 라틴어 'Kalium'에서 왔습니다. 화학기호 K가 여기서 유래했듯, 우리의 정체성도 이 하나의 원료에서 출발합니다. 우리가 만들고 싶은 것은 원료 자체가 아니라, 그 원료가 만드는 건강하고 지속가능한 생활문화입니다.", en: "Our name, Kali, comes from \"Kalium,\" the Latin root for potassium — the source of the chemical symbol K. It's a small detail, but it reflects who we are: a company built around one carefully understood raw material. What we're actually building is a healthier, more sustainable way of living around that material.", zh: "品牌名“Kali”源自拉丁语“Kalium”(钾的词根),化学元素符号K也由此而来。这不只是一个命名细节,更代表我们的定位——一家围绕一种被深入研究透彻的天然原料而生长起来的企业。我们真正想做的,是把这种原料的价值转化为更健康、更可持续的日常生活方式。" },
     p3: { ko: "우리는 비누와 치약에서 멈추지 않습니다. 칼륨장석이 가진 가능성을 화장품, 친환경 도료, 생활용품 등 더 넓은 산업으로 확장하는 것이 카리바이오가 꿈꾸는 다음 단계이며, 그 여정에 파트너사와 함께하고 싶습니다.", en: "We don't see soap and toothpaste as the endpoint. Extending feldspar's potential into cosmetics, eco-friendly coatings, and household goods is the next step we're working toward — and we'd like our partners to be part of that journey.", zh: "我们不会止步于皂类与牙膏。将钾长石的潜力延伸至化妆品、环保涂料、日用品等更广泛的领域,是卡里生物下一阶段努力的方向,也希望与合作伙伴一起走完这段旅程。" },
     locLabel: { ko: "본사·사무실", en: "Headquarters", zh: "总部·办公地点" },
-    figCaption: { ko: "전남 순천 황전면 자체 광산에서 생산된 칼륨장석 원석 — 12억 년 전 형성된 천연 미네랄", en: "Potassium feldspar produced at our own site in Hwangjeon-myeon, Suncheon — a natural mineral formed 1.2 billion years ago", zh: "产自顺天市黄田面自有矿山的钾长石原矿——形成于12亿年前的天然矿物" },
     locValue: { ko: "전남광주통합특별시 순천시 해룡면 율촌산단4로 13, 303호 (전남테크노파크 지식산업센터)", en: "303, 13, Yulchonsandan 4-ro, Haeryong-myeon, Suncheon-si, Jeonnam-Gwangju Unified Metropolitan City, South Korea (Jeonnam Technopark Knowledge Industry Center)", zh: "韩国全南光州统合特别市顺天市海龙面栗村产业园4路13号303室(全罗南道科技园知识产业中心)" },
     valuesIntro: { ko: "다섯 가지 원칙이 우리의 모든 의사결정 기준입니다.", en: "Five principles guide every decision we make.", zh: "这五项原则,是我们做每一个决定的基准。" },
     value1: { ko: "자연이 만든 천연 미네랄의 가치를 존중합니다.", en: "We respect the value of minerals nature created.", zh: "尊重自然孕育的天然矿物价值。" },
@@ -522,8 +520,6 @@ var I18N = {
     title: { ko: "세 가지 방식으로 협력합니다", en: "Three Ways We Work With Partners", zh: "三种合作方式" },
     subtitle: { ko: "원료만 필요하신 분, 완제품이 필요하신 분, 브랜드를 처음부터 만들고 싶은 분 — 세 가지 방식으로 함께합니다.", en: "Raw material only, finished goods, or a brand built from scratch — we work with you in three ways.", zh: "只需原料、需要成品,或希望从零打造品牌——我们以三种方式与您合作。" },
     p1t: { ko: "기능성 소재 공급", en: "Functional Materials Supply", zh: "功能性原料供应" },
-    p1d: { ko: "칼륨장석 원석의 채광·정제·미세 가공을 거친 천연 원료를 벌크 단위로 공급합니다.", en: "Mining, refining, and micronization of potassium feldspar — natural mineral raw material supplied in bulk.", zh: "钾长石原矿的开采、精制与微粉化加工,以散装形式供应天然矿物原料。" },
-    p1a: { ko: "자체 광산 생산 — 출처 100% 추적", en: "Own mine — 100% traceable origin", zh: "自有矿山开采——来源100%可追溯" },
     p1b: { ko: "K₂O 11.5% · pH 9.34 성분 성적서 제공", en: "Spec sheet: K₂O 11.5% · pH 9.34", zh: "提供成分报告:K₂O 11.5%·pH 9.34" },
     p1c: { ko: "화장품·세라믹·유리·도료용 등급 협의", en: "Grades for cosmetics, ceramics, glass, coatings", zh: "可协商化妆品、陶瓷、玻璃、涂料等级别" },
     p2t: { ko: "완제품 공급 — 카리비누 4종·K.28 치약", en: "Finished Goods Supply — 4 KALI Soaps &amp; K.28 Toothpaste", zh: "成品供应——卡里皂4款·K.28牙膏" },
@@ -601,7 +597,6 @@ var I18N = {
   },
   powder: {
     title: { ko: "칼륨장석 추출 분말", en: "Potassium Feldspar Powder", zh: "钾长石提取粉体" },
-    c1: { ko: "순천에 위치한 광산에서 직접 채취한 칼륨장석 분말", en: "Potassium feldspar powder extracted directly from our mine in Suncheon", zh: "直接采自顺天矿山的钾长石粉体" },
     c2: { ko: "자연에서 채취해 가공한, 화학 첨가물 없는 미네랄 원료", en: "A naturally sourced mineral raw material, processed without chemical additives", zh: "取自自然并加工而成、无化学添加的矿物原料" },
     c3: { ko: "세라믹, 유리 등 공업 소재부터 뷰티 산업까지 활용 가능", en: "Usable from industrial materials such as ceramics and glass through to the beauty industry", zh: "可用于陶瓷、玻璃等工业材料乃至美妆产业" }
   },
