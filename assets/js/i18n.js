@@ -76,7 +76,7 @@ var I18N = {
     storyP2: { ko: "돌 하나를 파는 일이 아닙니다. 이 원료가 어떤 성질을 가졌고 무엇에 쓰일 수 있는지를 확인해, 쓸 수 있는 형태로 만드는 것이 카리바이오가 하는 일입니다.", en: "This is not a business of selling stone. Our work is to establish what this material is and what it can do, then put it into a form that can be used.", zh: "这不是卖石头的生意。确认这种原料具备什么性质、能用在何处,并将其做成可用的形态,才是卡里生物在做的事。" },
     storyP3: { ko: "지금은 비누와 치약이지만, 화장품과 친환경 도료, 생활용품으로 넓혀가고 있습니다.", en: "Today that means soap and toothpaste. We are extending it into cosmetics, eco-friendly coatings and household goods.", zh: "目前是皂类与牙膏,并正向化妆品、环保涂料与日用品延伸。" },
     storyCap: { ko: "정제·미세 분말화한 칼륨장석", en: "Potassium feldspar, refined and milled to a fine powder", zh: "经提纯并微细粉碎的钾长石" },
-    storyCk1: { ko: "자체 광산에서 직접 채취한 칼륨장석 분말", en: "Potassium feldspar powder extracted from our own mine", zh: "取自自有矿山的钾长石粉末" },
+    storyCk1: { ko: "공인시험으로 구성 성분을 확인한 칼륨장석 분말", en: "Potassium feldspar powder with its composition verified by accredited testing", zh: "经公认检测确认成分构成的钾长石粉体" },
     storyCk2: { ko: "자연에서 채취해 가공한, 화학 첨가물 없는 미네랄 원료", en: "A naturally sourced mineral raw material, processed without chemical additives", zh: "取自自然并加工而成、无化学添加的矿物原料" },
     storyCk3: { ko: "세라믹, 유리 등 공업 소재부터 뷰티 산업까지 활용 가능", en: "Usable from industrial materials such as ceramics and glass through to the beauty industry", zh: "可用于陶瓷、玻璃等工业材料乃至美妆产业" },
     compTitle: { ko: "주요 구성 요소 3가지", en: "3 Key Components", zh: "三大核心成分" },
@@ -175,7 +175,7 @@ var I18N = {
     visionLabel: { ko: "VISION — 어디를 향하는가", en: "VISION — Where we are headed", zh: "VISION — 我们要去哪里" },
     goalLabel: { ko: "GOAL — 무엇을 할 것인가", en: "GOAL — What we will do", zh: "GOAL — 我们要做什么" },
     originTitle: { ko: "기원", en: "Origin", zh: "起源" },
-    originP1: { ko: "12억 년 전 형성된 천연 미네랄 칼륨장석. 자체 광산에서 이 광물을 마주한 것이 시작이었습니다.", en: "Potassium feldspar, a natural mineral formed 1.2 billion years ago. Meeting it at our own mine is where this began.", zh: "12亿年前形成的天然矿物钾长石。在自有矿山与这一矿物相遇，便是一切的开始。" },
+    originP1: { ko: "12억 년 전 형성된 천연 미네랄 칼륨장석. 이 광물의 가능성을 마주한 것이 시작이었습니다.", en: "Potassium feldspar, a natural mineral formed 1.2 billion years ago. Recognising what it could become is where this began.", zh: "12亿年前形成的天然矿物钾长石。与这一矿物的可能性相遇，便是一切的开始。" },
     originP2: { ko: "이 광물이 가진 소재로서의 가치와 활용 가능성에 주목했고, 생활 분야에 적용하기 위한 연구 개발을 시작했습니다. 친환경 소재와 생활용품, 바이오 분야로 이어질 수 있다고 판단했습니다.", en: "We saw its value and potential as a material, and began research to apply it in everyday life — reasoning that it could extend into eco-friendly materials, household goods and bio applications.", zh: "我们看到它作为材料的价值与应用可能性,并着手研究如何将其用于日常生活,判断它能延伸至环保材料、日用品与生物领域。" },
     originP3: { ko: "산학협력을 기반으로 소재의 과학적 가치와 산업적 활용성을 확인해 왔습니다. 천연 자원의 가치를 제품으로 연결하는 것이 카리바이오가 창업한 이유입니다.", en: "Working with academia, we have been establishing the material's scientific value and industrial usefulness. Connecting a natural resource to products is the reason this company exists.", zh: "以产学合作为基础,持续确认该材料的科学价值与产业应用性。把天然资源的价值连接到产品,正是卡里生物创业的理由。" }
   },
@@ -243,8 +243,8 @@ var I18N = {
     title: { ko: "카리바이오를 파트너로 선택해야 하는 이유", en: "Why Global Partners Choose KALIBIO", zh: "全球合作伙伴选择卡里生物的理由" },
     subtitle: { ko: "화려한 형용사 대신, 증명 가능한 세 가지 사실입니다.", en: "Not adjectives — three facts we can prove.", zh: "不靠华丽辞藻,只讲三个可验证的事实。" },
     card1: {
-      title: { ko: "자체 광산 독점 원료 — 공급 안정성과 추적성", en: "Proprietary Mine — Supply Stability &amp; Traceability", zh: "自有矿山独家原料——供应稳定与全程可追溯" },
-      desc: { ko: "지역 광산에서 직접 생산합니다. 원석부터 배합까지 원료 출처 100% 추적 가능, 외부 수급에 흔들리지 않는 공급망입니다.", en: "We mine our own potassium feldspar at a regional mine, which means every batch is 100% traceable from extraction to formulation — a supply chain that isn't exposed to third-party raw material risk.", zh: "钾长石原料开采自我们的自有地区矿山,从开采到调配,原料来源可实现100%可追溯,不受第三方原料供应波动影响。" }
+      title: { ko: "공인시험으로 확인한 원료 — 성분의 투명성", en: "Raw Material Verified by Accredited Testing", zh: "经公认检测确认的原料——成分透明" },
+      desc: { ko: "한국광해광업공단 기술연구원 시험(성적서 24-0213-1)으로 칼륨장석의 구성 성분을 확인한 뒤 배합합니다. 사이트에 적은 원료 수치는 모두 이 시험에 근거합니다.", en: "We verify the composition of our potassium feldspar at the KOMIR Research Institute (report 24-0213-1) before it goes into a formulation. Every raw-material figure on this site rests on that test.", zh: "钾长石的成分构成经韩国矿害矿业公团技术研究院检测（报告编号24-0213-1）确认后再行配合。本网站所载原料数值均基于该检测。" }
     },
     card2: {
       title: { ko: "KBRC 정량 임상 데이터", en: "Quantified Clinical Data from KBRC", zh: "KBRC定量临床数据" },
