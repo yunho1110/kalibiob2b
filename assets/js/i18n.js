@@ -47,12 +47,12 @@ var I18N = {
     sub: { ko: "12억 년 전 형성된 천연 미네랄 칼륨장석.<br>카리바이오는 이 원료를 연구해<br>프리미엄 생활용품과 다양한 산업 소재로 넓혀나갑니다.", en: "Potassium feldspar, a natural mineral formed 1.2 billion years ago.<br>KALIBIO studies this single material and extends it<br>into premium household goods and a wider range of industrial materials.", zh: "12亿年前形成的天然矿物钾长石。<br>卡里生物研究这一原料，<br>并将其拓展为高端生活用品与多种产业材料。" },
     cta1: { ko: "파트너십 제안하기", en: "Propose a Partnership", zh: "提出合作提案" },
     cta2: { ko: "칼륨장석 알아보기", en: "About the Material", zh: "了解钾长石" },
-    f1t: { ko: "원료를 직접 생산합니다", en: "We produce the material ourselves", zh: "我们自行生产原料" },
-    f1d: { ko: "대부분의 생활용품 기업은 원료를 사서 씁니다. 카리바이오는 자체 광산의 칼륨장석을 원석에서 분말까지 직접 다룹니다.", en: "Most household-goods companies buy their raw material. KALIBIO handles potassium feldspar from its own mine end to end, from rock to powder.", zh: "多数生活用品企业采购原料。卡里生物拥有自有矿山，从原石到粉末全程亲自处理钾长石。" },
-    f2t: { ko: "원료의 성질을 시험으로 확인합니다", en: "We verify the material by testing", zh: "我们以检测确认原料性质" },
-    f2d: { ko: "구성요소는 한국광해광업공단, 피부 적용 결과는 한국바이오임상연구센터에서 확인했습니다.", en: "Composition verified by KOMIR; skin application results by the Korea Bio Research Center.", zh: "成分由韩国矿害矿业公团确认,皮肤应用结果由韩国生物临床研究中心确认。" },
-    f3t: { ko: "같은 원료로 제품을 나눕니다", en: "One material, four products", zh: "同一原料,分出不同产品" },
-    f3d: { ko: "칼륨장석 함량을 3·5·8·13%로 달리해 목적이 다른 비누 4종을 설계했습니다. 숫자가 곧 함량입니다.", en: "Four soaps designed at 3, 5, 8 and 13% feldspar — the number in each name is the content.", zh: "以钾长石含量3/5/8/13%设计出目的各异的4款皂,名称中的数字即含量。" }
+    f1t: { ko: "천연 미네랄 소재를 선별하고 공급합니다", en: "We select and supply natural mineral materials", zh: "我们甄选并供应天然矿物材料" },
+    f1d: { ko: "검증된 원료를 바탕으로 생활용품에 적합한 소재를 제안합니다.", en: "Working from verified raw material, we propose materials suited to household goods.", zh: "以经过验证的原料为基础，提出适用于生活用品的材料方案。" },
+    f2t: { ko: "원료의 특성을 데이터로 확인합니다", en: "We verify the material's properties with data", zh: "我们以数据确认原料特性" },
+    f2d: { ko: "구성 성분과 시험 결과를 바탕으로 소재의 특성과 활용 가능성을 검토합니다.", en: "From its composition and test results, we assess the material's properties and potential applications.", zh: "依据成分构成与检测结果，评估材料的特性与应用可能性。" },
+    f3t: { ko: "소재의 가능성을 제품으로 확장합니다", en: "We extend the material's potential into products", zh: "我们将材料的可能性延伸为产品" },
+    f3d: { ko: "원료 함량과 제품 특성에 따라 비누·치약 등 다양한 생활용품에 적용합니다.", en: "Depending on material content and product characteristics, we apply it across soap, toothpaste and other household goods.", zh: "根据原料含量与产品特性，应用于皂类、牙膏等多种生活用品。" }
   },
   home: {
     cyc1: { ko: "원석", en: "Raw Ore", zh: "原矿" },
