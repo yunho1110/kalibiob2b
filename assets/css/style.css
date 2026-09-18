@@ -253,7 +253,7 @@ textarea:focus-visible{
 .drawer-nav .nav-toggle:hover{color:var(--ink);}
 .drawer-nav .nav-sub{display:flex;flex-direction:column;padding:0 0 0 16px;max-height:0;overflow:hidden;transition:max-height .3s ease;}
 .drawer-nav .nav-sub a{font-size:0.95rem;font-weight:600;padding:13px 6px 13px 14px;border-bottom:none;color:var(--ink-soft) !important;}
-.drawer-nav .nav-sub a.active{color:var(--lime-text) !important;}
+.drawer-nav .nav-sub a.active{color:#fff !important;} /* AA: .drawer-nav .nav-sub-link.active 가 딥그린 배경을 깔아준다 — 라임 글자면 1.96:1 */
 .drawer-nav .nav-sub a::before{display:none;}
 .drawer-nav .nav-group.open .nav-sub{max-height:300px;padding-bottom:6px;}
 
@@ -1350,6 +1350,7 @@ footer.site-footer{background:var(--green-deep);color:var(--cream);padding:clamp
   .test{grid-template-columns:1fr;}
   .test-thumb{order:-1;}
 }
+.test-nothumb{grid-template-columns:1fr;}
 .test-body{padding:var(--s6);}
 /* 2-4 fix: previous "2x" sizing was too large — back to ~1.0-1.15x normal
    body copy, in line with .block-title / .block-desc elsewhere */

@@ -109,7 +109,16 @@ var I18N = {
     t1m: { ko: "한국광해광업공단 기술연구원 · 2024.4.30~5.22 · KS E 3098:2004", en: "KOMIR Research Institute · 30 Apr – 22 May 2024 · KS E 3098:2004", zh: "韩国矿害矿业公团技术研究院 · 2024.4.30~5.22 · KS E 3098:2004" },
     t2t: { ko: "인체적용시험", en: "Human application study", zh: "人体应用试验" },
     t2d: { ko: "분말을 피부에 적용했을 때의 변화를 확인했습니다.", en: "Measured the changes when the powder is applied to skin.", zh: "确认将粉体应用于皮肤时的变化。" },
-    t2m: { ko: "한국바이오임상연구센터 · 피험자 12명 · 8개 항목 + 피부자극 테스트", en: "Korea Bio Research Center · 12 subjects · 8 measures + irritation test", zh: "韩国生物临床研究中心 · 受试者12名 · 8个项目 + 皮肤刺激测试" }
+    t2m: { ko: "한국바이오임상연구센터 · 피험자 12명 · 8개 항목 + 피부자극 테스트", en: "Korea Bio Research Center · 12 subjects · 8 measures + irritation test", zh: "韩国生物临床研究中心 · 受试者12名 · 8个项目 + 皮肤刺激测试" },
+    csTitle: { ko: "주요 성분 검증 결과 요약", en: "Verified Composition — Summary", zh: "主要成分检测结果摘要" },
+    csOrg: { ko: "시험기관", en: "Testing body", zh: "检测机构" },
+    csOrgV: { ko: "한국광해광업공단 기술연구원", en: "KOMIR Research Institute", zh: "韩国矿害矿业公团技术研究院" },
+    csNo: { ko: "성적서 번호", en: "Report no.", zh: "报告编号" },
+    csSample: { ko: "시험 시료", en: "Sample", zh: "检测样品" },
+    csSampleV: { ko: "칼륨장석 분말 (Feldspar Powder)", en: "Potassium feldspar powder", zh: "钾长石粉体 (Feldspar Powder)" },
+    csPeriod: { ko: "시험기간", en: "Test period", zh: "检测周期" },
+    csMethod: { ko: "시험방법", en: "Test methods", zh: "检测方法" },
+    csFootnote: { ko: "※ 수치는 질량분율(mass fraction) 기준입니다.", en: "* Figures are mass fraction (%).", zh: "※ 数值以质量分数(mass fraction)计。" }
   },
   biz: {
     eyebrow: { ko: "BUSINESS", en: "BUSINESS", zh: "业务领域" },
