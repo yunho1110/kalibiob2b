@@ -104,7 +104,7 @@
     var VALID_VIEWS = ['home', 'material', 'business', 'products', 'about', 'partnership', 'contact'];
     var HASH_ALIASES = { hero: 'home', why: 'about', partners: 'partnership', technology: 'material' };
     var SUBVIEW_GROUPS = {
-      material: ['mat-story', 'mat-comp', 'mat-uses', 'mat-props', 'mat-tests'],
+      material: ['mat-story', 'mat-uses', 'mat-tests'],
       business: ['biz-material', 'biz-goods', 'biz-oem'],
       products: ['prod-soap', 'prod-paste', 'prod-proc-soap', 'prod-proc-paste'],
       about: ['about-info', 'about-origin', 'about-vision', 'about-values'],
@@ -114,6 +114,7 @@
     /* 메뉴 한 칸이 여러 블록을 묶는 경우. 없으면 같은 id 블록 하나를 쓴다. */
     var SUBVIEW_BLOCKS = {
       'about-info': ['about-info', 'about-history'],
+      'mat-story': ['mat-story', 'mat-comp', 'mat-props'],
       'about-values': ['about-why', 'about-principles']
     };
     function blocksOf(subId) { return SUBVIEW_BLOCKS[subId] || [subId]; }
@@ -128,13 +129,14 @@
     });
     /* old bookmarks keep working after the technology view was split in two */
     var LEGACY_SUBS = {
-      'tech-raw': 'mat-comp', 'tech-eco': 'mat-uses', 'tech-industry': 'mat-uses',
-      'tech-clinical': 'mat-props', 'tech-cert': 'mat-tests', 'tech-process': 'prod-proc-soap',
-      'mat-components': 'mat-comp', 'mat-value': 'mat-uses', 'mat-efficacy': 'mat-props',
+      'tech-raw': 'mat-story', 'tech-eco': 'mat-uses', 'tech-industry': 'mat-uses',
+      'tech-clinical': 'mat-story', 'tech-cert': 'mat-tests', 'tech-process': 'prod-proc-soap',
+      'mat-components': 'mat-story', 'mat-comp': 'mat-story', 'mat-value': 'mat-uses',
+      'mat-efficacy': 'mat-story', 'mat-props': 'mat-story',
       'mat-cert': 'mat-tests', 'products-soap': 'prod-soap', 'products-toothpaste': 'prod-paste',
       'products-process': 'prod-proc-soap', 'prod-process': 'prod-proc-soap', 'products-oem': 'biz-oem',
       'about-overview': 'about-info', 'about-story': 'about-origin', 'about-milestones': 'about-info',
-      'about-why': 'about-info', 'about-principles': 'about-info'
+      'about-why': 'about-values', 'about-principles': 'about-values'
     };
     Object.keys(LEGACY_SUBS).forEach(function (old) {
       SUBSECTIONS[old] = SUBSECTIONS[LEGACY_SUBS[old]];
