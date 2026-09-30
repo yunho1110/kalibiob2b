@@ -105,7 +105,7 @@
     var HASH_ALIASES = { hero: 'home', why: 'about', partners: 'partnership', technology: 'material' };
     var SUBVIEW_GROUPS = {
       material: ['mat-story', 'mat-uses', 'mat-tests'],
-      business: ['biz-material', 'biz-goods', 'biz-oem'],
+      business: ['biz-areas'],
       products: ['prod-soap', 'prod-paste', 'prod-proc-soap', 'prod-proc-paste'],
       about: ['about-info', 'about-origin', 'about-vision', 'about-values'],
       partnership: ['part-current', 'part-global'],
@@ -113,14 +113,15 @@
     };
     /* 메뉴 한 칸이 여러 블록을 묶는 경우. 없으면 같은 id 블록 하나를 쓴다. */
     var SUBVIEW_BLOCKS = {
-      'about-info': ['about-info', 'about-history'],
-      'mat-story': ['mat-story', 'mat-comp', 'mat-props'],
-      'about-values': ['about-why', 'about-principles']
+      'about-origin': ['about-origin', 'about-history'],
+      'mat-story': ['mat-story', 'mat-comp'],
+      'mat-tests': ['mat-tests', 'mat-props'],
+      'about-values': ['about-principles']
     };
     function blocksOf(subId) { return SUBVIEW_BLOCKS[subId] || [subId]; }
 
     var SUBVIEW_DEFAULT = {
-      material: 'mat-story', business: 'biz-material', products: 'prod-soap',
+      material: 'mat-story', business: 'biz-areas', products: 'prod-soap',
       about: 'about-info', partnership: 'part-current', contact: 'contact-form'
     };
     var SUBSECTIONS = {};
@@ -130,12 +131,13 @@
     /* old bookmarks keep working after the technology view was split in two */
     var LEGACY_SUBS = {
       'tech-raw': 'mat-story', 'tech-eco': 'mat-uses', 'tech-industry': 'mat-uses',
-      'tech-clinical': 'mat-story', 'tech-cert': 'mat-tests', 'tech-process': 'prod-proc-soap',
+      'tech-clinical': 'mat-tests', 'tech-cert': 'mat-tests', 'tech-process': 'prod-proc-soap',
       'mat-components': 'mat-story', 'mat-comp': 'mat-story', 'mat-value': 'mat-uses',
-      'mat-efficacy': 'mat-story', 'mat-props': 'mat-story',
+      'mat-efficacy': 'mat-tests', 'mat-props': 'mat-tests',
       'mat-cert': 'mat-tests', 'products-soap': 'prod-soap', 'products-toothpaste': 'prod-paste',
-      'products-process': 'prod-proc-soap', 'prod-process': 'prod-proc-soap', 'products-oem': 'biz-oem',
-      'about-overview': 'about-info', 'about-story': 'about-origin', 'about-milestones': 'about-info',
+      'products-process': 'prod-proc-soap', 'prod-process': 'prod-proc-soap', 'products-oem': 'biz-areas',
+      'biz-material': 'biz-areas', 'biz-goods': 'biz-areas', 'biz-oem': 'biz-areas',
+      'about-overview': 'about-info', 'about-story': 'about-origin', 'about-milestones': 'about-origin',
       'about-why': 'about-values', 'about-principles': 'about-values'
     };
     Object.keys(LEGACY_SUBS).forEach(function (old) {
@@ -460,6 +462,60 @@
         window.location.href = 'mailto:kalibio1101@naver.com?subject=' + subject + '&body=' + body;
         if (formNote) { formNote.hidden = false; }
       });
+    }
+
+    /* ===== 제품 및 주요 공정: 중메뉴(제품 / 주요 공정)를 눌러야 소메뉴가 열린다 ===== */
+    var subHeads = document.querySelectorAll('.nav-sub-head.is-toggle');
+    for (var sh = 0; sh < subHeads.length; sh++) {
+      subHeads[sh].addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var grp = this.parentNode;
+        var willOpen = !grp.classList.contains('open');
+        /* 같은 드롭다운 안에서는 하나만 열어 둔다 */
+        var siblings = grp.parentNode.querySelectorAll('.nav-sub-group');
+        for (var q = 0; q < siblings.length; q++) {
+          siblings[q].classList.remove('open');
+          var b = siblings[q].querySelector('.nav-sub-head.is-toggle');
+          if (b) { b.setAttribute('aria-expanded', 'false'); }
+        }
+        grp.classList.toggle('open', willOpen);
+        this.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      });
+    }
+    /* 현재 보고 있는 소메뉴가 속한 묶음은 펼쳐 둔다 */
+    var openOwningGroup = function () {
+      var active = document.querySelectorAll('.nav-sub-items .nav-sub-link.active');
+      for (var a = 0; a < active.length; a++) {
+        var g = active[a].closest('.nav-sub-group');
+        if (g) {
+          g.classList.add('open');
+          var btn = g.querySelector('.nav-sub-head.is-toggle');
+          if (btn) { btn.setAttribute('aria-expanded', 'true'); }
+        }
+      }
+    };
+    window.addEventListener('hashchange', function () { window.setTimeout(openOwningGroup, 30); });
+    openOwningGroup();
+
+    /* ===== 사업 분야 탭 (기능성 소재 / 프리미엄 생활용품 / OEM·ODM 지원) ===== */
+    var bizTabs = document.querySelectorAll('.biz-tab');
+    if (bizTabs.length) {
+      var showBiz = function (id) {
+        for (var t = 0; t < bizTabs.length; t++) {
+          var on = bizTabs[t].getAttribute('data-biz') === id;
+          bizTabs[t].classList.toggle('is-active', on);
+          bizTabs[t].setAttribute('aria-selected', on ? 'true' : 'false');
+          var panel = document.getElementById(bizTabs[t].getAttribute('data-biz'));
+          if (panel) { panel.hidden = !on; }
+        }
+      };
+      for (var t2 = 0; t2 < bizTabs.length; t2++) {
+        bizTabs[t2].addEventListener('click', function () { showBiz(this.getAttribute('data-biz')); });
+      }
+      /* 예전 링크(#biz-goods 등)로 들어오면 해당 탭을 열어둔다 */
+      var entryTab = (window.location.hash || '').replace('#', '');
+      showBiz(/^biz-(material|goods|oem)$/.test(entryTab) ? entryTab : 'biz-material');
     }
 
     /* ===== Reveal on scroll ===== */

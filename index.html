@@ -34,7 +34,7 @@
         <a class="nav-parent" href="#about" data-view="about" data-i18n="nav.about">기업 소개</a>
         <div class="nav-sub">
           <a href="#about-info" class="nav-sub-link" data-subview="about-info" data-i18n="navSub.aboutInfo">기업 정보</a>
-          <a href="#about-origin" class="nav-sub-link" data-subview="about-origin" data-i18n="navSub.aboutOrigin">기업 기원과 발전 과정</a>
+          <a href="#about-origin" class="nav-sub-link" data-subview="about-origin" data-i18n="navSub.aboutOrigin">기원과 발전과정</a>
           <a href="#about-vision" class="nav-sub-link" data-subview="about-vision" data-i18n="navSub.aboutVision">비전과 목표</a>
           <a href="#about-values" class="nav-sub-link" data-subview="about-values" data-i18n="navSub.aboutValues">기업 핵심 가치</a>
         </div>
@@ -42,7 +42,7 @@
       <div class="nav-group" data-group="material">
         <a class="nav-parent" href="#material" data-view="material" data-i18n="nav.material">칼륨 장석</a>
         <div class="nav-sub">
-          <a href="#mat-story" class="nav-sub-link" data-subview="mat-story" data-i18n="navSub.matStory">칼륨 장석 이야기</a>
+          <a href="#mat-story" class="nav-sub-link" data-subview="mat-story" data-i18n="navSub.matStory">원료 이야기</a>
           <a href="#mat-uses" class="nav-sub-link" data-subview="mat-uses" data-i18n="navSub.matUses">장점과 용처</a>
           <a href="#mat-tests" class="nav-sub-link" data-subview="mat-tests" data-i18n="navSub.matTests">시험과 분석</a>
         </div>
@@ -50,22 +50,26 @@
       <div class="nav-group" data-group="products">
         <a class="nav-parent" href="#products" data-view="products" data-i18n="nav.products">제품 및 주요 공정</a>
         <div class="nav-sub">
-          <span class="nav-sub-head" data-i18n="navGrp.products">제품</span>
-          <a href="#prod-soap" class="nav-sub-link" data-subview="prod-soap" data-i18n="navSub.prodSoap">카리비누</a>
-          <a href="#prod-paste" class="nav-sub-link" data-subview="prod-paste" data-i18n="navSub.prodPaste">치약</a>
-          <span class="nav-sub-head" data-i18n="navGrp.process">주요 공정</span>
-          <a href="#prod-proc-soap" class="nav-sub-link" data-subview="prod-proc-soap" data-i18n="navSub.procSoap">비누 공정</a>
-          <a href="#prod-proc-paste" class="nav-sub-link" data-subview="prod-proc-paste" data-i18n="navSub.procPaste">치약 공정</a>
+          <div class="nav-sub-group" data-subgroup="prod">
+            <button type="button" class="nav-sub-head is-toggle" aria-expanded="false" data-i18n="navGrp.products">제품</button>
+            <div class="nav-sub-items">
+              <a href="#prod-soap" class="nav-sub-link" data-subview="prod-soap" data-i18n="navSub.prodSoap">카리비누</a>
+              <a href="#prod-paste" class="nav-sub-link" data-subview="prod-paste" data-i18n="navSub.prodPaste">K.28 치약</a>
+            </div>
+          </div>
+          <div class="nav-sub-group" data-subgroup="proc">
+            <button type="button" class="nav-sub-head is-toggle" aria-expanded="false" data-i18n="navGrp.process">주요 공정</button>
+            <div class="nav-sub-items">
+              <a href="#prod-proc-soap" class="nav-sub-link" data-subview="prod-proc-soap" data-i18n="navSub.procSoap">비누 공정</a>
+              <a href="#prod-proc-paste" class="nav-sub-link" data-subview="prod-proc-paste" data-i18n="navSub.procPaste">치약 공정</a>
+            </div>
+          </div>
         </div>
       </div>
       <div class="nav-group" data-group="business partnership">
         <a class="nav-parent" href="#business" data-view="business" data-i18n="nav.business">비즈니스 협력</a>
         <div class="nav-sub">
-          <span class="nav-sub-head" data-i18n="navGrp.business">사업 분야</span>
-          <a href="#biz-material" class="nav-sub-link" data-subview="biz-material" data-i18n="navSub.bizMaterial">기능성 소재</a>
-          <a href="#biz-goods" class="nav-sub-link" data-subview="biz-goods" data-i18n="navSub.bizGoods">프리미엄 생활용품</a>
-          <a href="#biz-oem" class="nav-sub-link" data-subview="biz-oem" data-i18n="navSub.bizOem">OEM · ODM</a>
-          <span class="nav-sub-head" data-i18n="navGrp.partnership">파트너십</span>
+          <a href="#biz-areas" class="nav-sub-link" data-subview="biz-areas" data-i18n="navSub.bizMaterial">사업 분야</a>
           <a href="#part-current" class="nav-sub-link" data-subview="part-current" data-i18n="navSub.partCurrent">협력 현황</a>
           <a href="#part-global" class="nav-sub-link" data-subview="part-global" data-i18n="navSub.partGlobal">글로벌 파트너 모집</a>
         </div>
@@ -122,7 +126,7 @@
       </div>
       <div class="nav-sub">
         <a href="#about-info" class="nav-sub-link" data-subview="about-info" data-i18n="navSub.aboutInfo">기업 정보</a>
-        <a href="#about-origin" class="nav-sub-link" data-subview="about-origin" data-i18n="navSub.aboutOrigin">기업 기원과 발전 과정</a>
+        <a href="#about-origin" class="nav-sub-link" data-subview="about-origin" data-i18n="navSub.aboutOrigin">기원과 발전과정</a>
         <a href="#about-vision" class="nav-sub-link" data-subview="about-vision" data-i18n="navSub.aboutVision">비전과 목표</a>
         <a href="#about-values" class="nav-sub-link" data-subview="about-values" data-i18n="navSub.aboutValues">기업 핵심 가치</a>
       </div>
@@ -133,7 +137,7 @@
         <button type="button" class="nav-toggle" aria-label="하위 메뉴 열기" aria-expanded="false">▾</button>
       </div>
       <div class="nav-sub">
-        <a href="#mat-story" class="nav-sub-link" data-subview="mat-story" data-i18n="navSub.matStory">칼륨 장석 이야기</a>
+        <a href="#mat-story" class="nav-sub-link" data-subview="mat-story" data-i18n="navSub.matStory">원료 이야기</a>
         <a href="#mat-uses" class="nav-sub-link" data-subview="mat-uses" data-i18n="navSub.matUses">장점과 용처</a>
         <a href="#mat-tests" class="nav-sub-link" data-subview="mat-tests" data-i18n="navSub.matTests">시험과 분석</a>
       </div>
@@ -144,12 +148,20 @@
         <button type="button" class="nav-toggle" aria-label="하위 메뉴 열기" aria-expanded="false">▾</button>
       </div>
       <div class="nav-sub">
-        <span class="nav-sub-head" data-i18n="navGrp.products">제품</span>
-        <a href="#prod-soap" class="nav-sub-link" data-subview="prod-soap" data-i18n="navSub.prodSoap">카리비누</a>
-        <a href="#prod-paste" class="nav-sub-link" data-subview="prod-paste" data-i18n="navSub.prodPaste">치약</a>
-        <span class="nav-sub-head" data-i18n="navGrp.process">주요 공정</span>
-        <a href="#prod-proc-soap" class="nav-sub-link" data-subview="prod-proc-soap" data-i18n="navSub.procSoap">비누 공정</a>
-        <a href="#prod-proc-paste" class="nav-sub-link" data-subview="prod-proc-paste" data-i18n="navSub.procPaste">치약 공정</a>
+        <div class="nav-sub-group" data-subgroup="prod">
+          <button type="button" class="nav-sub-head is-toggle" aria-expanded="false" data-i18n="navGrp.products">제품</button>
+          <div class="nav-sub-items">
+            <a href="#prod-soap" class="nav-sub-link" data-subview="prod-soap" data-i18n="navSub.prodSoap">카리비누</a>
+            <a href="#prod-paste" class="nav-sub-link" data-subview="prod-paste" data-i18n="navSub.prodPaste">K.28 치약</a>
+          </div>
+        </div>
+        <div class="nav-sub-group" data-subgroup="proc">
+          <button type="button" class="nav-sub-head is-toggle" aria-expanded="false" data-i18n="navGrp.process">주요 공정</button>
+          <div class="nav-sub-items">
+            <a href="#prod-proc-soap" class="nav-sub-link" data-subview="prod-proc-soap" data-i18n="navSub.procSoap">비누 공정</a>
+            <a href="#prod-proc-paste" class="nav-sub-link" data-subview="prod-proc-paste" data-i18n="navSub.procPaste">치약 공정</a>
+          </div>
+        </div>
       </div>
     </div>
     <div class="nav-group" data-group="business partnership">
@@ -158,11 +170,7 @@
         <button type="button" class="nav-toggle" aria-label="하위 메뉴 열기" aria-expanded="false">▾</button>
       </div>
       <div class="nav-sub">
-        <span class="nav-sub-head" data-i18n="navGrp.business">사업 분야</span>
-        <a href="#biz-material" class="nav-sub-link" data-subview="biz-material" data-i18n="navSub.bizMaterial">기능성 소재</a>
-        <a href="#biz-goods" class="nav-sub-link" data-subview="biz-goods" data-i18n="navSub.bizGoods">프리미엄 생활용품</a>
-        <a href="#biz-oem" class="nav-sub-link" data-subview="biz-oem" data-i18n="navSub.bizOem">OEM · ODM</a>
-        <span class="nav-sub-head" data-i18n="navGrp.partnership">파트너십</span>
+        <a href="#biz-areas" class="nav-sub-link" data-subview="biz-areas" data-i18n="navSub.bizMaterial">사업 분야</a>
         <a href="#part-current" class="nav-sub-link" data-subview="part-current" data-i18n="navSub.partCurrent">협력 현황</a>
         <a href="#part-global" class="nav-sub-link" data-subview="part-global" data-i18n="navSub.partGlobal">글로벌 파트너 모집</a>
       </div>
@@ -243,8 +251,6 @@
           </div>
         </div>
 
-        <p class="home-innov-label">Innovation</p>
-        <p class="home-innov-desc" data-i18n="home.innovDesc">자연에서 시작해, 일상으로 이어지는 혁신<br>카리바이오는 자연의 원료를 연구하고 새로운 가치로 확장합니다</p>
       </div>
     </div>
 
@@ -252,7 +258,6 @@
     <div class="container">
       <div class="home-below-intro reveal">
         <h2 class="home-below-title" data-i18n="home.belowTitle">천연 미네랄 소재 및 생활용품 제조 기업</h2>
-        <span class="hero-eyebrow" data-i18n="hero.eyebrow">천연 미네랄 소재 및 생활용품 제조 기업</span>
         <p class="hero-sub" data-i18n="hero.sub"></p>
       </div>
       <ul class="hero-model reveal" aria-label="사업 모델">
@@ -260,28 +265,6 @@
         <li data-i18n="hero.m2">프리미엄 생활용품 공급</li>
         <li data-i18n="hero.m3">OEM · ODM 지원</li>
       </ul>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="container">
-      <div class="fact-grid reveal">
-        <article class="fact">
-          <span class="fact-mark" aria-hidden="true"></span>
-          <h2 class="fact-t" data-i18n="hero.f1t">천연 미네랄 소재를 선별하고 공급합니다</h2>
-          <p class="fact-d" data-i18n="hero.f1d"></p>
-        </article>
-        <article class="fact">
-          <span class="fact-mark" aria-hidden="true"></span>
-          <h2 class="fact-t" data-i18n="hero.f2t">원료의 특성을 데이터로 확인합니다</h2>
-          <p class="fact-d" data-i18n="hero.f2d"></p>
-        </article>
-        <article class="fact">
-          <span class="fact-mark" aria-hidden="true"></span>
-          <h2 class="fact-t" data-i18n="hero.f3t">소재의 가능성을 제품으로 확장합니다</h2>
-          <p class="fact-d" data-i18n="hero.f3d"></p>
-        </article>
-      </div>
     </div>
   </div>
 </section>
@@ -397,46 +380,8 @@
       </div>
 
       <!-- 특성과 효능 -->
-      <div id="mat-props" class="tech-block" hidden>
-        <h3 class="block-title reveal" data-i18n="mat.propsTitle">약알칼리성이라는 성질</h3>
-
-        <div class="prop-step reveal">
-          <p class="block-desc" data-i18n="mat.p1d"></p>
-        </div>
-
-        <div class="prop-step reveal">
-          <h4 class="sub-title" data-i18n="mat.p2t">약알칼리성 (pH 9.34)</h4>
-          <div class="ph-scale" role="img" aria-label="pH 0에서 14 중 9.34 위치">
-            <div class="ph-bar"><span class="ph-marker" style="left:66.7%"><b>9.34</b></span></div>
-            <div class="ph-ticks"><span>0 · 산성</span><span>7 · 중성</span><span>14 · 알칼리성</span></div>
-          </div>
-          <p class="block-desc" data-i18n="mat.p2d"></p>
-          <p class="block-desc" data-i18n="mat.p2e"></p>
-        </div>
-
-        <div class="prop-step reveal">
-          <h4 class="block-title reveal" data-i18n="mat.p3t">피부에 적용했을 때</h4>
-          <p class="block-desc" data-i18n="mat.p3d"></p>
-          <div class="clinical-list">
-            <div class="clinical-item"><div class="clinical-title" data-i18n="clin.i2"></div><div class="clinical-num-row"><span class="clinical-upto" data-i18n="clin.upTo">최대</span><span class="clinical-num">75.55</span><span class="clinical-unit">%</span></div><div class="clinical-bar-track"><div class="clinical-bar-fill" style="width:75.55%"></div></div><p data-i18n="clin.i2n"></p></div>
-            <div class="clinical-item"><div class="clinical-title" data-i18n="clin.i4"></div><div class="clinical-num-row"><span class="clinical-upto" data-i18n="clin.upTo">최대</span><span class="clinical-num">60.78</span><span class="clinical-unit">%</span></div><div class="clinical-bar-track"><div class="clinical-bar-fill" style="width:60.78%"></div></div><p data-i18n="clin.i4n"></p></div>
-            <div class="clinical-item"><div class="clinical-title" data-i18n="clin.i1"></div><div class="clinical-num-row"><span class="clinical-upto" data-i18n="clin.upTo">최대</span><span class="clinical-num">51.65</span><span class="clinical-unit">%</span></div><div class="clinical-bar-track"><div class="clinical-bar-fill" style="width:51.65%"></div></div><p data-i18n="clin.i1n"></p></div>
-            <div class="clinical-item"><div class="clinical-title" data-i18n="clin.i3"></div><div class="clinical-num-row"><span class="clinical-upto" data-i18n="clin.upTo">최대</span><span class="clinical-num">47.97</span><span class="clinical-unit">%</span></div><div class="clinical-bar-track"><div class="clinical-bar-fill" style="width:47.97%"></div></div><p data-i18n="clin.i3n"></p></div>
-            <div class="clinical-item"><div class="clinical-title" data-i18n="clin.i6"></div><div class="clinical-num-row"><span class="clinical-upto" data-i18n="clin.upTo">최대</span><span class="clinical-num">41.97</span><span class="clinical-unit">%</span></div><div class="clinical-bar-track"><div class="clinical-bar-fill" style="width:41.97%"></div></div><p data-i18n="clin.i6n"></p></div>
-            <div class="clinical-item"><div class="clinical-title" data-i18n="clin.i5"></div><div class="clinical-num-row"><span class="clinical-upto" data-i18n="clin.upTo">최대</span><span class="clinical-num">35.02</span><span class="clinical-unit">%</span></div><div class="clinical-bar-track"><div class="clinical-bar-fill" style="width:35.02%"></div></div><p data-i18n="clin.i5n"></p></div>
-          </div>
-          <div class="irritancy-strip">
-            <div><strong data-i18n="clin.irritTitle"></strong><span data-i18n="clin.irritNote"></span></div>
-            <div class="clinical-num" data-i18n="clin.irritValue"></div>
-          </div>
-        </div>
-
-        <p class="source-note reveal" data-i18n="mat.propsNote"></p>
-      </div>
-
       <!-- 시험과 분석 -->
       <div id="mat-tests" class="tech-block" hidden>
-        <h3 class="block-title reveal" data-i18n="mat.testsTitle">확인한 것과 확인한 곳</h3>
         <p class="block-desc reveal" data-i18n="mat.testsIntro"></p>
 
         <div class="test-list reveal">
@@ -479,6 +424,43 @@
           <a href="#contact" class="btn btn-primary" data-i18n="tech.certCta">성적서 원본 요청하기</a>
         </div>
       </div>
+      <div id="mat-props" class="tech-block" hidden>
+        <h3 class="block-title reveal" data-i18n="mat.propsTitle">약알칼리성이라는 성질</h3>
+
+        <div class="prop-step reveal">
+          <p class="block-desc" data-i18n="mat.p1d"></p>
+        </div>
+
+        <div class="prop-step reveal">
+          <h4 class="sub-title" data-i18n="mat.p2t">약알칼리성 (pH 9.34)</h4>
+          <div class="ph-scale" role="img" aria-label="pH 0에서 14 중 9.34 위치">
+            <div class="ph-bar"><span class="ph-marker" style="left:66.7%"><b>9.34</b></span></div>
+            <div class="ph-ticks"><span>0 · 산성</span><span>7 · 중성</span><span>14 · 알칼리성</span></div>
+          </div>
+          <p class="block-desc" data-i18n="mat.p2d"></p>
+          <p class="block-desc" data-i18n="mat.p2e"></p>
+        </div>
+
+        <div class="prop-step reveal">
+          <h4 class="block-title reveal" data-i18n="mat.p3t">피부에 적용했을 때</h4>
+          <p class="block-desc" data-i18n="mat.p3d"></p>
+          <div class="clinical-list">
+            <div class="clinical-item"><div class="clinical-title" data-i18n="clin.i2"></div><div class="clinical-num-row"><span class="clinical-upto" data-i18n="clin.upTo">최대</span><span class="clinical-num">75.55</span><span class="clinical-unit">%</span></div><div class="clinical-bar-track"><div class="clinical-bar-fill" style="width:75.55%"></div></div><p data-i18n="clin.i2n"></p></div>
+            <div class="clinical-item"><div class="clinical-title" data-i18n="clin.i4"></div><div class="clinical-num-row"><span class="clinical-upto" data-i18n="clin.upTo">최대</span><span class="clinical-num">60.78</span><span class="clinical-unit">%</span></div><div class="clinical-bar-track"><div class="clinical-bar-fill" style="width:60.78%"></div></div><p data-i18n="clin.i4n"></p></div>
+            <div class="clinical-item"><div class="clinical-title" data-i18n="clin.i1"></div><div class="clinical-num-row"><span class="clinical-upto" data-i18n="clin.upTo">최대</span><span class="clinical-num">51.65</span><span class="clinical-unit">%</span></div><div class="clinical-bar-track"><div class="clinical-bar-fill" style="width:51.65%"></div></div><p data-i18n="clin.i1n"></p></div>
+            <div class="clinical-item"><div class="clinical-title" data-i18n="clin.i3"></div><div class="clinical-num-row"><span class="clinical-upto" data-i18n="clin.upTo">최대</span><span class="clinical-num">47.97</span><span class="clinical-unit">%</span></div><div class="clinical-bar-track"><div class="clinical-bar-fill" style="width:47.97%"></div></div><p data-i18n="clin.i3n"></p></div>
+            <div class="clinical-item"><div class="clinical-title" data-i18n="clin.i6"></div><div class="clinical-num-row"><span class="clinical-upto" data-i18n="clin.upTo">최대</span><span class="clinical-num">41.97</span><span class="clinical-unit">%</span></div><div class="clinical-bar-track"><div class="clinical-bar-fill" style="width:41.97%"></div></div><p data-i18n="clin.i6n"></p></div>
+            <div class="clinical-item"><div class="clinical-title" data-i18n="clin.i5"></div><div class="clinical-num-row"><span class="clinical-upto" data-i18n="clin.upTo">최대</span><span class="clinical-num">35.02</span><span class="clinical-unit">%</span></div><div class="clinical-bar-track"><div class="clinical-bar-fill" style="width:35.02%"></div></div><p data-i18n="clin.i5n"></p></div>
+          </div>
+          <div class="irritancy-strip">
+            <div><strong data-i18n="clin.irritTitle"></strong><span data-i18n="clin.irritNote"></span></div>
+            <div class="clinical-num" data-i18n="clin.irritValue"></div>
+          </div>
+        </div>
+
+        <p class="source-note reveal" data-i18n="mat.propsNote"></p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -494,6 +476,12 @@
         <h2 class="section-title" data-page-title>기능성 소재</h2>
       </div>
 
+      <div id="biz-areas" class="tech-block">
+        <div class="biz-tabs reveal" role="tablist" aria-label="사업 분야">
+          <button type="button" class="biz-tab is-active" role="tab" aria-selected="true"  data-biz="biz-material" data-i18n="biz.b1t">기능성 소재</button>
+          <button type="button" class="biz-tab"           role="tab" aria-selected="false" data-biz="biz-goods"    data-i18n="biz.b2t">프리미엄 생활용품</button>
+          <button type="button" class="biz-tab"           role="tab" aria-selected="false" data-biz="biz-oem"      data-i18n="biz.b3t">OEM · ODM 지원</button>
+        </div>
       <div id="biz-material" class="tech-block">
         <h3 class="block-title reveal" data-i18n="biz.b1t">기능성 소재</h3>
         <div class="biz-layout reveal">
@@ -511,7 +499,7 @@
             </div>
           </div>
           <figure class="biz-media">
-            <img src="assets/img/feldspar-powder.webp" alt="칼륨장석 미세 분말" loading="lazy" width="1000" height="1000">
+            <img src="assets/img/biz-feldspar-powder.webp" alt="칼륨장석 분말" loading="lazy" width="1000" height="1000">
           </figure>
         </div>
       </div>
@@ -578,6 +566,7 @@
             <img src="assets/img/giftset.webp" alt="브랜드 전용 구성 선물세트" loading="lazy" width="1125" height="1006">
           </figure>
         </div>
+      </div>
       </div>
     </div>
   </div>
@@ -746,14 +735,14 @@
         <h4 class="sub-title reveal" style="margin-top:32px;" data-i18n="tech.equipTitle">실제 사용 설비</h4>
         <div class="equip-grid reveal">
           <div class="equip-card">
-            <figure class="equip-media"><img src="assets/img/eq-vacmixer.webp" alt="진공 교반 설비" loading="lazy" width="800" height="600"></figure>
-            <span class="equip-step">Step 2·3</span>
-            <div class="equip-name" data-i18n="tech.eq2">진공 교반 설비</div>
-          </div>
-          <div class="equip-card">
             <figure class="equip-media"><img src="assets/img/eq-water.webp" alt="정제수 설비" loading="lazy" width="800" height="600"></figure>
             <span class="equip-step">Step 2</span>
             <div class="equip-name" data-i18n="tech.eq3">정제수 설비</div>
+          </div>
+          <div class="equip-card">
+            <figure class="equip-media"><img src="assets/img/eq-vacmixer.webp" alt="진공 교반 설비" loading="lazy" width="800" height="600"></figure>
+            <span class="equip-step">Step 2·3</span>
+            <div class="equip-name" data-i18n="tech.eq2">진공 교반 설비</div>
           </div>
           <div class="equip-card is-key">
             <figure class="equip-media"><img src="assets/img/eq-aging.webp" alt="숙성 탱크" loading="lazy" width="800" height="600"></figure>
@@ -805,21 +794,7 @@
             </tbody>
           </table>
         </div>
-      <div id="about-history" class="info-section">
-        <h3 class="block-title reveal" data-i18n="about.milestonesTitle">회사 연혁</h3>
-        <div class="milestones reveal">
-          <div class="timeline-track">
-            <div class="tl-node"><div class="tl-dot-wrap"><span class="tl-year">2023.10</span><span class="tl-dot"></span></div><div class="tl-card"><p class="tl-text" data-i18n="about.tl1"></p></div></div>
-            <div class="tl-node"><div class="tl-dot-wrap"><span class="tl-year">2024.08</span><span class="tl-dot"></span></div><div class="tl-card"><p class="tl-text" data-i18n="about.tl2"></p></div></div>
-            <div class="tl-node"><div class="tl-dot-wrap"><span class="tl-year">2024.12</span><span class="tl-dot"></span></div><div class="tl-card"><p class="tl-text" data-i18n="about.tl3"></p></div></div>
-            <div class="tl-node"><div class="tl-dot-wrap"><span class="tl-year">2025.05</span><span class="tl-dot"></span></div><div class="tl-card"><p class="tl-text" data-i18n="about.tl4"></p></div></div>
-            <div class="tl-node"><div class="tl-dot-wrap"><span class="tl-year">2025.12</span><span class="tl-dot"></span></div><div class="tl-card"><p class="tl-text" data-i18n="about.tl5"></p></div></div>
-            <div class="tl-node"><div class="tl-dot-wrap"><span class="tl-year">2026 ~</span><span class="tl-dot"></span></div><div class="tl-card"><p class="tl-text" data-i18n="about.tl6"></p></div></div>
-          </div>
-        </div>
-      </div>
-
-      <div id="about-why" class="info-section">
+      <div id="about-why" class="info-section" hidden>
         <h3 class="block-title reveal" data-i18n="about2.whyTitle">선택해야 하는 이유</h3>
         <div class="why-grid reveal">
           <article class="why-card">
@@ -841,7 +816,6 @@
       </div>
 
       <div id="about-principles" class="info-section">
-        <h3 class="block-title reveal" data-i18n="about2.prinTitle">원칙과 기준</h3>
         <p class="block-desc reveal" data-i18n="about2.prinIntro"></p>
         <div class="values-grid reveal">
           <div class="value-chip">
@@ -875,11 +849,10 @@
       </div>
 
       <div id="about-origin" class="tech-block" hidden>
-        <h3 class="block-title reveal" data-i18n="about2.originTitle">기원</h3>
+        <h3 class="block-title reveal" data-i18n="about2.originTitle">기업 기원</h3>
         <div class="story-layout reveal">
           <div class="about-copy">
             <p class="story-lead" data-i18n="about2.originP1"></p>
-            <p data-i18n="about2.originP2"></p>
             <p data-i18n="about2.originP3"></p>
           </div>
           <aside class="story-side">
@@ -891,16 +864,50 @@
         </div>
       </div>
 
+      <div id="about-history" class="info-section">
+        <h3 class="block-title reveal" data-i18n="about.milestonesTitle">회사 연혁</h3>
+        <div class="milestones reveal">
+          <div class="timeline-track">
+            <div class="tl-node"><div class="tl-dot-wrap"><span class="tl-year">2023.10</span><span class="tl-dot"></span></div><div class="tl-card"><p class="tl-text" data-i18n="about.tl1"></p></div></div>
+            <div class="tl-node"><div class="tl-dot-wrap"><span class="tl-year">2024.08</span><span class="tl-dot"></span></div><div class="tl-card"><p class="tl-text" data-i18n="about.tl2"></p></div></div>
+            <div class="tl-node"><div class="tl-dot-wrap"><span class="tl-year">2024.12</span><span class="tl-dot"></span></div><div class="tl-card"><p class="tl-text" data-i18n="about.tl3"></p></div></div>
+            <div class="tl-node"><div class="tl-dot-wrap"><span class="tl-year">2025.05</span><span class="tl-dot"></span></div><div class="tl-card"><p class="tl-text" data-i18n="about.tl4"></p></div></div>
+            <div class="tl-node"><div class="tl-dot-wrap"><span class="tl-year">2025.12</span><span class="tl-dot"></span></div><div class="tl-card"><p class="tl-text" data-i18n="about.tl5"></p></div></div>
+            <div class="tl-node"><div class="tl-dot-wrap"><span class="tl-year">2026 ~</span><span class="tl-dot"></span></div><div class="tl-card"><p class="tl-text" data-i18n="about.tl6"></p></div></div>
+          </div>
+        </div>
+      </div>
+
       <div id="about-vision" class="tech-block" hidden>
         <h3 class="block-title reveal" data-i18n="navSub.aboutVision">비전과 목표</h3>
-        <h4 class="sub-title reveal" data-i18n="about2.visionLabel">VISION — 어디를 향하는가</h4>
-        <div class="vision-statement-band reveal">
-          <p class="vision-statement" data-i18n="vision.statement">자연에서 시작된 가치를 더 나은 일상으로 이끄는 기업이 되겠습니다.</p>
-        </div>
-        <h4 class="sub-title reveal" style="margin-top:36px;" data-i18n="about2.goalLabel">GOAL — 무엇을 할 것인가</h4>
-        <div class="goal-statement reveal">
-          <p data-i18n="vision.goalStatement">하나의 원료, 칼륨장석의 가능성을 끝까지 검증해<br>사람과 환경 모두에게 안전한 생활 소재를 만드는<br>글로벌 B2B 파트너가 되겠습니다.</p>
-        </div>
+        <article class="vg-card vg-vision reveal">
+          <div class="vg-body">
+            <div class="vg-badge"><span class="vg-num">01</span><span class="vg-rule" aria-hidden="true"></span></div>
+            <p class="vg-eyebrow">VISION</p>
+            <h4 class="vg-title" data-i18n="about2.visionHead">어디를 향하는가</h4>
+            <p class="vg-desc" data-i18n="vision.statement">자연에서 시작된 가치, 더 나은<br>일상으로 연결하는 기업이 되겠습니다.</p>
+          </div>
+          <div class="vg-media" aria-hidden="true">
+            <img src="assets/img/vision-sprout.webp" alt="" loading="lazy" width="360" height="268">
+          </div>
+        </article>
+
+        <article class="vg-card vg-goal reveal">
+          <div class="vg-body">
+            <div class="vg-badge"><span class="vg-num">02</span><span class="vg-rule" aria-hidden="true"></span></div>
+            <p class="vg-eyebrow">GOAL</p>
+            <h4 class="vg-title" data-i18n="about2.goalHead">무엇을 할 것인가</h4>
+            <p class="vg-desc" data-i18n="vision.goalStatement">칼륨장석의 가능성을 끝까지 검증해<br>사람과 환경 모두에게 안전한 생활 소재를 만드는<br>글로벌 프리미엄 생활용품 B2B 파트너가 되겠습니다.</p>
+          </div>
+          <div class="vg-media" aria-hidden="true">
+            <img src="assets/img/feldspar-rock.webp" alt="" loading="lazy" width="1000" height="1000">
+          </div>
+          <ul class="vg-marks">
+            <li><span class="vg-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c8-1 14-7 15-15-8 1-14 7-15 15z"/><path d="M6 18c3-4 7-8 11-11"/></svg></span><span data-i18n="about2.mark1">SAFER LIFE</span></li>
+            <li><span class="vg-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.8 4 5.9 4 9s-1.4 6.2-4 9c-2.6-2.8-4-5.9-4-9s1.4-6.2 4-9z"/></svg></span><span data-i18n="about2.mark2">GREENER PLANET</span></li>
+            <li><span class="vg-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l4-4 5 4.5a2 2 0 0 0 2.7 0L15 11l5 4"/><path d="M8 8l3-3 4 2"/><path d="M20 15l2-2"/><path d="M2 12l-1 1"/></svg></span><span data-i18n="about2.mark3">GLOBAL PARTNER</span></li>
+          </ul>
+        </article>
       </div>
     </div>
   </div>

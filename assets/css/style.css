@@ -2034,3 +2034,125 @@ figure img{height:auto;}
 .nav-group.open .nav-sub{max-height:640px;}
 @media (min-width:1024px){ .nav-group:hover .nav-sub{max-height:640px;} }
 .drawer-nav .nav-group.open .nav-sub{max-height:640px;}
+
+/* ---- 사업 분야: 한 페이지 안에서 3개 탭으로 ---- */
+.biz-tabs{
+  display:flex;flex-wrap:wrap;gap:8px;margin-bottom:var(--s6);
+  border-bottom:1px solid var(--border);padding-bottom:0;
+}
+.biz-tab{
+  appearance:none;border:none;background:none;
+  padding:12px 18px;border-radius:10px 10px 0 0;
+  font-family:var(--font-display);font-size:clamp(0.92rem,1.5vw,1.02rem);font-weight:800;
+  color:var(--ink-soft);position:relative;bottom:-1px;
+  border-bottom:3px solid transparent;transition:color .15s ease,background .15s ease;
+  word-break:keep-all;
+}
+.biz-tab:hover{color:var(--green);background:var(--lime-tint);}
+.biz-tab.is-active{color:var(--green);border-bottom-color:var(--lime);}
+@media (max-width:640px){ .biz-tab{flex:1 1 100%;text-align:left;border-radius:10px;bottom:0;} }
+
+/* ---- 제품 및 주요 공정: 중메뉴를 눌러야 소메뉴가 열리는 아코디언 ---- */
+.nav-sub-group{display:flex;flex-direction:column;}
+.nav-sub-head.is-toggle{
+  appearance:none;border:none;background:none;width:100%;
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  cursor:pointer;text-align:left;
+}
+.nav-sub-head.is-toggle::after{
+  content:'';width:6px;height:6px;flex:none;
+  border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;
+  transform:rotate(45deg) translateY(-1px);transition:transform .2s ease;
+}
+.nav-sub-group.open > .nav-sub-head.is-toggle::after{transform:rotate(-135deg) translateY(-1px);}
+.nav-sub-head.is-toggle:hover{color:var(--green);}
+.nav-sub-items{display:none;flex-direction:column;}
+.nav-sub-group.open > .nav-sub-items{display:flex;}
+.main-nav .nav-sub-group + .nav-sub-group > .nav-sub-head{
+  margin-top:6px;border-top:1px solid var(--border);padding-top:12px;
+}
+.main-nav .nav-sub-head.is-toggle{justify-content:center;}
+.drawer-nav .nav-sub-items{padding-left:10px;}
+
+/* ========================================================================
+   비전과 목표 — 번호 뱃지 + 아치형 이미지 카드 (2026-10-01 지시서)
+   ======================================================================== */
+.vg-card{
+  position:relative;display:grid;align-items:center;
+  grid-template-columns:minmax(0,1fr) minmax(0,42%);
+  border-radius:var(--radius-lg);overflow:hidden;
+  min-height:300px;margin-top:var(--s6);
+}
+.vg-card + .vg-card{margin-top:var(--s5);}
+.vg-vision{background:var(--paper);box-shadow:var(--shadow);}
+.vg-goal{background:var(--green-deep);color:var(--cream);}
+
+.vg-body{padding:clamp(var(--s6),4vw,var(--s7));z-index:1;}
+.vg-badge{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
+.vg-num{
+  display:flex;align-items:center;justify-content:center;
+  width:46px;height:46px;border-radius:50%;flex:none;
+  font-family:var(--font-display);font-weight:800;font-size:1.02rem;
+  background:var(--lime-soft);color:var(--green);
+}
+.vg-rule{display:block;width:46px;height:1px;background:var(--border);}
+.vg-goal .vg-num{background:var(--lime);color:var(--green-deep);}
+.vg-goal .vg-rule{background:rgba(247,247,240,0.35);}
+
+.vg-eyebrow{
+  font-family:var(--font-display);font-size:0.86rem;font-weight:800;
+  letter-spacing:0.24em;color:var(--ink-soft);margin:0 0 6px;
+}
+.vg-goal .vg-eyebrow{color:rgba(247,247,240,0.72);}
+.vg-title{
+  font-family:var(--font-display);font-weight:900;letter-spacing:-0.02em;
+  font-size:clamp(1.6rem,3.2vw,2.3rem);line-height:1.2;margin:0 0 16px;color:var(--ink);
+}
+.vg-goal .vg-title{color:var(--white);}
+.vg-desc{
+  margin:0;font-size:clamp(0.96rem,1.5vw,1.08rem);line-height:1.8;
+  color:var(--ink-soft);word-break:keep-all;
+}
+.vg-goal .vg-desc{color:rgba(247,247,240,0.88);}
+
+/* 이미지: 왼쪽이 크게 둥근 아치 */
+.vg-media{position:relative;align-self:stretch;min-height:220px;overflow:hidden;
+  border-radius:clamp(120px,22vw,220px) 0 0 clamp(120px,22vw,220px);}
+.vg-media img{width:100%;height:100%;object-fit:cover;display:block;}
+
+/* GOAL 우측 라인 아이콘 3종 */
+.vg-goal{grid-template-columns:minmax(0,1fr) minmax(0,32%) auto;}
+.vg-marks{
+  display:flex;flex-direction:column;gap:clamp(16px,3vw,26px);
+  padding:clamp(var(--s5),3vw,var(--s6)) clamp(var(--s5),3vw,var(--s6)) clamp(var(--s5),3vw,var(--s6)) 0;
+  z-index:1;
+}
+.vg-marks li{display:flex;align-items:center;gap:12px;}
+.vg-ico{
+  display:flex;align-items:center;justify-content:center;flex:none;
+  width:42px;height:42px;border-radius:50%;
+  border:1px solid rgba(247,247,240,0.45);color:var(--cream);
+}
+.vg-ico svg{width:20px;height:20px;}
+.vg-marks li > span:last-child{
+  font-family:var(--font-display);font-size:0.74rem;font-weight:800;
+  letter-spacing:0.14em;color:rgba(247,247,240,0.92);line-height:1.45;max-width:7.5em;
+}
+
+@media (max-width:900px){
+  .vg-card,.vg-goal{grid-template-columns:1fr;}
+  .vg-media{border-radius:0;min-height:200px;order:2;}
+  .vg-marks{flex-direction:row;flex-wrap:wrap;order:3;padding:0 var(--s6) var(--s6);}
+  .vg-marks li{flex:1 1 30%;}
+}
+
+/* ---- 원료 이야기: 체크리스트가 사진 위쪽에 몰리지 않도록 세로 가운데 정렬 ---- */
+@media (min-width:901px){
+  #mat-story .story-layout{align-items:center;}
+  #mat-story .story-side{position:static;}
+  #mat-story .mat-checklist{gap:clamp(22px,3vw,38px);}
+}
+
+/* ---- 설비 카드: .equip-card 가 align-items:flex-start 라 원본이 작은 사진은
+       칸을 못 채우고 줄어든다(Step 7 포장 라인 254px). 사진 칸은 항상 카드 폭에 맞춘다 ---- */
+.equip-media{align-self:stretch;width:100%;}
