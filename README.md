@@ -61,6 +61,17 @@ assets/docs/*.pdf       # 국문/영문 브로슈어
 - 원료 성분: 한국광해광업공단(KOMIR) 기술연구원, 2024.4.30~5.22, KS E 3098:2004 등
 - 산업 활용 매트릭스: KOMIR 자료
 
+## 배포 전 필수
+
+```bash
+./bump-version.sh
+```
+
+GitHub Pages 가 CSS/JS 에 `max-age=600` 을 줍니다. 파일만 바꿔 올리면
+최대 10분 동안 방문자 브라우저가 예전 CSS/JS 를 그대로 씁니다.
+이 스크립트가 `index.html` 의 asset 링크 뒤 `?v=` 를 갱신해 강제로 새로
+받게 합니다. **커밋 전에 실행하세요.**
+
 ## 알려진 한계
 
 - 공정 카드의 큰 배경 숫자(`.process-item::before`)는 `opacity:0.2` 의 장식용 워터마크라
