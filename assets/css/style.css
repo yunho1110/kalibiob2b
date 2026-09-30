@@ -669,7 +669,7 @@ textarea:focus-visible{
   background:var(--green-deep);padding:12px clamp(14px,4vw,24px);
   box-shadow:0 -6px 20px -8px rgba(0,0,0,0.35);
 }
-.sticky-cta a{display:flex;align-items:center;justify-content:center;gap:8px;color:#fff;font-weight:800;font-size:0.95rem;padding:10px;border-radius:999px;background:var(--green);pointer-events:auto;}
+.sticky-cta-btn{display:flex;align-items:center;justify-content:center;gap:8px;color:#fff;font-weight:800;font-size:0.95rem;padding:10px;border-radius:999px;background:var(--green);pointer-events:auto;}
 @media (max-width:768px){
   .sticky-cta{display:block;}
   body{padding-bottom:76px;}
@@ -2012,3 +2012,25 @@ figure img{height:auto;}
 
 /* 대비(AA) 보정 — 어두운 초록 배경 위에서는 밝은 라임을 쓴다 (--lime-text는 밝은 배경 전용) */
 .irritancy-strip .clinical-num{color:var(--lime);}
+
+/* ========================================================================
+   목차 반영 — 대메뉴 5개, 드롭다운 안에 중분류 제목
+   ======================================================================== */
+/* 중분류 제목: 클릭 대상이 아니라 묶음 라벨이다 */
+.nav-sub-head{
+  display:block;font-family:var(--font-display);font-size:0.72rem;font-weight:800;
+  letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint);
+  padding:10px 18px 5px;
+}
+.nav-sub-head + .nav-sub-link{margin-top:0;}
+.main-nav .nav-sub-head{text-align:center;}
+.main-nav .nav-sub-head:not(:first-child){
+  margin-top:6px;border-top:1px solid var(--border);padding-top:12px;
+}
+.drawer-nav .nav-sub-head{padding:12px 6px 4px 14px;}
+.drawer-nav .nav-sub-head:not(:first-child){margin-top:4px;}
+
+/* 묶음이 생겨 항목이 늘었으므로 접힘 높이를 넉넉히 */
+.nav-group.open .nav-sub{max-height:640px;}
+@media (min-width:1024px){ .nav-group:hover .nav-sub{max-height:640px;} }
+.drawer-nav .nav-group.open .nav-sub{max-height:640px;}

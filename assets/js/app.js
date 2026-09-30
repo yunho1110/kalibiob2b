@@ -106,11 +106,18 @@
     var SUBVIEW_GROUPS = {
       material: ['mat-story', 'mat-comp', 'mat-uses', 'mat-props', 'mat-tests'],
       business: ['biz-material', 'biz-goods', 'biz-oem'],
-      products: ['prod-soap', 'prod-paste', 'prod-process'],
-      about: ['about-info', 'about-origin', 'about-vision'],
+      products: ['prod-soap', 'prod-paste', 'prod-proc-soap', 'prod-proc-paste'],
+      about: ['about-info', 'about-origin', 'about-vision', 'about-values'],
       partnership: ['part-current', 'part-global'],
       contact: ['contact-form', 'contact-faq']
     };
+    /* 메뉴 한 칸이 여러 블록을 묶는 경우. 없으면 같은 id 블록 하나를 쓴다. */
+    var SUBVIEW_BLOCKS = {
+      'about-info': ['about-info', 'about-history'],
+      'about-values': ['about-why', 'about-principles']
+    };
+    function blocksOf(subId) { return SUBVIEW_BLOCKS[subId] || [subId]; }
+
     var SUBVIEW_DEFAULT = {
       material: 'mat-story', business: 'biz-material', products: 'prod-soap',
       about: 'about-info', partnership: 'part-current', contact: 'contact-form'
@@ -122,10 +129,10 @@
     /* old bookmarks keep working after the technology view was split in two */
     var LEGACY_SUBS = {
       'tech-raw': 'mat-comp', 'tech-eco': 'mat-uses', 'tech-industry': 'mat-uses',
-      'tech-clinical': 'mat-props', 'tech-cert': 'mat-tests', 'tech-process': 'prod-process',
+      'tech-clinical': 'mat-props', 'tech-cert': 'mat-tests', 'tech-process': 'prod-proc-soap',
       'mat-components': 'mat-comp', 'mat-value': 'mat-uses', 'mat-efficacy': 'mat-props',
       'mat-cert': 'mat-tests', 'products-soap': 'prod-soap', 'products-toothpaste': 'prod-paste',
-      'products-process': 'prod-process', 'products-oem': 'biz-oem',
+      'products-process': 'prod-proc-soap', 'prod-process': 'prod-proc-soap', 'products-oem': 'biz-oem',
       'about-overview': 'about-info', 'about-story': 'about-origin', 'about-milestones': 'about-info',
       'about-why': 'about-info', 'about-principles': 'about-info'
     };
@@ -164,8 +171,11 @@
       }
       var active = (target && group.indexOf(target) !== -1) ? target : SUBVIEW_DEFAULT[viewId];
       for (var i = 0; i < group.length; i++) {
-        var el = document.getElementById(group[i]);
-        if (el) { el.hidden = (group[i] !== active); }
+        var blocks = blocksOf(group[i]);
+        for (var b = 0; b < blocks.length; b++) {
+          var el = document.getElementById(blocks[b]);
+          if (el) { el.hidden = (group[i] !== active); }
+        }
       }
       var tabs = document.querySelectorAll('[data-subview]');
       for (var j = 0; j < tabs.length; j++) {
@@ -191,7 +201,7 @@
          sub-menu is a hover/click panel, not a permanently expanded tree. */
       var navGroups = document.querySelectorAll('.nav-group[data-group]');
       for (var k = 0; k < navGroups.length; k++) {
-        var isCurrent = navGroups[k].getAttribute('data-group') === viewId;
+        var isCurrent = navGroups[k].getAttribute('data-group').split(' ').indexOf(viewId) !== -1;
         navGroups[k].classList.toggle('is-current', isCurrent);
         navGroups[k].classList.remove('open');
         var toggleBtn = navGroups[k].querySelector('.nav-toggle');
