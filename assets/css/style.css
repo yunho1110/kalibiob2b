@@ -2156,3 +2156,37 @@ figure img{height:auto;}
 /* ---- 설비 카드: .equip-card 가 align-items:flex-start 라 원본이 작은 사진은
        칸을 못 채우고 줄어든다(Step 7 포장 라인 254px). 사진 칸은 항상 카드 폭에 맞춘다 ---- */
 .equip-media{align-self:stretch;width:100%;}
+
+/* ========================================================================
+   기업 핵심 가치 — 번호 + 라벨 + 문장 + 설명의 한 줄 목록 (지시서 사진 형태)
+   ======================================================================== */
+.core-values{list-style:none;margin:0;padding:0;}
+.cv-item{
+  display:grid;grid-template-columns:auto minmax(0,1fr);
+  gap:clamp(18px,3vw,38px);
+  padding:clamp(24px,3vw,32px) 0;
+  border-top:1px solid var(--border);
+}
+.cv-item:first-child{border-top:none;padding-top:4px;}
+.cv-num{
+  font-family:var(--font-display);font-style:italic;font-weight:600;
+  font-size:clamp(0.92rem,1.4vw,1.05rem);color:var(--ink-faint);
+  line-height:1.9;min-width:1.8em;
+}
+.cv-label{
+  margin:0 0 8px;font-family:var(--font-display);
+  font-size:0.78rem;font-weight:800;letter-spacing:0.18em;
+  color:var(--ink-soft);text-transform:uppercase;
+}
+.cv-stat{
+  margin:0 0 10px;font-size:clamp(1.02rem,1.7vw,1.18rem);font-weight:800;
+  color:var(--ink);line-height:1.6;word-break:keep-all;
+}
+.cv-desc{
+  margin:0;font-size:clamp(0.9rem,1.4vw,1rem);color:var(--ink-soft);
+  line-height:1.8;word-break:keep-all;max-width:72ch;
+}
+@media (max-width:560px){
+  .cv-item{grid-template-columns:1fr;gap:6px;}
+  .cv-num{line-height:1.4;}
+}
