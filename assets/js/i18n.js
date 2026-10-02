@@ -100,7 +100,7 @@ var I18N = {
     compNote: { ko: "※ 한국광해광업공단 기술연구원 시험 (2024.4.30~5.22, KS E 3098:2004 등) 결과입니다.", en: "* Tested by the KOMIR research institute (30 Apr – 22 May 2024, KS E 3098:2004 and related standards).", zh: "※ 韩国矿害矿业公团技术研究院检测结果(2024年4月30日至5月22日,依据KS E 3098:2004等标准)。" },
     usesTitle: { ko: "칼륨장석의 장점", en: "The Advantages of Potassium Feldspar", zh: "钾长石的优势" },
     usesLead: { ko: "자연이 선사한 미네랄, 칼륨장석의 새로운 가치", en: "The New Value of a Mineral Gifted by Nature — Potassium Feldspar", zh: "自然赠予的矿物,钾长石的全新价值" },
-    usesP1: { ko: "자연에서 얻은 칼륨장석의 고유한 특성과 미네랄의 가치를 바탕으로, 피부에 새로운 가능성을 제시하고 다양한 소재로의 활용 범위를 넓혀갑니다.", en: "Building on the inherent characteristics and mineral value of naturally sourced potassium feldspar, we open new possibilities for skin and broaden its range of applications across materials.", zh: "基于自然萃取钾长石的独特特性与矿物价值,为肌肤带来新的可能性,并不断拓宽其作为多元材料的应用范围。" },
+    usesP1: { ko: "자연에서 얻은 칼륨장석의 고유한 특성과 미네랄의 가치를 바탕으로,<br>피부에 새로운 가능성을 제시하고 다양한 소재로의 활용 범위를 넓혀갑니다.", en: "Building on the inherent characteristics and mineral value of naturally sourced potassium feldspar, we open new possibilities for skin and broaden its range of applications across materials.", zh: "基于自然萃取钾长石的独特特性与矿物价值,为肌肤带来新的可能性,并不断拓宽其作为多元材料的应用范围。" },
     usesP2: { ko: "카리바이오가 한 일은 이 익숙한 광물을 사람의 피부와 구강에 쓸 수 있는 등급까지 정제한 것입니다.", en: "What we did was refine this familiar mineral to a grade fit for human skin and mouths.", zh: "卡里生物所做的,是把这种常见矿物精制到可用于人体肌肤与口腔的等级。" },
     propsTitle: { ko: "칼륨장석의 특성", en: "Characteristics of Potassium Feldspar", zh: "钾长石的特性" },
     p1t: { ko: "칼륨장석의 특성", en: "Characteristics", zh: "钾长石的特性" },
@@ -112,7 +112,7 @@ var I18N = {
     p3d: { ko: "한국바이오임상연구센터(KBRC)에서 칼륨장석 분말을 대상으로 인체적용시험을 진행했습니다. 피험자 12명, 8개 항목 전부에서 통계적으로 유의한 변화가 확인되었습니다.", en: "The Korea Bio Research Center (KBRC) ran a human application study on the feldspar powder. With 12 subjects, all eight measures showed statistically significant change.", zh: "韩国生物临床研究中心(KBRC)以钾长石粉体开展人体应用试验。受试者12名,8个项目全部出现统计学显著变化。" },
     propsNote: { ko: "※ 시험 조건이나 제품 적용 방식에 따라 결과는 달라질 수 있습니다.", en: "* Results may differ depending on test conditions and how the material is applied in a product.", zh: "※ 结果会因检测条件与产品应用方式而有所不同。" },
     testsTitle: { ko: "칼륨장석 시험과 분석", en: "Potassium Feldspar Testing &amp; Analysis", zh: "钾长石检测与分析" },
-    testsIntro: { ko: "사이트에 적은 수치는 모두 아래 시험에 근거합니다. 성적서 원본은 파트너십 문의 시 제공해드립니다.", en: "Every figure on this site rests on the tests below. Original reports are provided on partnership inquiry.", zh: "本网站所载数值均基于以下检测。报告原件在合作咨询时提供。" },
+    testsIntro: { ko: "사이트에 적은 수치는 모두 아래 시험에 근거합니다.<br>성적서 원본은 파트너십 문의 시 제공해드립니다.", en: "Every figure on this site rests on the tests below. Original reports are provided on partnership inquiry.", zh: "本网站所载数值均基于以下检测。报告原件在合作咨询时提供。" },
     t1t: { ko: "성분 분석", en: "Composition analysis", zh: "成分分析" },
     t1d: { ko: "원료에 어떤 구성요소가 얼마나 들어 있는지 확인했습니다.", en: "Established which components the material contains, and in what proportion.", zh: "确认原料中含有哪些组成成分及其比例。" },
     t1m: { ko: "한국광해광업공단 기술연구원 · 2024.4.30~5.22 · KS E 3098:2004", en: "KOMIR Research Institute · 30 Apr – 22 May 2024 · KS E 3098:2004", zh: "韩国矿害矿业公团技术研究院 · 2024.4.30~5.22 · KS E 3098:2004" },
@@ -191,7 +191,7 @@ var I18N = {
     originTitle: { ko: "기업 기원", en: "Our Origin", zh: "企业起源" },
     originP1: { ko: "12억 년 전 형성된 지역광물에서 출발한 가치 혁신.<br>자연에 기술을 더하고, 일상의 건강으로 답을 찾아 갑니다.", en: "Value innovation that began with a local mineral formed 1.2 billion years ago.<br>We add technology to nature and find our answers in everyday health.", zh: "源于12亿年前形成的地方矿物的价值革新。<br>为自然加上技术，在日常的健康中寻找答案。" },
     originP2: { ko: "이 광물이 가진 소재로서의 가치와 활용 가능성에 주목했고, 생활 분야에 적용하기 위한 연구 개발을 시작했습니다. 친환경 소재와 생활용품, 바이오 분야로 이어질 수 있다고 판단했습니다.", en: "We saw its value and potential as a material, and began research to apply it in everyday life — reasoning that it could extend into eco-friendly materials, household goods and bio applications.", zh: "我们看到它作为材料的价值与应用可能性,并着手研究如何将其用于日常生活,判断它能延伸至环保材料、日用品与生物领域。" },
-    originP3: { ko: "산학협력을 기반으로 소재의 과학적 가치와 산업적 활용성을 확인해 왔습니다. 천연 자원의 가치를 제품으로 연결하는 것이 카리바이오가 창업한 이유입니다.", en: "Working with academia, we have been establishing the material's scientific value and industrial usefulness. Connecting a natural resource to products is the reason this company exists.", zh: "以产学合作为基础,持续确认该材料的科学价值与产业应用性。把天然资源的价值连接到产品,正是卡里生物创业的理由。" }
+    originP3: { ko: "산학협력을 기반으로 소재의 과학적 가치와 산업적 활용성을 확인해 왔습니다.<br>천연 자원의 가치를 제품으로 연결하는 것이 카리바이오가 창업한 이유입니다.", en: "Working with academia, we have been establishing the material's scientific value and industrial usefulness. Connecting a natural resource to products is the reason this company exists.", zh: "以产学合作为基础,持续确认该材料的科学价值与产业应用性。把天然资源的价值连接到产品,正是卡里生物创业的理由。" }
   },
   part2: {
     currentTitle: { ko: "지금 함께하는 기관들", en: "Current Partners", zh: "目前携手同行的机构" },
@@ -286,9 +286,9 @@ var I18N = {
     value3: { ko: "사람에게 안전한 제품을 만드는 것을 최우선으로 합니다.", en: "Making products that are safe for people comes first.", zh: "将对人体安全的产品放在首位。" },
     value4: { ko: "사람과 환경이 함께 지속가능한 방식을 추구합니다.", en: "We pursue methods sustainable for both people and the environment.", zh: "追求人与环境共同可持续的发展方式。" },
     value5: { ko: "칼륨장석의 새로운 활용 분야를 계속 개척합니다.", en: "We continue to pioneer new applications for potassium feldspar.", zh: "持续开拓钾长石的新应用领域。" },
-    value1d: { ko: "합성 첨가물보다 자연이 만든 원료를 우선합니다. 원료의 출처를 투명하게 밝히고, 불필요한 화학 처리를 지양합니다.", en: "We put materials made by nature ahead of synthetic additives, state where each material comes from, and avoid chemical processing that isn't needed.", zh: "我们优先采用自然形成的原料而非合成添加物，透明公开原料来源，并避免不必要的化学处理。" },
+    value1d: { ko: "합성 첨가물보다 자연이 만든 원료를 우선합니다. 원료의 출처를 투명하게 밝히고,<br>불필요한 화학 처리를 지양합니다.", en: "We put materials made by nature ahead of synthetic additives, state where each material comes from, and avoid chemical processing that isn't needed.", zh: "我们优先采用自然形成的原料而非合成添加物，透明公开原料来源，并避免不必要的化学处理。" },
     value2d: { ko: "구성요소는 한국광해광업공단, 피부 효능은 한국바이오임상연구센터에서 시험으로 확인합니다. 추측이 아닌 데이터로 이야기합니다.", en: "Composition is verified by KOMIR and skin results by the Korea Bio Research Center. We speak from data, not assumption.", zh: "成分构成由韩国矿害矿业公团、皮肤功效由韩国生物临床研究中心通过检测确认。我们用数据说话，而非推测。" },
-    value3d: { ko: "모든 제품은 피부 자극 테스트를 거쳐 안전성을 확인한 뒤 출시합니다. 사람의 건강을 어떤 효율보다 앞세웁니다.", en: "Every product passes a skin irritation test before it ships. Human health comes before any efficiency.", zh: "所有产品均经皮肤刺激测试确认安全性后才上市。人的健康优先于任何效率。" },
+    value3d: { ko: "모든 제품은 피부 자극 테스트를 거쳐 안전성을 확인한 뒤 출시합니다.<br>사람의 건강을 어떤 효율보다 앞세웁니다.", en: "Every product passes a skin irritation test before it ships. Human health comes before any efficiency.", zh: "所有产品均经皮肤刺激测试确认安全性后才上市。人的健康优先于任何效率。" },
     value4d: { ko: "자연에서 얻은 원료를 오래도록 쓸 수 있도록, 자원의 낭비를 줄이고 환경에 부담을 주지 않는 방식을 고민합니다.", en: "So that materials taken from nature can be used for a long time, we work to cut waste and avoid burdening the environment.", zh: "为了让取自自然的原料能够长久使用，我们致力于减少资源浪费、不为环境增添负担。" },
     value5d: { ko: "비누와 치약을 넘어, 칼륨장석이 사람의 일상을 더 건강하게 만들 수 있는 새로운 가능성을 계속 탐구합니다.", en: "Beyond soap and toothpaste, we keep exploring new ways potassium feldspar can make daily life healthier.", zh: "超越皂类与牙膏，我们持续探索钾长石让日常生活更健康的新可能。" },
     valuesDisclaimer: { ko: "※ 카리바이오가 자체적으로 운영하는 5대 원칙이며, 외부 인증마크가 아닙니다.", en: "* These are KALIBIO's own internal principles, not third-party certification marks.", zh: "※以上为卡里生物内部运营的五项原则,并非第三方认证标志。" },
@@ -606,13 +606,13 @@ var I18N = {
     tagline: { ko: "<em>28가지</em> 자연 유래 성분, <em>70일</em>의 저온 숙성", en: "<em>28</em> naturally derived ingredients, <em>70</em> days of cold maturation", zh: "<em>28种</em>自然来源成分,<em>70天</em>低温熟成" },
     badge: { ko: "K.28 치약 4대 핵심 장점", en: "K.28 — Four Core Strengths", zh: "K.28牙膏四大核心优势" },
     b1: { ko: "치아 장벽 케어", en: "Enamel Barrier Care", zh: "牙齿屏障护理" },
-    b1d: { ko: "하이드록시아파타이트와 칼륨장석 미네랄이 치아 표면을 감싸도록 설계한 제형이다.", en: "A formula designed with hydroxyapatite and potassium feldspar minerals to coat the tooth surface.", zh: "配方设计为以羟基磷灰石与钾长石矿物包覆牙齿表面。" },
+    b1d: { ko: "하이드록시아파타이트와 칼륨장석 미네랄이 치아 표면을 감싸도록 설계한 제형입니다.", en: "A formula designed with hydroxyapatite and potassium feldspar minerals to coat the tooth surface.", zh: "配方设计为以羟基磷灰石与钾长石矿物包覆牙齿表面。" },
     b2: { ko: "잇몸 진정 케어", en: "Gentle Gum Care", zh: "牙龈舒缓护理" },
-    b2d: { ko: "매스틱·몰약·프로폴리스의 천연 유래 성분으로 민감하고 자극받은 잇몸을 관리한다.", en: "Naturally derived mastic, myrrh, and propolis care for sensitive, irritated gums.", zh: "以乳香脂、没药、蜂胶等天然来源成分,呵护敏感受刺激的牙龈。" },
+    b2d: { ko: "매스틱·몰약·프로폴리스의 천연 유래 성분으로 민감하고 자극받은 잇몸을 관리합니다.", en: "Naturally derived mastic, myrrh, and propolis care for sensitive, irritated gums.", zh: "以乳香脂、没药、蜂胶等天然来源成分,呵护敏感受刺激的牙龈。" },
     b3: { ko: "SLS FREE, 순한 거품", en: "SLS-Free, Gentle Foam", zh: "无SLS,温和泡沫" },
-    b3d: { ko: "합성 계면활성제(예: SLS)를 배제해 양치 후에도 깔끔한 미각과 촉촉한 구강 환경을 유지한다.", en: "Free of synthetic surfactants (e.g. SLS), so taste stays clean and the mouth stays comfortable after brushing.", zh: "不添加合成表面活性剂(如SLS),刷牙后味觉清爽、口腔保持润泽。" },
+    b3d: { ko: "합성 계면활성제(예: SLS)를 배제해 양치 후에도 깔끔한 미각과 촉촉한 구강 환경을 유지합니다.", en: "Free of synthetic surfactants (e.g. SLS), so taste stays clean and the mouth stays comfortable after brushing.", zh: "不添加合成表面活性剂(如SLS),刷牙后味觉清爽、口腔保持润泽。" },
     b4: { ko: "자연에서 찾은 상쾌함", en: "Freshness From Nature", zh: "源自自然的清爽" },
-    b4d: { ko: "자일리톨·스테비아·라즈베리 추출물과 천연 민트·회향유로 건강한 단맛과 오래가는 상쾌함을 유지한다.", en: "Xylitol, stevia, and raspberry extract with natural mint and fennel oil deliver a healthy sweetness and lasting freshness.", zh: "木糖醇、甜菊与树莓提取物,搭配天然薄荷与茴香油,带来健康甜感与持久清爽。" }
+    b4d: { ko: "자일리톨·스테비아·라즈베리 추출물과 천연 민트·회향유로 건강한 단맛과 오래가는 상쾌함을 유지합니다.", en: "Xylitol, stevia, and raspberry extract with natural mint and fennel oil deliver a healthy sweetness and lasting freshness.", zh: "木糖醇、甜菊与树莓提取物,搭配天然薄荷与茴香油,带来健康甜感与持久清爽。" }
   },
   powder: {
     title: { ko: "칼륨장석 추출 분말", en: "Potassium Feldspar Powder", zh: "钾长石提取粉体" },
