@@ -1,0 +1,76 @@
+/* 고객 문의 페이지 전용 스타일.
+   이 파일은 고객 문의 담당자만 수정합니다. */
+
+.formulation-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+
+/* ===== Contact / CTA ===== */
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+
+.contact-copy p{color:var(--ink-soft);font-size:0.95rem;line-height:1.85;margin-bottom:var(--s5);}
+
+.contact-direct{
+  background:var(--warm-gray);border-radius:var(--radius-md);padding:var(--s5) var(--s5);
+  margin-bottom:16px;
+}
+
+.moq-note{font-size:0.80rem;color:var(--ink-faint);font-style:italic;}
+
+.contact-form{
+  background:var(--white);border-radius:var(--radius-lg);
+  padding:clamp(var(--s6),3vw,var(--s7));box-shadow:var(--shadow);
+}
+
+.form-row{margin-bottom:18px;}
+
+.form-row label{display:block;font-size:0.80rem;font-weight:700;color:var(--ink);margin-bottom:7px;}
+
+.form-row input,
+.form-row select,
+.form-row textarea{
+  width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:var(--radius-sm);
+  background:var(--paper);color:var(--ink);
+}
+
+.form-row textarea{min-height:110px;resize:vertical;}
+
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus{outline:2px solid var(--green);outline-offset:1px;}
+
+@media (max-width:900px){
+  .contact-layout{grid-template-columns:1fr;}
+}
+
+/* ---- 12. .faq-list: native details/summary accordion ---- */
+.faq-list{margin:0;}
+
+.faq-item{
+  background:var(--card-bg);border:1px solid var(--border);border-radius:14px;
+  margin-bottom:12px;overflow:hidden;
+}
+
+.faq-item summary{
+  padding:18px var(--s5);padding-right:var(--s7);font-weight:700;font-size:1.02rem;
+  cursor:pointer;list-style:none;position:relative;word-break:keep-all;
+  transition:background .15s ease;
+}
+
+.faq-item summary::-webkit-details-marker{display:none;}
+
+.faq-item summary::after{
+  content:'+';position:absolute;right:22px;top:50%;transform:translateY(-50%);
+  font-size:1.3rem;font-weight:700;color:var(--green);line-height:1;
+}
+
+.faq-item details[open] summary::after{content:'\2212';}
+
+/* minus sign */
+.faq-item details[open] summary{background:var(--lime-tint);}
+
+.faq-item p{padding:0 var(--s5) 20px;margin:0;color:var(--ink-soft);line-height:1.8;font-size:0.95rem;word-break:keep-all;}
+
+.form-note{
+  margin:16px 0 0; padding:14px 16px;
+  background:#EEF4E6; border-left:3px solid var(--lime-deep, #6FA52C);
+  border-radius:8px; font-size:0.88rem; line-height:1.6; color:var(--green);
+}

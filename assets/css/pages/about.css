@@ -1,0 +1,246 @@
+/* 기업 소개 페이지 전용 스타일.
+   이 파일은 기업 소개 담당자만 수정합니다. */
+
+/* ===== About ===== */
+.about-copy{max-width:800px;}
+
+.about-copy p{color:var(--ink-soft);margin-bottom:18px;font-size:0.95rem;line-height:1.85;}
+
+/* ===== Milestones (dedicated timeline subsection) ===== */
+.milestones{margin-top:clamp(48px,7vw,72px);padding-top:clamp(36px,5vw,var(--s7));border-top:1px solid var(--border);}
+
+/* 2-6 fix: the horizontal 5-column timeline broke with 6 items (the 6th
+   wrapped alone) and the dashed connector line ran through the year labels.
+   Replaced with a plain responsive grid of self-contained cards — no
+   connector line,
+no fixed row count,
+no dot. .tl-node is now the card
+   itself; .tl-dot-wrap holds just the year at the top,
+.tl-card holds the
+   text below it (kept unstyled here so there is only one visible box). */
+.timeline-track{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;}
+
+@media (max-width:640px){
+  .timeline-track{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;}
+}
+
+/* ---- Company overview table (brochure p4) ---- */
+.co-table{width:100%;border-collapse:collapse;font-size:0.88rem;background:var(--white);box-shadow:var(--shadow);border-radius:14px;overflow:hidden;}
+
+.co-table th{background:var(--lime-tint);color:var(--green);font-weight:800;text-align:left;padding:16px 18px;white-space:nowrap;width:1%;border-bottom:1px solid var(--border);}
+
+.co-table td{padding:16px 18px;color:var(--ink-soft);border-bottom:1px solid var(--border);line-height:1.6;}
+
+.co-table tr:last-child th,
+.co-table tr:last-child td{border-bottom:none;}
+
+.story-layout .about-copy{max-width:62ch;}
+
+/* ---- Values: name and description were colliding ---- */
+.values-block{margin-top:0;}
+
+/* ---- Principle card index + line icon (work item 4) ---- */
+.principle-num{
+  font-family:var(--font-display);font-weight:900;color:var(--lime-text);
+  font-size:1.9rem;line-height:1;letter-spacing:-0.02em;
+}
+
+/* 2-1 fix: GOAL label must render at the same size/weight/tracking as the
+   VISION eyebrow above it (.vision-statement-band .eyebrow) — it was
+   noticeably larger before */
+#blk-about-vision > .sub-title{
+  font-family:var(--font-display);font-weight:800;color:var(--green);
+  font-size:clamp(1.15rem,2.4vw,1.6rem);letter-spacing:0.14em;
+}
+
+/* the differentiating row in the company table gets the emphasis the
+   old pale quadrant cards were failing to give it */
+.co-table tr.is-key th{background:var(--lime);color:var(--green);}
+
+.co-table tr.is-key td{background:var(--lime-tint);color:var(--ink);font-weight:700;}
+
+@media (max-width:640px){
+  .co-table,
+.spec-table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+}
+
+/* 연혁: 6개 항목이 5열로 깔려 마지막 한 장만 다음 줄에 혼자 남았다. 3열로 3+3 */
+.timeline-track{grid-template-columns:repeat(3,1fr);}
+
+@media (max-width:900px){ .timeline-track{grid-template-columns:repeat(2,1fr);} }
+
+@media (max-width:520px){ .timeline-track{grid-template-columns:1fr;} }
+
+/* 제목 위 구분선은 카드 격자와 겹쳐 보여 제거 */
+.milestones{border-top:none; padding-top:0;}
+
+/* ========================================================================
+   비전과 목표 — 번호 뱃지 + 아치형 이미지 카드 (2026-10-01 지시서)
+   ======================================================================== */
+.vg-card{
+  position:relative;display:grid;align-items:center;
+  grid-template-columns:minmax(0,1fr) minmax(0,42%);
+  border-radius:var(--radius-lg);overflow:hidden;
+  min-height:300px;margin-top:var(--s6);
+}
+
+.vg-card + .vg-card{margin-top:var(--s5);}
+
+.vg-vision{background:var(--paper);box-shadow:var(--shadow);}
+
+.vg-goal{background:var(--green-deep);color:var(--cream);}
+
+.vg-body{padding:clamp(var(--s6),4vw,var(--s7));z-index:1;}
+
+.vg-badge{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
+
+.vg-num{
+  display:flex;align-items:center;justify-content:center;
+  width:46px;height:46px;border-radius:50%;flex:none;
+  font-family:var(--font-display);font-weight:800;font-size:1.02rem;
+  background:var(--lime-soft);color:var(--green);
+}
+
+.vg-rule{display:block;width:46px;height:1px;background:var(--border);}
+
+.vg-goal .vg-num{background:var(--lime);color:var(--green-deep);}
+
+.vg-goal .vg-rule{background:rgba(247,247,240,0.35);}
+
+.vg-eyebrow{
+  font-family:var(--font-display);font-size:0.86rem;font-weight:800;
+  letter-spacing:0.24em;color:var(--ink-soft);margin:0 0 6px;
+}
+
+.vg-goal .vg-eyebrow{color:rgba(247,247,240,0.72);}
+
+.vg-title{
+  font-family:var(--font-display);font-weight:900;letter-spacing:-0.02em;
+  font-size:clamp(1.6rem,3.2vw,2.3rem);line-height:1.2;margin:0 0 16px;color:var(--ink);
+}
+
+.vg-goal .vg-title{color:var(--white);}
+
+.vg-desc{
+  margin:0;font-size:clamp(0.96rem,1.5vw,1.08rem);line-height:1.8;
+  color:var(--ink-soft);word-break:keep-all;
+}
+
+.vg-goal .vg-desc{color:rgba(247,247,240,0.88);}
+
+/* 이미지: 왼쪽이 크게 둥근 아치 */
+.vg-media{position:relative;align-self:stretch;min-height:220px;overflow:hidden;
+  border-radius:clamp(120px,22vw,220px) 0 0 clamp(120px,22vw,220px);}
+
+.vg-media img{width:100%;height:100%;object-fit:cover;display:block;}
+
+/* GOAL 우측 라인 아이콘 3종 */
+.vg-goal{grid-template-columns:minmax(0,1fr) minmax(0,32%) auto;}
+
+.vg-marks{
+  display:flex;flex-direction:column;gap:clamp(16px,3vw,26px);
+  padding:clamp(var(--s5),3vw,var(--s6)) clamp(var(--s5),3vw,var(--s6)) clamp(var(--s5),3vw,var(--s6)) 0;
+  z-index:1;
+}
+
+.vg-marks li{display:flex;align-items:center;gap:12px;}
+
+.vg-ico{
+  display:flex;align-items:center;justify-content:center;flex:none;
+  width:42px;height:42px;border-radius:50%;
+  border:1px solid rgba(247,247,240,0.45);color:var(--cream);
+}
+
+.vg-ico svg{width:20px;height:20px;}
+
+.vg-marks li > span:last-child{
+  font-family:var(--font-display);font-size:0.74rem;font-weight:800;
+  letter-spacing:0.14em;color:rgba(247,247,240,0.92);line-height:1.45;max-width:7.5em;
+}
+
+@media (max-width:900px){
+  .vg-card,
+.vg-goal{grid-template-columns:1fr;}
+  .vg-media{border-radius:0;min-height:200px;order:2;}
+  .vg-marks{flex-direction:row;flex-wrap:wrap;order:3;padding:0 var(--s6) var(--s6);}
+  .vg-marks li{flex:1 1 30%;}
+}
+
+.cv-item{
+  display:grid;grid-template-columns:auto minmax(0,1fr);
+  gap:clamp(18px,3vw,38px);
+  padding:clamp(24px,3vw,32px) 0;
+  border-top:1px solid var(--border);
+}
+
+.cv-item:first-child{border-top:none;padding-top:4px;}
+
+.cv-num{
+  font-family:var(--font-display);font-style:italic;font-weight:600;
+  font-size:clamp(0.92rem,1.4vw,1.05rem);color:var(--ink-faint);
+  line-height:1.9;min-width:1.8em;
+}
+
+.cv-label{
+  margin:0 0 8px;font-family:var(--font-display);
+  font-size:0.78rem;font-weight:800;letter-spacing:0.18em;
+  color:var(--ink-soft);text-transform:uppercase;
+}
+
+.cv-stat{
+  margin:0 0 10px;font-size:clamp(1.02rem,1.7vw,1.18rem);font-weight:800;
+  color:var(--ink);line-height:1.6;word-break:keep-all;
+}
+
+.cv-desc{
+  margin:0;font-size:clamp(0.9rem,1.4vw,1rem);color:var(--ink-soft);
+  line-height:1.8;word-break:keep-all;max-width:72ch;
+}
+
+@media (max-width:560px){
+  .cv-item{grid-template-columns:1fr;gap:6px;}
+  .cv-num{line-height:1.4;}
+}
+
+/* ========================================================================
+   기업 소개 — 스크롤 스토리텔링 (오른쪽 이미지 고정 + 구간별 전환)
+   ======================================================================== */
+.story-scroll{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,44%);
+  gap:clamp(32px,5vw,72px);align-items:start;
+}
+
+/* 오른쪽: 스크롤 내내 고정되는 이미지 영역 */
+.story-pin{position:sticky;top:calc(var(--nav-h,76px) + 28px);}
+
+.story-pin-inner{
+  position:relative;width:100%;height:min(66vh,560px);
+  border-radius:var(--radius-lg);overflow:hidden;
+  background:var(--warm-gray);box-shadow:var(--shadow);
+}
+
+/* 왼쪽: 소메뉴 구간이 차례로 흐른다 */
+.story-sec{
+  display:flex;flex-direction:column;justify-content:center;
+  min-height:72vh;padding:clamp(28px,5vh,64px) 0;scroll-margin-top:calc(var(--nav-h,76px) + 20px);
+}
+
+.story-sec:first-child{padding-top:0;}
+
+/* 마지막 구간도 관측 밴드(뷰포트 20~60%)까지 올라올 수 있도록 꼬리 여백 */
+.story-col{padding-bottom:clamp(120px,24vh,280px);}
+
+.story-sec > .tech-block:not(:first-child),
+.story-sec > .info-section:not(:first-child){margin-top:clamp(32px,4vw,56px);}
+
+/* 좁은 화면: 이미지는 상단에 얇게 고정되고 글이 아래로 흐른다 */
+@media (max-width:900px){
+  /* grid 에서는 sticky 가 자기 행 안에서만 걸려 이미지가 같이 흘러간다.
+     flex 컬럼으로 두면 포함 블록이 컨테이너 전체가 되어 제대로 고정된다. */
+  .story-scroll{display:flex;flex-direction:column;gap:var(--s5);}
+  /* align-items:start 가 남아 있으면 내용이 절대배치 이미지뿐인 aside 의 폭이 0 이 된다 */
+  .story-pin{position:sticky;top:calc(var(--topbar-h) + 8px);z-index:5;order:-1;align-self:stretch;width:100%;}
+  .story-pin-inner{height:34vh;}
+  .story-sec{min-height:0;padding:var(--s6) 0;}
+  .story-col{padding-bottom:var(--s7);}
+}

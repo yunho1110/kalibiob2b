@@ -1,0 +1,127 @@
+/* 비즈니스 협력 페이지 전용 스타일.
+   이 파일은 비즈니스 협력 담당자만 수정합니다. */
+
+/* ---- Industry expansion matrix (brochure p6) ---- */
+.matrix-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:14px;background:var(--white);box-shadow:var(--shadow);}
+
+.matrix{width:100%;border-collapse:collapse;min-width:620px;font-size:0.88rem;}
+
+.matrix th,
+.matrix td{padding:14px 16px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top;line-height:1.55;}
+
+.matrix thead th{background:var(--lime-soft);color:var(--green);font-weight:800;font-size:0.88rem;letter-spacing:0.02em;border-bottom:2px solid var(--lime);}
+
+.matrix tbody th{background:var(--lime-tint);font-weight:800;color:var(--ink);white-space:nowrap;width:1%;}
+
+.matrix tbody tr:last-child th,
+.matrix tbody tr:last-child td{border-bottom:none;}
+
+.matrix td{color:var(--ink-soft);}
+
+.matrix .m-rep{color:var(--ink);font-weight:600;}
+
+.matrix tbody tr.is-core th{background:var(--lime);color:var(--green);}
+
+.matrix tbody tr.is-core td{background:var(--lime-tint);}
+
+/* ---- Feldspar advantage icons (brochure p6) ---- */
+.adv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:var(--s5);}
+
+@media (max-width:640px){.adv-grid{grid-template-columns:1fr;}}
+
+.adv-card{text-align:center;background:var(--white);box-shadow:var(--shadow);border-radius:16px;padding:var(--s6) 20px;}
+
+.adv-icon{width:52px;height:52px;margin:0 auto 12px;display:grid;place-items:center;border-radius:14px;background:var(--lime-soft);color:var(--green);}
+
+.adv-icon svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.8;}
+
+.adv-name{font-weight:800;font-size:0.95rem;margin-bottom:6px;}
+
+.adv-desc{font-size:0.88rem;color:var(--ink-soft);line-height:1.6;}
+
+/* ---- 7. .biz-layout: business-area page copy + media ---- */
+.biz-layout{display:grid;grid-template-columns:1.1fr 0.9fr;gap:clamp(28px,4vw,56px);align-items:start;}
+
+@media (max-width:900px){
+  .biz-layout{grid-template-columns:1fr;}
+  .biz-media{order:2;}
+  .biz-copy{order:1;}
+}
+
+.biz-copy{word-break:keep-all;}
+
+.biz-media{margin:0;}
+
+.biz-media img{width:100%;border-radius:var(--radius-lg);object-fit:cover;aspect-ratio:4/3;}
+
+.biz-spec dt{
+  font-size:0.80rem;font-weight:700;letter-spacing:0.06em;color:var(--ink-faint);
+  margin:0;text-transform:uppercase;
+}
+
+/* ---- 사업분야 표 : 헤더 서브 설명이 빠진 만큼 표를 키우고,
+항목명이 내용보다 작아 보이던 위계를 바로잡는다 ---- */
+#biz-material .matrix,
+#biz-goods .matrix,
+#biz-oem .matrix{font-size:1rem;}
+
+#biz-material .matrix th,
+#biz-material .matrix td,
+#biz-goods .matrix th,
+#biz-goods .matrix td,
+#biz-oem .matrix th,
+#biz-oem .matrix td{padding:18px 20px; line-height:1.6;}
+
+#biz-goods .matrix thead th{font-size:1.06rem;}
+
+#biz-material .matrix tbody th,
+#biz-goods .matrix tbody th,
+#biz-oem .matrix tbody th{font-size:1.02rem; color:var(--green);}
+
+#biz-material .matrix td,
+#biz-goods .matrix td,
+#biz-oem .matrix td{font-size:0.98rem; color:var(--ink);}
+
+@media (max-width:640px){
+  #biz-material .matrix,
+#biz-goods .matrix,
+#biz-oem .matrix{font-size:0.9rem;}
+  #biz-material .matrix th,
+#biz-material .matrix td,
+#biz-goods .matrix th,
+#biz-goods .matrix td,
+#biz-oem .matrix th,
+#biz-oem .matrix td{padding:13px 14px;}
+}
+
+/* 사업분야 : 헤더 서브 설명이 빠진 만큼 본문·표 쪽 폭을 넓혀 균형을 맞춘다 */
+.biz-layout{grid-template-columns:1.45fr 1fr;}
+
+.biz-copy{min-width:0;}
+
+.biz-copy .matrix-wrap{min-width:0;}
+
+.biz-copy .matrix{min-width:0;}
+
+@media (max-width:900px){ .biz-layout{grid-template-columns:1fr;} }
+
+/* ---- 사업 분야: 한 페이지 안에서 3개 탭으로 ---- */
+.biz-tabs{
+  display:flex;flex-wrap:wrap;gap:8px;margin-bottom:var(--s6);
+  border-bottom:1px solid var(--border);padding-bottom:0;
+}
+
+.biz-tab{
+  appearance:none;border:none;background:none;
+  padding:12px 18px;border-radius:10px 10px 0 0;
+  font-family:var(--font-display);font-size:clamp(0.92rem,1.5vw,1.02rem);font-weight:800;
+  color:var(--ink-soft);position:relative;bottom:-1px;
+  border-bottom:3px solid transparent;transition:color .15s ease,background .15s ease;
+  word-break:keep-all;
+}
+
+.biz-tab:hover{color:var(--green);background:var(--lime-tint);}
+
+.biz-tab.is-active{color:var(--green);border-bottom-color:var(--lime);}
+
+@media (max-width:640px){ .biz-tab{flex:1 1 100%;text-align:left;border-radius:10px;bottom:0;} }
