@@ -54,10 +54,13 @@
     }
 
     /* ===== Mobile drawer ===== */
-    var hamburger = document.getElementById('hamburgerBtn');
+    var menuToggles = document.querySelectorAll('.js-menu-toggle');
     var drawer = document.getElementById('mobileDrawer');
     var drawerCloseBtn = document.getElementById('drawerCloseBtn');
 
+    function setToggleState(v) {
+      for (var i = 0; i < menuToggles.length; i++) { menuToggles[i].setAttribute('aria-expanded', v); }
+    }
     function openDrawer() {
       if (!drawer) { return; }
       /* Expand the section the visitor is already in, so its sub-pages are
@@ -72,21 +75,23 @@
       }
       drawer.classList.add('open');
       drawer.setAttribute('aria-hidden', 'false');
-      if (hamburger) { hamburger.setAttribute('aria-expanded', 'true'); }
+      setToggleState('true');
       document.body.style.overflow = 'hidden';
     }
     function closeDrawer() {
       if (!drawer) { return; }
       drawer.classList.remove('open');
       drawer.setAttribute('aria-hidden', 'true');
-      if (hamburger) { hamburger.setAttribute('aria-expanded', 'false'); }
+      setToggleState('false');
       document.body.style.overflow = '';
     }
-    if (hamburger && drawer) {
-      hamburger.setAttribute('aria-expanded', 'false');
-      hamburger.addEventListener('click', function () {
-        if (drawer.classList.contains('open')) { closeDrawer(); } else { openDrawer(); }
-      });
+    if (drawer) {
+      for (var mt = 0; mt < menuToggles.length; mt++) {
+        menuToggles[mt].setAttribute('aria-expanded', 'false');
+        menuToggles[mt].addEventListener('click', function () {
+          if (drawer.classList.contains('open')) { closeDrawer(); } else { openDrawer(); }
+        });
+      }
     }
     if (drawerCloseBtn) { drawerCloseBtn.addEventListener('click', closeDrawer); }
     if (drawer) {
@@ -119,6 +124,10 @@
       'about-values': ['about-principles']
     };
     function blocksOf(subId) { return SUBVIEW_BLOCKS[subId] || [subId]; }
+
+    /* 스크롤 스토리텔링을 쓰는 뷰: 소메뉴를 숨기지 않고 한 페이지로 이어 붙인다 */
+    var STORY_VIEWS = { about: true };
+    var lastStoryView = null;
 
     var SUBVIEW_DEFAULT = {
       material: 'mat-story', business: 'biz-areas', products: 'prod-soap',
@@ -174,11 +183,13 @@
         return null;
       }
       var active = (target && group.indexOf(target) !== -1) ? target : SUBVIEW_DEFAULT[viewId];
-      for (var i = 0; i < group.length; i++) {
-        var blocks = blocksOf(group[i]);
-        for (var b = 0; b < blocks.length; b++) {
-          var el = document.getElementById(blocks[b]);
-          if (el) { el.hidden = (group[i] !== active); }
+      if (!STORY_VIEWS[viewId]) {
+        for (var i = 0; i < group.length; i++) {
+          var blocks = blocksOf(group[i]);
+          for (var b = 0; b < blocks.length; b++) {
+            var el = document.getElementById(blocks[b]);
+            if (el) { el.hidden = (group[i] !== active); }
+          }
         }
       }
       var tabs = document.querySelectorAll('[data-subview]');
@@ -351,7 +362,11 @@
       lastSub = activeSub;
       updateNavContext(viewId, activeSub);
       revealAll();
-      if (true) { /* every route change opens its page at the top */
+      /* 스토리 뷰에서는 해시가 '다른 페이지'가 아니라 '같은 페이지 안의 구간'을
+         가리킨다. 이때 맨 위로 되돌리는 가드가 걸리면 구간 이동이 막힌다. */
+      var staysInStory = STORY_VIEWS[viewId] && lastStoryView === viewId;
+      lastStoryView = STORY_VIEWS[viewId] ? viewId : null;
+      if (!staysInStory) { /* every route change opens its page at the top */
         /* The browser performs its own fragment jump once the document has
            finished loading, which lands the visitor mid-page under the fixed
            header. Reset on the next frame and again on load so a deep link
@@ -462,6 +477,89 @@
         window.location.href = 'mailto:kalibio1101@naver.com?subject=' + subject + '&body=' + body;
         if (formNote) { formNote.hidden = false; }
       });
+    }
+
+    /* ===== 기업 소개 스크롤 스토리텔링 =====
+       왼쪽 글이 흐르는 동안 오른쪽 이미지가 구간에 맞춰 교체된다.
+       구간 진입 판정은 IntersectionObserver 로, 스크롤 핸들러를 돌리지 않는다. */
+    var storySecs = document.querySelectorAll('.story-sec');
+    if (storySecs.length) {
+      var storyImgs = document.querySelectorAll('.story-img');
+      var setStory = function (n) {
+        for (var i = 0; i < storyImgs.length; i++) {
+          storyImgs[i].classList.toggle('is-on', storyImgs[i].getAttribute('data-story') === n);
+        }
+        /* 보고 있는 구간을 상단 메뉴에도 표시 */
+        var secId = null;
+        for (var k = 0; k < storySecs.length; k++) {
+          if (storySecs[k].getAttribute('data-story') === n) { secId = storySecs[k].id; break; }
+        }
+        if (secId) {
+          var tabs = document.querySelectorAll('[data-subview]');
+          for (var t = 0; t < tabs.length; t++) {
+            var on = tabs[t].getAttribute('data-subview') === secId;
+            tabs[t].classList.toggle('active', on);
+            if (on) { tabs[t].setAttribute('aria-current', 'page'); } else { tabs[t].removeAttribute('aria-current'); }
+          }
+        }
+      };
+
+      /* 뷰포트 한가운데 가로선을 지나는 구간이 현재 구간이다.
+         IntersectionObserver 는 배치로 들어오는 entry 순서가 시간순이 아니라
+         해시 점프처럼 여러 구간을 한 번에 건너뛸 때 엉뚱한 구간을 집는다.
+         매번 기하로 다시 계산하면 항상 맞는다 (구간 4개라 비용도 없다). */
+      var syncStory = function () {
+        var mid = window.innerHeight / 2, pick = null;
+        for (var i = 0; i < storySecs.length; i++) {
+          var r = storySecs[i].getBoundingClientRect();
+          if (r.top <= mid && r.bottom >= mid) { pick = storySecs[i]; break; }
+          if (!pick && r.top > mid) { pick = storySecs[i]; break; }   /* 전부 아래 → 첫 구간 */
+        }
+        if (!pick) { pick = storySecs[storySecs.length - 1]; }        /* 전부 위 → 마지막 구간 */
+        setStory(pick.getAttribute('data-story'));
+      };
+      /* rAF 는 탭/패널이 보이지 않으면 멈춰서 전환이 통째로 죽는다.
+         getBoundingClientRect 4번이라 매 이벤트 직접 계산해도 비용이 없다. */
+      var storyLast = 0, storyTrail = null;
+      var onStoryScroll = function () {
+        var now = Date.now();
+        if (now - storyLast >= 60) { storyLast = now; syncStory(); }
+        /* 스로틀만 두면 마지막 이벤트가 삼켜져, 부드러운 스크롤이 멈춘 지점이
+           반영되지 않는다. 끝단에서 한 번 더 맞춘다. */
+        window.clearTimeout(storyTrail);
+        storyTrail = window.setTimeout(function () { storyLast = Date.now(); syncStory(); }, 90);
+      };
+      window.addEventListener('scroll', onStoryScroll, { passive: true });
+      window.addEventListener('resize', onStoryScroll, { passive: true });
+      /* scroll 이벤트는 탭이 화면에 없을 때 오지 않는 경우가 있다.
+         IntersectionObserver 는 그런 상황에서도 깨어나므로 '다시 계산하라'는
+         신호로만 쓴다 — 어느 구간인지는 위 syncStory 가 기하로 판단한다. */
+      if ('IntersectionObserver' in window) {
+        var storyObs = new IntersectionObserver(function () { syncStory(); },
+          { threshold: [0, 0.25, 0.5, 0.75, 1] });
+        for (var q = 0; q < storySecs.length; q++) { storyObs.observe(storySecs[q]); }
+      }
+      syncStory();
+
+      /* 소메뉴를 누르면 해당 구간으로 스크롤 (페이지 전환이 아니라 이동) */
+      var scrollToSec = function (id) {
+        var el = document.getElementById(id);
+        if (!el || !el.classList.contains('story-sec')) { return false; }
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        /* 부드러운 스크롤이 끝나는 시점을 이벤트로만 기다리면, 스크롤 이벤트가
+           오지 않는 상황에서 이미지가 이전 구간에 머문다. 몇 번 직접 맞춘다. */
+        var t = [120, 400, 800, 1200];
+        for (var i = 0; i < t.length; i++) { window.setTimeout(syncStory, t[i]); }
+        return true;
+      };
+      window.addEventListener('hashchange', function () {
+        var h = (window.location.hash || '').replace('#', '');
+        /* 다른 메뉴에서 막 들어왔다면 라우터의 '맨 위 고정'(1200ms)이 끝난 뒤에 이동 */
+        var delay = document.getElementById('about') &&
+                    document.getElementById('about').classList.contains('is-active') ? 80 : 1300;
+        window.setTimeout(function () { scrollToSec(h); }, delay);
+      });
+      window.setTimeout(function () { scrollToSec((window.location.hash || '').replace('#', '')); }, 220);
     }
 
     /* ===== 제품 및 주요 공정: 중메뉴(제품 / 주요 공정)를 눌러야 소메뉴가 열린다 ===== */
