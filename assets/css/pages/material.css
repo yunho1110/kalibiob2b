@@ -1,0 +1,250 @@
+/* 칼륨 장석 페이지 전용 스타일.
+   이 파일은 칼륨 장석 담당자만 수정합니다. */
+
+.clinical-list{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:16px;}
+
+.clinical-item{
+  background:var(--white);box-shadow:var(--shadow);
+  border-radius:var(--radius-md);padding:26px 24px 22px;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+
+.clinical-item:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);}
+
+/* Benefit first,
+figure second — the reader cares what improved before how much. */
+.clinical-title{font-size:clamp(1.02rem,1.5vw,1.15rem);font-weight:800;color:var(--ink);line-height:1.4;margin-bottom:12px;}
+
+/* Detail page numbers its 8 items automatically,
+so translations stay clean. */
+#mat-props .clinical-list{counter-reset:clin;}
+
+#mat-props .clinical-title::before{counter-increment:clin;content:counter(clin) ". ";color:var(--lime-text);font-weight:900;}
+
+.clinical-num-row{display:flex;align-items:baseline;gap:3px;margin-bottom:8px;}
+
+.clinical-num{font-family:var(--font-display);font-size:clamp(1.35rem,2vw,1.7rem);font-weight:900;color:var(--lime-text);line-height:1;}
+
+.clinical-unit{font-size:0.95rem;font-weight:800;color:var(--lime-text);}
+
+.clinical-upto{font-size:0.80rem;font-weight:700;color:var(--ink-faint);margin-right:2px;align-self:center;}
+
+.clinical-bar-track{height:6px;border-radius:999px;background:var(--warm-gray);overflow:hidden;margin-bottom:12px;}
+
+.clinical-bar-fill{height:100%;border-radius:999px;background:var(--magenta);}
+
+.clinical-item p{font-size:0.88rem;color:var(--ink-soft);line-height:1.65;}
+
+.clinical-footnote{font-size:0.80rem;color:var(--ink-faint);font-style:italic;line-height:1.6;}
+
+@media (max-width:900px){  .clinical-list{grid-template-columns:1fr;}
+}
+
+/* irritation result reads as a conclusion,
+not a 9th metric */
+.irritancy-strip{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 16px;
+  background:var(--green);color:var(--cream);border-radius:var(--radius-md);padding:18px 24px;margin-top:18px;text-align:center;}
+
+.irritancy-strip .is-label{font-size:clamp(1rem,1.5vw,1.15rem);font-weight:800;}
+
+.irritancy-strip .is-value{font-family:var(--font-display);font-weight:900;color:var(--mustard);font-size:1.15rem;}
+
+.irritancy-strip .is-note{font-size:0.80rem;color:rgba(247,247,240,0.75);width:100%;}
+
+/* 2-3 fix: previous "2x" sizing was too large — bring back near the base
+   .matrix size so it reads consistently with the other page tables */
+#mat-uses .matrix{min-width:640px;font-size:1.06rem;}
+
+#mat-uses .matrix th,
+#mat-uses .matrix td{padding:15px 16px;}
+
+#mat-uses .matrix thead th{font-size:1.06rem;}
+
+.source-note{margin-top:12px;font-size:0.80rem;color:var(--ink-faint);text-align:right;}
+
+/* footer language chips needed more contrast on the dark ground (merged into base rule above) *//* single-column product cards: cap the hero image height — see .k28-photo-sm below *//* ========================================================================
+   ROUND 2 — story / vision / certificates / footer
+   ======================================================================== *//* ---- Story: copy carries the page,
+the mine anchors it ---- */
+.story-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,0.65fr);gap:clamp(28px,4vw,var(--s7));align-items:start;margin-bottom:clamp(38px,5vw,58px);}
+
+@media (max-width:900px){.story-layout{grid-template-columns:1fr;}}
+
+.story-side{display:flex;flex-direction:column;gap:16px;position:sticky;top:24px;}
+
+@media (max-width:900px){.story-side{position:static;}}
+
+.story-figure{margin:0;border-radius:var(--radius-lg);overflow:hidden;background:var(--white);box-shadow:var(--shadow);}
+
+.story-figure img{width:100%;aspect-ratio:4/3;object-fit:cover;}
+
+.story-figure figcaption{padding:12px 16px 14px;font-size:0.80rem;color:var(--ink-soft);line-height:1.55;background:var(--card-bg);}
+
+/* 2-2 fix: in #mat-story the image (.story-side) is the FIRST child,
+so the
+   shared .story-layout grid hands it the larger 1.35fr track and leaves the
+   checklist squeezed into 0.65fr — the reverse of #about-origin. Give this
+   instance its own narrower,
+capped image track so the checklist gets the
+   room and the two columns read as similar weight. */
+@media (min-width:901px){
+  #mat-story .story-layout{grid-template-columns:minmax(220px,420px) minmax(280px,1fr);}
+  #mat-story .story-figure{max-width:520px;}
+}
+
+@media (max-width:900px){
+  #mat-story .story-figure{max-width:420px;margin:0 auto;}
+}
+
+/* ---- 4. .elem-grid: chemical composition tiles ---- */
+.elem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+
+@media (max-width:700px){.elem-grid{grid-template-columns:1fr;}}
+
+.elem{
+  background:var(--white);box-shadow:var(--shadow);border-radius:var(--radius-lg);
+  padding:var(--s6) 28px;
+}
+
+.elem-sym{
+  font-family:var(--font-display);font-size:clamp(2.4rem,5vw,3.4rem);font-weight:900;
+  color:var(--green);line-height:1;margin:0 0 10px;
+}
+
+.elem-sym span{font-size:0.45em;font-weight:700;color:var(--ink-faint);}
+
+.elem-pct{font-size:1.5rem;font-weight:800;color:var(--lime-text);margin:0 0 6px;}
+
+.elem-name{font-size:clamp(1.5rem,2.8vw,2.05rem);font-weight:800;margin:0 0 12px;word-break:keep-all;}
+
+.elem-note{font-size:clamp(1.1rem,2vw,1.68rem);color:var(--ink-soft);line-height:1.6;margin:0;word-break:keep-all;}
+
+/* highlighted / core element variant — deep green card,
+cream text */
+.elem.is-core{background:var(--green-deep);border-color:var(--green-deep);}
+
+.elem.is-core .elem-sym{color:var(--cream);}
+
+.elem.is-core .elem-sym span{color:rgba(247,247,240,0.65);}
+
+.elem.is-core .elem-pct{color:var(--lime);}
+
+.elem.is-core .elem-name{color:var(--cream);}
+
+.elem.is-core .elem-note{color:rgba(247,247,240,0.78);}
+
+/* ---- 5. .formula-line: centred chemistry sentence ---- */
+.formula-line{
+  font-size:1.05rem;font-weight:600;color:var(--green);text-align:center;
+  padding:20px;background:var(--lime-tint);border-radius:14px;word-break:keep-all;
+}
+
+/* ---- 6. .ph-scale: pH 0-14 gradient bar with a marker pin ---- */
+.ph-scale{position:relative;margin:18px 0 24px;}
+
+.ph-bar{
+  height:14px;width:100%;border-radius:999px;
+  /* acid (warm) -> neutral (grey) -> alkaline (green); gradient stops only, no new brand hues */
+  background:linear-gradient(to right,#D9764A 0%,var(--ink-faint) 50%,var(--green) 100%);
+}
+
+.ph-marker{
+  position:absolute;top:-14px;bottom:-4px;width:3px;background:var(--ink);
+  transform:translateX(-50%);
+}
+
+.ph-marker b{
+  position:absolute;top:-30px;left:0;transform:translateX(-50%);
+  display:inline-block;white-space:nowrap;background:var(--green-deep);color:#fff;
+  font-size:0.80rem;font-weight:700;padding:3px 10px;border-radius:999px;
+}
+
+.ph-ticks{display:flex;justify-content:space-between;margin-top:8px;font-size:0.80rem;color:var(--ink-faint);}
+
+/* ---- 8. .test-list: test-report entries with a thumbnail ---- */
+.test-list{display:flex;flex-direction:column;gap:16px;}
+
+.test{
+  background:var(--white);border-radius:var(--radius-lg);
+  overflow:hidden;box-shadow:var(--shadow);
+  display:grid;grid-template-columns:1fr 220px;
+}
+
+@media (max-width:700px){
+  .test{grid-template-columns:1fr;}
+  .test-thumb{order:-1;}
+}
+
+.test-nothumb{grid-template-columns:1fr;}
+
+.test-body{padding:var(--s6);}
+
+/* 2-4 fix: previous "2x" sizing was too large — back to ~1.0-1.15x normal
+   body copy,
+in line with .block-title / .block-desc elsewhere */
+.test-t{font-size:clamp(1.05rem,2vw,1.25rem);font-weight:800;margin:0 0 10px;word-break:keep-all;}
+
+.test-d{font-size:clamp(0.95rem,1.6vw,1.05rem);color:var(--ink-soft);line-height:1.65;margin:0;word-break:keep-all;}
+
+.test-m{
+  font-size:clamp(0.85rem,1.4vw,0.95rem);color:var(--ink-faint);padding-top:14px;margin-top:14px;
+  border-top:1px dashed var(--border);word-break:keep-all;
+}
+
+.test-thumb{display:flex;align-items:center;justify-content:center;background:var(--warm-gray);}
+
+.test-thumb img{width:100%;height:100%;object-fit:contain;background:#fff;}
+
+/* placeholder variant when there is no scanned document yet */
+.test-thumb-doc{
+  background:linear-gradient(160deg,var(--lime-tint),var(--warm-gray));
+  flex-direction:column;gap:12px;
+}
+
+/* ========================================================================
+   ROUND 6 — white-forward palette + newly added markup (work items 1-4)
+   ======================================================================== *//* ---- .mat-checklist / .mat-check / .mat-check-ico: 원료 이야기 체크리스트 ---- *//* 2-2 fix: larger gap + larger type so the checklist carries visual weight
+   now that the photo column has been narrowed */
+.mat-checklist{display:flex;flex-direction:column;gap:30px;justify-content:center;margin:0;}
+
+.mat-check{display:flex;align-items:flex-start;gap:16px;}
+
+.mat-check-ico{
+  flex:none;width:28px;height:28px;margin-top:1px;padding:5px;box-sizing:border-box;
+  border-radius:50%;background:var(--green);color:#fff;
+}
+
+.mat-check-ico svg{width:100%;height:100%;stroke:currentColor;fill:none;}
+
+.mat-check > span:last-child{font-size:clamp(1.05rem,1.6vw,1.15rem);color:var(--ink);line-height:1.75;word-break:keep-all;}
+
+/* ---- 임상 데이터로 가는 버튼 : 텍스트 링크는 눈에 띄지 않았다 ---- */
+.btn-clinical{
+  display:inline-flex; align-items:center; gap:7px;
+  margin-top:8px; padding:7px 14px;
+  border:1.5px solid var(--green); border-radius:999px;
+  font-size:0.84rem; font-weight:700; color:var(--green);
+  text-decoration:none; white-space:nowrap;
+  transition:background .2s, color .2s;
+}
+
+.btn-clinical:hover,
+.btn-clinical:focus-visible{background:var(--green); color:#fff;}
+
+.btn-clinical-ico{display:flex; width:15px; height:15px; flex:none;}
+
+.btn-clinical-ico svg{width:100%; height:100%;}
+
+/* 10쪽 — 비누 제품 사진 65~70% 로 축소.
+   카드 폭은 그대로 두고 이미지 영역만 낮춘다(4:3 → 약 2:1). *//* 11쪽 — K₂O·SiO₂·Al₂O₃ 카드 설명 문구 70% 로 축소 */
+.elem-note{font-size:clamp(0.78rem, 1.4vw, 1.18rem);}
+
+/* 대비(AA) 보정 — 어두운 초록 배경 위에서는 밝은 라임을 쓴다 (--lime-text는 밝은 배경 전용) */
+.irritancy-strip .clinical-num{color:var(--lime);}
+
+/* ---- 원료 이야기: 체크리스트가 사진 위쪽에 몰리지 않도록 세로 가운데 정렬 ---- */
+@media (min-width:901px){
+  #mat-story .story-layout{align-items:center;}
+  #mat-story .story-side{position:static;}
+  #mat-story .mat-checklist{gap:clamp(22px,3vw,38px);}
+}

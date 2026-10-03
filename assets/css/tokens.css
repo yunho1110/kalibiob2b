@@ -1,0 +1,53 @@
+/* 디자인 토큰 — 색·폰트·간격·그림자.
+   색이나 폰트를 바꾸려면 여기만 고치면 사이트 전체에 적용됩니다.
+   담당: UI/디자인 */
+
+:root{
+  /* Brochure palette */
+  --cream:#F7F7F0;
+  --warm-gray:#ECECE0;
+  --paper:#FDFDF8;
+  --white:#FFFFFF;
+  --ink:#1B1C16;
+  --ink-soft:#54564A;
+  --ink-faint:#696A5E; /* AA: #8A8C7C was 3.19~3.43:1 on light backgrounds */
+  --green:#1F4A3C;
+  --green-deep:#163A2E;
+  --green-mid:#2E6B55;
+  --lime:#8DC63F;
+  --lime-deep:#6FA52C;
+  --lime-soft:#E7F2D2;
+  --lime-tint:#F2F8E7;
+  --lime-text:#4E7A1C; /* AA-safe lime-family text on light backgrounds (>=4.5:1) */
+  /* product colour coding (from brochure) */
+  --p03:#7C9A3E;
+  --p05:#E0879F;
+  --p08:#2F5FA8;
+  --p13:#C9A94A;
+  --cobalt:#2F5FA8;
+  --magenta:#8DC63F;
+  --magenta-btn:#6FA52C;
+  --mustard:#C9A94A;
+  --border:#DCDCC9;
+  --card-bg:#FFFFFF;
+  --radius-lg:20px;
+  --radius-md:20px;
+  --radius-sm:8px;
+  --max:1180px;
+  --shadow:0 10px 28px -16px rgba(31,74,60,0.22);
+  --shadow-hover:0 18px 40px -18px rgba(31,74,60,0.30);
+  --sidebar-w:272px;
+  --topbar-h:60px;
+  --font-display:'Archivo','Noto Sans KR','Noto Sans SC',sans-serif;
+  /* Spacing scale (8px rhythm) */
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:48px; --s8:64px; --s9:96px;
+}
+
+/* ========================================================================
+   TOP NAVIGATION — single row: identity left,
+menu + CTA right
+   Sub-menus are their own component (.nav-sub-link); they deliberately share
+   no class with the in-page pill tabs,
+so they can never inherit that chrome.
+   ======================================================================== */
+:root{--nav-h:76px;}
