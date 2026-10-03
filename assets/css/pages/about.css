@@ -238,7 +238,8 @@ no dot. .tl-node is now the card
   /* grid 에서는 sticky 가 자기 행 안에서만 걸려 이미지가 같이 흘러간다.
      flex 컬럼으로 두면 포함 블록이 컨테이너 전체가 되어 제대로 고정된다. */
   .story-scroll{display:flex;flex-direction:column;gap:var(--s5);}
-  .story-pin{position:sticky;top:calc(var(--topbar-h) + 8px);z-index:5;order:-1;}
+  /* align-items:start 가 남아 있으면 내용이 절대배치 이미지뿐인 aside 의 폭이 0 이 된다 */
+  .story-pin{position:sticky;top:calc(var(--topbar-h) + 8px);z-index:5;order:-1;align-self:stretch;width:100%;}
   .story-pin-inner{height:34vh;}
   .story-sec{min-height:0;padding:var(--s6) 0;}
   .story-col{padding-bottom:var(--s7);}

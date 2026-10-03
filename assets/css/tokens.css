@@ -1,15 +1,16 @@
 /* 디자인 토큰 — 색·폰트·간격·그림자.
    색이나 폰트를 바꾸려면 여기만 고치면 사이트 전체에 적용됩니다.
-   담당: UI/디자인 */
+   담당: UI/디자인
+   10.03 리뉴얼(aromatica 톤): 오프화이트·잉크·가는 선·거의 직각 모서리, 그림자 없음 */
 
 :root{
   /* Brochure palette */
-  --cream:#F7F7F0;
-  --warm-gray:#ECECE0;
-  --paper:#FDFDF8;
+  --cream:#F5F4EF;
+  --warm-gray:#ECEAE3;
+  --paper:#FBFAF7;
   --white:#FFFFFF;
-  --ink:#1B1C16;
-  --ink-soft:#54564A;
+  --ink:#1A1A17;
+  --ink-soft:#4F4F48;
   --ink-faint:#696A5E; /* AA: #8A8C7C was 3.19~3.43:1 on light backgrounds */
   --green:#1F4A3C;
   --green-deep:#163A2E;
@@ -28,14 +29,15 @@
   --magenta:#8DC63F;
   --magenta-btn:#6FA52C;
   --mustard:#C9A94A;
-  --border:#DCDCC9;
+  --border:#DEDCD3;
   --card-bg:#FFFFFF;
-  --radius-lg:20px;
-  --radius-md:20px;
-  --radius-sm:8px;
+  --radius-lg:2px;
+  --radius-md:2px;
+  --radius-sm:2px;
   --max:1180px;
-  --shadow:0 10px 28px -16px rgba(31,74,60,0.22);
-  --shadow-hover:0 18px 40px -18px rgba(31,74,60,0.30);
+  --shadow:none;
+  --shadow-hover:none;
+  --line:1px solid var(--border);
   --sidebar-w:272px;
   --topbar-h:60px;
   --font-display:'Archivo','Noto Sans KR','Noto Sans SC',sans-serif;
