@@ -2235,7 +2235,8 @@ figure img{height:auto;}
   /* grid 에서는 sticky 가 자기 행 안에서만 걸려 이미지가 같이 흘러간다.
      flex 컬럼으로 두면 포함 블록이 컨테이너 전체가 되어 제대로 고정된다. */
   .story-scroll{display:flex;flex-direction:column;gap:var(--s5);}
-  .story-pin{position:sticky;top:calc(var(--topbar-h) + 8px);z-index:5;order:-1;}
+  /* align-items:start 가 남아 있으면 내용이 절대배치 이미지뿐인 aside 의 폭이 0 이 된다 */
+  .story-pin{position:sticky;top:calc(var(--topbar-h) + 8px);z-index:5;order:-1;align-self:stretch;width:100%;}
   .story-pin-inner{height:34vh;}
   .story-sec{min-height:0;padding:var(--s6) 0;}
   .story-col{padding-bottom:var(--s7);}
@@ -2255,3 +2256,119 @@ figure img{height:auto;}
 @media (min-width:1024px){
   .drawer{max-width:420px;}
 }
+
+/* ========================================================================
+   10.03 지시서 — 전체 디자인 리뉴얼 (참고: aromatica.co/about 의 톤앤매너)
+   차분한 오프화이트 바탕 · 검정 잉크 · 가는 선 · 각진 모서리 · 넓은 여백.
+   그림자와 둥근 카드를 걷어내고, 브랜드 그린은 포인트로만 남긴다.
+   세부 가이드(색상·폰트·버튼)가 확정되면 이 블록의 토큰만 바꾸면 된다.
+   ======================================================================== */
+:root{
+  --cream:#F5F4EF;
+  --warm-gray:#ECEAE3;
+  --paper:#FBFAF7;
+  --border:#DEDCD3;
+  --ink:#1A1A17;
+  --ink-soft:#4F4F48;
+  --radius-lg:2px;
+  --radius-md:2px;
+  --radius-sm:2px;
+  --shadow:none;
+  --shadow-hover:none;
+  --line:1px solid var(--border);
+}
+body{line-height:1.8;letter-spacing:-0.01em;}
+
+/* --- 타이포그래피: 굵기를 낮추고 여백으로 위계를 만든다 --- */
+.section{padding:clamp(80px,11vw,10rem) 0;}
+.section-head{margin-bottom:clamp(48px,7vw,112px);}
+.section-title{font-weight:500;font-size:clamp(1.9rem,3.6vw,2.9rem);letter-spacing:-0.035em;line-height:1.25;}
+.block-title{font-weight:500;letter-spacing:-0.03em;}
+.eyebrow{
+  font-size:0.76rem;font-weight:600;letter-spacing:0.26em;color:var(--ink-soft);
+  padding-bottom:0;margin-bottom:var(--s4);
+}
+.eyebrow::after,.section-head.center .eyebrow::after{display:none;}
+.section-subtitle{color:var(--ink-soft);line-height:1.9;}
+.why-card h3,.why-card h4{font-weight:600;}
+
+/* --- 버튼: 각진 사각형, 가는 선, 작은 대문자 라벨 --- */
+.btn{
+  border-radius:0;padding:14px 30px;font-size:0.82rem;font-weight:600;letter-spacing:0.06em;
+  transition:background .2s ease,color .2s ease,border-color .2s ease;
+}
+.btn:active{transform:none;}
+.btn-primary{background:var(--ink);border-color:var(--ink);color:#fff;}
+.btn-primary:hover{background:var(--green);border-color:var(--green);box-shadow:none;}
+.btn-outline{border-color:var(--ink);color:var(--ink);}
+.btn-outline:hover{background:var(--ink);border-color:var(--ink);color:#fff;}
+.subview-tab{border-radius:0;font-weight:500;background:transparent;}
+.subview-tab.active{background:var(--ink);border-color:var(--ink);}
+.subview-tab:hover{border-color:var(--ink);color:var(--ink);}
+
+/* --- 카드·이미지: 그림자 대신 가는 선, 모서리는 거의 직각 --- */
+.hero-frame,.matrix-wrap,.adv-card,.adv-icon,.co-table,.k28-card,.sp-step,.powder-block,
+.powder-block img,.recruit-banner,.recruit-card,.k28-split-media img,.toc,.toc .subview-tab,
+.cert-lightbox img{border-radius:2px;}
+.matrix-wrap,.adv-card,.co-table,.k28-card,.sp-step,.hero-frame{box-shadow:none;border:var(--line);}
+.why-card:hover,.product-card:hover,.pillar-card:hover,.cert-card:hover{transform:none;box-shadow:none;}
+.product-card:hover{border-color:var(--ink);}
+.product-card.accent-cobalt:hover,.product-card.accent-mustard:hover,
+.product-card.accent-magenta:hover,.product-card.accent-ink:hover{box-shadow:none;}
+
+/* --- 상단 헤더: 왼쪽 메뉴 버튼 · 가운데 무게 없는 메뉴 · 오른쪽 언어/문의 --- */
+.site-nav{background:rgba(251,250,247,0.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:none;}
+.site-nav .brand-name{font-weight:600;font-size:0.98rem;}
+.main-nav > a,.main-nav .nav-parent{font-weight:500;font-size:0.92rem;color:var(--ink-soft);}
+.main-nav > a::after,.main-nav .nav-parent::after{height:1px;background:var(--ink);bottom:22px;}
+.main-nav > a:hover,.main-nav .nav-parent:hover,
+.main-nav a.active,.main-nav .nav-group.is-current > .nav-parent{color:var(--ink);}
+.main-nav .nav-sub{border-radius:0;box-shadow:0 18px 30px -24px rgba(0,0,0,0.25);}
+.main-nav .nav-sub-link{border-radius:0;font-weight:500;}
+.main-nav .nav-sub-link:hover{background:var(--cream);color:var(--ink);}
+.main-nav .nav-sub-link.active{background:var(--ink);color:#fff;}
+.nav-cta{padding:10px 20px;font-size:0.80rem;}
+
+/* 언어 선택: 알약 스위치 대신 글자 + 밑줄 */
+.lang-switch{background:transparent;border:none;padding:0;gap:2px;}
+.lang-switch-fixed{box-shadow:none;background:var(--paper);}
+.lang-btn{border-radius:0;color:var(--ink-faint);font-weight:600;padding:6px 8px;position:relative;}
+.lang-btn.active{background:transparent;color:var(--ink);}
+.lang-btn.active::after{content:'';position:absolute;left:8px;right:8px;bottom:2px;height:1px;background:currentColor;}
+.footer-lang .lang-btn{background:transparent;border:none;}
+.footer-lang .lang-btn.active{background:transparent;color:#fff;}
+
+/* 좌측 상단 메뉴 버튼: 테두리 없이 가는 두 줄 + MENU 라벨 감각 */
+.menu-toggle{border:none;background:transparent;width:40px;height:40px;gap:7px;border-radius:0;}
+.menu-toggle span{width:22px;height:1.5px;border-radius:0;}
+.menu-toggle span:nth-child(3){width:14px;margin-left:9px;}
+.menu-toggle:hover{background:transparent;}
+.menu-toggle:hover span:nth-child(3){width:22px;margin-left:9px;}
+.menu-toggle span{transition:width .2s ease;}
+
+/* 전체 메뉴: 왼쪽에서 밀려 나오는 패널 (버튼이 왼쪽에 있으므로) */
+.drawer{background:var(--paper);transform:translateX(-100%);transition:transform .35s cubic-bezier(.2,.7,.2,1);}
+.drawer.open{transform:translateX(0);box-shadow:0 0 0 100vmax rgba(26,26,23,0.32);}
+.drawer-close{border-radius:0;border:none;background:transparent;font-size:1.6rem;}
+.drawer-nav a{font-weight:500;font-size:1.25rem;letter-spacing:-0.02em;}
+.drawer-nav a::before{display:none;}
+.drawer-nav a.active{color:var(--ink);text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px;}
+.drawer-nav .nav-sub a{font-weight:400;font-size:0.95rem;}
+.drawer-nav .nav-sub a.active{color:var(--ink) !important;background:transparent !important;text-decoration:underline;}
+
+/* 모바일 상단바 */
+.app-topbar{background:rgba(251,250,247,0.94);}
+
+/* --- 기업 소개 스크롤 스토리텔링: 오른쪽 이미지 영역도 같은 톤으로 --- */
+.story-pin-inner{border-radius:0;box-shadow:none;background:#fff;}
+.story-sec{min-height:86vh;}
+@media (max-width:900px){.story-sec{min-height:0;}}
+
+/* --- 푸터: 진녹색 블록 대신 차분한 잉크 톤 --- */
+footer.site-footer{background:var(--ink);}
+
+/* 블록 제목 밑줄: 라임 막대 대신 잉크색 가는 선 */
+.block-title::after{background:var(--ink);height:1px;}
+/* 모바일 하단 고정 문의 버튼도 같은 버튼 언어로 */
+.sticky-cta{background:rgba(251,250,247,0.96);border-top:var(--line);box-shadow:none;}
+.sticky-cta-btn{border-radius:0;background:var(--ink);font-weight:600;letter-spacing:0.04em;}

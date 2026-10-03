@@ -103,6 +103,12 @@
         if (drawerLinks[k].closest('.nav-row') && owner && owner.querySelector('.nav-sub')) { continue; }
         drawerLinks[k].addEventListener('click', closeDrawer);
       }
+      /* 데스크톱에서는 패널 바깥이 어둡게 깔린 페이지다 — 바깥을 누르면 닫는다 */
+      document.addEventListener('click', function (e) {
+        if (!drawer.classList.contains('open')) { return; }
+        if (drawer.contains(e.target) || e.target.closest('.js-menu-toggle')) { return; }
+        closeDrawer();
+      });
     }
 
     /* ===== Hash routing ===== */
