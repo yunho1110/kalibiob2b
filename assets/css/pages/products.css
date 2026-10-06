@@ -235,3 +235,91 @@ leaving a big empty gap under the image. Stretch the row and let
 /* ---- 설비 카드: .equip-card 가 align-items:flex-start 라 원본이 작은 사진은
        칸을 못 채우고 줄어든다(Step 7 포장 라인 254px). 사진 칸은 항상 카드 폭에 맞춘다 ---- */
 .equip-media{align-self:stretch;width:100%;}
+
+/* ========================================================================
+   10.06 지시서(다은) — B2B 제품 목록 · 상세
+   ======================================================================== */
+/* 비누/치약 블록은 필터 기본값 판단용 표식일 뿐 화면에 그리지 않는다 */
+#products #prod-soap,#products #prod-paste{display:none;}
+
+.pl-intro{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:24px 48px;flex-wrap:wrap;
+  padding-bottom:clamp(32px,4vw,48px);border-bottom:1px solid var(--border);margin-bottom:clamp(28px,3vw,40px);
+}
+.pl-intro > div{max-width:760px;}
+.pl-title{margin:0;font-size:clamp(1.6rem,2.8vw,2.3rem);font-weight:600;letter-spacing:-0.03em;}
+.pl-lead{margin:14px 0 0;font-size:clamp(1.02rem,1.4vw,1.18rem);font-weight:500;color:var(--ink);line-height:1.6;}
+.pl-desc{margin:12px 0 0;font-size:0.94rem;color:var(--ink-soft);line-height:1.85;}
+
+.pl-filter{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:clamp(24px,3vw,36px);}
+.pl-chip{
+  border:1px solid var(--border);background:transparent;color:var(--ink-soft);
+  padding:9px 18px;font-size:0.86rem;font-weight:500;border-radius:0;
+}
+.pl-chip:hover{border-color:var(--ink);color:var(--ink);}
+.pl-chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff;}
+
+.pl-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2vw,28px);margin:0;padding:0;list-style:none;}
+@media (max-width:1100px){.pl-grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
+@media (max-width:900px){.pl-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media (max-width:560px){.pl-grid{grid-template-columns:1fr;}}
+.pl-grid > li{display:flex;}
+.pc{display:flex;flex-direction:column;width:100%;background:#fff;border:1px solid var(--border);color:var(--ink);transition:border-color .2s ease;}
+.pc:hover{border-color:var(--ink);}
+.pc-media{display:block;aspect-ratio:1/1;background:#F1EFEA;overflow:hidden;}
+.pc-media img{width:100%;height:100%;object-fit:cover;}
+.pc-media img.is-fallback{object-fit:contain;padding:30%;}
+.pc-type{margin:18px 20px 0;font-size:0.74rem;font-weight:600;letter-spacing:0.08em;color:var(--lime-text);}
+.pc-name{margin:6px 20px 0;font-size:1.08rem;font-weight:600;letter-spacing:-0.02em;}
+.pc-feats{margin:12px 20px 0;padding:0;list-style:none;font-size:0.84rem;color:var(--ink-soft);line-height:1.6;}
+.pc-feats li{position:relative;padding-left:12px;margin-top:4px;}
+.pc-feats li::before{content:'';position:absolute;left:0;top:.7em;width:4px;height:1px;background:currentColor;}
+.pc-feats li:nth-child(n+3){display:none;} /* 카드에는 핵심 2개만 */
+.pc-use{margin:14px 20px 0;font-size:0.8rem;color:var(--ink-soft);}
+.pc-use b{font-weight:600;color:var(--ink);margin-right:4px;}
+.pc-btn{
+  margin:auto 20px 20px;margin-top:18px;align-self:flex-start;padding:9px 16px;
+  border:1px solid var(--ink);font-size:0.8rem;font-weight:600;letter-spacing:0.04em;
+}
+.pc:hover .pc-btn,.pc:focus-visible .pc-btn{background:var(--ink);color:#fff;}
+
+.pl-trust{margin-top:clamp(64px,8vw,104px);padding:clamp(32px,4vw,52px);background:var(--warm-gray);}
+.pl-sub{margin:0 0 12px;font-size:clamp(1.25rem,2vw,1.6rem);font-weight:600;letter-spacing:-0.03em;}
+.pl-trust p{margin:0;max-width:820px;font-size:0.96rem;line-height:1.85;color:var(--ink-soft);}
+.pl-uses{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin:clamp(28px,3vw,40px) 0 0;padding:0;list-style:none;}
+.pl-uses li{background:var(--paper);padding:clamp(22px,2.6vw,34px);}
+.pl-uses h4{margin:0 0 8px;font-size:1.06rem;font-weight:600;}
+.pl-uses p{margin:0;font-size:0.88rem;color:var(--ink-soft);line-height:1.7;}
+@media (max-width:760px){.pl-uses{grid-template-columns:1fr;}}
+.pl-cta{margin-top:clamp(40px,5vw,64px);text-align:center;}
+
+/* 상세 */
+.pd-back{display:inline-block;margin-bottom:24px;font-size:0.86rem;color:var(--ink-soft);}
+.pd-back:hover{color:var(--ink);text-decoration:underline;}
+.pd-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,4vw,64px);align-items:start;}
+@media (max-width:900px){.pd-top{grid-template-columns:1fr;}}
+.pd-media{position:sticky;top:calc(var(--nav-h,76px) + 24px);background:#F1EFEA;aspect-ratio:1/1;overflow:hidden;}
+@media (max-width:900px){.pd-media{position:static;}}
+.pd-media img{width:100%;height:100%;object-fit:cover;}
+.pd-type{display:inline-block;font-size:0.76rem;font-weight:600;letter-spacing:0.08em;color:var(--lime-text);border:1px solid currentColor;padding:4px 10px;}
+.pd-name{margin:12px 0 0;font-size:clamp(1.7rem,3vw,2.4rem);font-weight:600;letter-spacing:-0.035em;}
+.pd-h{margin:clamp(26px,3vw,36px) 0 10px;font-size:0.82rem;font-weight:700;letter-spacing:0.06em;color:var(--ink-soft);}
+h3.pd-h{font-size:clamp(1.2rem,1.8vw,1.45rem);color:var(--ink);letter-spacing:-0.02em;margin-top:clamp(48px,6vw,80px);}
+.pd-feats,.pd-uses,.pd-quality{margin:0;padding:0;list-style:none;font-size:0.93rem;line-height:1.7;}
+.pd-feats li,.pd-uses li,.pd-quality li{padding:8px 0;border-bottom:1px solid var(--border);}
+.pd-uses b{font-weight:600;margin-right:6px;}
+.pd-table{width:100%;border-collapse:collapse;margin-top:16px;font-size:0.9rem;}
+.pd-table th,.pd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top;}
+.pd-table th{width:30%;font-weight:600;background:var(--cream);}
+.pd-p{margin:0;font-size:0.95rem;}
+.pd-muted{margin-top:6px;font-size:0.84rem;color:var(--ink-soft);}
+.pd-order{display:grid;grid-template-columns:auto 1fr;gap:8px 20px;margin:0;font-size:0.92rem;}
+.pd-order dt{font-weight:600;}
+.pd-order dd{margin:0;color:var(--ink-soft);}
+.pd-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(28px,3vw,40px);}
+.pd-note{margin:10px 0 0;font-size:0.8rem;color:var(--ink-faint);}
+.pd-strengths{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin:0;padding:0;list-style:none;}
+.pd-strengths li{background:var(--paper);padding:22px;display:flex;flex-direction:column;gap:8px;font-size:0.88rem;line-height:1.7;color:var(--ink-soft);}
+.pd-strengths b{color:var(--ink);font-size:1rem;}
+@media (max-width:900px){.pd-strengths{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media (max-width:560px){.pd-strengths{grid-template-columns:1fr;}}

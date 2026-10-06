@@ -53,12 +53,12 @@ not a 9th metric */
 
 /* 2-3 fix: previous "2x" sizing was too large — bring back near the base
    .matrix size so it reads consistently with the other page tables */
-#mat-uses .matrix{min-width:640px;font-size:1.06rem;}
+.mat-matrix .matrix{min-width:640px;font-size:1.06rem;}
 
-#mat-uses .matrix th,
-#mat-uses .matrix td{padding:15px 16px;}
+.mat-matrix .matrix th,
+.mat-matrix .matrix td{padding:15px 16px;}
 
-#mat-uses .matrix thead th{font-size:1.06rem;}
+.mat-matrix .matrix thead th{font-size:1.06rem;}
 
 .source-note{margin-top:12px;font-size:0.80rem;color:var(--ink-faint);text-align:right;}
 
@@ -247,4 +247,120 @@ in line with .block-title / .block-desc elsewhere */
   #mat-story .story-layout{align-items:center;}
   #mat-story .story-side{position:static;}
   #mat-story .mat-checklist{gap:clamp(22px,3vw,38px);}
+}
+
+/* ========================================================================
+   10.06 지시서(윤서) — 원료 공급 › 칼륨장석 리뉴얼
+   ======================================================================== */
+#material{--mat-ivory:#F5F3EE;--mat-sans:'Pretendard Variable','Pretendard','Noto Sans KR',sans-serif;}
+#material .mat-h{
+  text-align:center;font-family:var(--mat-sans);font-weight:500;letter-spacing:-0.02em;
+  font-size:clamp(1.5rem,2.4vw,2.1rem);line-height:1.3;margin:0 0 clamp(40px,5vw,72px);color:#000;
+}
+
+/* 1) 메인 비주얼 — 단색 배경, 분말은 중앙보다 약간 왼쪽, 제목이 절반쯤 겹쳐 오른쪽으로 */
+.mv{background:var(--mat-ivory);padding:clamp(56px,8vw,120px) 20px clamp(64px,8vw,120px);overflow:hidden;}
+.mv-visual{
+  position:relative;display:flex;align-items:center;
+  width:min(1100px,100%);margin:0 auto;
+  /* 분말 + 제목 그룹의 무게중심이 화면 중앙에 오도록: 분말을 왼쪽으로, 제목을 오른쪽으로 */
+  padding-left:clamp(0px,6vw,90px);
+}
+.mv-img{
+  width:clamp(260px,46vw,560px);height:auto;flex:none;
+  mix-blend-mode:multiply;opacity:.7;filter:blur(.6px);
+}
+.mv-title{
+  position:relative;z-index:1;text-align:center;
+  /* 제목의 약 절반이 분말 위에 겹친다 */
+  margin-left:calc(clamp(260px,46vw,560px) * -0.36);
+}
+.mv-ko{
+  margin:0;font-family:var(--mat-sans);font-weight:600;color:#000;
+  font-size:clamp(1.9rem,4.4vw,3.6rem);letter-spacing:-0.035em;line-height:1.15;white-space:nowrap;
+}
+.mv-en{
+  margin:.35em 0 0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;color:#000;
+  font-size:clamp(0.95rem,2.2vw,1.8rem);letter-spacing:0;white-space:nowrap;
+}
+/* 체크 문구: 역삼각형, 각 문구는 반드시 한 줄 */
+.mv-checks{
+  display:grid;grid-template-columns:auto auto;justify-content:center;
+  column-gap:clamp(28px,5vw,80px);row-gap:clamp(14px,1.6vw,22px);
+  margin:clamp(40px,5vw,64px) auto 0;padding:0;list-style:none;
+}
+.mv-checks li{
+  display:flex;align-items:baseline;gap:.55em;white-space:nowrap;color:#000;
+  font-family:var(--mat-sans);font-size:clamp(12px,1.25vw,17px);letter-spacing:-0.02em;
+}
+.mv-checks li:nth-child(3){grid-column:1 / -1;justify-self:center;}
+.mv-ck{font-weight:400;font-size:.95em;}
+@media (max-width:720px){
+  .mv-visual{flex-direction:column;padding-left:0;}
+  .mv-img{width:min(78vw,420px);}
+  .mv-title{margin:-22% 0 0;}
+  .mv-checks{grid-template-columns:auto;justify-items:center;}
+  .mv-checks li{font-size:clamp(11px,3.2vw,15px);}
+}
+
+/* 2) 구성 요소 — 딥 포레스트 그린 */
+.mc{background:#172B23;padding:clamp(72px,9vw,128px) 0;}
+#material .mc .mat-h{color:#F4F2EC;}
+.mc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,32px);}
+.mc-box{background:#F7F6F2;border-radius:3px;padding:clamp(28px,3vw,44px) clamp(22px,2.6vw,36px);text-align:left;}
+.mc-box p{margin:0;}
+.mc-sym{font-family:var(--font-display);font-size:clamp(2.4rem,4vw,3.4rem);font-weight:700;line-height:1;color:#294A3D;}
+.mc-sym sub{font-size:.5em;vertical-align:-0.35em;line-height:0;}
+.mc-pct{margin-top:14px !important;font-family:var(--font-display);font-size:clamp(1.3rem,2vw,1.7rem);font-weight:700;color:#7FA12D;}
+.mc-name{margin-top:18px !important;font-size:clamp(1.25rem,1.8vw,1.55rem);font-weight:700;color:#111411;}
+.mc-note{margin-top:10px !important;font-size:0.9rem;line-height:1.6;color:#5D5A53;}
+.mc-box--k{background:#213D32;}
+.mc-box--k .mc-sym,.mc-box--k .mc-name{color:#F4F2EC;}
+.mc-box--k .mc-pct{color:#9BCB4A;}
+.mc-box--k .mc-note{color:#D7D5CD;}
+@media (max-width:760px){.mc-grid{grid-template-columns:1fr;}}
+
+/* 3) 분말의 장점 — 가운데 정렬, 호버 시 사진만 */
+.ma{background:var(--mat-ivory);padding:clamp(72px,9vw,128px) 0;}
+.ma-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,32px);}
+.ma-box{
+  position:relative;overflow:hidden;background:#fff;border:1px solid #E4E0D6;border-radius:3px;
+  aspect-ratio:4/3.4;display:flex;align-items:center;justify-content:center;outline-offset:3px;
+}
+.ma-text{padding:clamp(20px,2.4vw,36px);text-align:center;transition:opacity .4s ease;}
+.ma-t{margin:0;font-size:clamp(1.4rem,2vw,1.8rem);font-weight:700;color:#000;letter-spacing:-0.03em;}
+.ma-d{margin:clamp(14px,1.4vw,20px) 0 0;font-size:clamp(0.82rem,1vw,0.95rem);font-weight:400;line-height:1.75;color:#000;}
+.ma-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .4s ease;}
+.ma-box:hover .ma-photo,.ma-box:focus-visible .ma-photo{opacity:1;}
+.ma-box:hover .ma-text,.ma-box:focus-visible .ma-text{opacity:0;}
+@media (max-width:860px){.ma-grid{grid-template-columns:1fr;}.ma-box{aspect-ratio:auto;min-height:240px;}}
+
+/* 4) 시험과 분석 — 텍스트＼사진 / 사진／텍스트 */
+.mt{background:var(--mat-ivory);padding:0 0 clamp(72px,9vw,128px);}
+.mt-box{
+  position:relative;display:grid;grid-template-columns:1fr 1fr;min-height:clamp(220px,22vw,300px);
+  background:#fff;border:1px solid #E4E0D6;border-radius:3px;overflow:hidden;
+}
+.mt-box + .mt-box{margin-top:clamp(20px,2.4vw,32px);}
+.mt-text{display:flex;flex-direction:column;justify-content:center;padding:clamp(24px,3vw,44px);min-width:0;z-index:1;}
+.mt-box--b .mt-text{text-align:right;grid-column:2;grid-row:1;}
+.mt-t,.mt-d,.mt-m{white-space:nowrap;margin:0;}
+.mt-t{font-size:clamp(1.3rem,2.1vw,1.9rem);font-weight:700;color:#000;letter-spacing:-0.03em;}
+.mt-d{margin-top:10px;font-size:clamp(0.78rem,1.05vw,1rem);color:#333;}
+.mt-m{margin-top:18px;padding-top:16px;border-top:1px solid #DDD9CF;font-size:clamp(0.66rem,0.86vw,0.82rem);color:#666;}
+/* 사진은 상자 전체에 깔고 사선으로 잘라 반쪽만 보인다 */
+.mt-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.mt-box--a .mt-photo{clip-path:polygon(47% 0,100% 0,100% 100%,53% 100%);object-position:75% 50%;}
+.mt-box--b .mt-photo{clip-path:polygon(0 0,53% 0,47% 100%,0 100%);object-position:25% 50%;}
+.mt-line{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+.mt-line line{stroke:#D5D1C6;stroke-width:1;}
+.mt-more{margin-top:clamp(48px,6vw,80px);}
+@media (max-width:767px){
+  .mt-box{grid-template-columns:1fr;}
+  .mt-photo{position:relative;height:200px;clip-path:none !important;}
+  .mt-box--b .mt-photo{grid-row:1;}
+  .mt-box--b .mt-text{grid-column:1;grid-row:2;text-align:left;}
+  .mt-line{display:none;}
+  /* 360px 에서는 한 줄 유지 시 글자가 9px 이하로 작아져 줄바꿈을 허용한다 */
+  .mt-d,.mt-m{white-space:normal;}
 }

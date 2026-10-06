@@ -17,18 +17,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <!-- 스타일시트는 순서가 중요합니다. 토큰 → 기본 → 공통 → 페이지별 순으로 읽힙니다. -->
-<link rel="stylesheet" href="assets/css/tokens.css?v=202610062246">
-<link rel="stylesheet" href="assets/css/base.css?v=202610062246">
-<link rel="stylesheet" href="assets/css/components.css?v=202610062246">
-<link rel="stylesheet" href="assets/css/pages/home.css?v=202610062246">
-<link rel="stylesheet" href="assets/css/pages/about.css?v=202610062246">
-<link rel="stylesheet" href="assets/css/pages/process.css?v=202610062246">
-<link rel="stylesheet" href="assets/css/pages/material.css?v=202610062246">
-<link rel="stylesheet" href="assets/css/pages/products.css?v=202610062246">
-<link rel="stylesheet" href="assets/css/pages/business.css?v=202610062246">
-<link rel="stylesheet" href="assets/css/pages/partnership.css?v=202610062246">
-<link rel="stylesheet" href="assets/css/pages/contact.css?v=202610062246">
-<link rel="stylesheet" href="assets/css/theme.css?v=202610062246">
+<link rel="stylesheet" href="assets/css/tokens.css?v=202610062247">
+<link rel="stylesheet" href="assets/css/base.css?v=202610062247">
+<link rel="stylesheet" href="assets/css/components.css?v=202610062247">
+<link rel="stylesheet" href="assets/css/pages/home.css?v=202610062247">
+<link rel="stylesheet" href="assets/css/pages/about.css?v=202610062247">
+<link rel="stylesheet" href="assets/css/pages/process.css?v=202610062247">
+<link rel="stylesheet" href="assets/css/pages/material.css?v=202610062247">
+<link rel="stylesheet" href="assets/css/pages/products.css?v=202610062247">
+<link rel="stylesheet" href="assets/css/pages/business.css?v=202610062247">
+<link rel="stylesheet" href="assets/css/pages/partnership.css?v=202610062247">
+<link rel="stylesheet" href="assets/css/pages/contact.css?v=202610062247">
+<link rel="stylesheet" href="assets/css/theme.css?v=202610062247">
 </head>
 <body>
 <a class="skip-link" href="#viewport">본문으로 건너뛰기</a>
@@ -184,207 +184,176 @@
      홈
      ===================================================================== -->
 <section class="view" id="home">
-  <div class="home-hero">
-      <div class="home-hero-texture" aria-hidden="true">
-        <img src="assets/img/feldspar-powder.webp" alt="" width="1000" height="1000" fetchpriority="high">
-      </div>
-      <div class="container home-hero-inner">
-        <div class="home-cycle">
-          <svg class="home-cycle-arrows" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
-            <defs>
-              <marker id="homeCycArrow" markerWidth="5" markerHeight="5" refX="4.2" refY="2.5" orient="auto" markerUnits="strokeWidth">
-                <path d="M0.6,0.6 L4.2,2.5 L0.6,4.4" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"></path>
-              </marker>
-            </defs>
-            <path d="M62.85,18.52 A34.0,34.0 0 0 1 75.96,28.05" class="home-cyc-arc" marker-end="url(#homeCycArrow)"></path>
-            <path d="M83.91,52.50 A34.0,34.0 0 0 1 78.90,67.91" class="home-cyc-arc" marker-end="url(#homeCycArrow)"></path>
-            <path d="M58.10,83.02 A34.0,34.0 0 0 1 41.90,83.02" class="home-cyc-arc" marker-end="url(#homeCycArrow)"></path>
-            <path d="M21.10,67.91 A34.0,34.0 0 0 1 16.09,52.50" class="home-cyc-arc" marker-end="url(#homeCycArrow)"></path>
-            <path d="M24.04,28.05 A34.0,34.0 0 0 1 37.15,18.52" class="home-cyc-arc" marker-end="url(#homeCycArrow)"></path>
-          </svg>
-
-          <ol class="home-cyc-list" aria-label="칼륨장석 원석에서 분말, 비누, 치약을 거쳐 일상으로 이어지는 순환">
-            <li class="home-cyc-node home-cyc-node--1">
-              <span class="home-cyc-media"><img src="assets/img/feldspar-rock.webp" alt="칼륨장석 원석" width="1000" height="1000" loading="lazy"></span>
-              <span class="home-cyc-label" data-i18n="home.cyc1">원석</span>
-            </li>
-            <li class="home-cyc-node home-cyc-node--2">
-              <span class="home-cyc-media"><img src="assets/img/feldspar-powder.webp" alt="미세 가공된 칼륨장석 분말" width="1000" height="1000" loading="lazy"></span>
-              <span class="home-cyc-label" data-i18n="home.cyc2">분말</span>
-            </li>
-            <li class="home-cyc-node home-cyc-node--3">
-              <span class="home-cyc-media"><img src="assets/img/soap-05.webp" alt="칼륨장석 함유 카리비누" width="900" height="900" loading="lazy"></span>
-              <span class="home-cyc-label" data-i18n="home.cyc3">비누</span>
-            </li>
-            <li class="home-cyc-node home-cyc-node--4">
-              <span class="home-cyc-media"><img src="assets/img/k28-detail.webp" alt="칼륨장석 함유 K.28 치약" width="1600" height="1067" loading="lazy"></span>
-              <span class="home-cyc-label" data-i18n="home.cyc4">치약</span>
-            </li>
-            <li class="home-cyc-node home-cyc-node--5">
-              <span class="home-cyc-media"><img src="assets/img/daily-life.webp" alt="칼륨장석 제품이 쓰이는 일상 — 녹지가 이어진 도시 풍경" width="300" height="300" loading="lazy"></span>
-              <span class="home-cyc-label" data-i18n="home.cyc5">일상</span>
-            </li>
-          </ol>
-
-          <div class="home-cycle-core">
-            <img class="home-cycle-logo" src="assets/img/logo-kali-mark.png" alt="KALI" width="1368" height="389">
-            <p class="home-cycle-sub" data-i18n="home.subcopy">12억 년 자연의 가치를 일상으로</p>
-          </div>
-        </div>
-
-      </div>
+  <!-- 1) Full-screen Hero — 사진 1→2→3 디졸브, 3→4 디졸브, 4→5 는 오브젝트만 모핑 -->
+  <div class="hh" id="homeHero" aria-roledescription="carousel" aria-label="KALIBIO">
+    <div class="hh-stage">
+      <img class="hh-img is-on" data-slide="1" src="assets/img/home-hero-1.webp" alt="칼륨장석 분말" width="1672" height="940" fetchpriority="high">
+      <img class="hh-img" data-slide="2" src="assets/img/home-hero-2.webp" alt="칼륨장석 분말 위의 카리비누" width="1670" height="941">
+      <img class="hh-img" data-slide="3" src="assets/img/home-hero-3.webp" alt="칼륨장석 분말 위의 K.28 치약" width="1670" height="942">
+      <img class="hh-img" data-slide="4" src="assets/img/home-hero-4.webp" alt="칼륨장석으로 만든 세라믹" width="1670" height="942">
+      <!-- 사진 5 는 사진 4 위에 겹쳐, 오브젝트 영역만 마스크로 드러난다 (화면 전체 전환이 아님) -->
+      <img class="hh-img hh-morph" data-slide="5" src="assets/img/home-hero-5.webp" alt="칼륨장석으로 만든 유리" width="1670" height="942">
     </div>
 
-  <div class="section home-below">
-    <div class="container">
-      <div class="home-below-intro reveal">
-        <h2 class="home-below-title" data-i18n="home.belowTitle">천연 미네랄 소재 및 생활용품 제조 기업</h2>
-        <p class="hero-sub" data-i18n="hero.sub"></p>
-      </div>
-      <ul class="hero-model reveal" aria-label="사업 모델">
-        <li data-i18n="hero.m1">기능성 소재 공급</li>
-        <li data-i18n="hero.m2">프리미엄 생활용품 공급</li>
-        <li data-i18n="hero.m3">OEM · ODM 지원</li>
-      </ul>
+    <div class="hh-copy hh-copy--1 is-on" data-copy="1">
+      <p class="hh-en">From Potassium Feldspar Powder</p>
+      <p class="hh-ko" data-i18n="home.hero1">칼륨장석분말로</p>
     </div>
+    <div class="hh-copy hh-copy--2" data-copy="2">
+      <p class="hh-en">to KARI SOAP,</p>
+      <p class="hh-ko" data-i18n="home.hero2">카리비누,</p>
+    </div>
+    <div class="hh-copy hh-copy--3" data-copy="3">
+      <p class="hh-en">K.28 Toothpaste,</p>
+      <p class="hh-ko" data-i18n="home.hero3">K.28 치약,</p>
+    </div>
+    <!-- 사진 4·5 공용 문구: 모핑 중에도 움직이지 않는다 -->
+    <div class="hh-copy hh-copy--4" data-copy="4 5">
+      <p class="hh-en">Ceramics, Glass, and Beyond.</p>
+      <p class="hh-ko" data-i18n="home.hero4">세라믹과 유리, 그리고 더 다양한 산업까지</p>
+    </div>
+    <h1 class="hh-sr" data-i18n="home.heroSr">From Potassium Feldspar Powder to KARI SOAP, K.28 Toothpaste, Ceramics, Glass, and Beyond.</h1>
   </div>
+
+  <!-- 2) BEST SELLER -->
+  <div class="hb">
+    <div class="hb-head">
+      <h2 class="hb-title">BEST SELLER</h2>
+      <a class="hb-all" href="#prod-soap">VIEW ALL</a>
+    </div>
+    <ul class="hb-grid">
+      <li>
+        <a class="hb-item" href="?p=karisoap-03#prod-soap" data-product="karisoap-03">
+          <span class="hb-media">
+            <img class="hb-img" src="assets/img/home-best-03.webp" alt="카리비누 03 100g" width="736" height="514" loading="lazy">
+            <img class="hb-img hb-img--hover" src="assets/img/home-best-03-hover.webp" alt="" width="900" height="507" loading="lazy">
+          </span>
+          <span class="hb-name" data-i18n="home.best1">[민감 피부 진정] 카리비누 03 100g</span>
+        </a>
+      </li>
+      <li>
+        <a class="hb-item" href="?p=karisoap-05#prod-soap" data-product="karisoap-05">
+          <span class="hb-media">
+            <img class="hb-img" src="assets/img/home-best-05.webp" alt="카리비누 05 100g" width="736" height="532" loading="lazy">
+            <img class="hb-img hb-img--hover" src="assets/img/home-best-05-hover.webp" alt="" width="900" height="564" loading="lazy">
+          </span>
+          <span class="hb-name" data-i18n="home.best2">[메이크업 전 부스팅] 카리비누 05 100g</span>
+        </a>
+      </li>
+      <li>
+        <a class="hb-item" href="?p=k28-toothpaste#prod-paste" data-product="k28-toothpaste">
+          <span class="hb-media">
+            <img class="hb-img" src="assets/img/home-best-k28.webp" alt="K.28 치약 150g" width="900" height="589" loading="lazy">
+            <img class="hb-img hb-img--hover" src="assets/img/home-best-k28-hover.webp" alt="" width="900" height="555" loading="lazy">
+          </span>
+          <span class="hb-name" data-i18n="home.best3">[치아 장벽 케어] K.28 치약 150g</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 3) Split Screen — 공정 / 파트너 -->
+  <div class="hs">
+    <a class="hs-pane" href="#brand-process">
+      <img src="assets/img/home-split-process.webp" alt="거품이 인 카리비누 — 제품 공정" width="1400" height="933" loading="lazy">
+      <span class="hs-label" data-i18n="home.splitProcess">제품 공정 보러가기</span>
+    </a>
+    <a class="hs-pane" href="#part-current">
+      <img src="assets/img/home-split-partner.webp" alt="카리비누를 함께 쓰는 사람들 — 글로벌 파트너" width="1400" height="700" loading="lazy">
+      <span class="hs-label" data-i18n="home.splitPartner">카리바이오 파트너 모집</span>
+    </a>
+  </div>
+  <script src="assets/js/pages/home.js?v=202610062247"></script>
 </section>
 
 <!-- =====================================================================
      칼륨장석
      ===================================================================== -->
 <section class="view" id="material">
-  <div class="section">
+  <!-- 10.06 지시서(윤서) — 원료 공급 › 칼륨장석 -->
+  <div id="mat-story" class="mv">
+    <div class="mv-visual">
+      <img class="mv-img" src="assets/img/mat-powder.webp" alt="카리바이오의 칼륨장석분말" width="1200" height="1200" fetchpriority="high">
+      <div class="mv-title">
+        <h2 class="mv-ko" data-i18n="mat.visualTitle">카리바이오의 칼륨장석분말</h2>
+        <p class="mv-en">KARIBIO's Potassium Feldspar Powder</p>
+      </div>
+    </div>
+    <ul class="mv-checks">
+      <li><span class="mv-ck" aria-hidden="true">✓</span><span data-i18n="mat.storyCk1">공인시험으로 구성 성분을 확인한 칼륨장석 분말</span></li>
+      <li><span class="mv-ck" aria-hidden="true">✓</span><span data-i18n="mat.storyCk2">자연에서 채취해 가공한, 화학 첨가물 없는 미네랄 원료</span></li>
+      <li><span class="mv-ck" aria-hidden="true">✓</span><span data-i18n="mat.storyCk3">세라믹, 유리 등 공업 소재부터 뷰티 산업까지 활용 가능</span></li>
+    </ul>
+  </div>
+
+  <div id="mat-comp" class="mc">
     <div class="container">
-      <div class="page-head reveal">
-        <span class="eyebrow" data-i18n="mat.eyebrow">POTASSIUM FELDSPAR</span>
-        <h2 class="section-title" data-page-title>칼륨장석</h2>
-      </div>
-
-      <!-- 원료 이야기 -->
-      <div id="mat-story" class="tech-block">
-        <h3 class="block-title reveal" data-i18n="mat.storyTitle">12억 년의 가치를 담은 장석</h3>
-        <div class="story-layout reveal">
-          <aside class="story-side">
-            <figure class="story-figure">
-              <img src="assets/img/feldspar-powder.webp" alt="정제·미세 분말화한 칼륨장석" loading="lazy" width="1000" height="1000">
-              <figcaption data-i18n="mat.storyCap"></figcaption>
-            </figure>
-          </aside>
-          <ul class="mat-checklist">
-            <li class="mat-check">
-              <span class="mat-check-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>
-              <span data-i18n="mat.storyCk1">공인시험으로 구성 성분을 확인한 칼륨장석 분말</span>
-            </li>
-            <li class="mat-check">
-              <span class="mat-check-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>
-              <span data-i18n="mat.storyCk2">자연에서 채취해 가공한, 화학 첨가물 없는 미네랄 원료</span>
-            </li>
-            <li class="mat-check">
-              <span class="mat-check-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>
-              <span data-i18n="mat.storyCk3">세라믹, 유리 등 공업 소재부터 뷰티 산업까지 활용 가능</span>
-            </li>
-          </ul>
+      <h3 class="mat-h" data-i18n="mat.compTitle">칼륨장석 분말의 구성 요소</h3>
+      <div class="mc-grid">
+        <div class="mc-box mc-box--k">
+          <p class="mc-sym">K<sub>2</sub>O</p>
+          <p class="mc-pct">11.5%</p>
+          <p class="mc-name" data-i18n="mat.k">칼륨</p>
+          <p class="mc-note" data-i18n="mat.kNote">K₂O 함량 11.5% — 카리바이오가 이 원료를 선택한 이유입니다.</p>
+        </div>
+        <div class="mc-box">
+          <p class="mc-sym">SiO<sub>2</sub></p>
+          <p class="mc-pct">65.1%</p>
+          <p class="mc-name" data-i18n="mat.si">규소</p>
+          <p class="mc-note" data-i18n="mat.siNote">장석의 뼈대를 이루는 성분</p>
+        </div>
+        <div class="mc-box">
+          <p class="mc-sym">Al<sub>2</sub>O<sub>3</sub></p>
+          <p class="mc-pct">18.9%</p>
+          <p class="mc-name" data-i18n="mat.al">알루미늄</p>
+          <p class="mc-note" data-i18n="mat.alNote">결정 구조를 안정시키는 성분</p>
         </div>
       </div>
+    </div>
+  </div>
 
-      <!-- 구성요소 -->
-      <div id="mat-comp" class="tech-block">
-        <h3 class="block-title reveal" data-i18n="mat.compTitle">이 원료를 이루는 것</h3>
-        <p class="block-desc reveal" data-i18n="mat.compIntro"></p>
-        <div class="elem-grid reveal">
-          <div class="elem is-core">
-            <div class="elem-sym">K<span>₂O</span></div>
-            <div class="elem-pct">11.5%</div>
-            <div class="elem-name" data-i18n="mat.k">칼륨</div>
-            <p class="elem-note" data-i18n="mat.kNote"></p>
-          </div>
-          <div class="elem">
-            <div class="elem-sym">Si<span>O₂</span></div>
-            <div class="elem-pct">65.1%</div>
-            <div class="elem-name" data-i18n="mat.si">규소</div>
-            <p class="elem-note" data-i18n="mat.siNote"></p>
-          </div>
-          <div class="elem">
-            <div class="elem-sym">Al<span>₂O₃</span></div>
-            <div class="elem-pct">18.9%</div>
-            <div class="elem-name" data-i18n="mat.al">알루미늄</div>
-            <p class="elem-note" data-i18n="mat.alNote"></p>
-          </div>
+  <div id="mat-uses" class="ma">
+    <div class="container">
+      <h3 class="mat-h" data-i18n="mat.usesTitle">분말의 장점</h3>
+      <div class="ma-grid">
+        <div class="ma-box" tabindex="0">
+          <img class="ma-photo" src="assets/img/mat-adv-usability.webp" alt="" width="900" height="600" loading="lazy">
+          <div class="ma-text"><p class="ma-t" data-i18n="matrix.a1">높은 활용성</p><p class="ma-d" data-i18n="matrix.a1d"></p></div>
         </div>
-        <p class="formula-line reveal" data-i18n="mat.formula"></p>
-        <p class="source-note reveal" data-i18n="mat.compNote"></p>
+        <div class="ma-box" tabindex="0">
+          <img class="ma-photo" src="assets/img/mat-adv-stable.webp" alt="" width="900" height="600" loading="lazy">
+          <div class="ma-text"><p class="ma-t" data-i18n="matrix.a2">안정적 특성</p><p class="ma-d" data-i18n="matrix.a2d"></p></div>
+        </div>
+        <div class="ma-box" tabindex="0">
+          <img class="ma-photo" src="assets/img/mat-adv-eco.webp" alt="" width="900" height="600" loading="lazy">
+          <div class="ma-text"><p class="ma-t" data-i18n="matrix.a3">친환경 소재</p><p class="ma-d" data-i18n="matrix.a3d"></p></div>
+        </div>
       </div>
+    </div>
+  </div>
 
-      <!-- 장점과 용처 -->
-      <div id="mat-uses" class="tech-block">
-        <h3 class="block-title reveal" data-i18n="mat.usesTitle">돌 하나가 갈 수 있는 곳</h3>
-        <p class="lead-line reveal" data-i18n="mat.usesLead"></p>
-        <p class="block-desc reveal" data-i18n="mat.usesP1"></p>
-
-        <div class="adv-grid reveal">
-          <div class="adv-card">
-            <div class="adv-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 3 8v8l9 6 9-6V8z"/><path d="M12 2v20M3 8l9 6 9-6"/></svg></div>
-            <div class="adv-name" data-i18n="matrix.a1"></div>
-            <p class="adv-desc" data-i18n="matrix.a1d"></p>
-          </div>
-          <div class="adv-card">
-            <div class="adv-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.4-3 8-7 9-4-1-7-4.6-7-9V6z"/><path d="M9.5 12l1.8 1.8 3.4-3.6"/></svg></div>
-            <div class="adv-name" data-i18n="matrix.a2"></div>
-            <p class="adv-desc" data-i18n="matrix.a2d"></p>
-          </div>
-          <div class="adv-card">
-            <div class="adv-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c0-6 3-11 8-13 0 7-3 12-8 13z"/><path d="M12 21c0-5-2.5-9-6.5-10.5C5.5 16 8 20 12 21z"/></svg></div>
-            <div class="adv-name" data-i18n="matrix.a3"></div>
-            <p class="adv-desc" data-i18n="matrix.a3d"></p>
-          </div>
+  <div id="mat-tests" class="mt">
+    <div class="container">
+      <h3 class="mat-h" data-i18n="mat.testsTitle">시험과 분석</h3>
+      <article class="mt-box mt-box--a">
+        <div class="mt-text">
+          <h4 class="mt-t" data-i18n="mat.t2t">인체적용시험</h4>
+          <p class="mt-d" data-i18n="mat.t2d"></p>
+          <p class="mt-m" data-i18n="mat.t2m"></p>
         </div>
-
-        <h4 class="block-title reveal" data-i18n="matrix.title">산업 분야로 확장되는 가치</h4>
-        <div class="matrix-wrap reveal">
-          <table class="matrix">
-            <thead><tr>
-              <th data-i18n="matrix.hField">분야</th>
-              <th data-i18n="matrix.hUse">활용 목적</th>
-              <th data-i18n="matrix.hProd">대표 제품</th>
-            </tr></thead>
-            <tbody>
-              <tr class="is-core"><th data-i18n="matrix.f1"></th><td data-i18n="matrix.u1"></td><td class="m-rep" data-i18n="matrix.r1"></td></tr>
-              <tr><th data-i18n="matrix.f2"></th><td data-i18n="matrix.u2"></td><td class="m-rep" data-i18n="matrix.r2"></td></tr>
-              <tr><th data-i18n="matrix.f3"></th><td data-i18n="matrix.u3"></td><td class="m-rep" data-i18n="matrix.r3"></td></tr>
-              <tr><th data-i18n="matrix.f4"></th><td data-i18n="matrix.u4"></td><td class="m-rep" data-i18n="matrix.r4"></td></tr>
-              <tr><th data-i18n="matrix.f5"></th><td data-i18n="matrix.u5"></td><td class="m-rep" data-i18n="matrix.r5"></td></tr>
-            </tbody>
-          </table>
+        <img class="mt-photo" src="assets/img/mat-test-kbrc.webp" alt="한국바이오임상연구센터(KBRC)" width="1200" height="675" loading="lazy">
+        <svg class="mt-line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="47" y1="0" x2="53" y2="100" vector-effect="non-scaling-stroke"/></svg>
+      </article>
+      <article class="mt-box mt-box--b">
+        <img class="mt-photo" src="assets/img/mat-test-komir.webp" alt="한국광해광업공단 기술연구원" width="1200" height="676" loading="lazy">
+        <div class="mt-text">
+          <h4 class="mt-t" data-i18n="mat.t1t">성분 분석</h4>
+          <p class="mt-d" data-i18n="mat.t1d"></p>
+          <p class="mt-m" data-i18n="mat.t1m"></p>
         </div>
-        <p class="source-note reveal" data-i18n="matrix.source"></p>
-      </div>
-
-      <!-- 특성과 효능 -->
-      <!-- 시험과 분석 -->
-      <div id="mat-tests" class="tech-block">
-        <p class="block-desc reveal" data-i18n="mat.testsIntro"></p>
-
-        <div class="test-list reveal">
-          <article class="test test-nothumb">
-            <div class="test-body">
-              <h4 class="test-t" data-i18n="mat.t1t">성분 분석</h4>
-              <p class="test-d" data-i18n="mat.t1d"></p>
-              <p class="test-m" data-i18n="mat.t1m"></p>
-            </div>
-          </article>
-          <article class="test">
-            <div class="test-body">
-              <h4 class="test-t" data-i18n="mat.t2t">인체적용시험</h4>
-              <p class="test-d" data-i18n="mat.t2d"></p>
-              <p class="test-m" data-i18n="mat.t2m"></p>
-            </div>
-            <div class="test-thumb">
-              <img src="assets/img/kbrc-report.webp" alt="KBRC 인체적용시험 결과보고서" loading="lazy" width="900" height="720">
-            </div>
-          </article>
-        </div>
-
+        <svg class="mt-line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="53" y1="0" x2="47" y2="100" vector-effect="non-scaling-stroke"/></svg>
+      </article>
+      <div class="mt-more">
         <h4 class="sub-title reveal" style="margin-top:36px;" data-i18n="mat.csTitle">주요 성분 검증 결과 요약</h4>
         <table class="co-table reveal">
           <tbody>
@@ -404,6 +373,31 @@
         <div class="reveal" style="margin-top:18px;">
           <a href="#contact" class="btn btn-primary" data-i18n="tech.certCta">성적서 원본 요청하기</a>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section mat-extra">
+    <div class="container">
+      <div class="tech-block mat-matrix">
+        <h4 class="block-title reveal" data-i18n="matrix.title">산업 분야로 확장되는 가치</h4>
+        <div class="matrix-wrap reveal">
+          <table class="matrix">
+            <thead><tr>
+              <th data-i18n="matrix.hField">분야</th>
+              <th data-i18n="matrix.hUse">활용 목적</th>
+              <th data-i18n="matrix.hProd">대표 제품</th>
+            </tr></thead>
+            <tbody>
+              <tr class="is-core"><th data-i18n="matrix.f1"></th><td data-i18n="matrix.u1"></td><td class="m-rep" data-i18n="matrix.r1"></td></tr>
+              <tr><th data-i18n="matrix.f2"></th><td data-i18n="matrix.u2"></td><td class="m-rep" data-i18n="matrix.r2"></td></tr>
+              <tr><th data-i18n="matrix.f3"></th><td data-i18n="matrix.u3"></td><td class="m-rep" data-i18n="matrix.r3"></td></tr>
+              <tr><th data-i18n="matrix.f4"></th><td data-i18n="matrix.u4"></td><td class="m-rep" data-i18n="matrix.r4"></td></tr>
+              <tr><th data-i18n="matrix.f5"></th><td data-i18n="matrix.u5"></td><td class="m-rep" data-i18n="matrix.r5"></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="source-note reveal" data-i18n="matrix.source"></p>
       </div>
       <div id="mat-props" class="tech-block">
         <h3 class="block-title reveal" data-i18n="mat.propsTitle">약알칼리성이라는 성질</h3>
@@ -441,7 +435,6 @@
 
         <p class="source-note reveal" data-i18n="mat.propsNote"></p>
       </div>
-
     </div>
   </div>
 </section>
@@ -571,6 +564,8 @@
      제품
      ===================================================================== -->
 <section class="view" id="products">
+  <!-- 10.06 지시서(다은) — B2B 제품 소개 + 제품 상세
+       제품 데이터는 assets/js/pages/products.js 한 곳에서 관리하고, 목록과 상세가 함께 쓴다. -->
   <div class="section">
     <div class="container">
       <div class="page-head reveal">
@@ -578,113 +573,41 @@
         <h2 class="section-title" data-page-title>제품</h2>
       </div>
 
-      <div id="prod-soap" class="product-group">
-        <p class="block-desc reveal" data-i18n="products.subtitle">가격이 아닌 원료 함량과 임상 데이터로, 제품을 있는 그대로 보여드립니다</p>
-        <div class="product-grid soap-grid-2x2 reveal">
-          <article class="product-card" data-p="03">
-            <div class="product-media"><img src="assets/img/soap-03.webp" alt="카리비누 03" loading="lazy" width="900" height="900"></div>
-            <div class="product-body">
-              <h4 class="product-name" data-i18n="products.soap03.name"></h4>
-              <table class="spec-table"><tbody>
-                <tr><th data-i18n="specs.effect">메인 효능</th><td data-i18n="specs.e03"></td></tr>
-                <tr><th data-i18n="specs.ingr">핵심 성분</th><td data-i18n="specs.i03"></td></tr>
-                <tr><th data-i18n="specs.use">추천 사용</th><td data-i18n="specs.u03"></td></tr>
-              </tbody></table>
-              <ul class="product-bullets">
-                <li data-i18n="products.soap03.b1"></li>
-                <li data-i18n="products.soap03.b2"></li>
-                <li data-i18n="products.soap03.b3"></li>
-              </ul>
-              <a href="#contact" class="btn btn-outline product-cta" data-inquiry="oem" data-i18n="products.cta">OEM/ODM 문의</a>
-            </div>
-          </article>
-          <article class="product-card" data-p="05">
-            <div class="product-media"><img src="assets/img/soap-05.webp" alt="카리비누 05" loading="lazy" width="900" height="900"></div>
-            <div class="product-body">
-              <h4 class="product-name" data-i18n="products.soap05.name"></h4>
-              <table class="spec-table"><tbody>
-                <tr><th data-i18n="specs.effect">메인 효능</th><td data-i18n="specs.e05"></td></tr>
-                <tr><th data-i18n="specs.ingr">핵심 성분</th><td data-i18n="specs.i05"></td></tr>
-                <tr><th data-i18n="specs.use">추천 사용</th><td data-i18n="specs.u05"></td></tr>
-              </tbody></table>
-              <ul class="product-bullets">
-                <li data-i18n="products.soap05.b1"></li>
-                <li data-i18n="products.soap05.b2"></li>
-                <li data-i18n="products.soap05.b3"></li>
-              </ul>
-              <a href="#contact" class="btn btn-outline product-cta" data-inquiry="oem" data-i18n="products.cta">OEM/ODM 문의</a>
-            </div>
-          </article>
-          <article class="product-card" data-p="08">
-            <div class="product-media"><img src="assets/img/soap-08.webp" alt="카리비누 08" loading="lazy" width="900" height="900"></div>
-            <div class="product-body">
-              <h4 class="product-name" data-i18n="products.soap08.name"></h4>
-              <table class="spec-table"><tbody>
-                <tr><th data-i18n="specs.effect">메인 효능</th><td data-i18n="specs.e08"></td></tr>
-                <tr><th data-i18n="specs.ingr">핵심 성분</th><td data-i18n="specs.i08"></td></tr>
-                <tr><th data-i18n="specs.use">추천 사용</th><td data-i18n="specs.u08"></td></tr>
-              </tbody></table>
-              <ul class="product-bullets">
-                <li data-i18n="products.soap08.b1"></li>
-                <li data-i18n="products.soap08.b2"></li>
-                <li data-i18n="products.soap08.b3"></li>
-              </ul>
-              <a href="#contact" class="btn btn-outline product-cta" data-inquiry="oem" data-i18n="products.cta">OEM/ODM 문의</a>
-            </div>
-          </article>
-          <article class="product-card" data-p="13">
-            <div class="product-media"><img src="assets/img/soap-13.webp" alt="카리비누 13" loading="lazy" width="900" height="900"></div>
-            <div class="product-body">
-              <h4 class="product-name" data-i18n="products.soap13.name"></h4>
-              <table class="spec-table"><tbody>
-                <tr><th data-i18n="specs.effect">메인 효능</th><td data-i18n="specs.e13"></td></tr>
-                <tr><th data-i18n="specs.ingr">핵심 성분</th><td data-i18n="specs.i13"></td></tr>
-                <tr><th data-i18n="specs.use">추천 사용</th><td data-i18n="specs.u13"></td></tr>
-              </tbody></table>
-              <ul class="product-bullets">
-                <li data-i18n="products.soap13.b1"></li>
-                <li data-i18n="products.soap13.b2"></li>
-                <li data-i18n="products.soap13.b3"></li>
-              </ul>
-              <a href="#contact" class="btn btn-outline product-cta" data-inquiry="oem" data-i18n="products.cta">OEM/ODM 문의</a>
-            </div>
-          </article>
+      <!-- 목록 화면 -->
+      <div class="pl" id="prodList">
+        <div class="pl-intro">
+          <div>
+            <h3 class="pl-title" data-i18n="products.giftTitle">기업 맞춤 선물세트</h3>
+            <p class="pl-lead" data-i18n="products.giftLead">기업의 브랜드 가치와 목적에 맞춘 선물세트를 기획부터 제작, 납품까지 체계적으로 제공합니다.</p>
+            <p class="pl-desc" data-i18n="products.giftDesc"></p>
+          </div>
+          <a href="#contact" class="btn btn-primary js-order" data-order="" data-i18n="products.orderCta">기업 주문 문의</a>
+        </div>
+
+        <!-- app.js 가 메뉴(비누/치약)에 맞춰 둘 중 하나를 보여 준다. 필터 기본값의 기준으로만 쓴다. -->
+        <div id="prod-soap" class="product-group"></div>
+        <div id="prod-paste" class="product-group" hidden></div>
+
+        <div class="pl-filter" role="group" aria-label="제품 구성 유형" id="prodFilter"></div>
+        <ul class="pl-grid" id="prodGrid"></ul>
+
+        <div class="pl-trust">
+          <h3 class="pl-sub" data-i18n="products.qualityTitle">검증된 품질과 실용성을 갖춘 기업 선물</h3>
+          <p data-i18n="products.qualityDesc"></p>
+        </div>
+
+        <ul class="pl-uses" id="prodUses"></ul>
+
+        <div class="pl-cta">
+          <a href="#contact" class="btn btn-primary js-order" data-order="" data-i18n="products.orderCta">기업 주문 문의</a>
         </div>
       </div>
 
-      <div id="prod-paste" class="product-group" hidden>
-        <h3 class="block-title reveal" data-i18n="navSub.prodPaste">K.28 치약</h3>
-        <p class="k28-tagline reveal" data-i18n="k28b.tagline"></p>
-        <div class="product-grid reveal" style="grid-template-columns:1fr;">
-          <article class="product-card k28-split" data-p="k28">
-            <div class="product-media k28-photo-sm k28-split-media"><img src="assets/img/k28-lineup.webp" alt="K.28 프리미엄 치약" loading="lazy" width="1400" height="932"></div>
-            <div class="product-body k28-split-body">
-              <h4 class="product-name" data-i18n="products.k28.name"></h4>
-              <table class="spec-table"><tbody>
-                <tr><th data-i18n="specs.effect">메인 효능</th><td data-i18n="specs.ek28"></td></tr>
-                <tr><th data-i18n="specs.ingr">핵심 성분</th><td data-i18n="specs.ik28"></td></tr>
-                <tr><th data-i18n="specs.use">추천 사용</th><td data-i18n="specs.uk28"></td></tr>
-              </tbody></table>
-              <ul class="product-bullets">
-                <li data-i18n="products.k28.b1"></li>
-                <li data-i18n="products.k28.b2"></li>
-                <li data-i18n="products.k28.b3"></li>
-              </ul>
-              <a href="#contact" class="btn btn-outline product-cta" data-inquiry="oem" data-i18n="products.cta">OEM/ODM 문의</a>
-            </div>
-          </article>
-        </div>
-        <h4 class="sub-title reveal" style="margin-top:34px;" data-i18n="k28b.badge"></h4>
-        <div class="k28-grid reveal">
-          <div class="k28-card"><div class="k28-num">01</div><div class="k28-name" data-i18n="k28b.b1"></div><p class="k28-desc" data-i18n="k28b.b1d"></p></div>
-          <div class="k28-card"><div class="k28-num">02</div><div class="k28-name" data-i18n="k28b.b2"></div><p class="k28-desc" data-i18n="k28b.b2d"></p></div>
-          <div class="k28-card"><div class="k28-num">03</div><div class="k28-name" data-i18n="k28b.b3"></div><p class="k28-desc" data-i18n="k28b.b3d"></p></div>
-          <div class="k28-card"><div class="k28-num">04</div><div class="k28-name" data-i18n="k28b.b4"></div><p class="k28-desc" data-i18n="k28b.b4d"></p></div>
-        </div>
-      </div>
-
+      <!-- 상세 화면 (?p=제품ID) -->
+      <article class="pd" id="prodDetail" hidden aria-live="polite"></article>
     </div>
   </div>
+  <script src="assets/js/pages/products.js?v=202610062247"></script>
 </section>
 
 <!-- =====================================================================
@@ -1169,7 +1092,7 @@
 <a href="#contact" class="sticky-cta"><span class="sticky-cta-btn" data-i18n="stickyCta">파트너십 문의</span></a>
 
 
-<script src="assets/js/i18n.js?v=202610062246"></script>
-<script src="assets/js/app.js?v=202610062246"></script>
+<script src="assets/js/i18n.js?v=202610062247"></script>
+<script src="assets/js/app.js?v=202610062247"></script>
 </body>
 </html>
