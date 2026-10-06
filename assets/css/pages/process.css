@@ -1,0 +1,130 @@
+/* 브랜드 > 공정 페이지 전용 스타일 (SCREEN 01–06).
+   이 파일은 공정 담당자만 수정합니다. 브랜드 > 스토리는 pages/about.css 입니다. */
+
+/* ---- SCREEN 01 HERO ---- */
+.pr-hero{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,56%);
+  gap:clamp(28px,4vw,56px);align-items:center;
+  padding-bottom:clamp(48px,7vw,88px);
+}
+.pr-hero-title{
+  font-family:var(--font-display);font-weight:900;letter-spacing:-0.025em;
+  font-size:clamp(1.9rem,4vw,3rem);line-height:1.18;margin:0 0 18px;color:var(--ink);
+}
+.pr-hero-lead{margin:0;font-size:clamp(0.98rem,1.6vw,1.1rem);line-height:1.85;color:var(--ink-soft);word-break:keep-all;max-width:46ch;}
+.pr-hero-media{border-radius:var(--radius-lg);overflow:hidden;background:var(--warm-gray);}
+.pr-hero-media img{width:100%;height:100%;aspect-ratio:16/10;object-fit:cover;display:block;}
+
+/* ---- SCREEN 02 FLOW ---- */
+.pr-flow{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:clamp(28px,4vw,48px) 0;}
+.pr-flow-list{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2vw,28px);list-style:none;margin:0;padding:0;}
+.pr-flow-item{display:flex;flex-direction:column;gap:8px;position:relative;padding-right:18px;}
+.pr-flow-item:not(:last-child)::after{
+  content:'';position:absolute;right:4px;top:12px;width:8px;height:8px;
+  border-top:1.5px solid var(--border);border-right:1.5px solid var(--border);transform:rotate(45deg);
+}
+.pr-flow-n{font-family:var(--font-display);font-size:0.74rem;font-weight:800;letter-spacing:0.16em;color:var(--lime-text);}
+.pr-flow-t{font-size:clamp(0.98rem,1.6vw,1.12rem);font-weight:800;color:var(--ink);word-break:keep-all;}
+
+/* ---- 공통 제목 ---- */
+.pr-h{
+  font-family:var(--font-display);font-weight:900;letter-spacing:-0.02em;
+  font-size:clamp(1.3rem,2.6vw,1.9rem);line-height:1.35;margin:0 0 14px;color:var(--ink);word-break:keep-all;
+}
+.pr-lead{margin:0 0 clamp(24px,3vw,36px);font-size:clamp(0.95rem,1.5vw,1.05rem);line-height:1.85;color:var(--ink-soft);word-break:keep-all;max-width:62ch;}
+.pr-note{margin:18px 0 0;font-size:0.84rem;color:var(--ink-faint);word-break:keep-all;}
+
+/* ---- SCREEN 03 SOURCING ---- */
+.pr-src{padding:clamp(48px,7vw,88px) 0;}
+.pr-src-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.4vw,28px);}
+.pr-src-card{margin:0;background:var(--white);border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow);}
+.pr-src-card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;}
+.pr-ph{
+  aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;
+  background:repeating-linear-gradient(45deg,var(--warm-gray),var(--warm-gray) 10px,var(--cream) 10px,var(--cream) 20px);
+  color:var(--ink-faint);font-size:0.86rem;font-weight:700;
+}
+.pr-src-card figcaption{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;}
+.pr-src-card figcaption strong{font-size:1rem;font-weight:800;color:var(--ink);}
+.pr-src-card figcaption span{font-size:0.88rem;color:var(--ink-soft);line-height:1.6;word-break:keep-all;}
+
+/* ---- SCREEN 04 QUALITY — 이 구간만 어둡게 ---- */
+.pr-qc{
+  background:var(--green-deep);color:var(--cream);
+  border-radius:var(--radius-lg);
+  margin:clamp(24px,4vw,48px) 0;
+}
+.pr-qc-inner{padding:clamp(36px,5vw,72px) clamp(24px,4vw,56px);}
+.pr-qc .pr-h{color:var(--white);}
+.pr-qc .pr-lead{color:rgba(247,247,240,0.86);}
+.pr-qc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(16px,2.4vw,28px);}
+.pr-qc-card{
+  background:rgba(255,255,255,0.06);border:1px solid rgba(247,247,240,0.22);
+  border-radius:var(--radius-md);padding:clamp(22px,3vw,30px);
+}
+.pr-qc-what{margin:0 0 6px;font-family:var(--font-display);font-size:0.76rem;font-weight:800;letter-spacing:0.14em;color:var(--lime);text-transform:uppercase;}
+.pr-qc-org{margin:0 0 18px;font-size:clamp(1rem,1.8vw,1.18rem);font-weight:800;color:var(--white);word-break:keep-all;}
+.pr-qc-dl{margin:0;display:flex;flex-direction:column;gap:12px;}
+.pr-qc-dl > div{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:12px;align-items:baseline;}
+.pr-qc-dl dt{margin:0;font-size:0.8rem;font-weight:700;letter-spacing:0.04em;color:rgba(247,247,240,0.72);}
+.pr-qc-dl dd{margin:0;font-size:0.95rem;color:var(--cream);line-height:1.6;word-break:keep-all;}
+.pr-qc-dl > div.is-key dd{font-family:var(--font-display);font-size:1.15rem;font-weight:900;color:var(--lime);}
+.pr-note-dark{color:rgba(247,247,240,0.72);}
+
+/* ---- SCREEN 05 MANUFACTURING ---- */
+.pr-mfg{padding:clamp(48px,7vw,88px) 0;}
+.pr-line + .pr-line{margin-top:clamp(40px,5vw,64px);padding-top:clamp(40px,5vw,64px);border-top:1px solid var(--border);}
+.pr-line-t{
+  font-family:var(--font-display);font-size:clamp(1.05rem,1.9vw,1.25rem);font-weight:900;
+  color:var(--green);margin:0 0 18px;letter-spacing:-0.01em;
+}
+.pr-steps{list-style:none;margin:0 0 24px;padding:0;display:flex;flex-wrap:wrap;gap:10px;}
+.pr-steps li{
+  display:flex;align-items:center;gap:10px;
+  background:var(--white);border:1px solid var(--border);border-radius:999px;
+  padding:9px 18px 9px 12px;font-size:0.95rem;font-weight:700;color:var(--ink);word-break:keep-all;
+}
+.pr-steps li.is-key{background:var(--lime-tint);border-color:var(--lime-deep);color:var(--green);}
+.pr-step-n{font-family:var(--font-display);font-size:0.72rem;font-weight:800;letter-spacing:0.1em;color:var(--lime-text);}
+.pr-steps li.is-key .pr-step-n{color:var(--green);}
+
+.pr-aging{
+  display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
+  background:var(--lime-tint);border-left:4px solid var(--lime-deep);
+  border-radius:0 var(--radius-md) var(--radius-md) 0;
+  padding:clamp(18px,2.4vw,26px) clamp(20px,3vw,30px);margin-bottom:24px;
+}
+.pr-aging-n{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,3.2rem);font-weight:900;line-height:1;color:var(--green);}
+.pr-aging-u{font-family:var(--font-display);font-size:0.92rem;font-weight:800;letter-spacing:0.18em;color:var(--lime-text);}
+.pr-aging-d{flex:1 1 16em;margin:0;font-size:0.95rem;color:var(--ink-soft);line-height:1.7;word-break:keep-all;}
+
+.pr-eq-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px);}
+.pr-eq{margin:0;background:var(--white);border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;}
+.pr-eq img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;}
+.pr-eq figcaption{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;}
+.pr-eq-step{
+  align-self:flex-start;font-family:var(--font-display);font-size:0.68rem;font-weight:800;
+  letter-spacing:0.1em;color:#fff;background:var(--green);padding:3px 10px;border-radius:999px;
+}
+.pr-eq-name{font-size:0.95rem;font-weight:700;color:var(--ink);word-break:keep-all;}
+
+/* ---- SCREEN 06 CTA ---- */
+.pr-cta{
+  border-top:1px solid var(--border);
+  padding:clamp(40px,6vw,72px) 0 0;
+  display:flex;flex-direction:column;align-items:flex-start;gap:22px;
+}
+.pr-cta-t{font-family:var(--font-display);font-size:clamp(1.15rem,2.2vw,1.5rem);font-weight:900;color:var(--ink);margin:0;word-break:keep-all;}
+.pr-cta-btns{display:flex;flex-wrap:wrap;gap:12px;}
+
+@media (max-width:900px){
+  .pr-hero{grid-template-columns:1fr;}
+  .pr-flow-list{grid-template-columns:repeat(2,1fr);row-gap:20px;}
+  .pr-flow-item:nth-child(2)::after{display:none;}
+  .pr-src-grid,.pr-qc-grid,.pr-eq-grid{grid-template-columns:1fr;}
+}
+@media (max-width:560px){
+  .pr-flow-list{grid-template-columns:1fr;}
+  .pr-flow-item::after{display:none;}
+  .pr-qc-dl > div{grid-template-columns:1fr;gap:2px;}
+}
