@@ -105,23 +105,111 @@
 
 @media (max-width:900px){ .biz-layout{grid-template-columns:1fr;} }
 
-/* ---- 사업 분야: 한 페이지 안에서 3개 탭으로 ---- */
-.biz-tabs{
-  display:flex;flex-wrap:wrap;gap:8px;margin-bottom:var(--s6);
-  border-bottom:1px solid var(--border);padding-bottom:0;
+
+/* ========================================================================
+   사업 분야 — 스크롤로 이어지는 3단 띠 (강인성 지시서 2026-10-06)
+   탭 방식 폐지. 파트별로 배경색을 번갈아 적용해 경계를 구분한다.
+   ======================================================================== */
+.ba-part{
+  /* .container 안에 있어도 화면 가로 전체를 채우는 띠가 되게 */
+  margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
+  width:100vw;padding:clamp(56px,8vw,112px) clamp(18px,4vw,40px);
 }
+.ba-part > *{max-width:var(--max);margin-left:auto;margin-right:auto;}
+.ba-dark{background:#1F4A3C;color:var(--cream);}
 
-.biz-tab{
-  appearance:none;border:none;background:none;
-  padding:12px 18px;border-radius:10px 10px 0 0;
-  font-family:var(--font-display);font-size:clamp(0.92rem,1.5vw,1.02rem);font-weight:800;
-  color:var(--ink-soft);position:relative;bottom:-1px;
-  border-bottom:3px solid transparent;transition:color .15s ease,background .15s ease;
-  word-break:keep-all;
+/* ---- 스타일 A: 사진 왼쪽 60% + 글 오른쪽 ---- */
+.ba-row{display:grid;grid-template-columns:minmax(0,60%) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:end;}
+/* ---- 스타일 B: 사진 넓게 + 글 아래 ---- */
+.ba-stack{display:flex;flex-direction:column;gap:clamp(20px,3vw,34px);}
+
+/* ---- 사진: 모서리 직각, 그림자·테두리 없음 ---- */
+.ba-shots{position:relative;margin:0;background:var(--warm-gray);}
+.ba-track{position:relative;width:100%;aspect-ratio:4/3;}
+.ba-wide .ba-track{aspect-ratio:21/9;}
+.ba-track img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;
+  opacity:0;transition:opacity .5s ease;
 }
+.ba-track img.is-on,.ba-track img:only-child{opacity:1;}
 
-.biz-tab:hover{color:var(--green);background:var(--lime-tint);}
+/* 사진 좌우 가장자리 세로 중앙의 얇은 흰 화살표 */
+.ba-arrow{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:2;
+  width:44px;height:44px;border:none;padding:0;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:1.9rem;line-height:1;
+  /* 흰 화살표가 밝은 사진 위에서도 보이도록 옅은 어두운 원을 깐다 */
+  background:rgba(27,28,22,0.62);
+  transition:background .15s ease;
+}
+.ba-arrow:hover{background:rgba(27,28,22,0.78);}
+/* display:flex 가 [hidden] 을 이기므로 명시해 준다 (사진 1장이면 숨김) */
+.ba-arrow[hidden],.ba-dots[hidden]{display:none;}
+.ba-prev{left:6px;}
+.ba-next{right:6px;}
 
-.biz-tab.is-active{color:var(--green);border-bottom-color:var(--lime);}
+/* 사진 아래 가운데 막대 표시 — 현재 장만 흰색으로 진하게 */
+.ba-dots{
+  position:absolute;left:0;right:0;bottom:14px;z-index:2;
+  display:flex;justify-content:center;gap:7px;
+}
+.ba-dot{
+  width:24px;height:3px;padding:0;border:none;border-radius:2px;
+  background:rgba(255,255,255,0.45);transition:background .2s ease;
+}
+.ba-dot.is-on{background:#fff;}
 
-@media (max-width:640px){ .biz-tab{flex:1 1 100%;text-align:left;border-radius:10px;bottom:0;} }
+/* ---- 글: 사진 위에 얹지 않고 바깥에. 박스·배경 없음 ---- */
+.ba-copy{display:flex;flex-direction:column;gap:12px;}
+.ba-kicker{
+  margin:0;font-family:var(--font-display);font-size:0.76rem;font-weight:800;
+  letter-spacing:0.18em;text-transform:uppercase;color:var(--lime-text);
+}
+.ba-dark .ba-kicker{color:var(--lime);}
+.ba-title{
+  margin:0;font-family:var(--font-display);font-weight:900;letter-spacing:-0.02em;
+  font-size:clamp(1.45rem,2.6vw,2.05rem);line-height:1.3;color:var(--ink);word-break:keep-all;
+}
+.ba-dark .ba-title{color:#fff;}
+.ba-desc{
+  margin:0;font-size:clamp(0.95rem,1.5vw,1.05rem);line-height:1.85;
+  color:var(--ink-soft);word-break:keep-all;max-width:54ch;
+}
+.ba-dark .ba-desc{color:rgba(247,247,240,0.88);}
+
+/* ---- 표: 머리글 진한 녹색 / 항목 칸 연녹색 / 내용 흰 바탕 가운데 정렬 ---- */
+.ba-table-wrap{margin-top:clamp(28px,4vw,48px);overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.ba-table{
+  width:100%;border-collapse:separate;border-spacing:0;
+  background:var(--white);border-radius:14px;overflow:hidden;
+  box-shadow:var(--shadow);font-size:0.95rem;
+}
+.ba-table thead th{
+  background:#1F4A3C;color:#fff;font-weight:800;
+  padding:18px 20px;text-align:center;letter-spacing:0.01em;
+  border-bottom:1px solid rgba(255,255,255,0.18);
+}
+.ba-table tbody th{
+  background:#E7F2D2;color:var(--green);font-weight:800;
+  padding:20px;text-align:left;white-space:nowrap;width:1%;
+  border-bottom:1px solid var(--border);
+}
+.ba-table td{
+  background:var(--white);color:var(--ink);
+  padding:20px;text-align:center;vertical-align:middle;line-height:1.7;
+  border-bottom:1px solid var(--border);word-break:keep-all;
+}
+.ba-table tbody tr:last-child th,
+.ba-table tbody tr:last-child td{border-bottom:none;}
+
+/* 딥그린 파트의 표 — 배경과 겹치지 않게 머리글을 밝은 녹색으로 */
+.ba-dark .ba-table{box-shadow:none;outline:1px solid rgba(247,247,240,0.28);}
+.ba-dark .ba-table thead th{background:#2E6B55;}
+
+@media (max-width:900px){
+  .ba-row{grid-template-columns:1fr;align-items:stretch;}
+  .ba-wide .ba-track{aspect-ratio:16/9;}
+  .ba-table thead th,.ba-table tbody th,.ba-table td{padding:14px 16px;}
+  .ba-table tbody th{white-space:normal;width:auto;}
+}

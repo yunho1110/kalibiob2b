@@ -151,6 +151,7 @@
       'mat-cert': 'mat-tests', 'products-soap': 'prod-soap', 'products-toothpaste': 'prod-paste',
       'products-process': 'prod-proc-soap', 'prod-process': 'prod-proc-soap', 'products-oem': 'biz-areas',
       'biz-material': 'biz-areas', 'biz-goods': 'biz-areas', 'biz-oem': 'biz-areas',
+      'ba-material': 'biz-areas', 'ba-goods': 'biz-areas', 'ba-oem': 'biz-areas',
       'about-overview': 'about-info', 'about-story': 'about-origin', 'about-milestones': 'about-origin',
       'about-why': 'brand-story', 'about-principles': 'brand-story',
       'about-info': 'brand-story', 'about-origin': 'brand-story',
@@ -158,7 +159,8 @@
       'prod-process': 'brand-process', 'prod-proc-soap': 'brand-process',
       'prod-proc-paste': 'brand-process',
       'mat-uses': 'mat-story', 'mat-tests': 'mat-story', 'part-global': 'part-current',
-      'biz-material': 'biz-areas', 'biz-goods': 'biz-areas', 'biz-oem': 'biz-areas'
+      'biz-material': 'biz-areas', 'biz-goods': 'biz-areas', 'biz-oem': 'biz-areas',
+      'ba-material': 'biz-areas', 'ba-goods': 'biz-areas', 'ba-oem': 'biz-areas'
     };
     Object.keys(LEGACY_SUBS).forEach(function (old) {
       SUBSECTIONS[old] = SUBSECTIONS[LEGACY_SUBS[old]];
@@ -305,6 +307,17 @@
         return;
       }
       var viewLink = document.querySelector('.main-nav [data-view="' + viewId + '"]');
+      if (!viewLink) {
+        /* 한 대메뉴가 여러 뷰를 묶는 경우(비즈니스 = business + partnership)
+           그 그룹의 대메뉴 이름을 쓴다. */
+        var groups = document.querySelectorAll('.main-nav .nav-group[data-group]');
+        for (var gi = 0; gi < groups.length; gi++) {
+          if (groups[gi].getAttribute('data-group').split(' ').indexOf(viewId) !== -1) {
+            viewLink = groups[gi].querySelector('.nav-parent');
+            break;
+          }
+        }
+      }
       var viewName = viewLink ? viewLink.textContent.trim() : '';
       var subName = '';
       if (subId) {
@@ -490,87 +503,49 @@
       });
     }
 
-    /* ===== 기업 소개 스크롤 스토리텔링 =====
-       왼쪽 글이 흐르는 동안 오른쪽 이미지가 구간에 맞춰 교체된다.
-       구간 진입 판정은 IntersectionObserver 로, 스크롤 핸들러를 돌리지 않는다. */
-    var storySecs = document.querySelectorAll('.story-sec');
-    if (storySecs.length) {
-      var storyImgs = document.querySelectorAll('.story-img');
-      var setStory = function (n) {
-        for (var i = 0; i < storyImgs.length; i++) {
-          storyImgs[i].classList.toggle('is-on', storyImgs[i].getAttribute('data-story') === n);
+    /* ===== 브랜드 > 스토리 — 패럴랙스 =====
+       왼쪽 글이 지나가는 동안 오른쪽 이미지는 고정된 채 구간마다 바뀌고,
+       구간에 지정된 배경색으로 띠 전체가 교차한다.
+       구간 판정은 뷰포트 중앙선을 지나는 구간을 기하로 계산한다. */
+    var bsSecs = document.querySelectorAll('.bs-sec');
+    if (bsSecs.length) {
+      var bsImgs = document.querySelectorAll('.bs-img');
+      var bsScroll = document.querySelector('.bs-scroll');
+      var bsAt = null;
+      var setBs = function (n, bg) {
+        if (n === bsAt) { return; }
+        bsAt = n;
+        for (var i = 0; i < bsImgs.length; i++) {
+          bsImgs[i].classList.toggle('is-on', bsImgs[i].getAttribute('data-bs') === n);
         }
-        /* 보고 있는 구간을 상단 메뉴에도 표시 */
-        var secId = null;
-        for (var k = 0; k < storySecs.length; k++) {
-          if (storySecs[k].getAttribute('data-story') === n) { secId = storySecs[k].id; break; }
-        }
-        if (secId) {
-          var tabs = document.querySelectorAll('[data-subview]');
-          for (var t = 0; t < tabs.length; t++) {
-            var on = tabs[t].getAttribute('data-subview') === secId;
-            tabs[t].classList.toggle('active', on);
-            if (on) { tabs[t].setAttribute('aria-current', 'page'); } else { tabs[t].removeAttribute('aria-current'); }
-          }
-        }
+        if (bsScroll && bg) { bsScroll.setAttribute('data-bg', bg); }
       };
-
-      /* 뷰포트 한가운데 가로선을 지나는 구간이 현재 구간이다.
-         IntersectionObserver 는 배치로 들어오는 entry 순서가 시간순이 아니라
-         해시 점프처럼 여러 구간을 한 번에 건너뛸 때 엉뚱한 구간을 집는다.
-         매번 기하로 다시 계산하면 항상 맞는다 (구간 4개라 비용도 없다). */
-      var syncStory = function () {
+      var syncBs = function () {
         var mid = window.innerHeight / 2, pick = null;
-        for (var i = 0; i < storySecs.length; i++) {
-          var r = storySecs[i].getBoundingClientRect();
-          if (r.top <= mid && r.bottom >= mid) { pick = storySecs[i]; break; }
-          if (!pick && r.top > mid) { pick = storySecs[i]; break; }   /* 전부 아래 → 첫 구간 */
+        for (var i = 0; i < bsSecs.length; i++) {
+          var r = bsSecs[i].getBoundingClientRect();
+          if (r.top <= mid && r.bottom >= mid) { pick = bsSecs[i]; break; }
+          if (!pick && r.top > mid) { pick = bsSecs[i]; break; }
         }
-        if (!pick) { pick = storySecs[storySecs.length - 1]; }        /* 전부 위 → 마지막 구간 */
-        setStory(pick.getAttribute('data-story'));
+        if (!pick) { pick = bsSecs[bsSecs.length - 1]; }
+        setBs(pick.getAttribute('data-bs'), pick.getAttribute('data-bg'));
       };
-      /* rAF 는 탭/패널이 보이지 않으면 멈춰서 전환이 통째로 죽는다.
-         getBoundingClientRect 4번이라 매 이벤트 직접 계산해도 비용이 없다. */
-      var storyLast = 0, storyTrail = null;
-      var onStoryScroll = function () {
+      var bsLast = 0, bsTrail = null;
+      var onBsScroll = function () {
         var now = Date.now();
-        if (now - storyLast >= 60) { storyLast = now; syncStory(); }
-        /* 스로틀만 두면 마지막 이벤트가 삼켜져, 부드러운 스크롤이 멈춘 지점이
-           반영되지 않는다. 끝단에서 한 번 더 맞춘다. */
-        window.clearTimeout(storyTrail);
-        storyTrail = window.setTimeout(function () { storyLast = Date.now(); syncStory(); }, 90);
+        if (now - bsLast >= 60) { bsLast = now; syncBs(); }
+        window.clearTimeout(bsTrail);
+        bsTrail = window.setTimeout(function () { bsLast = Date.now(); syncBs(); }, 90);
       };
-      window.addEventListener('scroll', onStoryScroll, { passive: true });
-      window.addEventListener('resize', onStoryScroll, { passive: true });
-      /* scroll 이벤트는 탭이 화면에 없을 때 오지 않는 경우가 있다.
-         IntersectionObserver 는 그런 상황에서도 깨어나므로 '다시 계산하라'는
-         신호로만 쓴다 — 어느 구간인지는 위 syncStory 가 기하로 판단한다. */
+      window.addEventListener('scroll', onBsScroll, { passive: true });
+      window.addEventListener('resize', onBsScroll, { passive: true });
+      /* 탭이 화면에 없으면 scroll 이벤트가 오지 않는 경우가 있어 보강 */
       if ('IntersectionObserver' in window) {
-        var storyObs = new IntersectionObserver(function () { syncStory(); },
+        var bsObs = new IntersectionObserver(function () { syncBs(); },
           { threshold: [0, 0.25, 0.5, 0.75, 1] });
-        for (var q = 0; q < storySecs.length; q++) { storyObs.observe(storySecs[q]); }
+        for (var q = 0; q < bsSecs.length; q++) { bsObs.observe(bsSecs[q]); }
       }
-      syncStory();
-
-      /* 소메뉴를 누르면 해당 구간으로 스크롤 (페이지 전환이 아니라 이동) */
-      var scrollToSec = function (id) {
-        var el = document.getElementById(id);
-        if (!el || !el.classList.contains('story-sec')) { return false; }
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        /* 부드러운 스크롤이 끝나는 시점을 이벤트로만 기다리면, 스크롤 이벤트가
-           오지 않는 상황에서 이미지가 이전 구간에 머문다. 몇 번 직접 맞춘다. */
-        var t = [120, 400, 800, 1200];
-        for (var i = 0; i < t.length; i++) { window.setTimeout(syncStory, t[i]); }
-        return true;
-      };
-      window.addEventListener('hashchange', function () {
-        var h = (window.location.hash || '').replace('#', '');
-        /* 다른 메뉴에서 막 들어왔다면 라우터의 '맨 위 고정'(1200ms)이 끝난 뒤에 이동 */
-        var delay = document.getElementById('about') &&
-                    document.getElementById('about').classList.contains('is-active') ? 80 : 1300;
-        window.setTimeout(function () { scrollToSec(h); }, delay);
-      });
-      window.setTimeout(function () { scrollToSec((window.location.hash || '').replace('#', '')); }, 220);
+      syncBs();
     }
 
     /* ===== 제품 및 주요 공정: 중메뉴(제품 / 주요 공정)를 눌러야 소메뉴가 열린다 ===== */
@@ -607,24 +582,40 @@
     window.addEventListener('hashchange', function () { window.setTimeout(openOwningGroup, 30); });
     openOwningGroup();
 
-    /* ===== 사업 분야 탭 (기능성 소재 / 프리미엄 생활용품 / OEM·ODM 지원) ===== */
-    var bizTabs = document.querySelectorAll('.biz-tab');
-    if (bizTabs.length) {
-      var showBiz = function (id) {
-        for (var t = 0; t < bizTabs.length; t++) {
-          var on = bizTabs[t].getAttribute('data-biz') === id;
-          bizTabs[t].classList.toggle('is-active', on);
-          bizTabs[t].setAttribute('aria-selected', on ? 'true' : 'false');
-          var panel = document.getElementById(bizTabs[t].getAttribute('data-biz'));
-          if (panel) { panel.hidden = !on; }
+    /* ===== 사업 분야 사진 넘기기 (화살표 + 막대 표시) =====
+       사진이 한 장뿐이면 조작 요소를 감춘다. */
+    var shotSets = document.querySelectorAll('[data-ba-shots]');
+    for (var si = 0; si < shotSets.length; si++) {
+      (function (box) {
+        var imgs = box.querySelectorAll('.ba-track img');
+        var dots = box.querySelector('.ba-dots');
+        var prev = box.querySelector('.ba-prev');
+        var next = box.querySelector('.ba-next');
+        if (imgs.length < 2) {
+          if (prev) { prev.hidden = true; }
+          if (next) { next.hidden = true; }
+          if (dots) { dots.hidden = true; }
+          return;
         }
-      };
-      for (var t2 = 0; t2 < bizTabs.length; t2++) {
-        bizTabs[t2].addEventListener('click', function () { showBiz(this.getAttribute('data-biz')); });
-      }
-      /* 예전 링크(#biz-goods 등)로 들어오면 해당 탭을 열어둔다 */
-      var entryTab = (window.location.hash || '').replace('#', '');
-      showBiz(/^biz-(material|goods|oem)$/.test(entryTab) ? entryTab : 'biz-material');
+        var at = 0;
+        for (var d = 0; d < imgs.length; d++) {
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'ba-dot';
+          b.setAttribute('aria-label', (d + 1) + '번째 사진');
+          (function (idx) { b.addEventListener('click', function () { go(idx); }); })(d);
+          dots.appendChild(b);
+        }
+        function go(n) {
+          at = (n + imgs.length) % imgs.length;
+          for (var k = 0; k < imgs.length; k++) { imgs[k].classList.toggle('is-on', k === at); }
+          var ds = dots.querySelectorAll('.ba-dot');
+          for (var j = 0; j < ds.length; j++) { ds[j].classList.toggle('is-on', j === at); }
+        }
+        prev.addEventListener('click', function () { go(at - 1); });
+        next.addEventListener('click', function () { go(at + 1); });
+        go(0);
+      })(shotSets[si]);
     }
 
     /* ===== Reveal on scroll ===== */
