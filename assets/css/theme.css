@@ -116,8 +116,26 @@ body:has(#home.is-active) .app-topbar .topbar-right{display:none;}
   transform:none;font-family:var(--font-display);font-weight:400;font-size:1.2rem;line-height:1;color:var(--ink-soft);
 }
 .drawer-nav .nav-group.open > .nav-row > a::before{content:'\2212';}
-.drawer-nav .nav-sub{padding-left:32px;margin-left:0;border-left:none;transition:max-height .4s ease,opacity .3s ease;opacity:0;}
+.drawer-nav .nav-sub{padding-left:32px;margin-left:0;border-left:none;transition:max-height .25s ease,opacity .25s ease;opacity:0;}
 .drawer-nav .nav-sub-link:hover{background:transparent;color:var(--ink) !important;}
 .drawer-nav .nav-group.open .nav-sub{opacity:1;padding:2px 0 12px 32px;}
 .drawer-nav .nav-sub a{padding:10px 6px 10px 0;}
 @media (prefers-reduced-motion: reduce){.drawer-nav .nav-sub{transition:none;}}
+
+/* ========================================================================
+   홈 상단 — 흰 헤더 띠를 없애고 메인 비주얼 위에 햄버거(왼쪽)·KALI. 로고(정중앙)만
+   ======================================================================== */
+body:has(#home.is-active) .app-content{padding-top:0;}
+body:has(#home.is-active) .site-nav,
+body:has(#home.is-active) .app-topbar{
+  background:transparent;border-bottom:none;box-shadow:none;
+  backdrop-filter:none;-webkit-backdrop-filter:none;
+}
+body:has(#home.is-active) .site-nav .brand-name,
+body:has(#home.is-active) .app-topbar .brand-sub{display:none;}
+/* 로고의 중심 = 화면 너비의 정중앙 */
+body:has(#home.is-active) .site-nav .brand,
+body:has(#home.is-active) .app-topbar .brand{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);margin:0;
+}
+body:has(#home.is-active) .site-nav-inner{position:relative;}

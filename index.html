@@ -17,18 +17,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <!-- 스타일시트는 순서가 중요합니다. 토큰 → 기본 → 공통 → 페이지별 순으로 읽힙니다. -->
-<link rel="stylesheet" href="assets/css/tokens.css?v=202610070010">
-<link rel="stylesheet" href="assets/css/base.css?v=202610070010">
-<link rel="stylesheet" href="assets/css/components.css?v=202610070010">
-<link rel="stylesheet" href="assets/css/pages/home.css?v=202610070010">
-<link rel="stylesheet" href="assets/css/pages/about.css?v=202610070010">
-<link rel="stylesheet" href="assets/css/pages/process.css?v=202610070010">
-<link rel="stylesheet" href="assets/css/pages/material.css?v=202610070010">
-<link rel="stylesheet" href="assets/css/pages/products.css?v=202610070010">
-<link rel="stylesheet" href="assets/css/pages/business.css?v=202610070010">
-<link rel="stylesheet" href="assets/css/pages/partnership.css?v=202610070010">
-<link rel="stylesheet" href="assets/css/pages/contact.css?v=202610070010">
-<link rel="stylesheet" href="assets/css/theme.css?v=202610070010">
+<link rel="stylesheet" href="assets/css/tokens.css?v=202610070014">
+<link rel="stylesheet" href="assets/css/base.css?v=202610070014">
+<link rel="stylesheet" href="assets/css/components.css?v=202610070014">
+<link rel="stylesheet" href="assets/css/pages/home.css?v=202610070014">
+<link rel="stylesheet" href="assets/css/pages/about.css?v=202610070014">
+<link rel="stylesheet" href="assets/css/pages/process.css?v=202610070014">
+<link rel="stylesheet" href="assets/css/pages/material.css?v=202610070014">
+<link rel="stylesheet" href="assets/css/pages/products.css?v=202610070014">
+<link rel="stylesheet" href="assets/css/pages/business.css?v=202610070014">
+<link rel="stylesheet" href="assets/css/pages/partnership.css?v=202610070014">
+<link rel="stylesheet" href="assets/css/pages/contact.css?v=202610070014">
+<link rel="stylesheet" href="assets/css/theme.css?v=202610070014">
 </head>
 <body>
 <a class="skip-link" href="#viewport">본문으로 건너뛰기</a>
@@ -263,7 +263,7 @@
       <span class="hs-label" data-i18n="home.splitPartner">카리바이오 파트너 모집</span>
     </a>
   </div>
-  <script src="assets/js/pages/home.js?v=202610070010"></script>
+  <script src="assets/js/pages/home.js?v=202610070014"></script>
 </section>
 
 <!-- =====================================================================
@@ -333,7 +333,9 @@
   </div>
 
   <div id="mat-tests" class="mt">
-    <div class="container">
+    <!-- 시험과 분석 → 인체적용시험 → 칼륨장석의 효능: 연한 연두 배경 한 덩어리 -->
+    <div class="mt-band">
+      <div class="container">
       <h3 class="mat-h" data-i18n="mat.testsTitle">시험과 분석</h3>
       <article class="mt-box mt-box--a">
         <div class="mt-text">
@@ -366,7 +368,11 @@
 
         <p class="source-note reveal" data-i18n="mat.propsNote"></p>
       </div>
+      </div>
+    </div>
 
+    <!-- 성분 분석 → 주요 성분 검증 결과 요약: 기존 배경 -->
+    <div class="container mt-rest">
       <article class="mt-box mt-box--b">
         <img class="mt-photo" src="assets/img/mat-test-komir-2.webp" alt="한국광해광업공단 기술연구원" width="1257" height="544" loading="lazy">
         <div class="mt-text">
@@ -378,7 +384,7 @@
       </article>
 
       <div class="mt-more">
-        <h4 class="sub-title reveal" style="margin-top:36px;" data-i18n="mat.csTitle">주요 성분 검증 결과 요약</h4>
+        <h4 class="block-title reveal mt-sum-title" data-i18n="mat.csTitle">주요 성분 검증 결과 요약</h4>
         <table class="co-table reveal">
           <tbody>
             <tr><th data-i18n="mat.csOrg">시험기관</th><td data-i18n="mat.csOrgV">한국광해광업공단 기술연구원</td></tr>
@@ -570,7 +576,7 @@
       <article class="pd" id="prodDetail" hidden aria-live="polite"></article>
     </div>
   </div>
-  <script src="assets/js/pages/products.js?v=202610070010"></script>
+  <script src="assets/js/pages/products.js?v=202610070014"></script>
 </section>
 
 <!-- =====================================================================
@@ -655,7 +661,7 @@
             </div>
           </section>
         </div>
-        <script src="assets/js/pages/story.js?v=202610070010"></script>
+        <script src="assets/js/pages/story.js?v=202610070014"></script>
       </div>
       <div id="brand-process" class="tech-block" hidden>
         <!-- 브랜드 > 공정 — SCROLL TO EXPERIENCE THE PROCESS
@@ -840,7 +846,7 @@
             </div>
           </section>
         </div>
-        <script src="assets/js/pages/process.js?v=202610070010"></script>
+        <script src="assets/js/pages/process.js?v=202610070014"></script>
       </div>
       <div id="about-why" class="info-section" hidden>
         <h3 class="block-title reveal" data-i18n="about2.whyTitle">선택해야 하는 이유</h3>
@@ -871,40 +877,43 @@
      파트너십
      ===================================================================== -->
 <section class="view" id="partnership">
+  <!-- 비즈니스 > 파트너십 (10.07 지시서)
+       대표 사진 → 협력 고객사(로고가 옆으로 끊임없이 흐름) → 글로벌 파트너 모집(카드마다 사진) -->
   <div class="section">
     <div class="container">
+      <figure class="pt-hero reveal">
+        <img src="assets/img/part-hero.webp" alt="칼륨장석 원석과 분말, 카리비누, K.28 치약" width="1542" height="672">
+      </figure>
+
       <div class="page-head reveal">
         <span class="eyebrow" data-i18n="partners.eyebrow">PARTNERSHIP</span>
         <h2 class="section-title" data-page-title>파트너십</h2>
       </div>
 
       <div id="part-current" class="tech-block">
-        <h3 class="block-title reveal" data-i18n="part2.currentTitle">협력 현황</h3>
+        <h3 class="block-title reveal" data-i18n="part2.currentTitle">협력 고객사</h3>
         <p class="block-desc reveal" data-i18n="partners.coreNote"></p>
-        <div class="logo-grid reveal">
-          <div class="logo-cell">
-            <img class="logo-img" src="assets/img/logo-p-jntp.webp" alt="전남테크노파크" loading="lazy">
-          </div>
-          <div class="logo-cell">
-            <img class="logo-img" src="assets/img/logo-p-fixon.webp" alt="㈜픽슨 FIXON" loading="lazy">
-          </div>
-          <div class="logo-cell">
-            <img class="logo-img" src="assets/img/logo-p-gtep.webp" alt="국립순천대학교 GTEP사업단" loading="lazy">
-          </div>
-          <div class="logo-cell">
-            <span data-i18n="partners.p8"></span>
-          </div>
-          <div class="logo-cell">
-            <img class="logo-img" src="assets/img/logo-p-suncheon.webp" alt="순천시청" loading="lazy">
-          </div>
-          <div class="logo-cell">
-            <img class="logo-img" src="assets/img/logo-p-edu.webp" alt="순천교육지원청" loading="lazy">
-          </div>
-          <div class="logo-cell">
-            <img class="logo-img" src="assets/img/logo-p-council.webp" alt="순천시의회" loading="lazy">
-          </div>
-          <div class="logo-cell">
-            <img class="logo-img" src="assets/img/logo-p-gurye.webp" alt="구례군청" loading="lazy">
+        <!-- 같은 목록을 두 번 이어 붙여 한 줄로 끝없이 흐르게 한다 (두 번째 줄은 스크린리더에서 숨김) -->
+        <div class="pt-marquee reveal" aria-label="협력 고객사 로고">
+          <div class="pt-marquee-track">
+            <ul class="pt-marquee-row">
+              <li><img src="assets/img/logo-p-jntp.webp" alt="전남테크노파크" loading="lazy"></li>
+              <li><img src="assets/img/logo-p-fixon.webp" alt="㈜픽슨 FIXON" loading="lazy"></li>
+              <li><img src="assets/img/logo-p-gtep.webp" alt="국립순천대학교 GTEP사업단" loading="lazy"></li>
+              <li><img src="assets/img/logo-p-suncheon.webp" alt="순천시청" loading="lazy"></li>
+              <li><img src="assets/img/logo-p-edu.webp" alt="순천교육지원청" loading="lazy"></li>
+              <li><img src="assets/img/logo-p-council.webp" alt="순천시의회" loading="lazy"></li>
+              <li><img src="assets/img/logo-p-gurye.webp" alt="구례군청" loading="lazy"></li>
+            </ul>
+            <ul class="pt-marquee-row" aria-hidden="true">
+              <li><img src="assets/img/logo-p-jntp.webp" alt="" loading="lazy"></li>
+              <li><img src="assets/img/logo-p-fixon.webp" alt="" loading="lazy"></li>
+              <li><img src="assets/img/logo-p-gtep.webp" alt="" loading="lazy"></li>
+              <li><img src="assets/img/logo-p-suncheon.webp" alt="" loading="lazy"></li>
+              <li><img src="assets/img/logo-p-edu.webp" alt="" loading="lazy"></li>
+              <li><img src="assets/img/logo-p-council.webp" alt="" loading="lazy"></li>
+              <li><img src="assets/img/logo-p-gurye.webp" alt="" loading="lazy"></li>
+            </ul>
           </div>
         </div>
       </div>
@@ -913,9 +922,9 @@
         <h3 class="block-title reveal" data-i18n="part2.globalTitle">글로벌 파트너 모집</h3>
         <div class="recruit-banner reveal" data-i18n="recruit.banner"></div>
         <div class="recruit-grid reveal">
-          <div class="recruit-card" data-i18n="recruit.r1"></div>
-          <div class="recruit-card" data-i18n="recruit.r2"></div>
-          <div class="recruit-card" data-i18n="recruit.r3"></div>
+          <div class="recruit-card pt-card"><img src="assets/img/part-r1.webp" alt="" width="900" height="599" loading="lazy"><span data-i18n="recruit.r1"></span></div>
+          <div class="recruit-card pt-card"><img src="assets/img/part-r2.webp" alt="" width="900" height="488" loading="lazy"><span data-i18n="recruit.r2"></span></div>
+          <div class="recruit-card pt-card"><img src="assets/img/part-r3.webp" alt="" width="900" height="600" loading="lazy"><span data-i18n="recruit.r3"></span></div>
         </div>
         <div class="reveal" style="margin-top:26px;">
           <a href="#contact" class="btn btn-primary" data-i18n="nav.cta">파트너십 문의</a>
@@ -1059,7 +1068,7 @@
 <a href="#contact" class="sticky-cta"><span class="sticky-cta-btn" data-i18n="stickyCta">파트너십 문의</span></a>
 
 
-<script src="assets/js/i18n.js?v=202610070010"></script>
-<script src="assets/js/app.js?v=202610070010"></script>
+<script src="assets/js/i18n.js?v=202610070014"></script>
+<script src="assets/js/app.js?v=202610070014"></script>
 </body>
 </html>
