@@ -12,7 +12,8 @@
   for (var i = 0; i < imgs.length; i++) { byNum[imgs[i].getAttribute('data-slide')] = imgs[i]; }
 
   /* 각 사진이 머무는 시간(ms). 5 → 1 은 다시 디졸브. */
-  var HOLD = { 1: 4200, 2: 4200, 3: 4200, 4: 2600, 5: 4600 };
+  /* 1 → 2 는 3초 대기 후 전환 (지시서). 나머지는 그대로. */
+  var HOLD = { 1: 3000, 2: 4200, 3: 4200, 4: 2600, 5: 4600 };
   var FADE = 1600, MORPH = 800;
   var current = 1, z = 1, timer = null;
 

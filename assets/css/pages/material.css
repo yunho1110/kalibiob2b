@@ -51,12 +51,6 @@ not a 9th metric */
 
 .irritancy-strip .is-note{font-size:0.80rem;color:rgba(247,247,240,0.75);width:100%;}
 
-/* 2-3 fix: previous "2x" sizing was too large — bring back near the base
-   .matrix size so it reads consistently with the other page tables */
-.mat-matrix .matrix{min-width:640px;font-size:1.06rem;}
-
-.mat-matrix .matrix th,
-.mat-matrix .matrix td{padding:15px 16px;}
 
 .mat-matrix .matrix thead th{font-size:1.06rem;}
 
@@ -350,17 +344,22 @@ in line with .block-title / .block-desc elsewhere */
 .mt-m{margin-top:18px;padding-top:16px;border-top:1px solid #DDD9CF;font-size:clamp(0.66rem,0.86vw,0.82rem);color:#666;}
 /* 사진은 상자 전체에 깔고 사선으로 잘라 반쪽만 보인다 */
 .mt-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
-.mt-box--a .mt-photo{clip-path:polygon(47% 0,100% 0,100% 100%,53% 100%);object-position:75% 50%;}
-.mt-box--b .mt-photo{clip-path:polygon(0 0,53% 0,47% 100%,0 100%);object-position:25% 50%;}
+/* 사진은 자기 이미지 영역(사선 바깥쪽 53%)만 채운다. 사선은 상자 기준 47%↔53% 그대로 */
+.mt-box--a .mt-photo{left:47%;width:53%;clip-path:polygon(0 0,100% 0,100% 100%,11.32% 100%);object-position:50% 50%;}
+.mt-box--b .mt-photo{left:0;width:53%;clip-path:polygon(0 0,100% 0,88.68% 100%,0 100%);object-position:50% 50%;}
 .mt-line{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
 .mt-line line{stroke:#D5D1C6;stroke-width:1;}
 .mt-more{margin-top:clamp(48px,6vw,80px);}
 @media (max-width:767px){
   .mt-box{grid-template-columns:1fr;}
-  .mt-photo{position:relative;height:200px;clip-path:none !important;}
+  .mt-photo{position:relative;left:auto !important;width:100% !important;height:200px;clip-path:none !important;}
   .mt-box--b .mt-photo{grid-row:1;}
   .mt-box--b .mt-text{grid-column:1;grid-row:2;text-align:left;}
   .mt-line{display:none;}
   /* 360px 에서는 한 줄 유지 시 글자가 9px 이하로 작아져 줄바꿈을 허용한다 */
   .mt-d,.mt-m{white-space:normal;}
 }
+
+/* 10.0x 수정 — 칼륨장석의 효능이 인체적용시험과 성분 분석 사이로 들어옴 */
+.mt-eff{margin:clamp(48px,6vw,80px) 0;}
+.mt-eff .prop-step{margin:0;}
