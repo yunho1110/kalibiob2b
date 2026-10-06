@@ -17,17 +17,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <!-- 스타일시트는 순서가 중요합니다. 토큰 → 기본 → 공통 → 페이지별 순으로 읽힙니다. -->
-<link rel="stylesheet" href="assets/css/tokens.css?v=202610062220">
-<link rel="stylesheet" href="assets/css/base.css?v=202610062220">
-<link rel="stylesheet" href="assets/css/components.css?v=202610062220">
-<link rel="stylesheet" href="assets/css/pages/home.css?v=202610062220">
-<link rel="stylesheet" href="assets/css/pages/about.css?v=202610062220">
-<link rel="stylesheet" href="assets/css/pages/material.css?v=202610062220">
-<link rel="stylesheet" href="assets/css/pages/products.css?v=202610062220">
-<link rel="stylesheet" href="assets/css/pages/business.css?v=202610062220">
-<link rel="stylesheet" href="assets/css/pages/partnership.css?v=202610062220">
-<link rel="stylesheet" href="assets/css/pages/contact.css?v=202610062220">
-<link rel="stylesheet" href="assets/css/theme.css?v=202610062220">
+<link rel="stylesheet" href="assets/css/tokens.css?v=202610062241">
+<link rel="stylesheet" href="assets/css/base.css?v=202610062241">
+<link rel="stylesheet" href="assets/css/components.css?v=202610062241">
+<link rel="stylesheet" href="assets/css/pages/home.css?v=202610062241">
+<link rel="stylesheet" href="assets/css/pages/about.css?v=202610062241">
+<link rel="stylesheet" href="assets/css/pages/material.css?v=202610062241">
+<link rel="stylesheet" href="assets/css/pages/products.css?v=202610062241">
+<link rel="stylesheet" href="assets/css/pages/business.css?v=202610062241">
+<link rel="stylesheet" href="assets/css/pages/partnership.css?v=202610062241">
+<link rel="stylesheet" href="assets/css/pages/contact.css?v=202610062241">
+<link rel="stylesheet" href="assets/css/theme.css?v=202610062241">
 </head>
 <body>
 <a class="skip-link" href="#viewport">본문으로 건너뛰기</a>
@@ -682,147 +682,120 @@
         <span class="eyebrow" data-i18n="about.eyebrow">ABOUT KALIBIO</span>
         <h2 class="section-title" data-page-title>기업소개</h2>
       </div>
-            <div id="brand-story" class="tech-block">
-<div class="story-scroll">
-        <div class="story-col">
-          <section class="story-sec" id="about-info" data-story="1">
-      <div id="blk-about-info" class="tech-block">
-        <h3 class="block-title reveal" data-i18n="navSub.aboutInfo">기업 정보</h3>
-        <div class="reveal" style="overflow-x:auto;">
-          <table class="co-table">
-            <tbody>
-              <tr><th data-i18n="overview.tIndustry">산업 유형</th><td data-i18n="overview.vIndustry"></td></tr>
-              <tr><th data-i18n="overview.tType">사업 형태</th><td data-i18n="overview.vType"></td></tr>
-              <tr class="is-key"><th data-i18n="overview.tMaterial">주원료</th><td data-i18n="overview.vMaterial"></td></tr>
-              <tr><th data-i18n="overview.tCeo">대표이사</th><td data-i18n="overview.vCeo"></td></tr>
-              <tr><th data-i18n="overview.tFounded">설립일</th><td data-i18n="overview.vFounded"></td></tr>
-              <tr><th data-i18n="overview.tAddr">주소</th><td data-i18n="about.locValue"></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-          </section>
-          <section class="story-sec" id="about-origin" data-story="2">
-      <div id="blk-about-origin" class="tech-block">
-        <h3 class="block-title reveal" data-i18n="about2.originTitle">기업 기원</h3>
-        <div class="story-layout reveal">
-          <div class="about-copy">
-            <p class="story-lead" data-i18n="about2.originP1"></p>
-            <p data-i18n="about2.originP3"></p>
+      <div id="brand-story" class="tech-block">
+
+        <!-- 진입 화면 — 장석 사진이 화면 가운데 -->
+        <section class="bs-intro">
+          <img src="assets/img/feldspar-rock.webp" alt="칼륨장석 원석" width="1000" height="1000">
+        </section>
+
+        <!-- 패럴랙스 — 왼쪽 글이 흐르고 오른쪽 이미지가 고정된 채 전환 -->
+        <div class="bs-scroll" data-bg="dark">
+          <div class="bs-col">
+
+            <section class="bs-sec" data-bs="1" data-bg="dark" id="bs-origin">
+              <h3 class="bs-h" data-i18n="about2.originTitle">기업 기원</h3>
+              <p class="bs-p" data-i18n="about2.originP1"></p>
+            </section>
+
+            <section class="bs-sec" data-bs="2" data-bg="light" id="bs-vision">
+              <h3 class="bs-h" data-i18n="about2.visionTitle">기업 비전</h3>
+              <p class="bs-p" data-i18n="vision.statement"></p>
+            </section>
+
+            <section class="bs-sec" data-bs="3" data-bg="dark" id="bs-values">
+              <h3 class="bs-h" data-i18n="navSub.aboutValues">기업 핵심 가치</h3>
+              <ul class="bs-vals">
+                <li class="bs-val reveal" style="--i:0">
+                  <span class="bs-val-n">01</span>
+                  <div>
+                    <p class="bs-val-label">NATURAL</p>
+                    <p class="bs-val-stat" data-i18n="about.value1"></p>
+                    <p class="bs-val-desc" data-i18n="about.value1d"></p>
+                  </div>
+                </li>
+                <li class="bs-val reveal" style="--i:1">
+                  <span class="bs-val-n">02</span>
+                  <div>
+                    <p class="bs-val-label">SCIENCE</p>
+                    <p class="bs-val-stat" data-i18n="about.value2"></p>
+                    <p class="bs-val-desc" data-i18n="about.value2d"></p>
+                  </div>
+                </li>
+                <li class="bs-val reveal" style="--i:2">
+                  <span class="bs-val-n">03</span>
+                  <div>
+                    <p class="bs-val-label">HEALTH</p>
+                    <p class="bs-val-stat" data-i18n="about.value3"></p>
+                    <p class="bs-val-desc" data-i18n="about.value3d"></p>
+                  </div>
+                </li>
+                <li class="bs-val reveal" style="--i:3">
+                  <span class="bs-val-n">04</span>
+                  <div>
+                    <p class="bs-val-label">SUSTAINABILITY</p>
+                    <p class="bs-val-stat" data-i18n="about.value4"></p>
+                    <p class="bs-val-desc" data-i18n="about.value4d"></p>
+                  </div>
+                </li>
+                <li class="bs-val reveal" style="--i:4">
+                  <span class="bs-val-n">05</span>
+                  <div>
+                    <p class="bs-val-label">INNOVATION</p>
+                    <p class="bs-val-stat" data-i18n="about.value5"></p>
+                    <p class="bs-val-desc" data-i18n="about.value5d"></p>
+                  </div>
+                </li>
+              </ul>
+            </section>
+
           </div>
-          <aside class="story-side">
-            <figure class="story-figure">
-              <img src="assets/img/feldspar-rock.webp" alt="칼륨장석 원석" loading="lazy" width="1000" height="1000">
-              <figcaption>칼륨장석 원석</figcaption>
-            </figure>
+          <aside class="bs-pin" aria-hidden="true">
+            <div class="bs-pin-inner">
+              <img class="bs-img is-on" data-bs="1" src="assets/img/about-powder.webp" alt="" loading="lazy" width="1400" height="787">
+              <img class="bs-img" data-bs="2" src="assets/img/about-soap.webp" alt="" loading="lazy" width="1200" height="800">
+              <img class="bs-img" data-bs="3" src="assets/img/about-k28.webp" alt="" loading="lazy" width="1200" height="800">
+            </div>
           </aside>
         </div>
-      </div>
-      <div id="blk-about-history" class="info-section">
-        <h3 class="block-title reveal" data-i18n="about.milestonesTitle">회사 연혁</h3>
-        <div class="milestones reveal">
-          <div class="timeline-track">
-            <div class="tl-node"><div class="tl-dot-wrap"><span class="tl-year">2023.10</span><span class="tl-dot"></span></div><div class="tl-card"><p class="tl-text" data-i18n="about.tl1"></p></div></div>
-            <div class="tl-node"><div class="tl-dot-wrap"><span class="tl-year">2024.08</span><span class="tl-dot"></span></div><div class="tl-card"><p class="tl-text" data-i18n="about.tl2"></p></div></div>
-            <div class="tl-node"><div class="tl-dot-wrap"><span class="tl-year">2024.12</span><span class="tl-dot"></span></div><div class="tl-card"><p class="tl-text" data-i18n="about.tl3"></p></div></div>
-            <div class="tl-node"><div class="tl-dot-wrap"><span class="tl-year">2025.05</span><span class="tl-dot"></span></div><div class="tl-card"><p class="tl-text" data-i18n="about.tl4"></p></div></div>
-            <div class="tl-node"><div class="tl-dot-wrap"><span class="tl-year">2025.12</span><span class="tl-dot"></span></div><div class="tl-card"><p class="tl-text" data-i18n="about.tl5"></p></div></div>
-            <div class="tl-node"><div class="tl-dot-wrap"><span class="tl-year">2026 ~</span><span class="tl-dot"></span></div><div class="tl-card"><p class="tl-text" data-i18n="about.tl6"></p></div></div>
-          </div>
-        </div>
-      </div>
-          </section>
-          <section class="story-sec" id="about-vision" data-story="3">
-      <div id="blk-about-vision" class="tech-block">
-        <h3 class="block-title reveal" data-i18n="navSub.aboutVision">비전과 목표</h3>
-        <article class="vg-card vg-vision reveal">
-          <div class="vg-body">
-            <div class="vg-badge"><span class="vg-num">01</span><span class="vg-rule" aria-hidden="true"></span></div>
-            <p class="vg-eyebrow">VISION</p>
-            <h4 class="vg-title" data-i18n="about2.visionHead">어디를 향하는가</h4>
-            <p class="vg-desc" data-i18n="vision.statement">자연에서 시작된 가치, 더 나은<br>일상으로 연결하는 기업이 되겠습니다.</p>
-          </div>
-          <div class="vg-media" aria-hidden="true">
-            <img src="assets/img/vision-sprout.webp" alt="" loading="lazy" width="360" height="268">
-          </div>
-        </article>
 
-        <article class="vg-card vg-goal reveal">
-          <div class="vg-body">
-            <div class="vg-badge"><span class="vg-num">02</span><span class="vg-rule" aria-hidden="true"></span></div>
-            <p class="vg-eyebrow">GOAL</p>
-            <h4 class="vg-title" data-i18n="about2.goalHead">무엇을 할 것인가</h4>
-            <p class="vg-desc" data-i18n="vision.goalStatement">칼륨장석의 가능성을 끝까지 검증해<br>사람과 환경 모두에게 안전한 생활 소재를 만드는<br>글로벌 프리미엄 생활용품 B2B 파트너가 되겠습니다.</p>
-          </div>
-          <div class="vg-media" aria-hidden="true">
-            <img src="assets/img/feldspar-rock.webp" alt="" loading="lazy" width="1000" height="1000">
-          </div>
-          <ul class="vg-marks">
-            <li><span class="vg-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c8-1 14-7 15-15-8 1-14 7-15 15z"/><path d="M6 18c3-4 7-8 11-11"/></svg></span><span data-i18n="about2.mark1">SAFER LIFE</span></li>
-            <li><span class="vg-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.8 4 5.9 4 9s-1.4 6.2-4 9c-2.6-2.8-4-5.9-4-9s1.4-6.2 4-9z"/></svg></span><span data-i18n="about2.mark2">GREENER PLANET</span></li>
-            <li><span class="vg-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l4-4 5 4.5a2 2 0 0 0 2.7 0L15 11l5 4"/><path d="M8 8l3-3 4 2"/><path d="M20 15l2-2"/><path d="M2 12l-1 1"/></svg></span><span data-i18n="about2.mark3">GLOBAL PARTNER</span></li>
-          </ul>
-        </article>
+        <!-- 발전 과정 — 세로 타임라인 -->
+        <section class="bs-timeline" id="bs-history">
+          <h3 class="bs-h bs-h-center" data-i18n="about.milestonesTitle">발전 과정</h3>
+          <ol class="bs-tl">
+            <li class="bs-tl-node reveal" style="--i:0">
+              <span class="bs-tl-dot" aria-hidden="true"></span>
+              <span class="bs-tl-year">2023.10</span>
+              <p class="bs-tl-text" data-i18n="about.tl1"></p>
+            </li>
+            <li class="bs-tl-node reveal" style="--i:1">
+              <span class="bs-tl-dot" aria-hidden="true"></span>
+              <span class="bs-tl-year">2024.08</span>
+              <p class="bs-tl-text" data-i18n="about.tl2"></p>
+            </li>
+            <li class="bs-tl-node reveal" style="--i:2">
+              <span class="bs-tl-dot" aria-hidden="true"></span>
+              <span class="bs-tl-year">2024.12</span>
+              <p class="bs-tl-text" data-i18n="about.tl3"></p>
+            </li>
+            <li class="bs-tl-node reveal" style="--i:3">
+              <span class="bs-tl-dot" aria-hidden="true"></span>
+              <span class="bs-tl-year">2025.05</span>
+              <p class="bs-tl-text" data-i18n="about.tl4"></p>
+            </li>
+            <li class="bs-tl-node reveal" style="--i:4">
+              <span class="bs-tl-dot" aria-hidden="true"></span>
+              <span class="bs-tl-year">2025.12</span>
+              <p class="bs-tl-text" data-i18n="about.tl5"></p>
+            </li>
+            <li class="bs-tl-node reveal" style="--i:5">
+              <span class="bs-tl-dot" aria-hidden="true"></span>
+              <span class="bs-tl-year">2026 ~</span>
+              <p class="bs-tl-text" data-i18n="about.tl6"></p>
+            </li>
+          </ol>
+        </section>
       </div>
-          </section>
-          <section class="story-sec" id="about-values" data-story="4">
-      <div id="blk-about-principles" class="info-section">
-        <ol class="core-values reveal">
-          <li class="cv-item">
-            <span class="cv-num" aria-hidden="true">01</span>
-            <div class="cv-body">
-              <p class="cv-label">NATURAL</p>
-              <p class="cv-stat" data-i18n="about.value1">자연이 만든 천연 미네랄의 가치를 존중합니다.</p>
-              <p class="cv-desc" data-i18n="about.value1d"></p>
-            </div>
-          </li>
-          <li class="cv-item">
-            <span class="cv-num" aria-hidden="true">02</span>
-            <div class="cv-body">
-              <p class="cv-label">SCIENCE</p>
-              <p class="cv-stat" data-i18n="about.value2">연구와 임상 검증으로 원료의 가능성을 실증합니다.</p>
-              <p class="cv-desc" data-i18n="about.value2d"></p>
-            </div>
-          </li>
-          <li class="cv-item">
-            <span class="cv-num" aria-hidden="true">03</span>
-            <div class="cv-body">
-              <p class="cv-label">HEALTH</p>
-              <p class="cv-stat" data-i18n="about.value3">사람에게 안전한 제품을 만드는 것을 최우선으로 합니다.</p>
-              <p class="cv-desc" data-i18n="about.value3d"></p>
-            </div>
-          </li>
-          <li class="cv-item">
-            <span class="cv-num" aria-hidden="true">04</span>
-            <div class="cv-body">
-              <p class="cv-label">SUSTAINABILITY</p>
-              <p class="cv-stat" data-i18n="about.value4">사람과 환경이 함께 지속가능한 방식을 추구합니다.</p>
-              <p class="cv-desc" data-i18n="about.value4d"></p>
-            </div>
-          </li>
-          <li class="cv-item">
-            <span class="cv-num" aria-hidden="true">05</span>
-            <div class="cv-body">
-              <p class="cv-label">INNOVATION</p>
-              <p class="cv-stat" data-i18n="about.value5">칼륨장석의 새로운 활용 분야를 계속 개척합니다.</p>
-              <p class="cv-desc" data-i18n="about.value5d"></p>
-            </div>
-          </li>
-        </ol>
-      </div>
-          </section>
-        </div>
-        <aside class="story-pin" aria-hidden="true">
-          <div class="story-pin-inner">
-              <img class="story-img is-on" data-story="1" src="assets/img/feldspar-rock.webp" alt="칼륨장석 원석" loading="lazy" width="1000" height="1000">
-              <img class="story-img" data-story="2" src="assets/img/about-powder.webp" alt="칼륨장석 가루" loading="lazy" width="1400" height="787">
-              <img class="story-img" data-story="3" src="assets/img/about-soap.webp" alt="카리비누" loading="lazy" width="1200" height="1200">
-              <img class="story-img" data-story="4" src="assets/img/about-k28.webp" alt="K.28 치약" loading="lazy" width="1600" height="1066">
-          </div>
-        </aside>
-      </div>
-      </div>
-
       <div id="brand-process" class="tech-block" hidden>
               <div id="prod-proc-soap" class="product-group" hidden>
           <h3 class="block-title reveal" data-i18n="navSub.procSoap">비누 공정</h3>
@@ -1120,7 +1093,7 @@
 <a href="#contact" class="sticky-cta"><span class="sticky-cta-btn" data-i18n="stickyCta">파트너십 문의</span></a>
 
 
-<script src="assets/js/i18n.js?v=202610062220"></script>
-<script src="assets/js/app.js?v=202610062220"></script>
+<script src="assets/js/i18n.js?v=202610062241"></script>
+<script src="assets/js/app.js?v=202610062241"></script>
 </body>
 </html>

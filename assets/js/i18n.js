@@ -139,8 +139,9 @@ var I18N = {
     mark2: { ko: "GREENER PLANET", en: "GREENER PLANET", zh: "GREENER PLANET" },
     mark3: { ko: "GLOBAL PARTNER", en: "GLOBAL PARTNER", zh: "GLOBAL PARTNER" },
     originTitle: { ko: "기업 기원", en: "Our Origin", zh: "企业起源" },
-    originP1: { ko: "12억 년 전 형성된 지역광물에서 출발한 가치 혁신.<br>자연에 기술을 더하고, 일상의 건강으로 답을 찾아 갑니다.", en: "Value innovation that began with a local mineral formed 1.2 billion years ago.<br>We add technology to nature and find our answers in everyday health.", zh: "源于12亿年前形成的地方矿物的价值革新。<br>为自然加上技术，在日常的健康中寻找答案。" },
-    originP3: { ko: "산학협력을 기반으로 소재의 과학적 가치와 산업적 활용성을 확인해 왔습니다.<br>천연 자원의 가치를 제품으로 연결하는 것이 카리바이오가 창업한 이유입니다.", en: "Working with academia, we have been establishing the material's scientific value and industrial usefulness. Connecting a natural resource to products is the reason this company exists.", zh: "以产学合作为基础,持续确认该材料的科学价值与产业应用性。把天然资源的价值连接到产品,正是卡里生物创业的理由。" }
+    originP1: { ko: "12억 년 전 형성된 지역광물에서 출발한 가치 혁신,<br>자연에 기술을 더하고, 일상의 건강으로 답을 찾아 갑니다.<br><br>카리바이오는 우리 몸에 유해한 성분을 배제하고, 안전하고 효과적인 원료를 사용하여 천연 자원의 가치를 좋은 제품으로 연결하는 것에서 시작되었습니다.", en: "Value innovation that began with a local mineral formed 1.2 billion years ago —<br>we add technology to nature and find our answers in everyday health.<br><br>KALIBIO began by leaving out ingredients harmful to the body, using safe and effective raw materials, and connecting the value of a natural resource to good products.", zh: "源于12亿年前形成的地方矿物的价值革新，<br>为自然加上技术，在日常的健康中寻找答案。<br><br>卡里生物始于排除对人体有害的成分、使用安全有效的原料，并将天然资源的价值连接为优质产品。" },
+    originP3: { ko: "산학협력을 기반으로 소재의 과학적 가치와 산업적 활용성을 확인해 왔습니다.<br>천연 자원의 가치를 제품으로 연결하는 것이 카리바이오가 창업한 이유입니다.", en: "Working with academia, we have been establishing the material's scientific value and industrial usefulness. Connecting a natural resource to products is the reason this company exists.", zh: "以产学合作为基础,持续确认该材料的科学价值与产业应用性。把天然资源的价值连接到产品,正是卡里生物创业的理由。" },
+    visionTitle: { ko: "기업 비전", en: "Our Vision", zh: "企业愿景" }
   },
   part2: {
     currentTitle: { ko: "지금 함께하는 기관들", en: "Current Partners", zh: "目前携手同行的机构" },
@@ -198,9 +199,9 @@ var I18N = {
     value3: { ko: "사람에게 안전한 제품을 만드는 것을 최우선으로 합니다.", en: "Making products that are safe for people comes first.", zh: "将对人体安全的产品放在首位。" },
     value4: { ko: "사람과 환경이 함께 지속가능한 방식을 추구합니다.", en: "We pursue methods sustainable for both people and the environment.", zh: "追求人与环境共同可持续的发展方式。" },
     value5: { ko: "칼륨장석의 새로운 활용 분야를 계속 개척합니다.", en: "We continue to pioneer new applications for potassium feldspar.", zh: "持续开拓钾长石的新应用领域。" },
-    value1d: { ko: "합성 첨가물보다 자연이 만든 원료를 우선합니다. 원료의 출처를 투명하게 밝히고,<br>불필요한 화학 처리를 지양합니다.", en: "We put materials made by nature ahead of synthetic additives, state where each material comes from, and avoid chemical processing that isn't needed.", zh: "我们优先采用自然形成的原料而非合成添加物，透明公开原料来源，并避免不必要的化学处理。" },
+    value1d: { ko: "합성 보다 자연이 만든 가치를 투명하게 공유하고, 화학처리를 지양합니다.", en: "We share the value nature made, transparently, and avoid chemical processing.", zh: "透明地共享自然创造的价值，避免化学处理。" },
     value2d: { ko: "구성요소는 한국광해광업공단, 피부 효능은 한국바이오임상연구센터에서 시험으로 확인합니다. 추측이 아닌 데이터로 이야기합니다.", en: "Composition is verified by KOMIR and skin results by the Korea Bio Research Center. We speak from data, not assumption.", zh: "成分构成由韩国矿害矿业公团、皮肤功效由韩国生物临床研究中心通过检测确认。我们用数据说话，而非推测。" },
-    value3d: { ko: "모든 제품은 피부 자극 테스트를 거쳐 안전성을 확인한 뒤 출시합니다.<br>사람의 건강을 어떤 효율보다 앞세웁니다.", en: "Every product passes a skin irritation test before it ships. Human health comes before any efficiency.", zh: "所有产品均经皮肤刺激测试确认安全性后才上市。人的健康优先于任何效率。" },
+    value3d: { ko: "모든 제품은 피부 자극 테스트를 거쳐 안전성을 확인한 뒤 출시합니다.<br>사람의 건강을 어떤 가치보다 우선합니다.", en: "Every product passes a skin irritation test before it ships.<br>Human health comes before any other value.", zh: "所有产品均经皮肤刺激测试确认安全性后才上市。<br>人的健康优先于任何其他价值。" },
     value4d: { ko: "자연에서 얻은 원료를 오래도록 쓸 수 있도록, 자원의 낭비를 줄이고 환경에 부담을 주지 않는 방식을 고민합니다.", en: "So that materials taken from nature can be used for a long time, we work to cut waste and avoid burdening the environment.", zh: "为了让取自自然的原料能够长久使用，我们致力于减少资源浪费、不为环境增添负担。" },
     value5d: { ko: "비누와 치약을 넘어, 칼륨장석이 사람의 일상을 더 건강하게 만들 수 있는 새로운 가능성을 계속 탐구합니다.", en: "Beyond soap and toothpaste, we keep exploring new ways potassium feldspar can make daily life healthier.", zh: "超越皂类与牙膏，我们持续探索钾长石让日常生活更健康的新可能。" },
     tl1: { ko: "법인 설립 (순천시 조례동)", en: "Company founded (Jorye-dong, Suncheon)", zh: "公司成立(顺天市朝礼洞)" },
@@ -212,7 +213,7 @@ var I18N = {
     milestonesTitle: { ko: "발전 과정", en: "Development", zh: "发展历程" }
   },
   vision: {
-    statement: { ko: "자연에서 시작된 가치, 더 나은 일상으로 연결하는 기업이 되겠습니다.", en: "We will be the company that connects value born in nature to a better everyday life.", zh: "我们将成为把源于自然的价值连接到更美好日常的企业。" },
+    statement: { ko: "자연에서 시작된 가치, 더 나은 일상으로 연결하는 기업이 되겠습니다.<br><br>칼륨장석의 가능성을 끝까지 검증해<br>사람과 환경 모두에게 안전한 생활 소재를 만드는<br>글로벌 프리미엄 생활용품 B2B 파트너가 되겠습니다.", en: "We will be a company that carries value from nature into better everyday life.<br><br>By verifying potassium feldspar to its limits,<br>making living materials safe for both people and the environment,<br>we will become a global premium household goods B2B partner.", zh: "我们将成为把源于自然的价值连接到更好日常的企业。<br><br>彻底验证钾长石的可能性，<br>制造对人与环境都安全的生活材料，<br>成为全球优质生活用品B2B伙伴。" },
     goalStatement: { ko: "칼륨장석의 가능성을 끝까지 검증해<br>사람과 환경 모두에게 안전한 생활 소재를 만드는<br>글로벌 프리미엄 생활용품 B2B 파트너가 되겠습니다.", en: "To verify the potential of potassium feldspar to the end,<br>to make everyday materials safe for both people and the environment,<br>and to become a global B2B partner in premium household goods.", zh: "彻底验证钾长石的可能性，<br>打造对人与环境都安全的生活材料，<br>成为全球高端生活用品B2B伙伴。" }
   },
   tech: {
