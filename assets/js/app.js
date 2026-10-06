@@ -151,6 +151,7 @@
       'mat-cert': 'mat-tests', 'products-soap': 'prod-soap', 'products-toothpaste': 'prod-paste',
       'products-process': 'prod-proc-soap', 'prod-process': 'prod-proc-soap', 'products-oem': 'biz-areas',
       'biz-material': 'biz-areas', 'biz-goods': 'biz-areas', 'biz-oem': 'biz-areas',
+      'ba-material': 'biz-areas', 'ba-goods': 'biz-areas', 'ba-oem': 'biz-areas',
       'about-overview': 'about-info', 'about-story': 'about-origin', 'about-milestones': 'about-origin',
       'about-why': 'brand-story', 'about-principles': 'brand-story',
       'about-info': 'brand-story', 'about-origin': 'brand-story',
@@ -158,7 +159,8 @@
       'prod-process': 'brand-process', 'prod-proc-soap': 'brand-process',
       'prod-proc-paste': 'brand-process',
       'mat-uses': 'mat-story', 'mat-tests': 'mat-story', 'part-global': 'part-current',
-      'biz-material': 'biz-areas', 'biz-goods': 'biz-areas', 'biz-oem': 'biz-areas'
+      'biz-material': 'biz-areas', 'biz-goods': 'biz-areas', 'biz-oem': 'biz-areas',
+      'ba-material': 'biz-areas', 'ba-goods': 'biz-areas', 'ba-oem': 'biz-areas'
     };
     Object.keys(LEGACY_SUBS).forEach(function (old) {
       SUBSECTIONS[old] = SUBSECTIONS[LEGACY_SUBS[old]];
@@ -305,6 +307,17 @@
         return;
       }
       var viewLink = document.querySelector('.main-nav [data-view="' + viewId + '"]');
+      if (!viewLink) {
+        /* 한 대메뉴가 여러 뷰를 묶는 경우(비즈니스 = business + partnership)
+           그 그룹의 대메뉴 이름을 쓴다. */
+        var groups = document.querySelectorAll('.main-nav .nav-group[data-group]');
+        for (var gi = 0; gi < groups.length; gi++) {
+          if (groups[gi].getAttribute('data-group').split(' ').indexOf(viewId) !== -1) {
+            viewLink = groups[gi].querySelector('.nav-parent');
+            break;
+          }
+        }
+      }
       var viewName = viewLink ? viewLink.textContent.trim() : '';
       var subName = '';
       if (subId) {
@@ -569,24 +582,40 @@
     window.addEventListener('hashchange', function () { window.setTimeout(openOwningGroup, 30); });
     openOwningGroup();
 
-    /* ===== 사업 분야 탭 (기능성 소재 / 프리미엄 생활용품 / OEM·ODM 지원) ===== */
-    var bizTabs = document.querySelectorAll('.biz-tab');
-    if (bizTabs.length) {
-      var showBiz = function (id) {
-        for (var t = 0; t < bizTabs.length; t++) {
-          var on = bizTabs[t].getAttribute('data-biz') === id;
-          bizTabs[t].classList.toggle('is-active', on);
-          bizTabs[t].setAttribute('aria-selected', on ? 'true' : 'false');
-          var panel = document.getElementById(bizTabs[t].getAttribute('data-biz'));
-          if (panel) { panel.hidden = !on; }
+    /* ===== 사업 분야 사진 넘기기 (화살표 + 막대 표시) =====
+       사진이 한 장뿐이면 조작 요소를 감춘다. */
+    var shotSets = document.querySelectorAll('[data-ba-shots]');
+    for (var si = 0; si < shotSets.length; si++) {
+      (function (box) {
+        var imgs = box.querySelectorAll('.ba-track img');
+        var dots = box.querySelector('.ba-dots');
+        var prev = box.querySelector('.ba-prev');
+        var next = box.querySelector('.ba-next');
+        if (imgs.length < 2) {
+          if (prev) { prev.hidden = true; }
+          if (next) { next.hidden = true; }
+          if (dots) { dots.hidden = true; }
+          return;
         }
-      };
-      for (var t2 = 0; t2 < bizTabs.length; t2++) {
-        bizTabs[t2].addEventListener('click', function () { showBiz(this.getAttribute('data-biz')); });
-      }
-      /* 예전 링크(#biz-goods 등)로 들어오면 해당 탭을 열어둔다 */
-      var entryTab = (window.location.hash || '').replace('#', '');
-      showBiz(/^biz-(material|goods|oem)$/.test(entryTab) ? entryTab : 'biz-material');
+        var at = 0;
+        for (var d = 0; d < imgs.length; d++) {
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'ba-dot';
+          b.setAttribute('aria-label', (d + 1) + '번째 사진');
+          (function (idx) { b.addEventListener('click', function () { go(idx); }); })(d);
+          dots.appendChild(b);
+        }
+        function go(n) {
+          at = (n + imgs.length) % imgs.length;
+          for (var k = 0; k < imgs.length; k++) { imgs[k].classList.toggle('is-on', k === at); }
+          var ds = dots.querySelectorAll('.ba-dot');
+          for (var j = 0; j < ds.length; j++) { ds[j].classList.toggle('is-on', j === at); }
+        }
+        prev.addEventListener('click', function () { go(at - 1); });
+        next.addEventListener('click', function () { go(at + 1); });
+        go(0);
+      })(shotSets[si]);
     }
 
     /* ===== Reveal on scroll ===== */
