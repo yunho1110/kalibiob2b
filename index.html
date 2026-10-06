@@ -17,17 +17,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <!-- 스타일시트는 순서가 중요합니다. 토큰 → 기본 → 공통 → 페이지별 순으로 읽힙니다. -->
-<link rel="stylesheet" href="assets/css/tokens.css?v=202610062220">
-<link rel="stylesheet" href="assets/css/base.css?v=202610062220">
-<link rel="stylesheet" href="assets/css/components.css?v=202610062220">
-<link rel="stylesheet" href="assets/css/pages/home.css?v=202610062220">
-<link rel="stylesheet" href="assets/css/pages/about.css?v=202610062220">
-<link rel="stylesheet" href="assets/css/pages/material.css?v=202610062220">
-<link rel="stylesheet" href="assets/css/pages/products.css?v=202610062220">
-<link rel="stylesheet" href="assets/css/pages/business.css?v=202610062220">
-<link rel="stylesheet" href="assets/css/pages/partnership.css?v=202610062220">
-<link rel="stylesheet" href="assets/css/pages/contact.css?v=202610062220">
-<link rel="stylesheet" href="assets/css/theme.css?v=202610062220">
+<link rel="stylesheet" href="assets/css/tokens.css?v=202610062227">
+<link rel="stylesheet" href="assets/css/base.css?v=202610062227">
+<link rel="stylesheet" href="assets/css/components.css?v=202610062227">
+<link rel="stylesheet" href="assets/css/pages/home.css?v=202610062227">
+<link rel="stylesheet" href="assets/css/pages/about.css?v=202610062227">
+<link rel="stylesheet" href="assets/css/pages/process.css?v=202610062227">
+<link rel="stylesheet" href="assets/css/pages/material.css?v=202610062227">
+<link rel="stylesheet" href="assets/css/pages/products.css?v=202610062227">
+<link rel="stylesheet" href="assets/css/pages/business.css?v=202610062227">
+<link rel="stylesheet" href="assets/css/pages/partnership.css?v=202610062227">
+<link rel="stylesheet" href="assets/css/pages/contact.css?v=202610062227">
+<link rel="stylesheet" href="assets/css/theme.css?v=202610062227">
 </head>
 <body>
 <a class="skip-link" href="#viewport">본문으로 건너뛰기</a>
@@ -679,7 +680,7 @@
   <div class="section">
     <div class="container">
       <div class="page-head reveal">
-        <span class="eyebrow" data-i18n="about.eyebrow">ABOUT KALIBIO</span>
+        <span class="eyebrow" data-i18n="about.eyebrow">BRAND</span>
         <h2 class="section-title" data-page-title>기업소개</h2>
       </div>
             <div id="brand-story" class="tech-block">
@@ -824,85 +825,146 @@
       </div>
 
       <div id="brand-process" class="tech-block" hidden>
-              <div id="prod-proc-soap" class="product-group" hidden>
-          <h3 class="block-title reveal" data-i18n="navSub.procSoap">비누 공정</h3>
 
-        <h4 class="sub-title reveal" data-i18n="soapProc.title">비누 제조 공정 — 4단계</h4>
-        <div class="soap-process reveal">
-          <div class="sp-step"><div class="sp-num">STEP 01</div><div class="sp-name" data-i18n="soapProc.s1"></div><p class="sp-desc" data-i18n="soapProc.d1"></p></div>
-          <div class="sp-step"><div class="sp-num">STEP 02</div><div class="sp-name" data-i18n="soapProc.s2"></div><p class="sp-desc" data-i18n="soapProc.d2"></p></div>
-          <div class="sp-step"><div class="sp-num">STEP 03</div><div class="sp-name" data-i18n="soapProc.s3"></div><p class="sp-desc" data-i18n="soapProc.d3"></p></div>
-          <div class="sp-step"><div class="sp-num">STEP 04</div><div class="sp-name" data-i18n="soapProc.s4"></div><p class="sp-desc" data-i18n="soapProc.d4"></p></div>
-        </div>
+        <!-- SCREEN 01 — HERO -->
+        <section class="pr-hero reveal">
+          <div class="pr-hero-copy">
+            <span class="eyebrow" data-i18n="proc.eyebrow">PROCESS</span>
+            <h3 class="pr-hero-title" data-i18n="proc.heroTitle">원료에서 제품까지,<br>칼리바이오의 공정</h3>
+            <p class="pr-hero-lead" data-i18n="proc.heroLead"></p>
+          </div>
+          <div class="pr-hero-media">
+            <img src="assets/img/about-powder.webp" alt="칼륨장석 분말" loading="lazy" width="1400" height="787">
+          </div>
+        </section>
 
-        <h4 class="sub-title reveal" style="margin-top:32px;" data-i18n="soapProc.equipTitle">실제 사용 설비</h4>
-        <div class="equip-grid reveal">
-          <div class="equip-card">
-            <figure class="equip-media"><img src="assets/img/eq-mixtank.webp" alt="혼합·가열 탱크" loading="lazy" width="800" height="600"></figure>
-            <span class="equip-step">STEP 02</span>
-            <div class="equip-name" data-i18n="soapProc.eq1">혼합·가열 탱크</div>
-          </div>
-          <div class="equip-card">
-            <figure class="equip-media"><img src="assets/img/eq-press.webp" alt="프레스 성형기" loading="lazy" width="800" height="600"></figure>
-            <span class="equip-step">STEP 03</span>
-            <div class="equip-name" data-i18n="soapProc.eq3">프레스 성형기</div>
-          </div>
-          <div class="equip-card">
-            <figure class="equip-media"><img src="assets/img/eq-wrapper.webp" alt="랩포장기" loading="lazy" width="800" height="600"></figure>
-            <span class="equip-step">STEP 04</span>
-            <div class="equip-name" data-i18n="soapProc.eq4">랩포장기</div>
-          </div>
-        </div>
-        </div>
+        <!-- SCREEN 02 — PROCESS FLOW -->
+        <section class="pr-flow reveal">
+          <ol class="pr-flow-list">
+            <li class="pr-flow-item"><span class="pr-flow-n">01</span><span class="pr-flow-t" data-i18n="proc.flow1">원료 확보</span></li>
+            <li class="pr-flow-item"><span class="pr-flow-n">02</span><span class="pr-flow-t" data-i18n="proc.flow2">1차 가공</span></li>
+            <li class="pr-flow-item"><span class="pr-flow-n">03</span><span class="pr-flow-t" data-i18n="proc.flow3">검증</span></li>
+            <li class="pr-flow-item"><span class="pr-flow-n">04</span><span class="pr-flow-t" data-i18n="proc.flow4">제조</span></li>
+          </ol>
+        </section>
 
-        <div id="prod-proc-paste" class="product-group" hidden>
-          <h3 class="block-title reveal" data-i18n="navSub.procPaste">치약 공정</h3>
-<h4 class="sub-title reveal" style="margin-top:44px;" data-i18n="tech.k28Title"></h4>
-        <ol class="process-list reveal">
-          <li class="process-item"><span class="step-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 8h14"/><path d="M5 8 2 15a3.5 3.5 0 0 0 6 0z"/><path d="M19 8l-3 7a3.5 3.5 0 0 0 6 0z"/></svg></span><span data-i18n="tech.step1"></span></li>
-          <li class="process-item"><span class="step-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 5 6 8.5 6 11.5A6 6 0 0 1 6 14.5C6 11.5 8 8 12 3z"/></svg></span><span data-i18n="tech.step2"></span></li>
-          <li class="process-item"><span class="step-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M6 6l1 13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-13"/><path d="M10 11v5M14 11v5"/></svg></span><span data-i18n="tech.step3"></span></li>
-          <li class="process-item"><span class="step-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c8-1 14-7 15-15-8 1-14 7-15 15z"/><path d="M6 18c3-4 7-8 11-11"/></svg></span><span data-i18n="tech.step4"></span></li>
-          <li class="process-item is-key"><span class="step-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M4.5 6.5l15 11M19.5 6.5l-15 11"/><path d="M12 6l-2 2M12 6l2 2M12 18l-2-2M12 18l2-2"/></svg></span><span data-i18n="tech.step5"></span></li>
-          <li class="process-item"><span class="step-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6v4l2 3v9a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-9l2-3z"/><path d="M7 14h10"/></svg></span><span data-i18n="tech.step6"></span></li>
-          <li class="process-item"><span class="step-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-5 9 5-9 5-9-5z"/><path d="M3 8v9l9 5 9-5V8"/><path d="M12 13V22"/></svg></span><span data-i18n="tech.step7"></span></li>
-        </ol>
+        <!-- SCREEN 03 — SOURCING -->
+        <section class="pr-src reveal">
+          <h4 class="pr-h" data-i18n="proc.srcTitle">광산에서 1차 가공까지, 원료의 첫 단계입니다.</h4>
+          <p class="pr-lead" data-i18n="proc.srcLead"></p>
+          <div class="pr-src-grid">
+            <figure class="pr-src-card">
+              <div class="pr-ph" aria-hidden="true"><span data-i18n="proc.placeholder">사진 준비 중</span></div>
+              <figcaption><strong data-i18n="proc.srcMine">협력 광산</strong><span data-i18n="proc.srcMineD"></span></figcaption>
+            </figure>
+            <figure class="pr-src-card">
+              <div class="pr-ph" aria-hidden="true"><span data-i18n="proc.placeholder">사진 준비 중</span></div>
+              <figcaption><strong data-i18n="proc.srcMill">협력 가공사</strong><span data-i18n="proc.srcMillD"></span></figcaption>
+            </figure>
+            <figure class="pr-src-card">
+              <img src="assets/img/feldspar-powder.webp" alt="칼륨장석 분말" loading="lazy" width="1000" height="1000">
+              <figcaption><strong data-i18n="proc.srcPowder">칼륨장석 분말</strong><span data-i18n="proc.srcPowderD"></span></figcaption>
+            </figure>
+          </div>
+          <p class="pr-note" data-i18n="proc.srcNote"></p>
+        </section>
 
-        <h4 class="sub-title reveal" style="margin-top:32px;" data-i18n="tech.equipTitle">실제 사용 설비</h4>
-        <div class="equip-grid reveal">
-          <div class="equip-card">
-            <figure class="equip-media"><img src="assets/img/eq-water.webp" alt="정제수 설비" loading="lazy" width="800" height="600"></figure>
-            <span class="equip-step">Step 2</span>
-            <div class="equip-name" data-i18n="tech.eq3">정제수 설비</div>
+        <!-- SCREEN 04 — QUALITY CONTROL (이 구간만 어두운 배경) -->
+        <section class="pr-qc reveal">
+          <div class="pr-qc-inner">
+            <h4 class="pr-h" data-i18n="proc.qcTitle">원료는 시험으로 확인합니다.</h4>
+            <p class="pr-lead" data-i18n="proc.qcLead"></p>
+            <div class="pr-qc-grid">
+              <div class="pr-qc-card">
+                <p class="pr-qc-what" data-i18n="proc.qc1What">원료 성분 분석</p>
+                <p class="pr-qc-org" data-i18n="proc.qc1Org">한국광해광업공단 기술연구원</p>
+                <dl class="pr-qc-dl">
+                  <div><dt data-i18n="proc.qc1No">성적서 번호</dt><dd>24-0213-1</dd></div>
+                  <div><dt data-i18n="proc.qc1Period">시험기간</dt><dd>2024.04.30 ~ 05.22</dd></div>
+                  <div><dt data-i18n="proc.qc1Method">시험방법</dt><dd>KS E 3098 · KS E 3809 · KS L 3316</dd></div>
+                </dl>
+              </div>
+              <div class="pr-qc-card">
+                <p class="pr-qc-what" data-i18n="proc.qc2What">인체적용시험 — 피부자극</p>
+                <p class="pr-qc-org" data-i18n="proc.qc2Org">한국바이오임상연구센터</p>
+                <dl class="pr-qc-dl">
+                  <div><dt data-i18n="proc.qc2Period">시험기간</dt><dd>2025.04.22 ~ 05.23 (4주)</dd></div>
+                  <div><dt data-i18n="proc.qc2Subj">피험자</dt><dd data-i18n="proc.qc2SubjV"></dd></div>
+                  <div class="is-key"><dt data-i18n="proc.qc2Result">피부자극도</dt><dd data-i18n="proc.qc2ResultV"></dd></div>
+                </dl>
+              </div>
+            </div>
+            <p class="pr-note pr-note-dark" data-i18n="proc.qcNote"></p>
           </div>
-          <div class="equip-card">
-            <figure class="equip-media"><img src="assets/img/eq-vacmixer.webp" alt="진공 교반 설비" loading="lazy" width="800" height="600"></figure>
-            <span class="equip-step">Step 2·3</span>
-            <div class="equip-name" data-i18n="tech.eq2">진공 교반 설비</div>
-          </div>
-          <div class="equip-card is-key">
-            <figure class="equip-media"><img src="assets/img/eq-aging.webp" alt="숙성 탱크" loading="lazy" width="800" height="600"></figure>
-            <span class="equip-step">Step 5</span>
-            <div class="equip-name" data-i18n="tech.eq4">숙성 탱크</div>
-          </div>
-          <div class="equip-card">
-            <figure class="equip-media"><img src="assets/img/eq-filling.webp" alt="충진 라인" loading="lazy" width="800" height="600"></figure>
-            <span class="equip-step">Step 6</span>
-            <div class="equip-name" data-i18n="tech.eq5">충진 라인</div>
-          </div>
-          <div class="equip-card">
-            <figure class="equip-media"><img src="assets/img/eq-packing.webp" alt="포장 라인" loading="lazy" width="800" height="600"></figure>
-            <span class="equip-step">Step 7</span>
-            <div class="equip-name" data-i18n="tech.eq6">포장 라인</div>
-          </div>
-        </div>
+        </section>
 
-        <div class="key-callout reveal">
-          <p data-i18n="tech.calloutDesc">핵심 차별점: 70일 저온 숙성 공정으로 유효 성분 안정화 및 프리미엄 품질 구현</p>
-        </div>
-        </div>
+        <!-- SCREEN 05 — MANUFACTURING -->
+        <section class="pr-mfg reveal">
+          <h4 class="pr-h" data-i18n="proc.mfgTitle">검증된 원료는 이 설비에서 제품이 됩니다.</h4>
+          <p class="pr-lead" data-i18n="proc.mfgLead"></p>
+
+          <div class="pr-line">
+            <h5 class="pr-line-t" data-i18n="proc.mfgSoap">비누</h5>
+            <ol class="pr-steps">
+              <li><span class="pr-step-n">01</span><span data-i18n="proc.sA1"></span></li>
+              <li><span class="pr-step-n">02</span><span data-i18n="proc.sA2"></span></li>
+              <li><span class="pr-step-n">03</span><span data-i18n="proc.sA3"></span></li>
+            </ol>
+            <div class="pr-eq-grid">
+            <figure class="pr-eq">
+              <img src="assets/img/eq-mixtank.webp" alt="혼합·가열 탱크" loading="lazy" width="900" height="675">
+              <figcaption><span class="pr-eq-step">01</span><span class="pr-eq-name">혼합·가열 탱크</span></figcaption>
+            </figure>
+            <figure class="pr-eq">
+              <img src="assets/img/eq-press.webp" alt="프레스 성형기" loading="lazy" width="900" height="675">
+              <figcaption><span class="pr-eq-step">02</span><span class="pr-eq-name">프레스 성형기</span></figcaption>
+            </figure>
+            <figure class="pr-eq">
+              <img src="assets/img/eq-wrapper.webp" alt="랩 포장기" loading="lazy" width="900" height="675">
+              <figcaption><span class="pr-eq-step">03</span><span class="pr-eq-name">랩 포장기</span></figcaption>
+            </figure>
+            </div>
+          </div>
+
+          <div class="pr-line">
+            <h5 class="pr-line-t" data-i18n="proc.mfgPaste">치약</h5>
+            <ol class="pr-steps">
+              <li><span class="pr-step-n">01</span><span data-i18n="proc.pA1"></span></li>
+              <li><span class="pr-step-n">02</span><span data-i18n="proc.pA2"></span></li>
+              <li class="is-key"><span class="pr-step-n">03</span><span data-i18n="proc.pA3"></span></li>
+              <li><span class="pr-step-n">04</span><span data-i18n="proc.pA4"></span></li>
+            </ol>
+            <div class="pr-aging">
+              <span class="pr-aging-n">70</span>
+              <span class="pr-aging-u">DAYS</span>
+              <p class="pr-aging-d" data-i18n="proc.agingDesc"></p>
+            </div>
+            <div class="pr-eq-grid">
+            <figure class="pr-eq">
+              <img src="assets/img/eq-vacmixer.webp" alt="진공 교반 설비" loading="lazy" width="900" height="675">
+              <figcaption><span class="pr-eq-step">01</span><span class="pr-eq-name">진공 교반 설비</span></figcaption>
+            </figure>
+            <figure class="pr-eq">
+              <img src="assets/img/eq-filling.webp" alt="충진 라인" loading="lazy" width="900" height="675">
+              <figcaption><span class="pr-eq-step">02</span><span class="pr-eq-name">충진 라인</span></figcaption>
+            </figure>
+            <figure class="pr-eq">
+              <img src="assets/img/eq-packing.webp" alt="포장 라인" loading="lazy" width="900" height="675">
+              <figcaption><span class="pr-eq-step">03</span><span class="pr-eq-name">포장 라인</span></figcaption>
+            </figure>
+            </div>
+          </div>
+        </section>
+
+        <!-- SCREEN 06 — CTA -->
+        <section class="pr-cta reveal">
+          <h4 class="pr-cta-t" data-i18n="proc.ctaTitle">공정과 시험 자료가 필요하시면 문의해 주세요.</h4>
+          <div class="pr-cta-btns">
+            <a href="#contact" class="btn btn-primary" data-i18n="proc.ctaDoc">성적서 요청</a>
+            <a href="#contact" class="btn btn-outline" data-i18n="proc.ctaPartner">파트너십 문의</a>
+          </div>
+        </section>
       </div>
-
       <div id="about-why" class="info-section" hidden>
         <h3 class="block-title reveal" data-i18n="about2.whyTitle">선택해야 하는 이유</h3>
         <div class="why-grid reveal">
@@ -1120,7 +1182,7 @@
 <a href="#contact" class="sticky-cta"><span class="sticky-cta-btn" data-i18n="stickyCta">파트너십 문의</span></a>
 
 
-<script src="assets/js/i18n.js?v=202610062220"></script>
-<script src="assets/js/app.js?v=202610062220"></script>
+<script src="assets/js/i18n.js?v=202610062227"></script>
+<script src="assets/js/app.js?v=202610062227"></script>
 </body>
 </html>
