@@ -115,29 +115,28 @@
     var VALID_VIEWS = ['home', 'material', 'business', 'products', 'about', 'partnership', 'contact'];
     var HASH_ALIASES = { hero: 'home', why: 'about', partners: 'partnership', technology: 'material' };
     var SUBVIEW_GROUPS = {
-      material: ['mat-story', 'mat-uses', 'mat-tests'],
+      material: ['mat-story'],
       business: ['biz-areas'],
-      products: ['prod-soap', 'prod-paste', 'prod-proc-soap', 'prod-proc-paste'],
-      about: ['about-info', 'about-origin', 'about-vision', 'about-values'],
-      partnership: ['part-current', 'part-global'],
+      products: ['prod-soap', 'prod-paste'],
+      about: ['brand-story', 'brand-process'],
+      partnership: ['part-current'],
       contact: ['contact-form', 'contact-faq']
     };
     /* 메뉴 한 칸이 여러 블록을 묶는 경우. 없으면 같은 id 블록 하나를 쓴다. */
     var SUBVIEW_BLOCKS = {
       'about-origin': ['about-origin', 'about-history'],
-      'mat-story': ['mat-story', 'mat-comp'],
-      'mat-tests': ['mat-tests', 'mat-props'],
+      'mat-story': ['mat-story', 'mat-comp', 'mat-uses', 'mat-tests', 'mat-props'],
       'about-values': ['about-principles']
     };
     function blocksOf(subId) { return SUBVIEW_BLOCKS[subId] || [subId]; }
 
     /* 스크롤 스토리텔링을 쓰는 뷰: 소메뉴를 숨기지 않고 한 페이지로 이어 붙인다 */
-    var STORY_VIEWS = { about: true };
+    var STORY_VIEWS = { material: true, partnership: true };
     var lastStoryView = null;
 
     var SUBVIEW_DEFAULT = {
       material: 'mat-story', business: 'biz-areas', products: 'prod-soap',
-      about: 'about-info', partnership: 'part-current', contact: 'contact-form'
+      about: 'brand-story', partnership: 'part-current', contact: 'contact-form'
     };
     var SUBSECTIONS = {};
     Object.keys(SUBVIEW_GROUPS).forEach(function (view) {
@@ -153,7 +152,13 @@
       'products-process': 'prod-proc-soap', 'prod-process': 'prod-proc-soap', 'products-oem': 'biz-areas',
       'biz-material': 'biz-areas', 'biz-goods': 'biz-areas', 'biz-oem': 'biz-areas',
       'about-overview': 'about-info', 'about-story': 'about-origin', 'about-milestones': 'about-origin',
-      'about-why': 'about-values', 'about-principles': 'about-values'
+      'about-why': 'brand-story', 'about-principles': 'brand-story',
+      'about-info': 'brand-story', 'about-origin': 'brand-story',
+      'about-vision': 'brand-story', 'about-values': 'brand-story',
+      'prod-process': 'brand-process', 'prod-proc-soap': 'brand-process',
+      'prod-proc-paste': 'brand-process',
+      'mat-uses': 'mat-story', 'mat-tests': 'mat-story', 'part-global': 'part-current',
+      'biz-material': 'biz-areas', 'biz-goods': 'biz-areas', 'biz-oem': 'biz-areas'
     };
     Object.keys(LEGACY_SUBS).forEach(function (old) {
       SUBSECTIONS[old] = SUBSECTIONS[LEGACY_SUBS[old]];

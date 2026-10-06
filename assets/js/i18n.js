@@ -6,11 +6,11 @@ var I18N = {
     full: { ko: "카리바이오", en: "KALIBIO", zh: "卡里生物" }
   },
   nav: {
-    material: { ko: "칼륨 장석", en: "Potassium Feldspar", zh: "钾长石" },
-    business: { ko: "비즈니스 협력", en: "Business &amp; Partnership", zh: "业务合作" },
-    products: { ko: "제품 및 주요 공정", en: "Products &amp; Process", zh: "产品与主要工艺" },
-    about: { ko: "기업 소개", en: "About", zh: "企业介绍" },
-    contact: { ko: "고객 문의", en: "Contact", zh: "客户咨询" },
+    material: { ko: "원료 공급", en: "Materials", zh: "原料供应" },
+    business: { ko: "비즈니스", en: "Business", zh: "业务" },
+    products: { ko: "제품", en: "Products", zh: "产品" },
+    about: { ko: "브랜드", en: "Brand", zh: "品牌" },
+    contact: { ko: "문의", en: "Contact", zh: "咨询" },
     cta: { ko: "파트너십 제안하기", en: "Propose a Partnership", zh: "提出合作" }
   },
   navGrp: {
@@ -18,22 +18,24 @@ var I18N = {
     process: { ko: "주요 공정", en: "Process", zh: "主要工艺" }
   },
   navSub: {
-    matStory: { ko: "원료 이야기", en: "The Material Story", zh: "原料故事" },
+    matStory: { ko: "칼륨장석", en: "Potassium Feldspar", zh: "钾长石" },
     matUses: { ko: "장점과 용처", en: "Strengths &amp; Uses", zh: "优势与用途" },
     matTests: { ko: "시험과 분석", en: "Testing", zh: "检测与分析" },
     bizMaterial: { ko: "사업 분야", en: "Business Areas", zh: "业务领域" },
-    prodSoap: { ko: "카리비누", en: "KALI Soap", zh: "卡里皂" },
-    prodPaste: { ko: "K.28 치약", en: "K.28 Toothpaste", zh: "K.28 牙膏" },
+    prodSoap: { ko: "비누", en: "Soap", zh: "香皂" },
+    prodPaste: { ko: "치약", en: "Toothpaste", zh: "牙膏" },
     aboutInfo: { ko: "기업 정보", en: "Company Profile", zh: "企业信息" },
     aboutOrigin: { ko: "기원과 발전과정", en: "Origin &amp; Development", zh: "起源与发展历程" },
     aboutVision: { ko: "비전과 목표", en: "Vision &amp; Goals", zh: "愿景与目标" },
     partCurrent: { ko: "협력 현황", en: "Current Partners", zh: "合作现状" },
-    partGlobal: { ko: "글로벌 파트너 모집", en: "Global Partners Wanted", zh: "招募全球伙伴" },
+    partGlobal: { ko: "파트너십", en: "Partnership", zh: "合作伙伴" },
     contactForm: { ko: "고객 문의", en: "Contact Us", zh: "客户咨询" },
     contactFaq: { ko: "FAQ", en: "FAQ", zh: "常见问题" },
     aboutValues: { ko: "기업 핵심 가치", en: "Core Values", zh: "企业核心价值" },
     procSoap: { ko: "비누 공정", en: "Soap Process", zh: "皂类工艺" },
-    procPaste: { ko: "치약 공정", en: "Toothpaste Process", zh: "牙膏工艺" }
+    procPaste: { ko: "치약 공정", en: "Toothpaste Process", zh: "牙膏工艺" },
+    brandStory: { ko: "스토리", en: "Story", zh: "品牌故事" },
+    brandProcess: { ko: "공정", en: "Process", zh: "生产工艺" }
   },
   hero: {
     m1: { ko: "기능성 소재 공급", en: "Functional Material Supply", zh: "功能性原料供应" },

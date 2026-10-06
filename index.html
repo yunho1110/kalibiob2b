@@ -17,17 +17,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <!-- 스타일시트는 순서가 중요합니다. 토큰 → 기본 → 공통 → 페이지별 순으로 읽힙니다. -->
-<link rel="stylesheet" href="assets/css/tokens.css?v=202610031806">
-<link rel="stylesheet" href="assets/css/base.css?v=202610031806">
-<link rel="stylesheet" href="assets/css/components.css?v=202610031806">
-<link rel="stylesheet" href="assets/css/pages/home.css?v=202610031806">
-<link rel="stylesheet" href="assets/css/pages/about.css?v=202610031806">
-<link rel="stylesheet" href="assets/css/pages/material.css?v=202610031806">
-<link rel="stylesheet" href="assets/css/pages/products.css?v=202610031806">
-<link rel="stylesheet" href="assets/css/pages/business.css?v=202610031806">
-<link rel="stylesheet" href="assets/css/pages/partnership.css?v=202610031806">
-<link rel="stylesheet" href="assets/css/pages/contact.css?v=202610031806">
-<link rel="stylesheet" href="assets/css/theme.css?v=202610031806">
+<link rel="stylesheet" href="assets/css/tokens.css?v=202610062220">
+<link rel="stylesheet" href="assets/css/base.css?v=202610062220">
+<link rel="stylesheet" href="assets/css/components.css?v=202610062220">
+<link rel="stylesheet" href="assets/css/pages/home.css?v=202610062220">
+<link rel="stylesheet" href="assets/css/pages/about.css?v=202610062220">
+<link rel="stylesheet" href="assets/css/pages/material.css?v=202610062220">
+<link rel="stylesheet" href="assets/css/pages/products.css?v=202610062220">
+<link rel="stylesheet" href="assets/css/pages/business.css?v=202610062220">
+<link rel="stylesheet" href="assets/css/pages/partnership.css?v=202610062220">
+<link rel="stylesheet" href="assets/css/pages/contact.css?v=202610062220">
+<link rel="stylesheet" href="assets/css/theme.css?v=202610062220">
 </head>
 <body>
 <a class="skip-link" href="#viewport">본문으로 건너뛰기</a>
@@ -44,52 +44,35 @@
     </a>
 
     <nav class="main-nav" aria-label="주요 메뉴">
-      <div class="nav-group" data-group="about">
-        <a class="nav-parent" href="#about" data-view="about" data-i18n="nav.about">기업 소개</a>
-        <div class="nav-sub">
-          <a href="#about-info" class="nav-sub-link" data-subview="about-info" data-i18n="navSub.aboutInfo">기업 정보</a>
-          <a href="#about-origin" class="nav-sub-link" data-subview="about-origin" data-i18n="navSub.aboutOrigin">기원과 발전과정</a>
-          <a href="#about-vision" class="nav-sub-link" data-subview="about-vision" data-i18n="navSub.aboutVision">비전과 목표</a>
-          <a href="#about-values" class="nav-sub-link" data-subview="about-values" data-i18n="navSub.aboutValues">기업 핵심 가치</a>
-        </div>
-      </div>
       <div class="nav-group" data-group="material">
-        <a class="nav-parent" href="#material" data-view="material" data-i18n="nav.material">칼륨 장석</a>
+        <a class="nav-parent" href="#material" data-view="material" data-i18n="nav.material">원료 공급</a>
         <div class="nav-sub">
-          <a href="#mat-story" class="nav-sub-link" data-subview="mat-story" data-i18n="navSub.matStory">원료 이야기</a>
-          <a href="#mat-uses" class="nav-sub-link" data-subview="mat-uses" data-i18n="navSub.matUses">장점과 용처</a>
-          <a href="#mat-tests" class="nav-sub-link" data-subview="mat-tests" data-i18n="navSub.matTests">시험과 분석</a>
+          <a href="#mat-story" class="nav-sub-link" data-subview="mat-story" data-i18n="navSub.matStory">칼륨장석</a>
         </div>
       </div>
       <div class="nav-group" data-group="products">
-        <a class="nav-parent" href="#products" data-view="products" data-i18n="nav.products">제품 및 주요 공정</a>
+        <a class="nav-parent" href="#products" data-view="products" data-i18n="nav.products">제품</a>
         <div class="nav-sub">
-          <div class="nav-sub-group" data-subgroup="prod">
-            <button type="button" class="nav-sub-head is-toggle" aria-expanded="false" data-i18n="navGrp.products">제품</button>
-            <div class="nav-sub-items">
-              <a href="#prod-soap" class="nav-sub-link" data-subview="prod-soap" data-i18n="navSub.prodSoap">카리비누</a>
-              <a href="#prod-paste" class="nav-sub-link" data-subview="prod-paste" data-i18n="navSub.prodPaste">K.28 치약</a>
-            </div>
-          </div>
-          <div class="nav-sub-group" data-subgroup="proc">
-            <button type="button" class="nav-sub-head is-toggle" aria-expanded="false" data-i18n="navGrp.process">주요 공정</button>
-            <div class="nav-sub-items">
-              <a href="#prod-proc-soap" class="nav-sub-link" data-subview="prod-proc-soap" data-i18n="navSub.procSoap">비누 공정</a>
-              <a href="#prod-proc-paste" class="nav-sub-link" data-subview="prod-proc-paste" data-i18n="navSub.procPaste">치약 공정</a>
-            </div>
-          </div>
+          <a href="#prod-soap" class="nav-sub-link" data-subview="prod-soap" data-i18n="navSub.prodSoap">비누</a>
+          <a href="#prod-paste" class="nav-sub-link" data-subview="prod-paste" data-i18n="navSub.prodPaste">치약</a>
+        </div>
+      </div>
+      <div class="nav-group" data-group="about">
+        <a class="nav-parent" href="#about" data-view="about" data-i18n="nav.about">브랜드</a>
+        <div class="nav-sub">
+          <a href="#brand-story" class="nav-sub-link" data-subview="brand-story" data-i18n="navSub.brandStory">스토리</a>
+          <a href="#brand-process" class="nav-sub-link" data-subview="brand-process" data-i18n="navSub.brandProcess">공정</a>
         </div>
       </div>
       <div class="nav-group" data-group="business partnership">
-        <a class="nav-parent" href="#business" data-view="business" data-i18n="nav.business">비즈니스 협력</a>
+        <a class="nav-parent" href="#business" data-view="business" data-i18n="nav.business">비즈니스</a>
         <div class="nav-sub">
           <a href="#biz-areas" class="nav-sub-link" data-subview="biz-areas" data-i18n="navSub.bizMaterial">사업 분야</a>
-          <a href="#part-current" class="nav-sub-link" data-subview="part-current" data-i18n="navSub.partCurrent">협력 현황</a>
-          <a href="#part-global" class="nav-sub-link" data-subview="part-global" data-i18n="navSub.partGlobal">글로벌 파트너 모집</a>
+          <a href="#part-current" class="nav-sub-link" data-subview="part-current" data-i18n="navSub.partGlobal">파트너십</a>
         </div>
       </div>
       <div class="nav-group" data-group="contact">
-        <a class="nav-parent" href="#contact" data-view="contact" data-i18n="nav.contact">고객 문의</a>
+        <a class="nav-parent" href="#contact" data-view="contact" data-i18n="nav.contact">문의</a>
         <div class="nav-sub">
           <a href="#contact-form" class="nav-sub-link" data-subview="contact-form" data-i18n="navSub.contactForm">고객 문의</a>
           <a href="#contact-faq" class="nav-sub-link" data-subview="contact-faq" data-i18n="navSub.contactFaq">FAQ</a>
@@ -133,65 +116,48 @@
     <button type="button" class="drawer-close" id="drawerCloseBtn" aria-label="Close menu">&times;</button>
   </div>
   <nav class="drawer-nav">
-    <div class="nav-group" data-group="about">
-      <div class="nav-row">
-        <a href="#about" data-view="about" data-i18n="nav.about">기업 소개</a>
-        <button type="button" class="nav-toggle" aria-label="하위 메뉴 열기" aria-expanded="false">▾</button>
-      </div>
-      <div class="nav-sub">
-        <a href="#about-info" class="nav-sub-link" data-subview="about-info" data-i18n="navSub.aboutInfo">기업 정보</a>
-        <a href="#about-origin" class="nav-sub-link" data-subview="about-origin" data-i18n="navSub.aboutOrigin">기원과 발전과정</a>
-        <a href="#about-vision" class="nav-sub-link" data-subview="about-vision" data-i18n="navSub.aboutVision">비전과 목표</a>
-        <a href="#about-values" class="nav-sub-link" data-subview="about-values" data-i18n="navSub.aboutValues">기업 핵심 가치</a>
-      </div>
-    </div>
     <div class="nav-group" data-group="material">
       <div class="nav-row">
-        <a href="#material" data-view="material" data-i18n="nav.material">칼륨 장석</a>
+        <a href="#material" data-view="material" data-i18n="nav.material">원료 공급</a>
         <button type="button" class="nav-toggle" aria-label="하위 메뉴 열기" aria-expanded="false">▾</button>
       </div>
       <div class="nav-sub">
-        <a href="#mat-story" class="nav-sub-link" data-subview="mat-story" data-i18n="navSub.matStory">원료 이야기</a>
-        <a href="#mat-uses" class="nav-sub-link" data-subview="mat-uses" data-i18n="navSub.matUses">장점과 용처</a>
-        <a href="#mat-tests" class="nav-sub-link" data-subview="mat-tests" data-i18n="navSub.matTests">시험과 분석</a>
+        <a href="#mat-story" class="nav-sub-link" data-subview="mat-story" data-i18n="navSub.matStory">칼륨장석</a>
       </div>
     </div>
     <div class="nav-group" data-group="products">
       <div class="nav-row">
-        <a href="#products" data-view="products" data-i18n="nav.products">제품 및 주요 공정</a>
+        <a href="#products" data-view="products" data-i18n="nav.products">제품</a>
         <button type="button" class="nav-toggle" aria-label="하위 메뉴 열기" aria-expanded="false">▾</button>
       </div>
       <div class="nav-sub">
-        <div class="nav-sub-group" data-subgroup="prod">
-          <button type="button" class="nav-sub-head is-toggle" aria-expanded="false" data-i18n="navGrp.products">제품</button>
-          <div class="nav-sub-items">
-            <a href="#prod-soap" class="nav-sub-link" data-subview="prod-soap" data-i18n="navSub.prodSoap">카리비누</a>
-            <a href="#prod-paste" class="nav-sub-link" data-subview="prod-paste" data-i18n="navSub.prodPaste">K.28 치약</a>
-          </div>
-        </div>
-        <div class="nav-sub-group" data-subgroup="proc">
-          <button type="button" class="nav-sub-head is-toggle" aria-expanded="false" data-i18n="navGrp.process">주요 공정</button>
-          <div class="nav-sub-items">
-            <a href="#prod-proc-soap" class="nav-sub-link" data-subview="prod-proc-soap" data-i18n="navSub.procSoap">비누 공정</a>
-            <a href="#prod-proc-paste" class="nav-sub-link" data-subview="prod-proc-paste" data-i18n="navSub.procPaste">치약 공정</a>
-          </div>
-        </div>
+        <a href="#prod-soap" class="nav-sub-link" data-subview="prod-soap" data-i18n="navSub.prodSoap">비누</a>
+        <a href="#prod-paste" class="nav-sub-link" data-subview="prod-paste" data-i18n="navSub.prodPaste">치약</a>
+      </div>
+    </div>
+    <div class="nav-group" data-group="about">
+      <div class="nav-row">
+        <a href="#about" data-view="about" data-i18n="nav.about">브랜드</a>
+        <button type="button" class="nav-toggle" aria-label="하위 메뉴 열기" aria-expanded="false">▾</button>
+      </div>
+      <div class="nav-sub">
+        <a href="#brand-story" class="nav-sub-link" data-subview="brand-story" data-i18n="navSub.brandStory">스토리</a>
+        <a href="#brand-process" class="nav-sub-link" data-subview="brand-process" data-i18n="navSub.brandProcess">공정</a>
       </div>
     </div>
     <div class="nav-group" data-group="business partnership">
       <div class="nav-row">
-        <a href="#business" data-view="business" data-i18n="nav.business">비즈니스 협력</a>
+        <a href="#business" data-view="business" data-i18n="nav.business">비즈니스</a>
         <button type="button" class="nav-toggle" aria-label="하위 메뉴 열기" aria-expanded="false">▾</button>
       </div>
       <div class="nav-sub">
         <a href="#biz-areas" class="nav-sub-link" data-subview="biz-areas" data-i18n="navSub.bizMaterial">사업 분야</a>
-        <a href="#part-current" class="nav-sub-link" data-subview="part-current" data-i18n="navSub.partCurrent">협력 현황</a>
-        <a href="#part-global" class="nav-sub-link" data-subview="part-global" data-i18n="navSub.partGlobal">글로벌 파트너 모집</a>
+        <a href="#part-current" class="nav-sub-link" data-subview="part-current" data-i18n="navSub.partGlobal">파트너십</a>
       </div>
     </div>
     <div class="nav-group" data-group="contact">
       <div class="nav-row">
-        <a href="#contact" data-view="contact" data-i18n="nav.contact">고객 문의</a>
+        <a href="#contact" data-view="contact" data-i18n="nav.contact">문의</a>
         <button type="button" class="nav-toggle" aria-label="하위 메뉴 열기" aria-expanded="false">▾</button>
       </div>
       <div class="nav-sub">
@@ -322,7 +288,7 @@
       </div>
 
       <!-- 구성요소 -->
-      <div id="mat-comp" class="tech-block" hidden>
+      <div id="mat-comp" class="tech-block">
         <h3 class="block-title reveal" data-i18n="mat.compTitle">이 원료를 이루는 것</h3>
         <p class="block-desc reveal" data-i18n="mat.compIntro"></p>
         <div class="elem-grid reveal">
@@ -350,7 +316,7 @@
       </div>
 
       <!-- 장점과 용처 -->
-      <div id="mat-uses" class="tech-block" hidden>
+      <div id="mat-uses" class="tech-block">
         <h3 class="block-title reveal" data-i18n="mat.usesTitle">돌 하나가 갈 수 있는 곳</h3>
         <p class="lead-line reveal" data-i18n="mat.usesLead"></p>
         <p class="block-desc reveal" data-i18n="mat.usesP1"></p>
@@ -395,7 +361,7 @@
 
       <!-- 특성과 효능 -->
       <!-- 시험과 분석 -->
-      <div id="mat-tests" class="tech-block" hidden>
+      <div id="mat-tests" class="tech-block">
         <p class="block-desc reveal" data-i18n="mat.testsIntro"></p>
 
         <div class="test-list reveal">
@@ -438,7 +404,7 @@
           <a href="#contact" class="btn btn-primary" data-i18n="tech.certCta">성적서 원본 요청하기</a>
         </div>
       </div>
-      <div id="mat-props" class="tech-block" hidden>
+      <div id="mat-props" class="tech-block">
         <h3 class="block-title reveal" data-i18n="mat.propsTitle">약알칼리성이라는 성질</h3>
 
         <div class="prop-step reveal">
@@ -702,83 +668,6 @@
         </div>
       </div>
 
-              <div id="prod-proc-soap" class="product-group" hidden>
-          <h3 class="block-title reveal" data-i18n="navSub.procSoap">비누 공정</h3>
-
-        <h4 class="sub-title reveal" data-i18n="soapProc.title">비누 제조 공정 — 4단계</h4>
-        <div class="soap-process reveal">
-          <div class="sp-step"><div class="sp-num">STEP 01</div><div class="sp-name" data-i18n="soapProc.s1"></div><p class="sp-desc" data-i18n="soapProc.d1"></p></div>
-          <div class="sp-step"><div class="sp-num">STEP 02</div><div class="sp-name" data-i18n="soapProc.s2"></div><p class="sp-desc" data-i18n="soapProc.d2"></p></div>
-          <div class="sp-step"><div class="sp-num">STEP 03</div><div class="sp-name" data-i18n="soapProc.s3"></div><p class="sp-desc" data-i18n="soapProc.d3"></p></div>
-          <div class="sp-step"><div class="sp-num">STEP 04</div><div class="sp-name" data-i18n="soapProc.s4"></div><p class="sp-desc" data-i18n="soapProc.d4"></p></div>
-        </div>
-
-        <h4 class="sub-title reveal" style="margin-top:32px;" data-i18n="soapProc.equipTitle">실제 사용 설비</h4>
-        <div class="equip-grid reveal">
-          <div class="equip-card">
-            <figure class="equip-media"><img src="assets/img/eq-mixtank.webp" alt="혼합·가열 탱크" loading="lazy" width="800" height="600"></figure>
-            <span class="equip-step">STEP 02</span>
-            <div class="equip-name" data-i18n="soapProc.eq1">혼합·가열 탱크</div>
-          </div>
-          <div class="equip-card">
-            <figure class="equip-media"><img src="assets/img/eq-press.webp" alt="프레스 성형기" loading="lazy" width="800" height="600"></figure>
-            <span class="equip-step">STEP 03</span>
-            <div class="equip-name" data-i18n="soapProc.eq3">프레스 성형기</div>
-          </div>
-          <div class="equip-card">
-            <figure class="equip-media"><img src="assets/img/eq-wrapper.webp" alt="랩포장기" loading="lazy" width="800" height="600"></figure>
-            <span class="equip-step">STEP 04</span>
-            <div class="equip-name" data-i18n="soapProc.eq4">랩포장기</div>
-          </div>
-        </div>
-        </div>
-
-        <div id="prod-proc-paste" class="product-group" hidden>
-          <h3 class="block-title reveal" data-i18n="navSub.procPaste">치약 공정</h3>
-<h4 class="sub-title reveal" style="margin-top:44px;" data-i18n="tech.k28Title"></h4>
-        <ol class="process-list reveal">
-          <li class="process-item"><span class="step-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 8h14"/><path d="M5 8 2 15a3.5 3.5 0 0 0 6 0z"/><path d="M19 8l-3 7a3.5 3.5 0 0 0 6 0z"/></svg></span><span data-i18n="tech.step1"></span></li>
-          <li class="process-item"><span class="step-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 5 6 8.5 6 11.5A6 6 0 0 1 6 14.5C6 11.5 8 8 12 3z"/></svg></span><span data-i18n="tech.step2"></span></li>
-          <li class="process-item"><span class="step-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M6 6l1 13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-13"/><path d="M10 11v5M14 11v5"/></svg></span><span data-i18n="tech.step3"></span></li>
-          <li class="process-item"><span class="step-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c8-1 14-7 15-15-8 1-14 7-15 15z"/><path d="M6 18c3-4 7-8 11-11"/></svg></span><span data-i18n="tech.step4"></span></li>
-          <li class="process-item is-key"><span class="step-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M4.5 6.5l15 11M19.5 6.5l-15 11"/><path d="M12 6l-2 2M12 6l2 2M12 18l-2-2M12 18l2-2"/></svg></span><span data-i18n="tech.step5"></span></li>
-          <li class="process-item"><span class="step-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6v4l2 3v9a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-9l2-3z"/><path d="M7 14h10"/></svg></span><span data-i18n="tech.step6"></span></li>
-          <li class="process-item"><span class="step-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-5 9 5-9 5-9-5z"/><path d="M3 8v9l9 5 9-5V8"/><path d="M12 13V22"/></svg></span><span data-i18n="tech.step7"></span></li>
-        </ol>
-
-        <h4 class="sub-title reveal" style="margin-top:32px;" data-i18n="tech.equipTitle">실제 사용 설비</h4>
-        <div class="equip-grid reveal">
-          <div class="equip-card">
-            <figure class="equip-media"><img src="assets/img/eq-water.webp" alt="정제수 설비" loading="lazy" width="800" height="600"></figure>
-            <span class="equip-step">Step 2</span>
-            <div class="equip-name" data-i18n="tech.eq3">정제수 설비</div>
-          </div>
-          <div class="equip-card">
-            <figure class="equip-media"><img src="assets/img/eq-vacmixer.webp" alt="진공 교반 설비" loading="lazy" width="800" height="600"></figure>
-            <span class="equip-step">Step 2·3</span>
-            <div class="equip-name" data-i18n="tech.eq2">진공 교반 설비</div>
-          </div>
-          <div class="equip-card is-key">
-            <figure class="equip-media"><img src="assets/img/eq-aging.webp" alt="숙성 탱크" loading="lazy" width="800" height="600"></figure>
-            <span class="equip-step">Step 5</span>
-            <div class="equip-name" data-i18n="tech.eq4">숙성 탱크</div>
-          </div>
-          <div class="equip-card">
-            <figure class="equip-media"><img src="assets/img/eq-filling.webp" alt="충진 라인" loading="lazy" width="800" height="600"></figure>
-            <span class="equip-step">Step 6</span>
-            <div class="equip-name" data-i18n="tech.eq5">충진 라인</div>
-          </div>
-          <div class="equip-card">
-            <figure class="equip-media"><img src="assets/img/eq-packing.webp" alt="포장 라인" loading="lazy" width="800" height="600"></figure>
-            <span class="equip-step">Step 7</span>
-            <div class="equip-name" data-i18n="tech.eq6">포장 라인</div>
-          </div>
-        </div>
-
-        <div class="key-callout reveal">
-          <p data-i18n="tech.calloutDesc">핵심 차별점: 70일 저온 숙성 공정으로 유효 성분 안정화 및 프리미엄 품질 구현</p>
-        </div>
-        </div>
     </div>
   </div>
 </section>
@@ -793,7 +682,8 @@
         <span class="eyebrow" data-i18n="about.eyebrow">ABOUT KALIBIO</span>
         <h2 class="section-title" data-page-title>기업소개</h2>
       </div>
-      <div class="story-scroll">
+            <div id="brand-story" class="tech-block">
+<div class="story-scroll">
         <div class="story-col">
           <section class="story-sec" id="about-info" data-story="1">
       <div id="blk-about-info" class="tech-block">
@@ -931,6 +821,88 @@
           </div>
         </aside>
       </div>
+      </div>
+
+      <div id="brand-process" class="tech-block" hidden>
+              <div id="prod-proc-soap" class="product-group" hidden>
+          <h3 class="block-title reveal" data-i18n="navSub.procSoap">비누 공정</h3>
+
+        <h4 class="sub-title reveal" data-i18n="soapProc.title">비누 제조 공정 — 4단계</h4>
+        <div class="soap-process reveal">
+          <div class="sp-step"><div class="sp-num">STEP 01</div><div class="sp-name" data-i18n="soapProc.s1"></div><p class="sp-desc" data-i18n="soapProc.d1"></p></div>
+          <div class="sp-step"><div class="sp-num">STEP 02</div><div class="sp-name" data-i18n="soapProc.s2"></div><p class="sp-desc" data-i18n="soapProc.d2"></p></div>
+          <div class="sp-step"><div class="sp-num">STEP 03</div><div class="sp-name" data-i18n="soapProc.s3"></div><p class="sp-desc" data-i18n="soapProc.d3"></p></div>
+          <div class="sp-step"><div class="sp-num">STEP 04</div><div class="sp-name" data-i18n="soapProc.s4"></div><p class="sp-desc" data-i18n="soapProc.d4"></p></div>
+        </div>
+
+        <h4 class="sub-title reveal" style="margin-top:32px;" data-i18n="soapProc.equipTitle">실제 사용 설비</h4>
+        <div class="equip-grid reveal">
+          <div class="equip-card">
+            <figure class="equip-media"><img src="assets/img/eq-mixtank.webp" alt="혼합·가열 탱크" loading="lazy" width="800" height="600"></figure>
+            <span class="equip-step">STEP 02</span>
+            <div class="equip-name" data-i18n="soapProc.eq1">혼합·가열 탱크</div>
+          </div>
+          <div class="equip-card">
+            <figure class="equip-media"><img src="assets/img/eq-press.webp" alt="프레스 성형기" loading="lazy" width="800" height="600"></figure>
+            <span class="equip-step">STEP 03</span>
+            <div class="equip-name" data-i18n="soapProc.eq3">프레스 성형기</div>
+          </div>
+          <div class="equip-card">
+            <figure class="equip-media"><img src="assets/img/eq-wrapper.webp" alt="랩포장기" loading="lazy" width="800" height="600"></figure>
+            <span class="equip-step">STEP 04</span>
+            <div class="equip-name" data-i18n="soapProc.eq4">랩포장기</div>
+          </div>
+        </div>
+        </div>
+
+        <div id="prod-proc-paste" class="product-group" hidden>
+          <h3 class="block-title reveal" data-i18n="navSub.procPaste">치약 공정</h3>
+<h4 class="sub-title reveal" style="margin-top:44px;" data-i18n="tech.k28Title"></h4>
+        <ol class="process-list reveal">
+          <li class="process-item"><span class="step-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 8h14"/><path d="M5 8 2 15a3.5 3.5 0 0 0 6 0z"/><path d="M19 8l-3 7a3.5 3.5 0 0 0 6 0z"/></svg></span><span data-i18n="tech.step1"></span></li>
+          <li class="process-item"><span class="step-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 5 6 8.5 6 11.5A6 6 0 0 1 6 14.5C6 11.5 8 8 12 3z"/></svg></span><span data-i18n="tech.step2"></span></li>
+          <li class="process-item"><span class="step-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M6 6l1 13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-13"/><path d="M10 11v5M14 11v5"/></svg></span><span data-i18n="tech.step3"></span></li>
+          <li class="process-item"><span class="step-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c8-1 14-7 15-15-8 1-14 7-15 15z"/><path d="M6 18c3-4 7-8 11-11"/></svg></span><span data-i18n="tech.step4"></span></li>
+          <li class="process-item is-key"><span class="step-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M4.5 6.5l15 11M19.5 6.5l-15 11"/><path d="M12 6l-2 2M12 6l2 2M12 18l-2-2M12 18l2-2"/></svg></span><span data-i18n="tech.step5"></span></li>
+          <li class="process-item"><span class="step-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6v4l2 3v9a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-9l2-3z"/><path d="M7 14h10"/></svg></span><span data-i18n="tech.step6"></span></li>
+          <li class="process-item"><span class="step-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-5 9 5-9 5-9-5z"/><path d="M3 8v9l9 5 9-5V8"/><path d="M12 13V22"/></svg></span><span data-i18n="tech.step7"></span></li>
+        </ol>
+
+        <h4 class="sub-title reveal" style="margin-top:32px;" data-i18n="tech.equipTitle">실제 사용 설비</h4>
+        <div class="equip-grid reveal">
+          <div class="equip-card">
+            <figure class="equip-media"><img src="assets/img/eq-water.webp" alt="정제수 설비" loading="lazy" width="800" height="600"></figure>
+            <span class="equip-step">Step 2</span>
+            <div class="equip-name" data-i18n="tech.eq3">정제수 설비</div>
+          </div>
+          <div class="equip-card">
+            <figure class="equip-media"><img src="assets/img/eq-vacmixer.webp" alt="진공 교반 설비" loading="lazy" width="800" height="600"></figure>
+            <span class="equip-step">Step 2·3</span>
+            <div class="equip-name" data-i18n="tech.eq2">진공 교반 설비</div>
+          </div>
+          <div class="equip-card is-key">
+            <figure class="equip-media"><img src="assets/img/eq-aging.webp" alt="숙성 탱크" loading="lazy" width="800" height="600"></figure>
+            <span class="equip-step">Step 5</span>
+            <div class="equip-name" data-i18n="tech.eq4">숙성 탱크</div>
+          </div>
+          <div class="equip-card">
+            <figure class="equip-media"><img src="assets/img/eq-filling.webp" alt="충진 라인" loading="lazy" width="800" height="600"></figure>
+            <span class="equip-step">Step 6</span>
+            <div class="equip-name" data-i18n="tech.eq5">충진 라인</div>
+          </div>
+          <div class="equip-card">
+            <figure class="equip-media"><img src="assets/img/eq-packing.webp" alt="포장 라인" loading="lazy" width="800" height="600"></figure>
+            <span class="equip-step">Step 7</span>
+            <div class="equip-name" data-i18n="tech.eq6">포장 라인</div>
+          </div>
+        </div>
+
+        <div class="key-callout reveal">
+          <p data-i18n="tech.calloutDesc">핵심 차별점: 70일 저온 숙성 공정으로 유효 성분 안정화 및 프리미엄 품질 구현</p>
+        </div>
+        </div>
+      </div>
+
       <div id="about-why" class="info-section" hidden>
         <h3 class="block-title reveal" data-i18n="about2.whyTitle">선택해야 하는 이유</h3>
         <div class="why-grid reveal">
@@ -998,7 +970,7 @@
         </div>
       </div>
 
-      <div id="part-global" class="tech-block" hidden>
+      <div id="part-global" class="tech-block">
         <h3 class="block-title reveal" data-i18n="part2.globalTitle">글로벌 파트너 모집</h3>
         <div class="recruit-banner reveal" data-i18n="recruit.banner"></div>
         <div class="recruit-grid reveal">
@@ -1148,7 +1120,7 @@
 <a href="#contact" class="sticky-cta"><span class="sticky-cta-btn" data-i18n="stickyCta">파트너십 문의</span></a>
 
 
-<script src="assets/js/i18n.js?v=202610031806"></script>
-<script src="assets/js/app.js?v=202610031806"></script>
+<script src="assets/js/i18n.js?v=202610062220"></script>
+<script src="assets/js/app.js?v=202610062220"></script>
 </body>
 </html>
