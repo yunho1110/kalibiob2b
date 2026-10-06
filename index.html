@@ -17,18 +17,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <!-- 스타일시트는 순서가 중요합니다. 토큰 → 기본 → 공통 → 페이지별 순으로 읽힙니다. -->
-<link rel="stylesheet" href="assets/css/tokens.css?v=202610062346">
-<link rel="stylesheet" href="assets/css/base.css?v=202610062346">
-<link rel="stylesheet" href="assets/css/components.css?v=202610062346">
-<link rel="stylesheet" href="assets/css/pages/home.css?v=202610062346">
-<link rel="stylesheet" href="assets/css/pages/about.css?v=202610062346">
-<link rel="stylesheet" href="assets/css/pages/process.css?v=202610062346">
-<link rel="stylesheet" href="assets/css/pages/material.css?v=202610062346">
-<link rel="stylesheet" href="assets/css/pages/products.css?v=202610062346">
-<link rel="stylesheet" href="assets/css/pages/business.css?v=202610062346">
-<link rel="stylesheet" href="assets/css/pages/partnership.css?v=202610062346">
-<link rel="stylesheet" href="assets/css/pages/contact.css?v=202610062346">
-<link rel="stylesheet" href="assets/css/theme.css?v=202610062346">
+<link rel="stylesheet" href="assets/css/tokens.css?v=202610070010">
+<link rel="stylesheet" href="assets/css/base.css?v=202610070010">
+<link rel="stylesheet" href="assets/css/components.css?v=202610070010">
+<link rel="stylesheet" href="assets/css/pages/home.css?v=202610070010">
+<link rel="stylesheet" href="assets/css/pages/about.css?v=202610070010">
+<link rel="stylesheet" href="assets/css/pages/process.css?v=202610070010">
+<link rel="stylesheet" href="assets/css/pages/material.css?v=202610070010">
+<link rel="stylesheet" href="assets/css/pages/products.css?v=202610070010">
+<link rel="stylesheet" href="assets/css/pages/business.css?v=202610070010">
+<link rel="stylesheet" href="assets/css/pages/partnership.css?v=202610070010">
+<link rel="stylesheet" href="assets/css/pages/contact.css?v=202610070010">
+<link rel="stylesheet" href="assets/css/theme.css?v=202610070010">
 </head>
 <body>
 <a class="skip-link" href="#viewport">본문으로 건너뛰기</a>
@@ -263,7 +263,7 @@
       <span class="hs-label" data-i18n="home.splitPartner">카리바이오 파트너 모집</span>
     </a>
   </div>
-  <script src="assets/js/pages/home.js?v=202610062346"></script>
+  <script src="assets/js/pages/home.js?v=202610070010"></script>
 </section>
 
 <!-- =====================================================================
@@ -570,7 +570,7 @@
       <article class="pd" id="prodDetail" hidden aria-live="polite"></article>
     </div>
   </div>
-  <script src="assets/js/pages/products.js?v=202610062346"></script>
+  <script src="assets/js/pages/products.js?v=202610070010"></script>
 </section>
 
 <!-- =====================================================================
@@ -584,118 +584,78 @@
         <h2 class="section-title" data-page-title>기업소개</h2>
       </div>
       <div id="brand-story" class="tech-block">
+        <!-- 브랜드 > 스토리 (10.06 지시서)
+             배너 → 기업 기원(다크 그린) → 기업 비전(연베이지) → 기업 핵심 가치(다크 그린, 사진 고정) → 발전 과정(가로 타임라인)
+             배경색은 섹션마다 끊기지 않도록 바깥 래퍼 하나가 스크롤에 맞춰 색을 바꾼다 (pages/story.js) -->
+        <div class="st" id="stRoot" data-tone="light">
 
-        <!-- 진입 화면 — 장석 사진이 화면 가운데 -->
-        <section class="bs-intro">
-          <img src="assets/img/feldspar-rock.webp" alt="칼륨장석 원석" width="1000" height="1000">
-        </section>
-
-        <!-- 패럴랙스 — 왼쪽 글이 흐르고 오른쪽 이미지가 고정된 채 전환 -->
-        <div class="bs-scroll" data-bg="dark">
-          <div class="bs-col">
-
-            <section class="bs-sec" data-bs="1" data-bg="dark" id="bs-origin">
-              <h3 class="bs-h" data-i18n="about2.originTitle">기업 기원</h3>
-              <p class="bs-p" data-i18n="about2.originP1"></p>
-            </section>
-
-            <section class="bs-sec" data-bs="2" data-bg="light" id="bs-vision">
-              <h3 class="bs-h" data-i18n="about2.visionTitle">기업 비전</h3>
-              <p class="bs-p" data-i18n="vision.statement"></p>
-            </section>
-
-            <section class="bs-sec" data-bs="3" data-bg="dark" id="bs-values">
-              <h3 class="bs-h" data-i18n="navSub.aboutValues">기업 핵심 가치</h3>
-              <ul class="bs-vals">
-                <li class="bs-val reveal" style="--i:0">
-                  <span class="bs-val-n">01</span>
-                  <div>
-                    <p class="bs-val-label">NATURAL</p>
-                    <p class="bs-val-stat" data-i18n="about.value1"></p>
-                    <p class="bs-val-desc" data-i18n="about.value1d"></p>
-                  </div>
-                </li>
-                <li class="bs-val reveal" style="--i:1">
-                  <span class="bs-val-n">02</span>
-                  <div>
-                    <p class="bs-val-label">SCIENCE</p>
-                    <p class="bs-val-stat" data-i18n="about.value2"></p>
-                    <p class="bs-val-desc" data-i18n="about.value2d"></p>
-                  </div>
-                </li>
-                <li class="bs-val reveal" style="--i:2">
-                  <span class="bs-val-n">03</span>
-                  <div>
-                    <p class="bs-val-label">HEALTH</p>
-                    <p class="bs-val-stat" data-i18n="about.value3"></p>
-                    <p class="bs-val-desc" data-i18n="about.value3d"></p>
-                  </div>
-                </li>
-                <li class="bs-val reveal" style="--i:3">
-                  <span class="bs-val-n">04</span>
-                  <div>
-                    <p class="bs-val-label">SUSTAINABILITY</p>
-                    <p class="bs-val-stat" data-i18n="about.value4"></p>
-                    <p class="bs-val-desc" data-i18n="about.value4d"></p>
-                  </div>
-                </li>
-                <li class="bs-val reveal" style="--i:4">
-                  <span class="bs-val-n">05</span>
-                  <div>
-                    <p class="bs-val-label">INNOVATION</p>
-                    <p class="bs-val-stat" data-i18n="about.value5"></p>
-                    <p class="bs-val-desc" data-i18n="about.value5d"></p>
-                  </div>
-                </li>
-              </ul>
-            </section>
-
-          </div>
-          <aside class="bs-pin" aria-hidden="true">
-            <div class="bs-pin-inner">
-              <img class="bs-img is-on" data-bs="1" src="assets/img/about-powder.webp" alt="" loading="lazy" width="1400" height="787">
-              <img class="bs-img" data-bs="2" src="assets/img/about-soap.webp" alt="" loading="lazy" width="1200" height="800">
-              <img class="bs-img" data-bs="3" src="assets/img/about-k28.webp" alt="" loading="lazy" width="1200" height="800">
+          <!-- 메인 배너 -->
+          <section class="st-banner" aria-label="From nature, we create sustainable value and innovation">
+            <div class="st-banner-copy st-rise">
+              <p class="st-banner-t"><span>From nature,</span><span>we create sustainable value</span><span>and innovation</span></p>
             </div>
-          </aside>
-        </div>
+            <figure class="st-banner-obj st-rise">
+              <img src="assets/img/story-rock.webp" alt="칼륨장석 원석" width="846" height="590" fetchpriority="high">
+            </figure>
+          </section>
 
-        <!-- 발전 과정 — 세로 타임라인 -->
-        <section class="bs-timeline" id="bs-history">
-          <h3 class="bs-h bs-h-center" data-i18n="about.milestonesTitle">발전 과정</h3>
-          <ol class="bs-tl">
-            <li class="bs-tl-node reveal" style="--i:0">
-              <span class="bs-tl-dot" aria-hidden="true"></span>
-              <span class="bs-tl-year">2023.10</span>
-              <p class="bs-tl-text" data-i18n="about.tl1"></p>
-            </li>
-            <li class="bs-tl-node reveal" style="--i:1">
-              <span class="bs-tl-dot" aria-hidden="true"></span>
-              <span class="bs-tl-year">2024.08</span>
-              <p class="bs-tl-text" data-i18n="about.tl2"></p>
-            </li>
-            <li class="bs-tl-node reveal" style="--i:2">
-              <span class="bs-tl-dot" aria-hidden="true"></span>
-              <span class="bs-tl-year">2024.12</span>
-              <p class="bs-tl-text" data-i18n="about.tl3"></p>
-            </li>
-            <li class="bs-tl-node reveal" style="--i:3">
-              <span class="bs-tl-dot" aria-hidden="true"></span>
-              <span class="bs-tl-year">2025.05</span>
-              <p class="bs-tl-text" data-i18n="about.tl4"></p>
-            </li>
-            <li class="bs-tl-node reveal" style="--i:4">
-              <span class="bs-tl-dot" aria-hidden="true"></span>
-              <span class="bs-tl-year">2025.12</span>
-              <p class="bs-tl-text" data-i18n="about.tl5"></p>
-            </li>
-            <li class="bs-tl-node reveal" style="--i:5">
-              <span class="bs-tl-dot" aria-hidden="true"></span>
-              <span class="bs-tl-year">2026 ~</span>
-              <p class="bs-tl-text" data-i18n="about.tl6"></p>
-            </li>
-          </ol>
-        </section>
+          <!-- 1) 기업 기원 -->
+          <section class="st-sec" data-tone="dark" id="bs-origin">
+            <div class="st-text st-rise">
+              <h3 class="st-h" data-i18n="about2.originTitle">기업 기원</h3>
+              <p class="st-p" data-i18n="about2.originP1"></p>
+            </div>
+            <figure class="st-obj st-rise">
+              <img src="assets/img/story-powder.webp" alt="흰색 칼륨장석 분말 더미" width="292" height="283" loading="lazy">
+            </figure>
+          </section>
+
+          <!-- 2) 기업 비전 -->
+          <section class="st-sec" data-tone="light" id="bs-vision">
+            <div class="st-text st-rise">
+              <h3 class="st-h" data-i18n="about2.visionTitle">기업 비전</h3>
+              <p class="st-p" data-i18n="vision.statement"></p>
+            </div>
+            <figure class="st-obj st-rise">
+              <img src="assets/img/story-soap.webp" alt="KALI 로고가 새겨진 핑크색 카리비누" width="343" height="344" loading="lazy">
+            </figure>
+          </section>
+
+          <!-- 3) 기업 핵심 가치 — 목록이 길어 오른쪽 치약 사진은 화면 가운데 고정 -->
+          <section class="st-sec st-sec--values" data-tone="dark" id="bs-values">
+            <div class="st-text">
+              <h3 class="st-h st-rise" data-i18n="navSub.aboutValues">기업 핵심 가치</h3>
+              <ol class="st-vals">
+                <li class="st-val st-rise"><span class="st-val-n">01</span><div><p class="st-val-label">NATURAL</p><p class="st-val-stat" data-i18n="about.value1"></p><p class="st-val-desc" data-i18n="about.value1d"></p></div></li>
+                <li class="st-val st-rise"><span class="st-val-n">02</span><div><p class="st-val-label">SCIENCE</p><p class="st-val-stat" data-i18n="about.value2"></p><p class="st-val-desc" data-i18n="about.value2d"></p></div></li>
+                <li class="st-val st-rise"><span class="st-val-n">03</span><div><p class="st-val-label">HEALTH</p><p class="st-val-stat" data-i18n="about.value3"></p><p class="st-val-desc" data-i18n="about.value3d"></p></div></li>
+                <li class="st-val st-rise"><span class="st-val-n">04</span><div><p class="st-val-label">SUSTAINABILITY</p><p class="st-val-stat" data-i18n="about.value4"></p><p class="st-val-desc" data-i18n="about.value4d"></p></div></li>
+                <li class="st-val st-rise"><span class="st-val-n">05</span><div><p class="st-val-label">INNOVATION</p><p class="st-val-stat" data-i18n="about.value5"></p><p class="st-val-desc" data-i18n="about.value5d"></p></div></li>
+              </ol>
+            </div>
+            <div class="st-obj st-obj--pin">
+              <figure class="st-rise">
+                <img src="assets/img/story-k28.webp" alt="K.28 치약" width="110" height="376" loading="lazy">
+              </figure>
+            </div>
+          </section>
+
+          <!-- 발전 과정 — 가로 타임라인 -->
+          <section class="st-tl-sec" data-tone="light" id="bs-history">
+            <h3 class="st-h st-h--center st-rise" data-i18n="about.milestonesTitle">발전 과정</h3>
+            <div class="st-tl-scroll" tabindex="0" aria-label="발전 과정 — 가로로 넘겨 볼 수 있습니다">
+              <ol class="st-tl">
+                <li class="st-tl-item st-rise"><span class="st-tl-dot" aria-hidden="true"></span><span class="st-tl-date">2023.10</span><p class="st-tl-text" data-i18n="about.tl1"></p></li>
+                <li class="st-tl-item st-rise"><span class="st-tl-dot" aria-hidden="true"></span><span class="st-tl-date">2024.08</span><p class="st-tl-text" data-i18n="about.tl2"></p></li>
+                <li class="st-tl-item st-rise"><span class="st-tl-dot" aria-hidden="true"></span><span class="st-tl-date">2024.12</span><p class="st-tl-text" data-i18n="about.tl3"></p></li>
+                <li class="st-tl-item st-rise"><span class="st-tl-dot" aria-hidden="true"></span><span class="st-tl-date">2025.05</span><p class="st-tl-text" data-i18n="about.tl4"></p></li>
+                <li class="st-tl-item st-rise"><span class="st-tl-dot" aria-hidden="true"></span><span class="st-tl-date">2025.12</span><p class="st-tl-text" data-i18n="about.tl5"></p></li>
+                <li class="st-tl-item st-rise"><span class="st-tl-dot" aria-hidden="true"></span><span class="st-tl-date">2026 ~</span><p class="st-tl-text" data-i18n="about.tl6"></p></li>
+              </ol>
+            </div>
+          </section>
+        </div>
+        <script src="assets/js/pages/story.js?v=202610070010"></script>
       </div>
       <div id="brand-process" class="tech-block" hidden>
         <!-- 브랜드 > 공정 — SCROLL TO EXPERIENCE THE PROCESS
@@ -880,7 +840,7 @@
             </div>
           </section>
         </div>
-        <script src="assets/js/pages/process.js?v=202610062346"></script>
+        <script src="assets/js/pages/process.js?v=202610070010"></script>
       </div>
       <div id="about-why" class="info-section" hidden>
         <h3 class="block-title reveal" data-i18n="about2.whyTitle">선택해야 하는 이유</h3>
@@ -1099,7 +1059,7 @@
 <a href="#contact" class="sticky-cta"><span class="sticky-cta-btn" data-i18n="stickyCta">파트너십 문의</span></a>
 
 
-<script src="assets/js/i18n.js?v=202610062346"></script>
-<script src="assets/js/app.js?v=202610062346"></script>
+<script src="assets/js/i18n.js?v=202610070010"></script>
+<script src="assets/js/app.js?v=202610070010"></script>
 </body>
 </html>

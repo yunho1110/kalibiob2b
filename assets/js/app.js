@@ -505,50 +505,7 @@
       });
     }
 
-    /* ===== 브랜드 > 스토리 — 패럴랙스 =====
-       왼쪽 글이 지나가는 동안 오른쪽 이미지는 고정된 채 구간마다 바뀌고,
-       구간에 지정된 배경색으로 띠 전체가 교차한다.
-       구간 판정은 뷰포트 중앙선을 지나는 구간을 기하로 계산한다. */
-    var bsSecs = document.querySelectorAll('.bs-sec');
-    if (bsSecs.length) {
-      var bsImgs = document.querySelectorAll('.bs-img');
-      var bsScroll = document.querySelector('.bs-scroll');
-      var bsAt = null;
-      var setBs = function (n, bg) {
-        if (n === bsAt) { return; }
-        bsAt = n;
-        for (var i = 0; i < bsImgs.length; i++) {
-          bsImgs[i].classList.toggle('is-on', bsImgs[i].getAttribute('data-bs') === n);
-        }
-        if (bsScroll && bg) { bsScroll.setAttribute('data-bg', bg); }
-      };
-      var syncBs = function () {
-        var mid = window.innerHeight / 2, pick = null;
-        for (var i = 0; i < bsSecs.length; i++) {
-          var r = bsSecs[i].getBoundingClientRect();
-          if (r.top <= mid && r.bottom >= mid) { pick = bsSecs[i]; break; }
-          if (!pick && r.top > mid) { pick = bsSecs[i]; break; }
-        }
-        if (!pick) { pick = bsSecs[bsSecs.length - 1]; }
-        setBs(pick.getAttribute('data-bs'), pick.getAttribute('data-bg'));
-      };
-      var bsLast = 0, bsTrail = null;
-      var onBsScroll = function () {
-        var now = Date.now();
-        if (now - bsLast >= 60) { bsLast = now; syncBs(); }
-        window.clearTimeout(bsTrail);
-        bsTrail = window.setTimeout(function () { bsLast = Date.now(); syncBs(); }, 90);
-      };
-      window.addEventListener('scroll', onBsScroll, { passive: true });
-      window.addEventListener('resize', onBsScroll, { passive: true });
-      /* 탭이 화면에 없으면 scroll 이벤트가 오지 않는 경우가 있어 보강 */
-      if ('IntersectionObserver' in window) {
-        var bsObs = new IntersectionObserver(function () { syncBs(); },
-          { threshold: [0, 0.25, 0.5, 0.75, 1] });
-        for (var q = 0; q < bsSecs.length; q++) { bsObs.observe(bsSecs[q]); }
-      }
-      syncBs();
-    }
+    /* 브랜드 > 스토리의 스크롤 연출은 assets/js/pages/story.js 로 옮겼다 */
 
     /* ===== 제품 및 주요 공정: 중메뉴(제품 / 주요 공정)를 눌러야 소메뉴가 열린다 ===== */
     var subHeads = document.querySelectorAll('.nav-sub-head.is-toggle');
