@@ -10,8 +10,9 @@
 #home{
   --hh-serif:'Cormorant Garamond','DM Serif Display','Playfair Display',Georgia,serif;
   --hh-sans:'Pretendard Variable','Pretendard','Noto Sans KR',-apple-system,sans-serif;
-  /* 사진 (3) 배경에서 추출한 딥 그린 — 사진 (1) 문구 색 */
-  --hh-green:#112519;
+  /* 사진 (2) 초록 비누에서 추출한 그린 — 사진 (1) 문구 색.
+     비누 평균색(#698428)은 분말 위 대비 2.7:1 이라 그늘진 쪽 톤을 쓴다 (4.3:1) */
+  --hh-green:#48630A;
   /* 칼륨장석 분말 톤의 미네랄 베이지 — 사진 (3) 문구 색 */
   --hh-beige:#E4D9C6;
 }
@@ -81,7 +82,7 @@
   font-size:clamp(15px,1.4vw,20px);line-height:1.55;letter-spacing:-0.02em;
 }
 .hh-ko:empty{display:none;}
-/* 사진 (1): 오른쪽, 사진 (3) 배경의 딥 그린 */
+/* 사진 (1): 오른쪽, 사진 (2) 비누의 초록 */
 .hh-copy--1{right:6vw;top:50%;transform:translateY(-50%);color:var(--hh-green);}
 .hh-copy--1 .hh-en{font-size:clamp(32px,4.8vw,70px);}
 /* 사진 (2): 왼쪽 빈 공간, 흰색 */
