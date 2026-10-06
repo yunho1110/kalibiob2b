@@ -85,6 +85,8 @@
 /* 사진 (1): 오른쪽, 사진 (2) 비누의 초록 */
 .hh-copy--1{right:6vw;top:50%;transform:translateY(-50%);color:var(--hh-green);}
 .hh-copy--1 .hh-en{font-size:clamp(32px,4.8vw,70px);}
+/* '칼륨장석분말로' — 기본 한글 문구보다 2px 크게, 한 단계 진하게 */
+.hh-copy--1 .hh-ko{font-size:clamp(17px,calc(1.4vw + 2px),22px);font-weight:500;}
 /* 사진 (2): 왼쪽 빈 공간, 흰색 */
 .hh-copy--2{left:7vw;top:50%;transform:translateY(-50%);color:#fff;}
 /* 사진 (3): 오른쪽 아래 배경 빈 공간, 미네랄 베이지 */

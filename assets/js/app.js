@@ -63,15 +63,14 @@
     }
     function openDrawer() {
       if (!drawer) { return; }
-      /* Expand the section the visitor is already in, so its sub-pages are
-         visible the moment the menu opens rather than hidden behind a chevron. */
-      var activeView = (document.querySelector('.view.is-active') || {}).id;
+      /* 처음 열 때는 상위 메뉴(+)만 보인다 — 하위 메뉴는 누르면 펼쳐진다 */
       var groups = drawer.querySelectorAll('.nav-group[data-group]');
       for (var g = 0; g < groups.length; g++) {
-        var match = groups[g].getAttribute('data-group') === activeView;
-        groups[g].classList.toggle('open', match);
+        groups[g].classList.remove('open');
         var tg = groups[g].querySelector('.nav-toggle');
-        if (tg) { tg.setAttribute('aria-expanded', match ? 'true' : 'false'); }
+        if (tg) { tg.setAttribute('aria-expanded', 'false'); }
+        var pl = groups[g].querySelector('.nav-row > a');
+        if (pl) { pl.setAttribute('aria-expanded', 'false'); }
       }
       drawer.classList.add('open');
       drawer.setAttribute('aria-hidden', 'false');
@@ -259,6 +258,8 @@
         open[i].classList.remove('open');
         var t = open[i].querySelector('.nav-toggle');
         if (t) { t.setAttribute('aria-expanded', 'false'); }
+        var pa = open[i].querySelector('.nav-row > a');
+        if (pa) { pa.setAttribute('aria-expanded', 'false'); }
       }
     }
 
@@ -276,6 +277,7 @@
         group.classList.toggle('open', willOpen);
         var t = group.querySelector('.nav-toggle');
         if (t) { t.setAttribute('aria-expanded', willOpen ? 'true' : 'false'); }
+        this.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
       });
     }
 

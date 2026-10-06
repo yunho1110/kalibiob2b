@@ -99,3 +99,25 @@ footer.site-footer{background:var(--ink);}
 /* 모바일 하단 고정 문의 버튼도 같은 버튼 언어로 */
 .sticky-cta{background:rgba(251,250,247,0.96);border-top:var(--line);box-shadow:none;}
 .sticky-cta-btn{border-radius:0;background:var(--ink);font-weight:600;letter-spacing:0.04em;}
+
+/* ========================================================================
+   홈 상단 — 가로 메뉴·언어·문의 버튼을 숨기고 햄버거(+ 로고)만 남긴다.
+   언어 선택과 문의는 햄버거로 여는 왼쪽 메뉴 안에 그대로 있다.
+   ======================================================================== */
+body:has(#home.is-active) .site-nav .main-nav,
+body:has(#home.is-active) .site-nav .site-nav-right,
+body:has(#home.is-active) .app-topbar .topbar-right{display:none;}
+
+/* 왼쪽 세로 메뉴 — 상위 메뉴 앞 + / −, 하위 메뉴는 기호 없이 들여쓰기·크기로만 구분 */
+.drawer-nav .nav-toggle{display:none;}
+.drawer-nav .nav-row > a{display:flex;align-items:center;gap:14px;padding-left:4px;}
+.drawer-nav .nav-row > a::before{
+  content:'+';display:inline-block;position:static;width:14px;height:auto;border-radius:0;background:none;
+  transform:none;font-family:var(--font-display);font-weight:400;font-size:1.2rem;line-height:1;color:var(--ink-soft);
+}
+.drawer-nav .nav-group.open > .nav-row > a::before{content:'\2212';}
+.drawer-nav .nav-sub{padding-left:32px;margin-left:0;border-left:none;transition:max-height .4s ease,opacity .3s ease;opacity:0;}
+.drawer-nav .nav-sub-link:hover{background:transparent;color:var(--ink) !important;}
+.drawer-nav .nav-group.open .nav-sub{opacity:1;padding:2px 0 12px 32px;}
+.drawer-nav .nav-sub a{padding:10px 6px 10px 0;}
+@media (prefers-reduced-motion: reduce){.drawer-nav .nav-sub{transition:none;}}
