@@ -67,6 +67,10 @@ assets/docs/*.pdf       # 국문/영문 브로슈어
 ./bump-version.sh
 ```
 
+**단, feature 브랜치에서는 실행하지 마세요.** 이 스크립트는 `index.html` 의
+asset 링크 12줄을 모두 건드리기 때문에, 브랜치마다 실행하면 머지할 때
+그 12줄이 전부 충돌합니다. **main 에 머지한 뒤 배포 직전에 한 번만** 돌리세요.
+
 GitHub Pages 가 CSS/JS 에 `max-age=600` 을 줍니다. 파일만 바꿔 올리면
 최대 10분 동안 방문자 브라우저가 예전 CSS/JS 를 그대로 씁니다.
 이 스크립트가 `index.html` 의 asset 링크 뒤 `?v=` 를 갱신해 강제로 새로
