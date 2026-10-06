@@ -160,7 +160,7 @@ var I18N = {
     visionTitle: { ko: "기업 비전", en: "Our Vision", zh: "企业愿景" }
   },
   part2: {
-    currentTitle: { ko: "지금 함께하는 기관들", en: "Current Partners", zh: "目前携手同行的机构" },
+    currentTitle: { ko: "협력 고객사", en: "Our Clients", zh: "合作客户" },
     globalTitle: { ko: "글로벌 파트너 모집", en: "Global Partners Wanted", zh: "招募全球伙伴" }
   },
   faq: {
@@ -294,8 +294,7 @@ var I18N = {
   },
   partners: {
     eyebrow: { ko: "PARTNERSHIP NETWORK", en: "PARTNERSHIP NETWORK", zh: "合作网络" },
-    coreNote: { ko: "우리는 칼륨장석의 가능성을 검증하고,<br>그 결과를 세계 각지의 파트너와 나눕니다.", en: "We validate the potential of potassium feldspar,<br>and share the results with partners around the world.", zh: "我们验证钾长石的潜力,<br>并将成果与世界各地的伙伴分享。" },
-    p8: { ko: "글로벌 파트너 (모집 중)", en: "Global partners (open)", zh: "全球伙伴(招募中)" }
+    coreNote: { ko: "카리바이오는 지역 칼륨장석 원료 가공 기술을 바탕으로<br>지역 관공서 및 파트너사에 고품질 치약·비누 완제품을 납품하고 있습니다.", en: "Built on local potassium-feldspar processing technology, KALIBIO supplies high-quality finished toothpaste and soap<br>to regional public institutions and partner companies.", zh: "卡里生物以本地钾长石原料加工技术为基础，<br>向地方政府机关及合作伙伴供应高品质牙膏·香皂成品。" },
   },
   contact: {
     eyebrow: { ko: "PARTNERSHIP INQUIRY", en: "PARTNERSHIP INQUIRY", zh: "合作咨询" },

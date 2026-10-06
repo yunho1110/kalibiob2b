@@ -281,6 +281,25 @@
       });
     }
 
+    /* 왼쪽 세로 메뉴: 마우스가 있는 기기에서는 상위 메뉴에 올리기만 해도 펼친다.
+       상위 메뉴 + 하위 메뉴(.nav-group 전체)를 하나의 영역으로 보고, 완전히 벗어나면 접는다.
+       터치 기기는 위의 탭(클릭) 방식을 그대로 쓴다. */
+    if (window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      var hoverGroups = document.querySelectorAll('.drawer-nav .nav-group');
+      var setGroup = function (group, on) {
+        group.classList.toggle('open', on);
+        var tg = group.querySelector('.nav-toggle');
+        if (tg) { tg.setAttribute('aria-expanded', on ? 'true' : 'false'); }
+        var pa = group.querySelector('.nav-row > a');
+        if (pa) { pa.setAttribute('aria-expanded', on ? 'true' : 'false'); }
+      };
+      for (var hg = 0; hg < hoverGroups.length; hg++) {
+        if (!hoverGroups[hg].querySelector('.nav-sub')) { continue; }
+        hoverGroups[hg].addEventListener('mouseenter', function () { collapseDrawerGroups(this); setGroup(this, true); });
+        hoverGroups[hg].addEventListener('mouseleave', function () { setGroup(this, false); });
+      }
+    }
+
     /* Click outside closes an open desktop dropdown. Scoped to .main-nav so it
        never collapses the drawer accordion, whose groups are opened deliberately. */
     document.addEventListener('click', function (e) {
