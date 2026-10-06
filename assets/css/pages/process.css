@@ -1,130 +1,271 @@
-/* 브랜드 > 공정 페이지 전용 스타일 (SCREEN 01–06).
-   이 파일은 공정 담당자만 수정합니다. 브랜드 > 스토리는 pages/about.css 입니다. */
+/* 브랜드 > 공정 페이지 전용 스타일 — SCROLL TO EXPERIENCE THE PROCESS
+   이 파일은 공정 담당자만 수정합니다. 브랜드 > 스토리는 pages/about.css 입니다.
 
-/* ---- SCREEN 01 HERO ---- */
-.pr-hero{
-  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,56%);
-  gap:clamp(28px,4vw,56px);align-items:center;
-  padding-bottom:clamp(48px,7vw,88px);
+   새 색·폰트·버튼을 만들지 않는다. tokens.css 의 변수(--ink, --cream, --border,
+   --lime-text, --green 등)와 공통 .btn / .eyebrow 톤을 그대로 쓴다.
+   동작은 assets/js/pages/process.js 가 data-* 와 클래스만 바꾼다. */
+
+.pr{
+  /* 고정 헤더 아래에서 sticky 가 시작되는 높이 */
+  --pr-top:var(--topbar-h);
+  --pr-vh:calc(100svh - var(--pr-top));
+  --pr-ease:cubic-bezier(.22,.61,.36,1);
 }
+@media (min-width:1024px){ .pr{--pr-top:var(--nav-h);} }
+/* 모바일 하단 고정 문의 버튼(76px)에 가리지 않도록 */
+@media (max-width:768px){ .pr{--pr-vh:calc(100svh - var(--pr-top) - 76px);} }
+
+/* 컨테이너 밖으로 화면 전체 폭 */
+.pr-bleed{width:100vw;margin-left:calc(50% - 50vw);}
+.pr-sticky{position:sticky;top:var(--pr-top);height:var(--pr-vh);overflow:hidden;}
+
+/* 공통 라벨·제목 — 사이트의 eyebrow / section-title 톤 */
+.pr-label{
+  display:inline-block;font-family:var(--font-display);font-size:0.76rem;font-weight:600;
+  letter-spacing:0.26em;color:var(--ink-soft);text-transform:uppercase;margin:0;
+}
+.pr-head{text-align:center;margin-bottom:clamp(36px,5vw,64px);}
+.pr-title{
+  margin:14px 0 0;font-weight:500;letter-spacing:-0.035em;line-height:1.3;color:var(--ink);
+  font-size:clamp(1.5rem,2.6vw,2.2rem);word-break:keep-all;
+}
+
+/* ========================================================================
+   1) HERO — 원료 → 공정 → 제품 (스크롤 연동)
+   ======================================================================== */
+.pr-hero{height:calc(var(--pr-vh) * 2.6);margin-top:calc(-1 * clamp(8px,2vw,24px));}
+.pr-hero-stage{background:var(--ink);}
+.pr-hero-media{position:absolute;inset:0;transform:scale(var(--pr-zoom,1));transform-origin:50% 55%;will-change:transform;}
+.pr-hero-img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:0;transition:opacity .7s var(--pr-ease);
+}
+.pr-hero-img.is-on{opacity:1;}
+.pr-hero-img[data-stage="2"]{object-fit:contain;background:#E9E6DF;padding:clamp(24px,6vh,64px) 0;}
+/* 사진 위 글씨가 읽히도록 아래쪽만 아주 옅게 어둡게 */
+.pr-hero-stage::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(26,26,23,0) 40%,rgba(26,26,23,.55) 100%);
+}
+.pr-hero-copy{
+  position:absolute;left:0;right:0;bottom:clamp(36px,8vh,88px);z-index:2;
+  max-width:var(--max);margin:0 auto;padding:0 clamp(18px,4vw,40px);color:#fff;
+}
+.pr-hero-copy .pr-label{color:rgba(255,255,255,.85);}
 .pr-hero-title{
-  font-family:var(--font-display);font-weight:900;letter-spacing:-0.025em;
-  font-size:clamp(1.9rem,4vw,3rem);line-height:1.18;margin:0 0 18px;color:var(--ink);
+  margin:14px 0 0;font-weight:500;letter-spacing:-0.04em;line-height:1.15;color:#fff;
+  font-size:clamp(2rem,5.4vw,4.4rem);word-break:keep-all;
 }
-.pr-hero-lead{margin:0;font-size:clamp(0.98rem,1.6vw,1.1rem);line-height:1.85;color:var(--ink-soft);word-break:keep-all;max-width:46ch;}
-.pr-hero-media{border-radius:var(--radius-lg);overflow:hidden;background:var(--warm-gray);}
-.pr-hero-media img{width:100%;height:100%;aspect-ratio:16/10;object-fit:cover;display:block;}
+.pr-hero-stages{display:flex;flex-wrap:wrap;gap:6px 28px;margin:clamp(20px,3vh,32px) 0 0;padding:0;list-style:none;}
+.pr-hero-stages li{
+  position:relative;font-family:var(--font-display);font-size:0.76rem;font-weight:600;letter-spacing:0.2em;
+  color:rgba(255,255,255,.45);padding-bottom:6px;transition:color .5s ease;
+}
+.pr-hero-stages li::after{
+  content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:#fff;
+  transform:scaleX(0);transform-origin:left;transition:transform .6s var(--pr-ease);
+}
+.pr-hero-stages li.is-on{color:#fff;}
+.pr-hero-stages li.is-on::after{transform:scaleX(1);}
+.pr-scroll-hint{
+  position:absolute;right:clamp(18px,4vw,40px);bottom:clamp(36px,8vh,88px);z-index:2;
+  font-family:var(--font-display);font-size:0.68rem;letter-spacing:0.3em;color:rgba(255,255,255,.7);
+  writing-mode:vertical-rl;transition:opacity .4s ease;
+}
+.pr-hero[data-progress-gt="0"] .pr-scroll-hint{opacity:0;}
 
-/* ---- SCREEN 02 FLOW ---- */
-.pr-flow{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:clamp(28px,4vw,48px) 0;}
-.pr-flow-list{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2vw,28px);list-style:none;margin:0;padding:0;}
-.pr-flow-item{display:flex;flex-direction:column;gap:8px;position:relative;padding-right:18px;}
-.pr-flow-item:not(:last-child)::after{
-  content:'';position:absolute;right:4px;top:12px;width:8px;height:8px;
-  border-top:1.5px solid var(--border);border-right:1.5px solid var(--border);transform:rotate(45deg);
+/* ========================================================================
+   2) PROCESS OVERVIEW — 공정 라인
+   ======================================================================== */
+.pr-ov{height:calc(var(--pr-vh) * 3.2);}
+.pr-ov-stage{display:flex;flex-direction:column;justify-content:center;padding:clamp(24px,4vh,48px) 0;}
+.pr-ov .pr-head{margin-bottom:clamp(28px,5vh,56px);}
+.pr-tree{display:flex;flex-direction:column;align-items:center;}
+.pr-branches{
+  position:relative;display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,8vw,120px);
+  width:min(720px,100%);margin-top:clamp(22px,4vh,40px);padding-top:clamp(22px,4vh,40px);
 }
-.pr-flow-n{font-family:var(--font-display);font-size:0.74rem;font-weight:800;letter-spacing:0.16em;color:var(--lime-text);}
-.pr-flow-t{font-size:clamp(0.98rem,1.6vw,1.12rem);font-weight:800;color:var(--ink);word-break:keep-all;}
+/* 원료에서 두 갈래로 나뉘는 선 */
+.pr-branches::before{
+  content:'';position:absolute;top:0;left:25%;right:25%;height:1px;background:var(--border);
+}
+.pr-branches::after{
+  content:'';position:absolute;top:calc(-1 * clamp(22px,4vh,40px));left:50%;width:1px;height:clamp(22px,4vh,40px);background:var(--border);
+}
+.pr-branch{position:relative;display:flex;flex-direction:column;align-items:center;gap:clamp(10px,2.2vh,22px);margin:0;padding:0;list-style:none;}
+.pr-branch::before{
+  content:'';position:absolute;top:calc(-1 * clamp(22px,4vh,40px));left:50%;width:1px;bottom:12px;background:var(--border);z-index:0;
+}
+.pr-branch-head{
+  position:relative;z-index:1;background:var(--cream);padding:4px 10px;
+  font-family:var(--font-display);font-size:0.78rem;font-weight:700;letter-spacing:0.18em;color:var(--ink);
+}
+.pr-branch-head span{font-family:inherit;font-weight:500;letter-spacing:0;color:var(--ink-soft);margin-left:4px;}
 
-/* ---- 공통 제목 ---- */
-.pr-h{
-  font-family:var(--font-display);font-weight:900;letter-spacing:-0.02em;
-  font-size:clamp(1.3rem,2.6vw,1.9rem);line-height:1.35;margin:0 0 14px;color:var(--ink);word-break:keep-all;
+.pr-node{
+  position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:3px;text-align:center;
+  background:var(--cream);padding:4px 10px;
+  opacity:.35;transform:scale(.96);transition:opacity .5s ease,transform .5s var(--pr-ease);
 }
-.pr-lead{margin:0 0 clamp(24px,3vw,36px);font-size:clamp(0.95rem,1.5vw,1.05rem);line-height:1.85;color:var(--ink-soft);word-break:keep-all;max-width:62ch;}
-.pr-note{margin:18px 0 0;font-size:0.84rem;color:var(--ink-faint);word-break:keep-all;}
+.pr-node-en{font-family:var(--font-display);font-size:clamp(0.72rem,1vw,0.82rem);font-weight:600;letter-spacing:0.14em;color:var(--ink);}
+.pr-node-ko{font-size:clamp(0.82rem,1.1vw,0.95rem);color:var(--ink-soft);}
+.pr-dot{
+  width:12px;height:12px;border-radius:50%;border:1px solid var(--ink-faint);background:var(--cream);
+  margin-bottom:4px;transition:background .4s ease,border-color .4s ease,box-shadow .4s ease;
+  display:flex;align-items:center;justify-content:center;
+}
+/* 진행 중: 확대 + 또렷 + 브랜드 그린 + 은은한 빛 */
+.pr-node.is-active{opacity:1;transform:scale(1.08);}
+.pr-node.is-active .pr-dot{background:var(--green);border-color:var(--green);box-shadow:0 0 0 6px rgba(31,74,60,.12);}
+.pr-node.is-active .pr-node-en{color:var(--green);}
+/* 완료: 채운 점 + 체크 */
+.pr-node.is-done{opacity:.9;transform:scale(1);}
+.pr-node.is-done .pr-dot{background:var(--ink);border-color:var(--ink);}
+.pr-node.is-done .pr-dot::after{content:'';width:5px;height:3px;border-left:1.5px solid #fff;border-bottom:1.5px solid #fff;transform:translateY(-1px) rotate(-45deg);}
+.pr-node--root{opacity:1;}
 
-/* ---- SCREEN 03 SOURCING ---- */
-.pr-src{padding:clamp(48px,7vw,88px) 0;}
-.pr-src-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.4vw,28px);}
-.pr-src-card{margin:0;background:var(--white);border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow);}
-.pr-src-card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;}
-.pr-ph{
-  aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;
-  background:repeating-linear-gradient(45deg,var(--warm-gray),var(--warm-gray) 10px,var(--cream) 10px,var(--cream) 20px);
-  color:var(--ink-faint);font-size:0.86rem;font-weight:700;
-}
-.pr-src-card figcaption{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;}
-.pr-src-card figcaption strong{font-size:1rem;font-weight:800;color:var(--ink);}
-.pr-src-card figcaption span{font-size:0.88rem;color:var(--ink-soft);line-height:1.6;word-break:keep-all;}
-
-/* ---- SCREEN 04 QUALITY — 이 구간만 어둡게 ---- */
-.pr-qc{
-  background:var(--green-deep);color:var(--cream);
-  border-radius:var(--radius-lg);
-  margin:clamp(24px,4vw,48px) 0;
-}
-.pr-qc-inner{padding:clamp(36px,5vw,72px) clamp(24px,4vw,56px);}
-.pr-qc .pr-h{color:var(--white);}
-.pr-qc .pr-lead{color:rgba(247,247,240,0.86);}
-.pr-qc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(16px,2.4vw,28px);}
-.pr-qc-card{
-  background:rgba(255,255,255,0.06);border:1px solid rgba(247,247,240,0.22);
-  border-radius:var(--radius-md);padding:clamp(22px,3vw,30px);
-}
-.pr-qc-what{margin:0 0 6px;font-family:var(--font-display);font-size:0.76rem;font-weight:800;letter-spacing:0.14em;color:var(--lime);text-transform:uppercase;}
-.pr-qc-org{margin:0 0 18px;font-size:clamp(1rem,1.8vw,1.18rem);font-weight:800;color:var(--white);word-break:keep-all;}
-.pr-qc-dl{margin:0;display:flex;flex-direction:column;gap:12px;}
-.pr-qc-dl > div{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:12px;align-items:baseline;}
-.pr-qc-dl dt{margin:0;font-size:0.8rem;font-weight:700;letter-spacing:0.04em;color:rgba(247,247,240,0.72);}
-.pr-qc-dl dd{margin:0;font-size:0.95rem;color:var(--cream);line-height:1.6;word-break:keep-all;}
-.pr-qc-dl > div.is-key dd{font-family:var(--font-display);font-size:1.15rem;font-weight:900;color:var(--lime);}
-.pr-note-dark{color:rgba(247,247,240,0.72);}
-
-/* ---- SCREEN 05 MANUFACTURING ---- */
-.pr-mfg{padding:clamp(48px,7vw,88px) 0;}
-.pr-line + .pr-line{margin-top:clamp(40px,5vw,64px);padding-top:clamp(40px,5vw,64px);border-top:1px solid var(--border);}
-.pr-line-t{
-  font-family:var(--font-display);font-size:clamp(1.05rem,1.9vw,1.25rem);font-weight:900;
-  color:var(--green);margin:0 0 18px;letter-spacing:-0.01em;
-}
-.pr-steps{list-style:none;margin:0 0 24px;padding:0;display:flex;flex-wrap:wrap;gap:10px;}
-.pr-steps li{
-  display:flex;align-items:center;gap:10px;
-  background:var(--white);border:1px solid var(--border);border-radius:999px;
-  padding:9px 18px 9px 12px;font-size:0.95rem;font-weight:700;color:var(--ink);word-break:keep-all;
-}
-.pr-steps li.is-key{background:var(--lime-tint);border-color:var(--lime-deep);color:var(--green);}
-.pr-step-n{font-family:var(--font-display);font-size:0.72rem;font-weight:800;letter-spacing:0.1em;color:var(--lime-text);}
-.pr-steps li.is-key .pr-step-n{color:var(--green);}
-
-.pr-aging{
-  display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
-  background:var(--lime-tint);border-left:4px solid var(--lime-deep);
-  border-radius:0 var(--radius-md) var(--radius-md) 0;
-  padding:clamp(18px,2.4vw,26px) clamp(20px,3vw,30px);margin-bottom:24px;
-}
-.pr-aging-n{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,3.2rem);font-weight:900;line-height:1;color:var(--green);}
-.pr-aging-u{font-family:var(--font-display);font-size:0.92rem;font-weight:800;letter-spacing:0.18em;color:var(--lime-text);}
-.pr-aging-d{flex:1 1 16em;margin:0;font-size:0.95rem;color:var(--ink-soft);line-height:1.7;word-break:keep-all;}
-
-.pr-eq-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px);}
-.pr-eq{margin:0;background:var(--white);border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;}
-.pr-eq img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;}
-.pr-eq figcaption{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;}
-.pr-eq-step{
-  align-self:flex-start;font-family:var(--font-display);font-size:0.68rem;font-weight:800;
-  letter-spacing:0.1em;color:#fff;background:var(--green);padding:3px 10px;border-radius:999px;
-}
-.pr-eq-name{font-size:0.95rem;font-weight:700;color:var(--ink);word-break:keep-all;}
-
-/* ---- SCREEN 06 CTA ---- */
-.pr-cta{
+/* ========================================================================
+   3) SELECTOR
+   ======================================================================== */
+.pr-select{
+  text-align:center;padding:clamp(56px,8vw,104px) 0 clamp(40px,5vw,64px);
   border-top:1px solid var(--border);
-  padding:clamp(40px,6vw,72px) 0 0;
-  display:flex;flex-direction:column;align-items:flex-start;gap:22px;
 }
-.pr-cta-t{font-family:var(--font-display);font-size:clamp(1.15rem,2.2vw,1.5rem);font-weight:900;color:var(--ink);margin:0;word-break:keep-all;}
-.pr-cta-btns{display:flex;flex-wrap:wrap;gap:12px;}
+.pr-select-btns{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:20px;}
+/* 기존 .subview-tab(테마) 과 같은 각진 외곽선 버튼 */
+.pr-select-btn{
+  display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border:1px solid var(--border);
+  font-family:var(--font-display);font-size:0.82rem;font-weight:600;letter-spacing:0.14em;color:var(--ink-soft);
+  transition:background .2s ease,color .2s ease,border-color .2s ease;
+}
+.pr-select-btn span{font-family:'Noto Sans KR',sans-serif;letter-spacing:0;font-weight:500;}
+.pr-select-btn:hover{border-color:var(--ink);color:var(--ink);}
+.pr-select-btn[aria-current="true"]{background:var(--ink);border-color:var(--ink);color:#fff;}
 
-@media (max-width:900px){
-  .pr-hero{grid-template-columns:1fr;}
-  .pr-flow-list{grid-template-columns:repeat(2,1fr);row-gap:20px;}
-  .pr-flow-item:nth-child(2)::after{display:none;}
-  .pr-src-grid,.pr-qc-grid,.pr-eq-grid{grid-template-columns:1fr;}
+/* ========================================================================
+   4·5) SOAP / TOOTHPASTE — 사진 고정 + 단계 흐름
+   ======================================================================== */
+.pr-line{padding:clamp(56px,8vw,104px) 0 0;scroll-margin-top:calc(var(--pr-top) + 8px);}
+.pr-line + .pr-line{border-top:1px solid var(--border);margin-top:clamp(40px,6vw,80px);}
+.pr-split{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:start;}
+.pr-pin{position:sticky;top:calc(var(--pr-top) + clamp(16px,4vh,40px));}
+.pr-pin-media{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--warm-gray);}
+/* 전환: 현재 사진이 살짝 커지며 사라지고 다음 사진이 들어온다 */
+.pr-pin-img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:0;transform:scale(1);transition:opacity .7s var(--pr-ease),transform .7s var(--pr-ease);
 }
-@media (max-width:560px){
-  .pr-flow-list{grid-template-columns:1fr;}
-  .pr-flow-item::after{display:none;}
-  .pr-qc-dl > div{grid-template-columns:1fr;gap:2px;}
+.pr-pin-img.is-on{opacity:1;}
+.pr-pin-img.is-leaving{opacity:0;transform:scale(1.03);}
+.pr-pin-img--small{object-fit:contain;padding:8%;background:var(--warm-gray);}
+
+/* 01 / 02 / 03 인디케이터 */
+.pr-ind{
+  position:absolute;left:14px;top:14px;z-index:2;display:flex;gap:6px;margin:0;padding:0;list-style:none;
+}
+.pr-ind li{
+  display:flex;align-items:center;gap:6px;padding:5px 9px;background:rgba(251,250,247,.9);
+  font-family:var(--font-display);font-size:0.68rem;font-weight:600;letter-spacing:0.1em;color:var(--ink-faint);
+  transition:color .3s ease,background .3s ease;
+}
+.pr-ind li::before{content:'';width:6px;height:6px;border-radius:50%;border:1px solid currentColor;}
+.pr-ind li.is-active{color:#fff;background:var(--green);}
+.pr-ind li.is-active::before{background:#fff;border-color:#fff;}
+.pr-ind li.is-done{color:var(--ink);}
+.pr-ind li.is-done::before{content:'✓';width:auto;height:auto;border:none;font-size:0.7rem;line-height:1;}
+
+/* + VIEW — 데스크톱은 마우스를 올렸을 때, 터치는 항상 */
+.pr-view{
+  position:absolute;right:14px;bottom:14px;z-index:3;padding:7px 12px;border:1px solid #fff;
+  background:rgba(26,26,23,.55);color:#fff;font-family:var(--font-display);font-size:0.7rem;font-weight:600;letter-spacing:0.16em;
+  opacity:0;transition:opacity .25s ease,background .2s ease;
+}
+.pr-view:hover{background:rgba(26,26,23,.8);}
+.pr-pin-media:hover .pr-view,.pr-view:focus-visible,.pr-view[aria-expanded="true"]{opacity:1;}
+@media (hover:none){ .pr-view{opacity:1;} }
+.pr-pop{
+  position:absolute;left:14px;right:14px;bottom:56px;z-index:3;padding:16px 18px;
+  background:rgba(251,250,247,.96);border:1px solid var(--border);color:var(--ink);
+}
+.pr-pop strong{display:block;font-family:var(--font-display);font-size:0.8rem;letter-spacing:0.14em;margin-bottom:6px;}
+.pr-pop p{margin:0;font-size:0.9rem;line-height:1.7;color:var(--ink-soft);}
+
+/* 단계 텍스트 — 한 단계가 화면 한 칸 */
+.pr-steps{margin:0;padding:0;list-style:none;}
+.pr-step{
+  min-height:calc(var(--pr-vh) * .78);display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(24px,4vh,48px) 0;opacity:.3;transition:opacity .5s ease;
+}
+.pr-step:last-child{min-height:calc(var(--pr-vh) * .9);}
+.pr-step.is-active{opacity:1;}
+.pr-step-n{font-family:var(--font-display);font-size:0.78rem;font-weight:700;letter-spacing:0.2em;color:var(--lime-text);}
+.pr-step-en{margin:10px 0 0;font-family:var(--font-display);font-size:clamp(1.5rem,2.8vw,2.4rem);font-weight:700;letter-spacing:-0.01em;line-height:1.1;color:var(--ink);}
+.pr-step-ko{margin:8px 0 0;font-size:clamp(1rem,1.4vw,1.15rem);font-weight:500;color:var(--ink);}
+.pr-step-sum{margin:20px 0 0;padding-top:16px;border-top:1px solid var(--border);font-size:0.92rem;font-weight:600;color:var(--ink);}
+.pr-step-d{margin:10px 0 0;font-size:0.94rem;line-height:1.85;color:var(--ink-soft);word-break:keep-all;max-width:44ch;}
+.pr-step-eq{margin:16px 0 0;font-size:0.8rem;color:var(--ink-faint);}
+.pr-step-big{margin:20px 0 0;font-family:var(--font-display);font-size:0.86rem;font-weight:600;letter-spacing:0.2em;color:var(--ink-soft);}
+.pr-step-big b{font-size:clamp(3rem,6vw,4.6rem);font-weight:700;letter-spacing:-0.02em;color:var(--green);margin-right:6px;}
+
+/* ========================================================================
+   6) FINALE — FROM / THROUGH / TO + 제품 등장
+   ======================================================================== */
+.pr-fin{height:calc(var(--pr-vh) * 3);margin-top:clamp(56px,8vw,104px);}
+.pr-fin-stage{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(6px,1.2vh,14px);
+  background:var(--paper);text-align:center;padding:0 20px;
+}
+.pr-fin-line{
+  margin:0;font-family:var(--font-display);font-weight:700;letter-spacing:-0.01em;line-height:1.05;
+  font-size:clamp(1.6rem,5vw,4rem);color:var(--ink);
+  opacity:.12;transform:translateY(8px);transition:opacity .6s ease,transform .6s var(--pr-ease);
+}
+.pr-fin-line span{display:block;font-size:0.72rem;font-weight:600;letter-spacing:0.3em;color:var(--ink-soft);margin-bottom:6px;}
+.pr-fin-line.is-on{opacity:1;transform:none;}
+.pr-fin-product{
+  margin:clamp(14px,3vh,32px) 0 0;width:min(440px,70vw);max-height:38vh;aspect-ratio:1125/1006;
+  opacity:var(--pr-reveal,0);transform:scale(calc(.95 + .05 * var(--pr-reveal,0)));
+  filter:blur(calc(8px - 8px * var(--pr-reveal,0)));will-change:opacity,transform,filter;
+}
+.pr-fin-product img{width:100%;height:100%;object-fit:contain;}
+
+/* ========================================================================
+   7) CTA — 기존 버튼 그대로
+   ======================================================================== */
+.pr-cta{text-align:center;padding:clamp(72px,10vw,128px) 0 clamp(24px,4vw,48px);}
+.pr-cta-t{margin:0;font-weight:500;letter-spacing:-0.03em;line-height:1.45;font-size:clamp(1.3rem,2.4vw,1.9rem);color:var(--ink);}
+.pr-cta-btns{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:clamp(24px,3vw,36px);}
+
+/* ========================================================================
+   모바일 — 사진은 위에 얇게 고정, 글은 아래로 흐른다
+   ======================================================================== */
+@media (max-width:900px){
+  .pr-split{display:flex;flex-direction:column;gap:0;}
+  .pr-pin{position:sticky;top:var(--pr-top);z-index:4;align-self:stretch;width:calc(100% + 2 * clamp(18px,4vw,40px));margin:0 calc(-1 * clamp(18px,4vw,40px));background:var(--cream);}
+  .pr-pin-media{aspect-ratio:auto;height:min(34vh,280px);}
+  .pr-step{min-height:calc(var(--pr-vh) * .62);padding:28px 0;}
+  .pr-step:last-child{min-height:calc(var(--pr-vh) * .7);}
+  .pr-pop{bottom:50px;}
+  .pr-branches{gap:16px;}
+  .pr-ov{height:calc(var(--pr-vh) * 2.8);}
+}
+@media (max-width:420px){
+  .pr-node-en{letter-spacing:0.06em;}
+  .pr-branch-head{letter-spacing:0.1em;}
+}
+
+/* ========================================================================
+   모션 감소 — 스크롤 연출을 끄고 모든 내용을 그대로 펼쳐 보인다
+   ======================================================================== */
+@media (prefers-reduced-motion:reduce){
+  .pr-hero,.pr-ov,.pr-fin{height:auto;}
+  .pr-hero .pr-sticky,.pr-ov .pr-sticky,.pr-fin .pr-sticky{position:relative;top:auto;height:auto;}
+  .pr-hero .pr-hero-stage{height:var(--pr-vh);}
+  .pr-ov-stage{padding:clamp(56px,8vw,104px) 0;}
+  .pr-fin-stage{padding:clamp(72px,10vw,120px) 20px;}
+  .pr-hero-media{transform:none;}
+  .pr-node,.pr-step,.pr-fin-line{opacity:1;transform:none;}
+  .pr-fin-product{opacity:1;transform:none;filter:none;}
+  .pr-pin-img,.pr-hero-img{transition:none;}
+  .pr-pin-img.is-leaving{transform:none;}
 }
