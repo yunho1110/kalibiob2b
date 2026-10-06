@@ -17,17 +17,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <!-- 스타일시트는 순서가 중요합니다. 토큰 → 기본 → 공통 → 페이지별 순으로 읽힙니다. -->
-<link rel="stylesheet" href="assets/css/tokens.css?v=202610062220">
-<link rel="stylesheet" href="assets/css/base.css?v=202610062220">
-<link rel="stylesheet" href="assets/css/components.css?v=202610062220">
-<link rel="stylesheet" href="assets/css/pages/home.css?v=202610062220">
-<link rel="stylesheet" href="assets/css/pages/about.css?v=202610062220">
-<link rel="stylesheet" href="assets/css/pages/material.css?v=202610062220">
-<link rel="stylesheet" href="assets/css/pages/products.css?v=202610062220">
-<link rel="stylesheet" href="assets/css/pages/business.css?v=202610062220">
-<link rel="stylesheet" href="assets/css/pages/partnership.css?v=202610062220">
-<link rel="stylesheet" href="assets/css/pages/contact.css?v=202610062220">
-<link rel="stylesheet" href="assets/css/theme.css?v=202610062220">
+<link rel="stylesheet" href="assets/css/tokens.css?v=202610062238">
+<link rel="stylesheet" href="assets/css/base.css?v=202610062238">
+<link rel="stylesheet" href="assets/css/components.css?v=202610062238">
+<link rel="stylesheet" href="assets/css/pages/home.css?v=202610062238">
+<link rel="stylesheet" href="assets/css/pages/about.css?v=202610062238">
+<link rel="stylesheet" href="assets/css/pages/material.css?v=202610062238">
+<link rel="stylesheet" href="assets/css/pages/products.css?v=202610062238">
+<link rel="stylesheet" href="assets/css/pages/business.css?v=202610062238">
+<link rel="stylesheet" href="assets/css/pages/partnership.css?v=202610062238">
+<link rel="stylesheet" href="assets/css/pages/contact.css?v=202610062238">
+<link rel="stylesheet" href="assets/css/theme.css?v=202610062238">
 </head>
 <body>
 <a class="skip-link" href="#viewport">본문으로 건너뛰기</a>
@@ -183,70 +183,86 @@
      홈
      ===================================================================== -->
 <section class="view" id="home">
-  <div class="home-hero">
-      <div class="home-hero-texture" aria-hidden="true">
-        <img src="assets/img/feldspar-powder.webp" alt="" width="1000" height="1000" fetchpriority="high">
-      </div>
-      <div class="container home-hero-inner">
-        <div class="home-cycle">
-          <svg class="home-cycle-arrows" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
-            <defs>
-              <marker id="homeCycArrow" markerWidth="5" markerHeight="5" refX="4.2" refY="2.5" orient="auto" markerUnits="strokeWidth">
-                <path d="M0.6,0.6 L4.2,2.5 L0.6,4.4" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"></path>
-              </marker>
-            </defs>
-            <path d="M62.85,18.52 A34.0,34.0 0 0 1 75.96,28.05" class="home-cyc-arc" marker-end="url(#homeCycArrow)"></path>
-            <path d="M83.91,52.50 A34.0,34.0 0 0 1 78.90,67.91" class="home-cyc-arc" marker-end="url(#homeCycArrow)"></path>
-            <path d="M58.10,83.02 A34.0,34.0 0 0 1 41.90,83.02" class="home-cyc-arc" marker-end="url(#homeCycArrow)"></path>
-            <path d="M21.10,67.91 A34.0,34.0 0 0 1 16.09,52.50" class="home-cyc-arc" marker-end="url(#homeCycArrow)"></path>
-            <path d="M24.04,28.05 A34.0,34.0 0 0 1 37.15,18.52" class="home-cyc-arc" marker-end="url(#homeCycArrow)"></path>
-          </svg>
-
-          <ol class="home-cyc-list" aria-label="칼륨장석 원석에서 분말, 비누, 치약을 거쳐 일상으로 이어지는 순환">
-            <li class="home-cyc-node home-cyc-node--1">
-              <span class="home-cyc-media"><img src="assets/img/feldspar-rock.webp" alt="칼륨장석 원석" width="1000" height="1000" loading="lazy"></span>
-              <span class="home-cyc-label" data-i18n="home.cyc1">원석</span>
-            </li>
-            <li class="home-cyc-node home-cyc-node--2">
-              <span class="home-cyc-media"><img src="assets/img/feldspar-powder.webp" alt="미세 가공된 칼륨장석 분말" width="1000" height="1000" loading="lazy"></span>
-              <span class="home-cyc-label" data-i18n="home.cyc2">분말</span>
-            </li>
-            <li class="home-cyc-node home-cyc-node--3">
-              <span class="home-cyc-media"><img src="assets/img/soap-05.webp" alt="칼륨장석 함유 카리비누" width="900" height="900" loading="lazy"></span>
-              <span class="home-cyc-label" data-i18n="home.cyc3">비누</span>
-            </li>
-            <li class="home-cyc-node home-cyc-node--4">
-              <span class="home-cyc-media"><img src="assets/img/k28-detail.webp" alt="칼륨장석 함유 K.28 치약" width="1600" height="1067" loading="lazy"></span>
-              <span class="home-cyc-label" data-i18n="home.cyc4">치약</span>
-            </li>
-            <li class="home-cyc-node home-cyc-node--5">
-              <span class="home-cyc-media"><img src="assets/img/daily-life.webp" alt="칼륨장석 제품이 쓰이는 일상 — 녹지가 이어진 도시 풍경" width="300" height="300" loading="lazy"></span>
-              <span class="home-cyc-label" data-i18n="home.cyc5">일상</span>
-            </li>
-          </ol>
-
-          <div class="home-cycle-core">
-            <img class="home-cycle-logo" src="assets/img/logo-kali-mark.png" alt="KALI" width="1368" height="389">
-            <p class="home-cycle-sub" data-i18n="home.subcopy">12억 년 자연의 가치를 일상으로</p>
-          </div>
-        </div>
-
-      </div>
+  <!-- 1) Full-screen Hero — 사진 1→2→3 디졸브, 3→4 디졸브, 4→5 는 오브젝트만 모핑 -->
+  <div class="hh" id="homeHero" aria-roledescription="carousel" aria-label="KALIBIO">
+    <div class="hh-stage">
+      <img class="hh-img is-on" data-slide="1" src="assets/img/home-hero-1.webp" alt="칼륨장석 분말" width="1672" height="940" fetchpriority="high">
+      <img class="hh-img" data-slide="2" src="assets/img/home-hero-2.webp" alt="칼륨장석 분말 위의 카리비누" width="1670" height="941">
+      <img class="hh-img" data-slide="3" src="assets/img/home-hero-3.webp" alt="칼륨장석 분말 위의 K.28 치약" width="1670" height="942">
+      <img class="hh-img" data-slide="4" src="assets/img/home-hero-4.webp" alt="칼륨장석으로 만든 세라믹" width="1670" height="942">
+      <!-- 사진 5 는 사진 4 위에 겹쳐, 오브젝트 영역만 마스크로 드러난다 (화면 전체 전환이 아님) -->
+      <img class="hh-img hh-morph" data-slide="5" src="assets/img/home-hero-5.webp" alt="칼륨장석으로 만든 유리" width="1670" height="942">
     </div>
 
-  <div class="section home-below">
-    <div class="container">
-      <div class="home-below-intro reveal">
-        <h2 class="home-below-title" data-i18n="home.belowTitle">천연 미네랄 소재 및 생활용품 제조 기업</h2>
-        <p class="hero-sub" data-i18n="hero.sub"></p>
-      </div>
-      <ul class="hero-model reveal" aria-label="사업 모델">
-        <li data-i18n="hero.m1">기능성 소재 공급</li>
-        <li data-i18n="hero.m2">프리미엄 생활용품 공급</li>
-        <li data-i18n="hero.m3">OEM · ODM 지원</li>
-      </ul>
+    <div class="hh-copy hh-copy--1 is-on" data-copy="1">
+      <p class="hh-en">From Potassium Feldspar Powder</p>
+      <p class="hh-ko" data-i18n="home.hero1">칼륨장석분말로</p>
     </div>
+    <div class="hh-copy hh-copy--2" data-copy="2">
+      <p class="hh-en">to KARI SOAP,</p>
+      <p class="hh-ko" data-i18n="home.hero2">카리비누,</p>
+    </div>
+    <div class="hh-copy hh-copy--3" data-copy="3">
+      <p class="hh-en">K.28 Toothpaste,</p>
+      <p class="hh-ko" data-i18n="home.hero3">K.28 치약,</p>
+    </div>
+    <!-- 사진 4·5 공용 문구: 모핑 중에도 움직이지 않는다 -->
+    <div class="hh-copy hh-copy--4" data-copy="4 5">
+      <p class="hh-en">Ceramics, Glass, and Beyond.</p>
+      <p class="hh-ko" data-i18n="home.hero4">세라믹과 유리, 그리고 더 다양한 산업까지</p>
+    </div>
+    <h1 class="hh-sr" data-i18n="home.heroSr">From Potassium Feldspar Powder to KARI SOAP, K.28 Toothpaste, Ceramics, Glass, and Beyond.</h1>
   </div>
+
+  <!-- 2) BEST SELLER -->
+  <div class="hb">
+    <div class="hb-head">
+      <h2 class="hb-title">BEST SELLER</h2>
+      <a class="hb-all" href="#prod-soap">VIEW ALL</a>
+    </div>
+    <ul class="hb-grid">
+      <li>
+        <a class="hb-item" href="?p=karisoap-03#prod-soap" data-product="karisoap-03">
+          <span class="hb-media">
+            <img class="hb-img" src="assets/img/home-best-03.webp" alt="카리비누 03 100g" width="736" height="514" loading="lazy">
+            <img class="hb-img hb-img--hover" src="assets/img/home-best-03-hover.webp" alt="" width="900" height="507" loading="lazy">
+          </span>
+          <span class="hb-name" data-i18n="home.best1">[민감 피부 진정] 카리비누 03 100g</span>
+        </a>
+      </li>
+      <li>
+        <a class="hb-item" href="?p=karisoap-05#prod-soap" data-product="karisoap-05">
+          <span class="hb-media">
+            <img class="hb-img" src="assets/img/home-best-05.webp" alt="카리비누 05 100g" width="736" height="532" loading="lazy">
+            <img class="hb-img hb-img--hover" src="assets/img/home-best-05-hover.webp" alt="" width="900" height="564" loading="lazy">
+          </span>
+          <span class="hb-name" data-i18n="home.best2">[메이크업 전 부스팅] 카리비누 05 100g</span>
+        </a>
+      </li>
+      <li>
+        <a class="hb-item" href="?p=k28-toothpaste#prod-paste" data-product="k28-toothpaste">
+          <span class="hb-media">
+            <img class="hb-img" src="assets/img/home-best-k28.webp" alt="K.28 치약 150g" width="900" height="589" loading="lazy">
+            <img class="hb-img hb-img--hover" src="assets/img/home-best-k28-hover.webp" alt="" width="900" height="555" loading="lazy">
+          </span>
+          <span class="hb-name" data-i18n="home.best3">[치아 장벽 케어] K.28 치약 150g</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 3) Split Screen — 공정 / 파트너 -->
+  <div class="hs">
+    <a class="hs-pane" href="#brand-process">
+      <img src="assets/img/home-split-process.webp" alt="거품이 인 카리비누 — 제품 공정" width="1400" height="933" loading="lazy">
+      <span class="hs-label" data-i18n="home.splitProcess">제품 공정 보러가기</span>
+    </a>
+    <a class="hs-pane" href="#part-current">
+      <img src="assets/img/home-split-partner.webp" alt="카리비누를 함께 쓰는 사람들 — 글로벌 파트너" width="1400" height="700" loading="lazy">
+      <span class="hs-label" data-i18n="home.splitPartner">카리바이오 파트너 모집</span>
+    </a>
+  </div>
+  <script src="assets/js/pages/home.js?v=202610062238"></script>
 </section>
 
 <!-- =====================================================================
@@ -1120,7 +1136,7 @@
 <a href="#contact" class="sticky-cta"><span class="sticky-cta-btn" data-i18n="stickyCta">파트너십 문의</span></a>
 
 
-<script src="assets/js/i18n.js?v=202610062220"></script>
-<script src="assets/js/app.js?v=202610062220"></script>
+<script src="assets/js/i18n.js?v=202610062238"></script>
+<script src="assets/js/app.js?v=202610062238"></script>
 </body>
 </html>

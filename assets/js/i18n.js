@@ -37,20 +37,17 @@ var I18N = {
     brandStory: { ko: "스토리", en: "Story", zh: "品牌故事" },
     brandProcess: { ko: "공정", en: "Process", zh: "生产工艺" }
   },
-  hero: {
-    m1: { ko: "기능성 소재 공급", en: "Functional Material Supply", zh: "功能性原料供应" },
-    m2: { ko: "프리미엄 생활용품 공급", en: "Premium Household Goods Supply", zh: "优质日用品供应" },
-    m3: { ko: "OEM · ODM 지원", en: "OEM · ODM Support", zh: "OEM · ODM 支持" },
-    sub: { ko: "12억 년 전 형성된 천연 미네랄 칼륨장석.<br>카리바이오는 이 원료를 연구해<br>프리미엄 생활용품과 다양한 산업 소재로 넓혀나갑니다.", en: "Potassium feldspar, a natural mineral formed 1.2 billion years ago.<br>KALIBIO studies this single material and extends it<br>into premium household goods and a wider range of industrial materials.", zh: "12亿年前形成的天然矿物钾长石。<br>卡里生物研究这一原料，<br>并将其拓展为高端生活用品与多种产业材料。" }
-  },
   home: {
-    cyc1: { ko: "원석", en: "Raw Ore", zh: "原矿" },
-    cyc2: { ko: "분말", en: "Powder", zh: "粉体" },
-    cyc3: { ko: "비누", en: "Soap", zh: "香皂" },
-    cyc4: { ko: "치약", en: "Toothpaste", zh: "牙膏" },
-    cyc5: { ko: "일상", en: "Daily Life", zh: "日常生活" },
-    subcopy: { ko: "<span class=\"home-num\">12억 년</span> 자연의 가치를 일상으로", en: "<span class=\"home-num\">1.2 Billion Years</span> of nature's value, into everyday life", zh: "<span class=\"home-num\">12亿年</span>的自然价值,融入日常" },
-    belowTitle: { ko: "천연 미네랄 소재 및 생활용품 제조 기업", en: "A Natural Mineral Material &amp; Household Goods Manufacturer", zh: "天然矿物材料及日用品制造企业" }
+    hero1: { ko: "칼륨장석분말로", en: "", zh: "从钾长石粉体" },
+    hero2: { ko: "카리비누,", en: "", zh: "到卡里香皂、" },
+    hero3: { ko: "K.28 치약,", en: "", zh: "K.28 牙膏、" },
+    hero4: { ko: "세라믹과 유리, 그리고 더 다양한 산업까지", en: "", zh: "陶瓷与玻璃，乃至更多产业" },
+    heroSr: { ko: "칼륨장석분말로 카리비누, K.28 치약, 세라믹과 유리, 그리고 더 다양한 산업까지", en: "From Potassium Feldspar Powder to KARI SOAP, K.28 Toothpaste, Ceramics, Glass, and Beyond.", zh: "从钾长石粉体到卡里香皂、K.28 牙膏、陶瓷与玻璃，乃至更多产业" },
+    best1: { ko: "[민감 피부 진정] 카리비누 03 100g", en: "[Sensitive-skin soothing] KALI Soap 03 100g", zh: "[敏感肌舒缓] 卡里皂 03 100g" },
+    best2: { ko: "[메이크업 전 부스팅] 카리비누 05 100g", en: "[Pre-makeup boost] KALI Soap 05 100g", zh: "[上妆前打底] 卡里皂 05 100g" },
+    best3: { ko: "[치아 장벽 케어] K.28 치약 150g", en: "[Enamel barrier care] K.28 Toothpaste 150g", zh: "[牙齿屏障护理] K.28 牙膏 150g" },
+    splitProcess: { ko: "제품 공정 보러가기", en: "See Our Process", zh: "查看产品工艺" },
+    splitPartner: { ko: "카리바이오 파트너 모집", en: "Become a KALIBIO Partner", zh: "卡里生物招募合作伙伴" }
   },
   mat: {
     eyebrow: { ko: "POTASSIUM FELDSPAR", en: "POTASSIUM FELDSPAR", zh: "钾长石" },
