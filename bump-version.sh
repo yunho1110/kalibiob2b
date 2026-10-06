@@ -7,7 +7,7 @@ import re, time
 V = time.strftime('%Y%m%d%H%M')
 p = 'index.html'
 s = open(p, encoding='utf-8').read()
-s, n = re.subn(r'(assets/(?:css/[a-z]+\.css|css/pages/[a-z]+\.css|js/i18n\.js|js/app\.js))(\?v=\d+)?',
+s, n = re.subn(r'(assets/(?:css/[a-z]+\.css|css/pages/[a-z]+\.css|js/i18n\.js|js/app\.js|js/pages/[a-z]+\.js))(\?v=\d+)?',
                lambda m: m.group(1) + '?v=' + V, s)
 open(p, 'w', encoding='utf-8').write(s)
 print(f'asset version -> {V}  ({n}곳)')
