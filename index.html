@@ -17,17 +17,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <!-- 스타일시트는 순서가 중요합니다. 토큰 → 기본 → 공통 → 페이지별 순으로 읽힙니다. -->
-<link rel="stylesheet" href="assets/css/tokens.css?v=202610062238">
-<link rel="stylesheet" href="assets/css/base.css?v=202610062238">
-<link rel="stylesheet" href="assets/css/components.css?v=202610062238">
-<link rel="stylesheet" href="assets/css/pages/home.css?v=202610062238">
-<link rel="stylesheet" href="assets/css/pages/about.css?v=202610062238">
-<link rel="stylesheet" href="assets/css/pages/material.css?v=202610062238">
-<link rel="stylesheet" href="assets/css/pages/products.css?v=202610062238">
-<link rel="stylesheet" href="assets/css/pages/business.css?v=202610062238">
-<link rel="stylesheet" href="assets/css/pages/partnership.css?v=202610062238">
-<link rel="stylesheet" href="assets/css/pages/contact.css?v=202610062238">
-<link rel="stylesheet" href="assets/css/theme.css?v=202610062238">
+<link rel="stylesheet" href="assets/css/tokens.css?v=202610062244">
+<link rel="stylesheet" href="assets/css/base.css?v=202610062244">
+<link rel="stylesheet" href="assets/css/components.css?v=202610062244">
+<link rel="stylesheet" href="assets/css/pages/home.css?v=202610062244">
+<link rel="stylesheet" href="assets/css/pages/about.css?v=202610062244">
+<link rel="stylesheet" href="assets/css/pages/material.css?v=202610062244">
+<link rel="stylesheet" href="assets/css/pages/products.css?v=202610062244">
+<link rel="stylesheet" href="assets/css/pages/business.css?v=202610062244">
+<link rel="stylesheet" href="assets/css/pages/partnership.css?v=202610062244">
+<link rel="stylesheet" href="assets/css/pages/contact.css?v=202610062244">
+<link rel="stylesheet" href="assets/css/theme.css?v=202610062244">
 </head>
 <body>
 <a class="skip-link" href="#viewport">본문으로 건너뛰기</a>
@@ -262,7 +262,7 @@
       <span class="hs-label" data-i18n="home.splitPartner">카리바이오 파트너 모집</span>
     </a>
   </div>
-  <script src="assets/js/pages/home.js?v=202610062238"></script>
+  <script src="assets/js/pages/home.js?v=202610062244"></script>
 </section>
 
 <!-- =====================================================================
@@ -549,6 +549,8 @@
      제품
      ===================================================================== -->
 <section class="view" id="products">
+  <!-- 10.06 지시서(다은) — B2B 제품 소개 + 제품 상세
+       제품 데이터는 assets/js/pages/products.js 한 곳에서 관리하고, 목록과 상세가 함께 쓴다. -->
   <div class="section">
     <div class="container">
       <div class="page-head reveal">
@@ -556,113 +558,41 @@
         <h2 class="section-title" data-page-title>제품</h2>
       </div>
 
-      <div id="prod-soap" class="product-group">
-        <p class="block-desc reveal" data-i18n="products.subtitle">가격이 아닌 원료 함량과 임상 데이터로, 제품을 있는 그대로 보여드립니다</p>
-        <div class="product-grid soap-grid-2x2 reveal">
-          <article class="product-card" data-p="03">
-            <div class="product-media"><img src="assets/img/soap-03.webp" alt="카리비누 03" loading="lazy" width="900" height="900"></div>
-            <div class="product-body">
-              <h4 class="product-name" data-i18n="products.soap03.name"></h4>
-              <table class="spec-table"><tbody>
-                <tr><th data-i18n="specs.effect">메인 효능</th><td data-i18n="specs.e03"></td></tr>
-                <tr><th data-i18n="specs.ingr">핵심 성분</th><td data-i18n="specs.i03"></td></tr>
-                <tr><th data-i18n="specs.use">추천 사용</th><td data-i18n="specs.u03"></td></tr>
-              </tbody></table>
-              <ul class="product-bullets">
-                <li data-i18n="products.soap03.b1"></li>
-                <li data-i18n="products.soap03.b2"></li>
-                <li data-i18n="products.soap03.b3"></li>
-              </ul>
-              <a href="#contact" class="btn btn-outline product-cta" data-inquiry="oem" data-i18n="products.cta">OEM/ODM 문의</a>
-            </div>
-          </article>
-          <article class="product-card" data-p="05">
-            <div class="product-media"><img src="assets/img/soap-05.webp" alt="카리비누 05" loading="lazy" width="900" height="900"></div>
-            <div class="product-body">
-              <h4 class="product-name" data-i18n="products.soap05.name"></h4>
-              <table class="spec-table"><tbody>
-                <tr><th data-i18n="specs.effect">메인 효능</th><td data-i18n="specs.e05"></td></tr>
-                <tr><th data-i18n="specs.ingr">핵심 성분</th><td data-i18n="specs.i05"></td></tr>
-                <tr><th data-i18n="specs.use">추천 사용</th><td data-i18n="specs.u05"></td></tr>
-              </tbody></table>
-              <ul class="product-bullets">
-                <li data-i18n="products.soap05.b1"></li>
-                <li data-i18n="products.soap05.b2"></li>
-                <li data-i18n="products.soap05.b3"></li>
-              </ul>
-              <a href="#contact" class="btn btn-outline product-cta" data-inquiry="oem" data-i18n="products.cta">OEM/ODM 문의</a>
-            </div>
-          </article>
-          <article class="product-card" data-p="08">
-            <div class="product-media"><img src="assets/img/soap-08.webp" alt="카리비누 08" loading="lazy" width="900" height="900"></div>
-            <div class="product-body">
-              <h4 class="product-name" data-i18n="products.soap08.name"></h4>
-              <table class="spec-table"><tbody>
-                <tr><th data-i18n="specs.effect">메인 효능</th><td data-i18n="specs.e08"></td></tr>
-                <tr><th data-i18n="specs.ingr">핵심 성분</th><td data-i18n="specs.i08"></td></tr>
-                <tr><th data-i18n="specs.use">추천 사용</th><td data-i18n="specs.u08"></td></tr>
-              </tbody></table>
-              <ul class="product-bullets">
-                <li data-i18n="products.soap08.b1"></li>
-                <li data-i18n="products.soap08.b2"></li>
-                <li data-i18n="products.soap08.b3"></li>
-              </ul>
-              <a href="#contact" class="btn btn-outline product-cta" data-inquiry="oem" data-i18n="products.cta">OEM/ODM 문의</a>
-            </div>
-          </article>
-          <article class="product-card" data-p="13">
-            <div class="product-media"><img src="assets/img/soap-13.webp" alt="카리비누 13" loading="lazy" width="900" height="900"></div>
-            <div class="product-body">
-              <h4 class="product-name" data-i18n="products.soap13.name"></h4>
-              <table class="spec-table"><tbody>
-                <tr><th data-i18n="specs.effect">메인 효능</th><td data-i18n="specs.e13"></td></tr>
-                <tr><th data-i18n="specs.ingr">핵심 성분</th><td data-i18n="specs.i13"></td></tr>
-                <tr><th data-i18n="specs.use">추천 사용</th><td data-i18n="specs.u13"></td></tr>
-              </tbody></table>
-              <ul class="product-bullets">
-                <li data-i18n="products.soap13.b1"></li>
-                <li data-i18n="products.soap13.b2"></li>
-                <li data-i18n="products.soap13.b3"></li>
-              </ul>
-              <a href="#contact" class="btn btn-outline product-cta" data-inquiry="oem" data-i18n="products.cta">OEM/ODM 문의</a>
-            </div>
-          </article>
+      <!-- 목록 화면 -->
+      <div class="pl" id="prodList">
+        <div class="pl-intro">
+          <div>
+            <h3 class="pl-title" data-i18n="products.giftTitle">기업 맞춤 선물세트</h3>
+            <p class="pl-lead" data-i18n="products.giftLead">기업의 브랜드 가치와 목적에 맞춘 선물세트를 기획부터 제작, 납품까지 체계적으로 제공합니다.</p>
+            <p class="pl-desc" data-i18n="products.giftDesc"></p>
+          </div>
+          <a href="#contact" class="btn btn-primary js-order" data-order="" data-i18n="products.orderCta">기업 주문 문의</a>
+        </div>
+
+        <!-- app.js 가 메뉴(비누/치약)에 맞춰 둘 중 하나를 보여 준다. 필터 기본값의 기준으로만 쓴다. -->
+        <div id="prod-soap" class="product-group"></div>
+        <div id="prod-paste" class="product-group" hidden></div>
+
+        <div class="pl-filter" role="group" aria-label="제품 구성 유형" id="prodFilter"></div>
+        <ul class="pl-grid" id="prodGrid"></ul>
+
+        <div class="pl-trust">
+          <h3 class="pl-sub" data-i18n="products.qualityTitle">검증된 품질과 실용성을 갖춘 기업 선물</h3>
+          <p data-i18n="products.qualityDesc"></p>
+        </div>
+
+        <ul class="pl-uses" id="prodUses"></ul>
+
+        <div class="pl-cta">
+          <a href="#contact" class="btn btn-primary js-order" data-order="" data-i18n="products.orderCta">기업 주문 문의</a>
         </div>
       </div>
 
-      <div id="prod-paste" class="product-group" hidden>
-        <h3 class="block-title reveal" data-i18n="navSub.prodPaste">K.28 치약</h3>
-        <p class="k28-tagline reveal" data-i18n="k28b.tagline"></p>
-        <div class="product-grid reveal" style="grid-template-columns:1fr;">
-          <article class="product-card k28-split" data-p="k28">
-            <div class="product-media k28-photo-sm k28-split-media"><img src="assets/img/k28-lineup.webp" alt="K.28 프리미엄 치약" loading="lazy" width="1400" height="932"></div>
-            <div class="product-body k28-split-body">
-              <h4 class="product-name" data-i18n="products.k28.name"></h4>
-              <table class="spec-table"><tbody>
-                <tr><th data-i18n="specs.effect">메인 효능</th><td data-i18n="specs.ek28"></td></tr>
-                <tr><th data-i18n="specs.ingr">핵심 성분</th><td data-i18n="specs.ik28"></td></tr>
-                <tr><th data-i18n="specs.use">추천 사용</th><td data-i18n="specs.uk28"></td></tr>
-              </tbody></table>
-              <ul class="product-bullets">
-                <li data-i18n="products.k28.b1"></li>
-                <li data-i18n="products.k28.b2"></li>
-                <li data-i18n="products.k28.b3"></li>
-              </ul>
-              <a href="#contact" class="btn btn-outline product-cta" data-inquiry="oem" data-i18n="products.cta">OEM/ODM 문의</a>
-            </div>
-          </article>
-        </div>
-        <h4 class="sub-title reveal" style="margin-top:34px;" data-i18n="k28b.badge"></h4>
-        <div class="k28-grid reveal">
-          <div class="k28-card"><div class="k28-num">01</div><div class="k28-name" data-i18n="k28b.b1"></div><p class="k28-desc" data-i18n="k28b.b1d"></p></div>
-          <div class="k28-card"><div class="k28-num">02</div><div class="k28-name" data-i18n="k28b.b2"></div><p class="k28-desc" data-i18n="k28b.b2d"></p></div>
-          <div class="k28-card"><div class="k28-num">03</div><div class="k28-name" data-i18n="k28b.b3"></div><p class="k28-desc" data-i18n="k28b.b3d"></p></div>
-          <div class="k28-card"><div class="k28-num">04</div><div class="k28-name" data-i18n="k28b.b4"></div><p class="k28-desc" data-i18n="k28b.b4d"></p></div>
-        </div>
-      </div>
-
+      <!-- 상세 화면 (?p=제품ID) -->
+      <article class="pd" id="prodDetail" hidden aria-live="polite"></article>
     </div>
   </div>
+  <script src="assets/js/pages/products.js?v=202610062244"></script>
 </section>
 
 <!-- =====================================================================
@@ -1113,7 +1043,7 @@
 <a href="#contact" class="sticky-cta"><span class="sticky-cta-btn" data-i18n="stickyCta">파트너십 문의</span></a>
 
 
-<script src="assets/js/i18n.js?v=202610062238"></script>
-<script src="assets/js/app.js?v=202610062238"></script>
+<script src="assets/js/i18n.js?v=202610062244"></script>
+<script src="assets/js/app.js?v=202610062244"></script>
 </body>
 </html>

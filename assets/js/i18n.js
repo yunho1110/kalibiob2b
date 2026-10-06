@@ -237,6 +237,12 @@ var I18N = {
     eyebrow: { ko: "PRODUCT LINEUP", en: "PRODUCT LINEUP", zh: "产品线" },
     subtitle: { ko: "씻어내는 것에서 그치지 않고, 피부에 필요한 것을 채우는 것까지가 카리비누의 역할입니다.", en: "KALI Soap does not stop at washing away — it goes on to put back what skin needs.", zh: "卡里香皂的作用不止于洗净，更在于补充肌肤所需。" },
     cta: { ko: "OEM/ODM 문의", en: "OEM/ODM Inquiry", zh: "OEM/ODM咨询" },
+    giftTitle: { ko: "기업 맞춤 선물세트", en: "Corporate Gift Sets", zh: "企业定制礼盒" },
+    giftLead: { ko: "기업의 브랜드 가치와 목적에 맞춘 선물세트를 기획부터 제작, 납품까지 체계적으로 제공합니다.", en: "Gift sets tailored to your brand values and purpose — planned, produced and delivered end to end.", zh: "根据企业品牌价值与用途，从策划、制作到交付，系统化提供定制礼盒。" },
+    giftDesc: { ko: "카리바이오 선물세트는 카리비누 단독형과 카리비누·K.28 치약 세트형으로 제공되며, 기업의 활용 목적과 예산에 따라 적합한 구성을 선택할 수 있습니다. 완성도 높은 제품과 정돈된 패키지를 바탕으로 기업 행사, 고객 증정, 임직원 복지 등 다양한 비즈니스 수요에 유연하게 대응하며, 주문 규모에 맞춘 안정적인 생산과 납품을 지원합니다.", en: "KALIBIO gift sets come as KALI Soap-only sets or KALI Soap + K.28 Toothpaste sets, so you can choose the composition that fits your purpose and budget. With well-finished products and tidy packaging, we respond flexibly to corporate events, customer gifts and employee welfare, and support stable production and delivery sized to your order.", zh: "卡里生物礼盒分为卡里香皂单品型与卡里香皂·K.28牙膏组合型，可根据企业用途与预算选择合适的组合。凭借完成度高的产品与精致包装，灵活满足企业活动、客户赠礼、员工福利等多种需求，并按订单规模提供稳定的生产与交付。" },
+    orderCta: { ko: "기업 주문 문의", en: "Corporate Order Inquiry", zh: "企业订购咨询" },
+    qualityTitle: { ko: "검증된 품질과 실용성을 갖춘 기업 선물", en: "A Corporate Gift With Proven Quality and Real Usefulness", zh: "兼具可靠品质与实用性的企业礼品" },
+    qualityDesc: { ko: "자연 유래 미네랄 원료를 사용하고 공인기관 시험 및 임상 데이터를 바탕으로 제품의 품질과 신뢰성을 확보했습니다. 수령자의 실제 사용 경험까지 고려한 실용적인 구성으로, 주요 고객과 임직원에게 기업의 세심한 가치를 효과적으로 전달할 수 있습니다.", en: "Made with naturally derived mineral ingredients, with quality and reliability backed by accredited testing and clinical data. A practical composition that considers how recipients will actually use it — an effective way to convey your company's care to key clients and employees.", zh: "采用天然来源矿物原料，并以公认机构检测及临床数据确保产品品质与可靠性。兼顾收礼人实际使用体验的实用组合，能有效向重要客户与员工传达企业的用心。" },
     soap03: {
       name: { ko: "카리비누 03", en: "KALI Soap 03", zh: "卡里皂 03" },
       b1: { ko: "은행나무잎·뽕나무·병풀·약모밀 등 식물 추출물 배합", en: "Formulated with ginkgo leaf, mulberry, centella asiatica, and houttuynia cordata extracts", zh: "配方含银杏叶、桑树、积雪草、鱼腥草等植物萃取成分" },
