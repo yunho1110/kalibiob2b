@@ -70,3 +70,46 @@
 
 /* PDF 재수정 — 로고 가장자리에 흰 픽셀이 남아 있어도 연베이지 바탕 위에서 사라지도록 */
 .pt-marquee-row img{mix-blend-mode:multiply;background:transparent;border:0;box-shadow:none;}
+
+/* ========================================================================
+   10.07 파트너십 개편 — 대표 이미지 · 협력 유형 5카드 · 글로벌 띠
+   ======================================================================== */
+.pn-hero{position:relative;margin:0 0 clamp(48px,7vw,96px);background:var(--warm-gray);overflow:hidden;}
+.pn-hero-img{display:block;width:100%;height:clamp(320px,44vw,560px);object-fit:cover;object-position:right center;}
+.pn-hero-copy{position:absolute;left:clamp(24px,5vw,72px);top:50%;transform:translateY(-50%);width:min(46%,540px);}
+.pn-hero .section-title{font-size:clamp(1.6rem,3vw,2.5rem);margin-bottom:0;}
+.pn-hero .bz-lead{margin-top:16px;font-size:clamp(0.9rem,1.2vw,1rem);}
+
+/* 협력 유형 5개: 위 3 + 아래 2 */
+.bz-grid--5{grid-template-columns:repeat(6,minmax(0,1fr));}
+.bz-grid--5 > .bz-card:nth-child(-n+3){grid-column:span 2;}
+.bz-grid--5 > .bz-card:nth-child(n+4){grid-column:span 3;}
+
+/* 협력 고객사: 로고 아래 협력 분야 (확인된 내용이 있을 때만 data-role 로 채운다) */
+.pt-marquee-row li{height:auto;min-height:56px;flex-direction:column;gap:8px;}
+.pt-role{font-size:0.74rem;line-height:1.4;letter-spacing:0.02em;color:var(--ink-faint);text-align:center;}
+.pt-role:empty{display:none;}
+
+/* 글로벌 파트너십: 왼쪽 문구·버튼 / 오른쪽 대상 목록 */
+.pn-global{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:start;}
+.pn-global-copy .bz-kicker,.pn-global-list .bz-kicker{margin-bottom:14px;}
+.pn-targets{display:grid;grid-template-columns:1fr;margin:0;padding:0;list-style:none;border-top:1px solid rgba(247,247,240,0.34);}
+.pn-targets li{padding:14px 0;border-bottom:1px solid rgba(247,247,240,0.2);font-size:clamp(0.98rem,1.4vw,1.08rem);line-height:1.5;color:#fff;word-break:keep-all;}
+
+@media (max-width:1023px){
+  .bz-grid--5{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .bz-grid--5 > .bz-card:nth-child(n){grid-column:auto;}
+  .bz-grid--5 > .bz-card:last-child{grid-column:1 / -1;}
+  .pn-global{grid-template-columns:1fr;}
+}
+@media (max-width:767px){
+  /* 모바일: 이미지는 비율 그대로, 문구는 이미지 아래 */
+  .pn-hero{background:none;overflow:visible;}
+  .pn-hero-img{height:auto;aspect-ratio:16/9;}
+  .pn-hero-copy{position:static;transform:none;width:auto;padding:24px 0 0;}
+  .pn-hero .section-title{font-size:clamp(1.5rem,6.4vw,2rem);}
+}
+@media (max-width:639px){
+  .bz-grid--5{grid-template-columns:1fr;}
+  .bz-grid--5 > .bz-card:last-child{grid-column:auto;}
+}
