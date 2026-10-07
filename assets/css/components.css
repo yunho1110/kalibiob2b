@@ -968,8 +968,4 @@ ink-on-lime-deep is 5.79:1 *//* ---- .key-callout: 핵심 차별점 콜아웃 (p
   .drawer{max-width:420px;}
 }
 
-/* 모바일 하단 고정 버튼 — 위의 .sticky-cta{display:none} 보다 뒤에 와야 한다 */
-@media (max-width:768px){
-  .sticky-cta{display:block;}
-  body{padding-bottom:76px;}
-}
+/* 하단 고정 '파트너십 문의' 버튼은 문의 페이지와 중복이라 삭제 (10.07) */

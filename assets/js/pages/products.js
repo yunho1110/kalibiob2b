@@ -199,8 +199,7 @@
           '<ul class="pd-quality"><li>' + esc(L(TXT.q1)) + '</li><li>' + esc(L(TXT.q2)) + '</li></ul>' +
           '<h4 class="pd-h">' + esc(L(TXT.order)) + '</h4>' +
           '<dl class="pd-order"><dt>' + esc(L(TXT.moq)) + '</dt><dd>' + esc(L(TXT.ask)) + '</dd><dt>' + esc(L(TXT.lead)) + '</dt><dd>' + esc(L(TXT.ask)) + '</dd><dt>' + esc(L(TXT.price)) + '</dt><dd>' + esc(L(TXT.ask)) + '</dd></dl>' +
-          '<div class="pd-actions"><a href="#contact" class="btn btn-primary js-order" data-order="' + esc(nameOf(p)) + '">' + K('products.orderCta') + '</a>' +
-          '<a class="btn btn-outline" href="#' + p.view + '">' + esc(L(TXT.back).replace('← ', '')) + '</a></div>' +
+          '<div class="pd-actions"><a class="btn btn-outline" href="#' + p.view + '">' + esc(L(TXT.back).replace('← ', '')) + '</a></div>' +
           '<p class="pd-note">' + esc(L(TXT.orderNote)) + '</p>' +
         '</div>' +
       '</div>' + strengths;
