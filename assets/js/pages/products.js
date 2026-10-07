@@ -4,6 +4,7 @@
    ─ 구조: PRODUCT(제품 선택) → 제품별 상세(HERO → INFORMATION → LINE-UP → GALLERY → SUPPLY → INQUIRY)
    ─ 라우팅: 해시(#products · #prod-soap · #prod-paste · #prod-set)는 app.js 가 맡고,
      이 파일은 각 블록 안을 채운다. ?p=<제품ID> 는 라인업의 선택 항목을 미리 골라 준다(홈의 카드 링크 호환).
+   ─ 제품 정보는 공식몰(kalibio1102.cafe24.com)의 상품 정보를 기준으로 한다. 공식몰에 없는 내용은 넣지 않는다.
    ─ 확인되지 않은 정보(제품 코드·포장 단위·보관 조건·최소 주문량·납기·가격)는 만들지 않는다.
      값이 null 인 항목은 화면에 나오지 않고, 아래 TODO(대표님 확인) 주석으로만 남는다.
    이 파일은 제품 담당자만 수정합니다. */
@@ -53,26 +54,26 @@
     kLead: { ko: '납기', en: 'Lead time', zh: '交期' },
     kPrice: { ko: '가격', en: 'Price', zh: '价格' },
     ask: { ko: '문의 필요', en: 'On request', zh: '需咨询' },
-    supplyNote: { ko: '패키지·수량·구성 변경은 기업 주문 문의로 협의합니다.', en: 'Packaging, quantity and composition can be arranged through a corporate order inquiry.', zh: '包装、数量及组成的变更可通过企业订单咨询协商。' },
+    kBulk: { ko: '대량 구매', en: 'Bulk purchase', zh: '批量采购' },
+    bulk: { ko: '답례품 · 각종 기념품 · 명절 선물 등 대량 구매 문의', en: 'Bulk orders for return gifts, commemorative items, holiday gifts, etc.', zh: '回礼、各类纪念品、节日礼品等批量采购咨询' },
     finished: { ko: '완제품', en: 'Finished product', zh: '成品' },
     finishedSet: { ko: '세트 구성 완제품', en: 'Finished product set', zh: '组合成品' },
     feldspar: { ko: '칼륨장석', en: 'Potassium feldspar', zh: '钾长石' }
   };
 
   /* ---------- 제품 데이터 (단일 소스) ----------
-     확인된 정보만 둔다. 출처: 기존 사이트 문구 + 공식몰(kalibio1102.cafe24.com) 상품 상세.
-     TODO(대표님 확인): 제품 코드 · 포장 단위 · 보관 조건 · 최소 주문 수량 · 납기 · 가격 — 아직 확인된 자료가 없다.
-     TODO(대표님 확인): 카리비누 05 — 공식몰 상세 카드에는 '카리비누 20 · 칼륨장석 20%'로 적혀 있어 B2B 사이트의 5%와 다르다.
-                       그래서 05 는 향·원료 수를 비워 두고 기존 사이트의 핵심 성분만 쓴다.
-     TODO(대표님 확인): 카리비누 08·13 의 핵심 성분 — 공식몰 상세 카드(편백오일 등 / 알로에베라잎추출물)를 따랐고, 기존 사이트 문구와 달랐다. */
+     출처: 공식몰(kalibio1102.cafe24.com) 상품 상세. 공식몰에 없는 내용은 넣지 않는다.
+     - 카리비누 05: 공식몰 상세 카드는 단종된 '카리비누 20'(칼륨장석 20%) 내용이라 쓰지 않는다. 05 는 5%·100g·색상만 표시한다.
+     - K.28 치약: 공식몰 상세·튜브 라벨에서 확인되는 150g · 28가지 자연 유래 성분만 표시한다.
+     TODO(대표님 확인): 제품 코드 · 포장 단위 · 보관 조건 · 최소 주문 수량 · 납기 · 가격 — 공식몰에도 자료가 없다.
+     TODO(대표님 확인): 카리비누 05 의 향·사용 원료 수·주요 원료, 공식몰 05 상세 페이지의 20 카드 교체 필요. */
   var SOAP = [
     { id: 'karisoap-03', no: '03', pct: '3', img: 'assets/img/soap-03.webp',
       color: { ko: '초록색', en: 'Green', zh: '绿色' },
       scent: { ko: '청량한 피톤치드향', en: 'Fresh phytoncide scent', zh: '清爽的植物精气香' }, ing: 18,
       key: { ko: '칼륨장석 3%, 클로렐라불가리스가루 등', en: 'Potassium feldspar 3%, chlorella vulgaris powder, etc.', zh: '钾长石3%、小球藻粉等' } },
     { id: 'karisoap-05', no: '05', pct: '5', img: 'assets/img/soap-05.webp',
-      color: { ko: '분홍색', en: 'Pink', zh: '粉色' }, scent: null, ing: null,
-      key: { ko: '칼륨장석 5%, 유기농 코코넛, 세라마이드 등', en: 'Potassium feldspar 5%, organic coconut, ceramide, etc.', zh: '钾长石5%、有机椰子、神经酰胺等' } },
+      color: { ko: '분홍색', en: 'Pink', zh: '粉色' }, scent: null, ing: null, key: null },
     { id: 'karisoap-08', no: '08', pct: '8', img: 'assets/img/soap-08.webp',
       color: { ko: '파란색', en: 'Blue', zh: '蓝色' },
       scent: { ko: '신선하고 깨끗한 아쿠아향', en: 'Fresh, clean aqua scent', zh: '清新洁净的水生香' }, ing: 20,
@@ -86,7 +87,7 @@
   var SETS = [
     { id: 'karisoap-set-4', img: 'assets/img/prod-set-soap4.webp',
       name: { ko: '카리비누 4구 세트', en: 'KALI Soap 4-Bar Set', zh: '卡里皂4块礼盒' },
-      contents: { ko: '카리비누 100g × 4개입 (비누 종류는 문의 시 선택)', en: 'KALI Soap 100g × 4 (variants chosen on inquiry)', zh: '卡里皂100g × 4块（品种于咨询时选择）' } },
+      contents: { ko: '카리비누 100g × 4개입', en: 'KALI Soap 100g × 4', zh: '卡里皂100g × 4块' } },
     { id: 'k28-set-5', img: 'assets/img/prod-set-k28-5.webp',
       name: { ko: 'K.28 치약 5개 세트', en: 'K.28 Toothpaste 5-Pack Set', zh: 'K.28牙膏5支礼盒' },
       contents: { ko: 'K.28 치약 150g × 5개', en: 'K.28 Toothpaste 150g × 5', zh: 'K.28牙膏150g × 5支' } },
@@ -182,11 +183,7 @@
         ['kType', esc(L(GROUPS.paste.type))],
         ['kMaterial', t('feldspar')],
         ['kVolume', '150g'],
-        ['kIngNat', esc(L({ ko: '28가지 자연 유래 성분', en: '28 naturally derived ingredients', zh: '28种天然来源成分' }))],
-        ['kIngKey', esc(L({ ko: '칼륨장석, 하이드록시아파타이트, 프로폴리스, 인산삼칼슘, 덴탈타입실리카 등', en: 'Potassium feldspar, hydroxyapatite, propolis, tricalcium phosphate, dental-type silica, etc.', zh: '钾长石、羟基磷灰石、蜂胶、磷酸三钙、牙膏用二氧化硅等' }))],
-        ['kFormula', esc(L({ ko: '고농축 · 고점도 (정제수 6.5%)', en: 'Highly concentrated, high-viscosity (purified water 6.5%)', zh: '高浓缩·高粘度（纯净水6.5%）' }))],
-        ['kFree', esc(L({ ko: '합성 계면활성제(SLS) · 불소', en: 'Synthetic surfactant (SLS) · fluoride', zh: '合成表面活性剂(SLS) · 氟' }))],
-        ['kPreserv', esc(L({ ko: '천연 보존제 E-폴리리신', en: 'Natural preservative ε-polylysine', zh: '天然防腐剂 ε-聚赖氨酸' }))]
+        ['kIngNat', esc(L({ ko: '28가지 자연 유래 성분', en: '28 naturally derived ingredients', zh: '28种天然来源成分' }))]
       ];
     }
     return [
@@ -194,7 +191,7 @@
       ['kType', esc(L({ ko: '세트 (카리비누 · K.28 치약 구성)', en: 'Set (KALI Soap · K.28 Toothpaste)', zh: '组合（卡里皂 · K.28牙膏）' }))],
       ['kMaterial', t('feldspar')],
       ['kContents', esc(L({ ko: '카리비누 100g · K.28 치약 150g', en: 'KALI Soap 100g · K.28 Toothpaste 150g', zh: '卡里皂100g · K.28牙膏150g' }))],
-      ['kOptions', esc(L({ ko: '아래 구성 3종 · 카리비누 세트는 2구 · 3구 · 4구 (개당 100g, 비누 종류 선택 가능)', en: '3 options below · KALI Soap sets of 2, 3 or 4 bars (100g each, variants selectable)', zh: '下列3种组合 · 卡里皂组合有2块、3块、4块（每块100g，品种可选）' }))]
+      ['kOptions', esc(L({ ko: '아래 구성 3종 · 카리비누 세트는 2구 · 3구 · 4구 (개당 100g) · 3구 세트는 비누 종류 상관없이 3개 선택 가능', en: '3 options below · KALI Soap sets of 2, 3 or 4 bars (100g each) · the 3-bar set lets you choose any 3 soaps', zh: '下列3种组合 · 卡里皂组合有2块、3块、4块（每块100g）· 3块组合可任选3种皂' }))]
     ];
   }
 
@@ -220,7 +217,7 @@
         ['kColor', esc(L(p.color))],
         ['kScent', p.scent ? esc(L(p.scent)) : null],
         ['kIngCount', p.ing ? esc(L({ ko: p.ing + '가지', en: p.ing, zh: p.ing + '种' })) : null],
-        ['kIngKey', esc(L(p.key))]
+        ['kIngKey', p.key ? esc(L(p.key)) : null]
       ];
     } else {
       var s = SETS[i];
@@ -245,10 +242,11 @@
   function supply(g) {
     return table([
       ['kSupplyForm', t(g === 'set' ? 'finishedSet' : 'finished')],
+      ['kBulk', t('bulk')],
       ['kMoq', t('ask')],
       ['kLead', t('ask')],
       ['kPrice', t('ask')]
-    ]) + '<p class="pk-note">' + t('supplyNote') + '</p>';
+    ]);
   }
 
   /* ---------- 상세 한 페이지 ---------- */
