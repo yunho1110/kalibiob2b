@@ -17,18 +17,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <!-- 스타일시트는 순서가 중요합니다. 토큰 → 기본 → 공통 → 페이지별 순으로 읽힙니다. -->
-<link rel="stylesheet" href="assets/css/tokens.css?v=202610071616">
-<link rel="stylesheet" href="assets/css/base.css?v=202610071616">
-<link rel="stylesheet" href="assets/css/components.css?v=202610071616">
-<link rel="stylesheet" href="assets/css/pages/home.css?v=202610071616">
-<link rel="stylesheet" href="assets/css/pages/about.css?v=202610071616">
-<link rel="stylesheet" href="assets/css/pages/process.css?v=202610071616">
-<link rel="stylesheet" href="assets/css/pages/material.css?v=202610071616">
-<link rel="stylesheet" href="assets/css/pages/products.css?v=202610071616">
-<link rel="stylesheet" href="assets/css/pages/business.css?v=202610071616">
-<link rel="stylesheet" href="assets/css/pages/partnership.css?v=202610071616">
-<link rel="stylesheet" href="assets/css/pages/contact.css?v=202610071616">
-<link rel="stylesheet" href="assets/css/theme.css?v=202610071616">
+<link rel="stylesheet" href="assets/css/tokens.css?v=202610071621">
+<link rel="stylesheet" href="assets/css/base.css?v=202610071621">
+<link rel="stylesheet" href="assets/css/components.css?v=202610071621">
+<link rel="stylesheet" href="assets/css/pages/home.css?v=202610071621">
+<link rel="stylesheet" href="assets/css/pages/about.css?v=202610071621">
+<link rel="stylesheet" href="assets/css/pages/process.css?v=202610071621">
+<link rel="stylesheet" href="assets/css/pages/material.css?v=202610071621">
+<link rel="stylesheet" href="assets/css/pages/products.css?v=202610071621">
+<link rel="stylesheet" href="assets/css/pages/business.css?v=202610071621">
+<link rel="stylesheet" href="assets/css/pages/partnership.css?v=202610071621">
+<link rel="stylesheet" href="assets/css/pages/contact.css?v=202610071621">
+<link rel="stylesheet" href="assets/css/theme.css?v=202610071621">
 </head>
 <body>
 <a class="skip-link" href="#viewport">본문으로 건너뛰기</a>
@@ -45,25 +45,25 @@
     </a>
 
     <nav class="main-nav" aria-label="주요 메뉴">
+      <div class="nav-group" data-group="about">
+        <a class="nav-parent" href="#brand-story" data-view="about" data-i18n="nav.kariStory">카리 스토리</a>
+        <div class="nav-sub">
+          <a href="#brand-story" class="nav-sub-link" data-subview="brand-story" data-i18n="navSub.corpIntro">기업 소개</a>
+        </div>
+      </div>
       <div class="nav-group" data-group="material">
-        <a class="nav-parent" href="#material" data-view="material" data-i18n="nav.material">원료 공급</a>
+        <a class="nav-parent" href="#mat-story" data-view="material" data-i18n="nav.matProc">원료/공정</a>
         <div class="nav-sub">
           <a href="#mat-story" class="nav-sub-link" data-subview="mat-story" data-i18n="navSub.matStory">칼륨장석</a>
+          <a href="#brand-process" class="nav-sub-link" data-subview="brand-process" data-i18n="navSub.brandProcess">공정</a>
         </div>
       </div>
       <div class="nav-group" data-group="products">
-        <a class="nav-parent" href="#products" data-view="products" data-i18n="nav.products">제품</a>
+        <a class="nav-parent" href="#prod-soap" data-view="products" data-i18n="nav.products">제품</a>
         <div class="nav-sub">
           <a href="#prod-soap" class="nav-sub-link" data-subview="prod-soap" data-i18n="navSub.prodSoap">비누</a>
           <a href="#prod-paste" class="nav-sub-link" data-subview="prod-paste" data-i18n="navSub.prodPaste">치약</a>
-          <a href="#prod-set" class="nav-sub-link" data-subview="prod-set" data-i18n="products.pc.tabSet">비누 &amp; 치약 세트</a>
-        </div>
-      </div>
-      <div class="nav-group" data-group="about">
-        <a class="nav-parent" href="#about" data-view="about" data-i18n="nav.about">브랜드</a>
-        <div class="nav-sub">
-          <a href="#brand-story" class="nav-sub-link" data-subview="brand-story" data-i18n="navSub.brandStory">스토리</a>
-          <a href="#brand-process" class="nav-sub-link" data-subview="brand-process" data-i18n="navSub.brandProcess">공정</a>
+          <a href="#prod-set" class="nav-sub-link" data-subview="prod-set" data-i18n="navSub.prodSet">SET</a>
         </div>
       </div>
       <div class="nav-group" data-group="business partnership">
@@ -124,28 +124,34 @@
     <button type="button" class="drawer-close" id="drawerCloseBtn" aria-label="Close menu">&times;</button>
   </div>
   <nav class="drawer-nav">
+    <div class="nav-group" data-group="about">
+      <div class="nav-row">
+        <a href="#brand-story" data-view="about" data-i18n="nav.kariStory">카리 스토리</a>
+        <button type="button" class="nav-toggle" aria-label="하위 메뉴 열기" aria-expanded="false">▾</button>
+      </div>
+      <div class="nav-sub">
+        <a href="#brand-story" class="nav-sub-link" data-subview="brand-story" data-i18n="navSub.corpIntro">기업 소개</a>
+      </div>
+    </div>
     <div class="nav-group" data-group="material">
       <div class="nav-row">
-        <a href="#material" data-view="material" data-i18n="nav.material">원료 공급</a>
+        <a href="#mat-story" data-view="material" data-i18n="nav.matProc">원료/공정</a>
         <button type="button" class="nav-toggle" aria-label="하위 메뉴 열기" aria-expanded="false">▾</button>
       </div>
       <div class="nav-sub">
         <a href="#mat-story" class="nav-sub-link" data-subview="mat-story" data-i18n="navSub.matStory">칼륨장석</a>
+        <a href="#brand-process" class="nav-sub-link" data-subview="brand-process" data-i18n="navSub.brandProcess">공정</a>
       </div>
     </div>
     <div class="nav-group" data-group="products">
       <div class="nav-row">
         <a href="#prod-soap" data-view="products" data-i18n="nav.products">제품</a>
-      </div>
-    </div>
-    <div class="nav-group" data-group="about">
-      <div class="nav-row">
-        <a href="#about" data-view="about" data-i18n="nav.about">브랜드</a>
         <button type="button" class="nav-toggle" aria-label="하위 메뉴 열기" aria-expanded="false">▾</button>
       </div>
       <div class="nav-sub">
-        <a href="#brand-story" class="nav-sub-link" data-subview="brand-story" data-i18n="navSub.brandStory">스토리</a>
-        <a href="#brand-process" class="nav-sub-link" data-subview="brand-process" data-i18n="navSub.brandProcess">공정</a>
+        <a href="#prod-soap" class="nav-sub-link" data-subview="prod-soap" data-i18n="navSub.prodSoap">비누</a>
+        <a href="#prod-paste" class="nav-sub-link" data-subview="prod-paste" data-i18n="navSub.prodPaste">치약</a>
+        <a href="#prod-set" class="nav-sub-link" data-subview="prod-set" data-i18n="navSub.prodSet">SET</a>
       </div>
     </div>
     <div class="nav-group" data-group="business partnership">
@@ -260,7 +266,7 @@
       <span class="hs-label" data-i18n="home.splitPartner">카리바이오 파트너 모집</span>
     </a>
   </div>
-  <script src="assets/js/pages/home.js?v=202610071616"></script>
+  <script src="assets/js/pages/home.js?v=202610071621"></script>
 </section>
 
 <!-- =====================================================================
@@ -755,7 +761,7 @@
       <article class="pd" id="prodDetail" hidden aria-live="polite"></article>
     </div>
   </div>
-  <script src="assets/js/pages/products.js?v=202610071616"></script>
+  <script src="assets/js/pages/products.js?v=202610071621"></script>
 </section>
 
 <!-- =====================================================================
@@ -845,7 +851,7 @@
             </div>
           </section>
         </div>
-        <script src="assets/js/pages/story.js?v=202610071616"></script>
+        <script src="assets/js/pages/story.js?v=202610071621"></script>
       </div>
       <div id="brand-process" class="tech-block" hidden>
         <!-- 브랜드 > 공정 — SCROLL TO EXPERIENCE THE PROCESS
@@ -981,7 +987,7 @@
             </div>
           </section>
         </div>
-        <script src="assets/js/pages/process.js?v=202610071616"></script>
+        <script src="assets/js/pages/process.js?v=202610071621"></script>
       </div>
       <div id="about-why" class="info-section" hidden>
         <h3 class="block-title reveal" data-i18n="about2.whyTitle">선택해야 하는 이유</h3>
@@ -1203,7 +1209,7 @@
 <a href="#contact" class="sticky-cta"><span class="sticky-cta-btn" data-i18n="stickyCta">파트너십 문의</span></a>
 
 
-<script src="assets/js/i18n.js?v=202610071616"></script>
-<script src="assets/js/app.js?v=202610071616"></script>
+<script src="assets/js/i18n.js?v=202610071621"></script>
+<script src="assets/js/app.js?v=202610071621"></script>
 </body>
 </html>

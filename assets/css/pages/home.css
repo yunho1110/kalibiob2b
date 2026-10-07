@@ -190,3 +190,6 @@
   .hs::after{display:none;}
   .hs-pane + .hs-pane{border-top:1px solid rgba(255,255,255,0.12);}
 }
+
+/* PDF 재수정 — '칼륨장석분말'·'K.28 치약' 배너: 텍스트 상자 위치는 그대로, 글자만 오른쪽 정렬 */
+.hh-copy--1,.hh-copy--3{text-align:right;}

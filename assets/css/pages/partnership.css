@@ -67,3 +67,6 @@
 .recruit-card.pt-card{padding:0;overflow:hidden;justify-content:flex-start;min-height:0;background:#FAF3E8;}
 .pt-card img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;}
 .pt-card span{display:flex;align-items:center;justify-content:center;flex:1;padding:22px 20px 26px;}
+
+/* PDF 재수정 — 로고 가장자리에 흰 픽셀이 남아 있어도 연베이지 바탕 위에서 사라지도록 */
+.pt-marquee-row img{mix-blend-mode:multiply;background:transparent;border:0;box-shadow:none;}

@@ -266,6 +266,7 @@
     /* On the phone there is no hover. Tapping a top-level item used to jump
        straight into the section, so its sub-pages were never seen. Now it opens
        the list; the section is reached by choosing one of those sub-pages. */
+    var canHover = !!(window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches);
     var drawerParents = document.querySelectorAll('.drawer-nav .nav-group > .nav-row > a');
     for (var dp = 0; dp < drawerParents.length; dp++) {
       drawerParents[dp].addEventListener('click', function (e) {
@@ -273,7 +274,8 @@
         if (!group || !group.querySelector('.nav-sub')) { return; }
         e.preventDefault();
         collapseDrawerGroups(group);
-        var willOpen = !group.classList.contains('open');
+        /* 마우스 기기는 올리는 순간 이미 펼쳐져 있다 — 클릭이 다시 접어 버리면 빈 칸만 남으므로 열린 채로 둔다 */
+        var willOpen = canHover ? true : !group.classList.contains('open');
         group.classList.toggle('open', willOpen);
         var t = group.querySelector('.nav-toggle');
         if (t) { t.setAttribute('aria-expanded', willOpen ? 'true' : 'false'); }
@@ -642,4 +644,12 @@
     if (!(e.target.closest && e.target.closest('.lang-menu'))) { closeAll(null); }
   });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeAll(null); } });
+})();
+
+/* 스크롤하면 헤더에 바탕·그림자 (CSS: body.nav-solid) */
+(function () {
+  'use strict';
+  function sync() { document.body.classList.toggle('nav-solid', (window.pageYOffset || 0) > 24); }
+  window.addEventListener('scroll', sync, { passive: true });
+  sync();
 })();
