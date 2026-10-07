@@ -56,7 +56,7 @@
     { id: 'karisoap-13', type: 'soap', view: 'prod-soap', img: 'assets/img/soap-13.webp',
       name: 'products.soap13.name', size: '100g', bullets: ['products.soap13.b1', 'products.soap13.b2', 'products.soap13.b3'],
       specs: ['specs.e13', 'specs.i13', 'specs.u13'], uses: SOAP_USES },
-    { id: 'karisoap-set-4', type: 'soap', view: 'prod-soap', img: 'assets/img/prod-set-soap4.webp', isSet: true,
+    { id: 'karisoap-set-4', type: 'soap', view: 'prod-set', img: 'assets/img/prod-set-soap4.webp', isSet: true,
       nameTxt: { ko: '카리비누 4구 세트', en: 'KALI Soap 4-Bar Set', zh: '卡里皂4块礼盒' },
       compo: { ko: '카리비누 4개 (구성 비누는 문의 시 선택)', en: '4 bars of KALI Soap (variants chosen on inquiry)', zh: '卡里皂4块（品种于咨询时选择）' },
       featTxt: [
@@ -66,14 +66,14 @@
     { id: 'k28-toothpaste', type: 'paste', view: 'prod-paste', img: 'assets/img/home-best-k28.webp', hover: 'assets/img/home-best-k28-hover.webp',
       name: 'products.k28.name', size: '150g', bullets: ['products.k28.b1', 'products.k28.b2', 'products.k28.b3'],
       specs: ['specs.ek28', 'specs.ik28', 'specs.uk28'], strengths: true, uses: SOAP_USES },
-    { id: 'k28-set-5', type: 'paste', view: 'prod-paste', img: 'assets/img/prod-set-k28-5.webp', isSet: true,
+    { id: 'k28-set-5', type: 'paste', view: 'prod-set', img: 'assets/img/prod-set-k28-5.webp', isSet: true,
       nameTxt: { ko: 'K.28 치약 5개 세트', en: 'K.28 Toothpaste 5-Pack Set', zh: 'K.28牙膏5支礼盒' },
       compo: { ko: 'K.28 치약 5개', en: '5 tubes of K.28 Toothpaste', zh: 'K.28牙膏5支' },
       featTxt: [
         { ko: '28가지 자연 유래 성분, 70일 저온 숙성', en: '28 naturally derived ingredients, 70-day cold aging', zh: '28种天然来源成分，70天低温熟成' },
         { ko: '합성 계면활성제(SLS) 무첨가', en: 'No synthetic surfactants (SLS)', zh: '不添加合成表面活性剂(SLS)' }
       ], strengths: true, uses: SET_USES },
-    { id: 'gift-set', type: 'set', view: 'prod-soap', img: 'assets/img/prod-set-k28-soap.webp', isSet: true,
+    { id: 'gift-set', type: 'set', view: 'prod-set', img: 'assets/img/prod-set-k28-soap.webp', isSet: true,
       nameTxt: { ko: '카리비누·K.28 치약 세트', en: 'KALI Soap + K.28 Toothpaste Set', zh: '卡里皂·K.28牙膏礼盒' },
       compo: { ko: 'K.28 치약 2개 + 카리비누 2개', en: '2 × K.28 Toothpaste + 2 × KALI Soap', zh: 'K.28牙膏2支 + 卡里皂2块' },
       featTxt: [
@@ -99,40 +99,71 @@
   function feats(p) { return p.bullets ? p.bullets.map(K) : p.featTxt.map(L); }
   function urlOf(p) { return '?p=' + p.id + '#' + p.view; }
 
-  var grid = document.getElementById('prodGrid');
-  var filterBox = document.getElementById('prodFilter');
-  var usesBox = document.getElementById('prodUses');
   var list = document.getElementById('prodList');
   var detail = document.getElementById('prodDetail');
-  var groupSoap = document.getElementById('prod-soap');
-  if (!grid || !detail) { return; }
+  if (!list || !detail) { return; }
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  var FILTERS = ['all', 'soap', 'set', 'paste'];
-  var activeFilter = null; /* null = 메뉴(비누/치약)에 맞춘 기본값 */
+  /* ---------- 탭별 라인업 카드 (단일 데이터 소스 PRODUCTS 에서) ----------
+     비누 탭: 낱개 비누 4종 / 치약 탭: K.28 · K.28 5개 세트 / 세트 탭: 세트 3종 */
+  function inLineup(type, p) {
+    if (type === 'soap') { return p.type === 'soap' && !p.isSet; }
+    if (type === 'paste') { return p.type === 'paste'; }
+    return !!p.isSet;
+  }
+  function renderLineups() {
+    var boxes = document.querySelectorAll('.pp-lineup');
+    for (var i = 0; i < boxes.length; i++) {
+      var type = boxes[i].getAttribute('data-type');
+      boxes[i].innerHTML = PRODUCTS.filter(function (p) { return inLineup(type, p); }).map(function (p) {
+        var f = feats(p)[0] || '';
+        return '<li><a class="pp-card" href="' + urlOf(p) + '" data-product="' + p.id + '">' +
+          '<span class="pp-card-media"><img src="' + p.img + '" alt="' + esc(nameOf(p)) + '" loading="lazy"></span>' +
+          '<span class="pp-card-name">' + esc(nameOf(p)) + '</span>' +
+          '<span class="pp-card-d">' + f + '</span>' +
+          '<span class="pp-card-more">' + esc(L(TXT.detail)) + ' →</span></a></li>';
+      }).join('');
+    }
+  }
 
-  function defaultFilter() { return groupSoap && groupSoap.hidden ? 'paste' : 'soap'; }
+  /* ---------- 갤러리: 썸네일을 누르면 큰 사진이 부드럽게 바뀐다 ---------- */
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest && e.target.closest('.pp-thumb');
+    if (!t) { return; }
+    var gal = t.closest('.pp-gallery');
+    var main = gal.querySelector('.pp-gallery-main img');
+    var thumbs = gal.querySelectorAll('.pp-thumb');
+    for (var i = 0; i < thumbs.length; i++) {
+      thumbs[i].classList.toggle('is-on', thumbs[i] === t);
+      thumbs[i].setAttribute('aria-pressed', thumbs[i] === t ? 'true' : 'false');
+    }
+    var swap = function () { main.src = t.getAttribute('data-src'); main.alt = t.getAttribute('data-alt'); main.classList.remove('is-out'); };
+    if (reduce) { swap(); return; }
+    main.classList.add('is-out');
+    window.setTimeout(swap, 220);
+  });
 
-  /* ---------- 목록 ---------- */
-  function renderList() {
-    var f = activeFilter || defaultFilter();
-    filterBox.innerHTML = FILTERS.map(function (k) {
-      return '<button type="button" class="pl-chip" data-filter="' + k + '" aria-pressed="' + (k === f) + '">' + esc(L(TXT[k])) + '</button>';
-    }).join('');
-    grid.innerHTML = PRODUCTS.filter(function (p) { return f === 'all' || p.type === f; }).map(function (p) {
-      var fs = feats(p).slice(0, 3).map(function (t) { return '<li>' + t + '</li>'; }).join('');
-      var useTxt = p.uses.map(function (i) { return L(USES[i].t); }).join(' · ');
-      return '<li><a class="pc" href="' + urlOf(p) + '" data-product="' + p.id + '">' +
-        '<span class="pc-media"><img src="' + p.img + '" alt="' + esc(nameOf(p)) + '" loading="lazy" onerror="this.onerror=null;this.src=\'assets/img/favicon.svg\';this.classList.add(\'is-fallback\')"></span>' +
-        '<span class="pc-type">' + esc(typeOf(p)) + '</span>' +
-        '<span class="pc-name">' + esc(nameOf(p)) + '</span>' +
-        '<ul class="pc-feats">' + fs + '</ul>' +
-        '<span class="pc-use"><b>' + esc(L(TXT.useFor)) + '</b> ' + esc(useTxt) + '</span>' +
-        '<span class="pc-btn">' + esc(L(TXT.detail)) + '</span>' +
-        '</a></li>';
-    }).join('');
-    usesBox.innerHTML = USES.map(function (u) {
-      return '<li><h4>' + esc(L(u.t)) + '</h4><p>' + esc(L(u.d)) + '</p></li>';
-    }).join('');
+  /* ---------- 제조 과정 → 브랜드 > 공정의 비누/치약 구간으로 ---------- */
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('.pp-goto');
+    if (!a) { return; }
+    var id = a.getAttribute('data-goto');
+    /* 공정 메뉴로 이동한 뒤(라우터가 맨 위로 맞춘 다음) 해당 공정 구간까지 내려간다 */
+    window.setTimeout(function () {
+      var el = document.getElementById(id);
+      if (el) { el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); }
+    }, 1400);
+  });
+
+  /* ---------- 섹션이 화면에 들어올 때 부드럽게 (opacity·translateY 20px) ---------- */
+  var rises = document.querySelectorAll('#products .pp-rise');
+  if (reduce || !('IntersectionObserver' in window)) {
+    for (var r = 0; r < rises.length; r++) { rises[r].classList.add('is-in'); }
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.06 });
+    for (var q = 0; q < rises.length; q++) { io.observe(rises[q]); }
   }
 
   /* ---------- 상세 ---------- */
@@ -194,7 +225,7 @@
     } else {
       detail.hidden = true; list.hidden = false;
       if (baseTitle !== null) { document.querySelector('meta[name="description"]').setAttribute('content', baseTitle); }
-      renderList();
+      renderLineups();
     }
   }
 
@@ -227,7 +258,7 @@
     var a = e.target.closest && e.target.closest('.js-order');
     if (!a) { return; }
     var sel = document.getElementById('inquiryType');
-    if (sel) { sel.value = 'bulk'; }
+    if (sel) { sel.value = a.getAttribute('data-inquiry') || 'bulk'; }
     var name = a.getAttribute('data-order');
     var msg = document.getElementById('message');
     if (msg && name && msg.value.indexOf(name) === -1) {
@@ -235,12 +266,6 @@
     }
   });
 
-  filterBox.addEventListener('click', function (e) {
-    var b = e.target.closest('[data-filter]');
-    if (!b) { return; }
-    activeFilter = b.getAttribute('data-filter');
-    renderList();
-  });
 
   /* ?p= 가 붙은 항목 사이를 뒤로/앞으로 이동하면 브라우저가 hashchange 를 보내지 않는다.
      app.js 가 뷰를 다시 고르도록 직접 알린다. */
@@ -248,7 +273,7 @@
     window.dispatchEvent(new HashChangeEvent('hashchange'));
     window.setTimeout(render, 0);
   });
-  window.addEventListener('hashchange', function () { activeFilter = null; window.setTimeout(render, 0); });
+  window.addEventListener('hashchange', function () { window.setTimeout(render, 0); });
   /* app.js 가 비누/치약 블록의 hidden 을 바꾸거나 언어를 바꾸면 다시 그린다 */
   if ('MutationObserver' in window) {
     new MutationObserver(function () { window.setTimeout(render, 0); })
@@ -256,10 +281,6 @@
     var prodView = document.getElementById('products');
     new MutationObserver(function () { window.setTimeout(render, 0); })
       .observe(prodView, { attributes: true, attributeFilter: ['class'] });
-    if (groupSoap) {
-      new MutationObserver(function () { activeFilter = null; window.setTimeout(render, 0); })
-        .observe(groupSoap, { attributes: true, attributeFilter: ['hidden'] });
-    }
   }
   render();
 })();

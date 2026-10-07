@@ -116,7 +116,7 @@
     var SUBVIEW_GROUPS = {
       material: ['mat-story'],
       business: ['biz-areas'],
-      products: ['prod-soap', 'prod-paste'],
+      products: ['prod-soap', 'prod-paste', 'prod-set'],
       about: ['brand-story', 'brand-process'],
       partnership: ['part-current'],
       contact: ['contact-form', 'contact-faq']
