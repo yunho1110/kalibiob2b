@@ -154,7 +154,9 @@ var I18N = {
     originTitle: { ko: "기업 기원", en: "Our Origin", zh: "企业起源" },
     originP1: { ko: "12억 년 전 형성된 지역광물에서 출발한 가치 혁신,<br>자연에 기술을 더하고, 일상의 건강으로 답을 찾아 갑니다.<br><br>카리바이오는 우리 몸에 유해한 성분을 배제하고, 안전하고<br>효과적인 원료를 사용하여 천연 자원의 가치를 좋은<br>제품으로 연결하는 것에서 시작되었습니다.", en: "Value innovation that began with a local mineral formed 1.2 billion years ago —<br>we add technology to nature and find our answers in everyday health.<br><br>KALIBIO began by leaving out ingredients harmful to the body, using safe and effective raw materials, and connecting the value of a natural resource to good products.", zh: "源于12亿年前形成的地方矿物的价值革新，<br>为自然加上技术，在日常的健康中寻找答案。<br><br>卡里生物始于排除对人体有害的成分、使用安全有效的原料，并将天然资源的价值连接为优质产品。" },
     originP3: { ko: "산학협력을 기반으로 소재의 과학적 가치와 산업적 활용성을 확인해 왔습니다.<br>천연 자원의 가치를 제품으로 연결하는 것이 카리바이오가 창업한 이유입니다.", en: "Working with academia, we have been establishing the material's scientific value and industrial usefulness. Connecting a natural resource to products is the reason this company exists.", zh: "以产学合作为基础,持续确认该材料的科学价值与产业应用性。把天然资源的价值连接到产品,正是卡里生物创业的理由。" },
-    visionTitle: { ko: "기업 비전", en: "Our Vision", zh: "企业愿景" }
+    visionTitle: { ko: "기업 비전", en: "Our Vision", zh: "企业愿景" },
+    visionLead: { ko: "자연에서 시작된 가치,<br>더 나은 일상으로 연결하는 기업이 되겠습니다.", en: "From value that begins in nature,<br>we will connect people to a better everyday life.", zh: "源于自然的价值，<br>我们将成为连接更好日常的企业。" },
+    visionBody: { ko: "칼륨장석의 가능성을 끝까지 검증해<br>사람과 환경 모두에게 안전한 생활 소재를 만드는<br>글로벌 프리미엄 생활용품 B2B 파트너가 되겠습니다.", en: "By verifying potassium feldspar to its limits,<br>making living materials safe for both people and the environment,<br>we will become a global premium household goods B2B partner.", zh: "彻底验证钾长石的可能性，<br>制造对人与环境都安全的生活材料，<br>成为全球优质生活用品B2B伙伴。" },
   },
   part2: {
     currentTitle: { ko: "협력 고객사", en: "Our Clients", zh: "合作客户" },

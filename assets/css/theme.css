@@ -100,14 +100,6 @@ footer.site-footer{background:var(--ink);}
 .sticky-cta{background:rgba(251,250,247,0.96);border-top:var(--line);box-shadow:none;}
 .sticky-cta-btn{border-radius:0;background:var(--ink);font-weight:600;letter-spacing:0.04em;}
 
-/* ========================================================================
-   홈 상단 — 가로 메뉴·언어·문의 버튼을 숨기고 햄버거(+ 로고)만 남긴다.
-   언어 선택과 문의는 햄버거로 여는 왼쪽 메뉴 안에 그대로 있다.
-   ======================================================================== */
-body:has(#home.is-active) .site-nav .main-nav,
-body:has(#home.is-active) .site-nav .site-nav-right,
-body:has(#home.is-active) .app-topbar .topbar-right{display:none;}
-
 /* 왼쪽 세로 메뉴 — 상위 메뉴 앞 + / −, 하위 메뉴는 기호 없이 들여쓰기·크기로만 구분 */
 .drawer-nav .nav-toggle{display:none;}
 .drawer-nav .nav-row > a{display:flex;align-items:center;gap:14px;padding-left:4px;}
@@ -123,19 +115,31 @@ body:has(#home.is-active) .app-topbar .topbar-right{display:none;}
 @media (prefers-reduced-motion: reduce){.drawer-nav .nav-sub{transition:none;}}
 
 /* ========================================================================
-   홈 상단 — 흰 헤더 띠를 없애고 메인 비주얼 위에 햄버거(왼쪽)·KALI. 로고(정중앙)만
+   10.07 — 전 페이지 공통 상단
+   흰 헤더 띠·가로 메뉴·문의 버튼 없이, 페이지 위에 바로 겹쳐서
+   왼쪽: 햄버거 / 정중앙: KALI. / 오른쪽: KR EN ZH
    ======================================================================== */
-body:has(#home.is-active) .app-content{padding-top:0;}
-body:has(#home.is-active) .site-nav,
-body:has(#home.is-active) .app-topbar{
+.app-content,
+body .app-content{padding-top:0;}
+.site-nav,.app-topbar{
   background:transparent;border-bottom:none;box-shadow:none;
   backdrop-filter:none;-webkit-backdrop-filter:none;
 }
-body:has(#home.is-active) .site-nav .brand-name,
-body:has(#home.is-active) .app-topbar .brand-sub{display:none;}
+.site-nav .main-nav,
+.site-nav .nav-cta,
+.site-nav .brand-name,
+.app-topbar .brand-sub{display:none;}
+.site-nav-inner,.app-topbar{position:relative;}
 /* 로고의 중심 = 화면 너비의 정중앙 */
-body:has(#home.is-active) .site-nav .brand,
-body:has(#home.is-active) .app-topbar .brand{
-  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);margin:0;
+.site-nav .brand,.app-topbar .brand{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);margin:0;}
+.site-nav-right,.app-topbar .topbar-right{margin-left:auto;}
+.site-nav-inner{max-width:none;padding-left:clamp(18px,3vw,40px);padding-right:clamp(18px,3vw,40px);}
+/* 햄버거: 굵기·길이·크기는 그대로, 진하기만 한 단계 */
+.menu-toggle span{background:#0d0d0b;}
+/* 언어 선택: 박스 없이 텍스트, #111 · 600 · 12~13px, 선택된 언어는 얇은 밑줄 */
+.site-nav .lang-switch,.app-topbar .lang-switch{background:transparent;border:none;padding:0;gap:4px;box-shadow:none;}
+.site-nav .lang-btn,.app-topbar .lang-btn{
+  background:transparent;color:#111;font-weight:600;font-size:12.5px;letter-spacing:0.04em;padding:6px 6px;
 }
-body:has(#home.is-active) .site-nav-inner{position:relative;}
+.site-nav .lang-btn.active,.app-topbar .lang-btn.active{background:transparent;color:#111;}
+.site-nav .lang-btn.active::after,.app-topbar .lang-btn.active::after{left:6px;right:6px;bottom:3px;height:1px;background:#111;}
