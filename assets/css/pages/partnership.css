@@ -114,3 +114,8 @@
   .bz-grid--5{grid-template-columns:1fr;}
   .bz-grid--5 > .bz-card:last-child{grid-column:auto;}
 }
+
+/* 마지막 섹션이 글로벌 파트너십 띠로 끝나므로, 띠 아래에 베이지 여백이 남지 않고 푸터에 바로 이어지게 */
+#partnership > .section{padding-bottom:0;}
+#partnership .tech-block > .bz-band:last-child{margin-bottom:0;}
+#partnership .tech-block{margin-bottom:0;}
