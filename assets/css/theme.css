@@ -143,3 +143,20 @@ body .app-content{padding-top:0;}
 }
 .site-nav .lang-btn.active,.app-topbar .lang-btn.active{background:transparent;color:#111;}
 .site-nav .lang-btn.active::after,.app-topbar .lang-btn.active::after{left:6px;right:6px;bottom:3px;height:1px;background:#111;}
+
+/* 10.07 추가 — 가로 메뉴·파트너십 버튼은 어떤 화면 폭·페이지에서도 다시 나타나지 않게 */
+.site-nav .main-nav,.site-nav .nav-cta{display:none !important;}
+/* 언어 선택: 상단 줄에 붙이지 않고 화면 오른쪽 끝의 독립 버튼으로 */
+.site-nav-right,.app-topbar .topbar-right{
+  position:fixed;top:14px;right:14px;z-index:1300;margin:0;
+}
+.site-nav .lang-switch,.app-topbar .lang-switch{
+  background:rgba(251,250,247,0.92);border:1px solid rgba(17,17,17,0.16);border-radius:999px;
+  padding:3px 6px;gap:0;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+}
+.site-nav .lang-btn,.app-topbar .lang-btn{padding:6px 9px;}
+.site-nav .lang-btn.active::after,.app-topbar .lang-btn.active::after{left:9px;right:9px;bottom:4px;}
+@media (min-width:1024px){ .site-nav-right{top:20px;right:18px;} }
+
+/* 하위 메뉴가 없는 상위 메뉴(제품)는 +/− 표시 없이 바로 이동 */
+.drawer-nav .nav-group:not(:has(.nav-sub)) > .nav-row > a::before{visibility:hidden;}

@@ -213,3 +213,11 @@
   .ba-table thead th,.ba-table tbody th,.ba-table td{padding:14px 16px;}
   .ba-table tbody th{white-space:normal;width:auto;}
 }
+
+/* 10.07 — 각 파트의 큰 주제가 가장 크게: 주제 20pt / 바로 아래 문장 15pt / 내용 10pt */
+.ba-kicker{font-size:20pt;letter-spacing:0.02em;text-transform:none;font-weight:800;line-height:1.3;}
+.ba-title{font-size:15pt;font-weight:700;line-height:1.45;}
+.ba-desc{font-size:10pt;line-height:1.85;}
+/* '사업 분야' 제목과 첫 사진 사이 간격을 절반으로 */
+#business .page-head{margin-bottom:calc(clamp(var(--s6),4vw,var(--s8)) / 2);}
+#biz-areas > .ba-part:first-child{padding-top:calc(clamp(56px,8vw,112px) / 2);}
