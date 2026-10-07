@@ -269,6 +269,7 @@ var I18N = {
       tabPaste: { ko: "치약", en: "Toothpaste", zh: "牙膏" },
       tabSet: { ko: "비누 &amp; 치약 세트", en: "Soap &amp; Toothpaste Set", zh: "香皂与牙膏礼盒" },
       galleryTitle: { ko: "제품 이미지", en: "Product Images", zh: "产品图片" },
+      lineupTitle: { ko: "카리비누 4종", en: "KALI Soap Line-up", zh: "卡里皂系列" },
       contactTitle: { ko: "이 제품에 대해 문의하기", en: "Ask About This Product", zh: "咨询此产品" },
       contactDesc: { ko: "대량 구매, 샘플, 유통 파트너십 모두 문의 페이지에서 받습니다. 버튼을 누르면 문의 유형과 제품명이 자동으로 입력됩니다.", en: "Bulk orders, samples and distribution partnerships are all handled on the inquiry page. The inquiry type and product name are filled in for you.", zh: "大批量采购、样品、分销合作均可通过咨询页面联系。点击按钮会自动填写咨询类型与产品名称。" },
       ctaInquiry: { ko: "제품 문의", en: "Product Inquiry", zh: "产品咨询" },
