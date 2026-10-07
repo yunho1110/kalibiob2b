@@ -17,18 +17,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <!-- 스타일시트는 순서가 중요합니다. 토큰 → 기본 → 공통 → 페이지별 순으로 읽힙니다. -->
-<link rel="stylesheet" href="assets/css/tokens.css?v=202610072109">
-<link rel="stylesheet" href="assets/css/base.css?v=202610072109">
-<link rel="stylesheet" href="assets/css/components.css?v=202610072109">
-<link rel="stylesheet" href="assets/css/pages/home.css?v=202610072109">
-<link rel="stylesheet" href="assets/css/pages/about.css?v=202610072109">
-<link rel="stylesheet" href="assets/css/pages/process.css?v=202610072109">
-<link rel="stylesheet" href="assets/css/pages/material.css?v=202610072109">
-<link rel="stylesheet" href="assets/css/pages/products.css?v=202610072109">
-<link rel="stylesheet" href="assets/css/pages/business.css?v=202610072109">
-<link rel="stylesheet" href="assets/css/pages/partnership.css?v=202610072109">
-<link rel="stylesheet" href="assets/css/pages/contact.css?v=202610072109">
-<link rel="stylesheet" href="assets/css/theme.css?v=202610072109">
+<link rel="stylesheet" href="assets/css/tokens.css?v=202610072112">
+<link rel="stylesheet" href="assets/css/base.css?v=202610072112">
+<link rel="stylesheet" href="assets/css/components.css?v=202610072112">
+<link rel="stylesheet" href="assets/css/pages/home.css?v=202610072112">
+<link rel="stylesheet" href="assets/css/pages/about.css?v=202610072112">
+<link rel="stylesheet" href="assets/css/pages/process.css?v=202610072112">
+<link rel="stylesheet" href="assets/css/pages/material.css?v=202610072112">
+<link rel="stylesheet" href="assets/css/pages/products.css?v=202610072112">
+<link rel="stylesheet" href="assets/css/pages/business.css?v=202610072112">
+<link rel="stylesheet" href="assets/css/pages/partnership.css?v=202610072112">
+<link rel="stylesheet" href="assets/css/pages/contact.css?v=202610072112">
+<link rel="stylesheet" href="assets/css/theme.css?v=202610072112">
 </head>
 <body>
 <a class="skip-link" href="#viewport">본문으로 건너뛰기</a>
@@ -264,7 +264,7 @@
       <span class="hs-label" data-i18n="home.splitPartner">카리바이오 파트너 모집</span>
     </a>
   </div>
-  <script src="assets/js/pages/home.js?v=202610072109"></script>
+  <script src="assets/js/pages/home.js?v=202610072112"></script>
 </section>
 
 <!-- =====================================================================
@@ -708,7 +708,7 @@
       <article class="pd" id="prodDetail" hidden aria-live="polite"></article>
     </div>
   </div>
-  <script src="assets/js/pages/products.js?v=202610072109"></script>
+  <script src="assets/js/pages/products.js?v=202610072112"></script>
 </section>
 
 <!-- =====================================================================
@@ -798,7 +798,7 @@
             </div>
           </section>
         </div>
-        <script src="assets/js/pages/story.js?v=202610072109"></script>
+        <script src="assets/js/pages/story.js?v=202610072112"></script>
       </div>
       <div id="brand-process" class="tech-block" hidden>
         <!-- 브랜드 > 공정 — SCROLL TO EXPERIENCE THE PROCESS
@@ -925,7 +925,7 @@
             </div>
           </section>
         </div>
-        <script src="assets/js/pages/process.js?v=202610072109"></script>
+        <script src="assets/js/pages/process.js?v=202610072112"></script>
       </div>
       <div id="about-why" class="info-section" hidden>
         <h3 class="block-title reveal" data-i18n="about2.whyTitle">선택해야 하는 이유</h3>
@@ -1032,20 +1032,6 @@
               <p><a class="underline-link" href="https://www.kalibio.co.kr" target="_blank" rel="noopener">www.kalibio.co.kr</a></p>
             </div>
             <p class="moq-note" data-i18n="contact.moqNote"></p>
-            <div class="contact-direct" style="margin-top:20px;">
-              <strong data-i18n="brochure.title">회사 브로슈어</strong>
-              <p data-i18n="brochure.desc"></p>
-              <div class="brochure-row" style="justify-content:flex-start;">
-                <a class="brochure-btn" href="assets/docs/kalibio-brochure-ko.pdf" download>
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 19h16"/></svg>
-                  <span data-i18n="brochure.ko">국문 브로슈어 (PDF)</span>
-                </a>
-                <a class="brochure-btn" href="assets/docs/kalibio-brochure-en.pdf" download>
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 19h16"/></svg>
-                  <span data-i18n="brochure.en">영문 브로슈어 (PDF)</span>
-                </a>
-              </div>
-            </div>
           </div>
 
           <form class="contact-form reveal" id="contactForm">
@@ -1056,6 +1042,7 @@
                 <option value="bulk" data-i18n="contact.opt2">벌크 구매</option>
                 <option value="distribution" data-i18n="contact.opt3">유통 파트너십</option>
                 <option value="sample" data-i18n="contact.optSample">샘플 요청</option>
+                <option value="brochure" data-i18n="contact.optBrochure">브로슈어 요청</option>
                 <option value="other" data-i18n="contact.opt4">기타</option>
               </select>
             </div>
@@ -1143,7 +1130,7 @@
 
 
 
-<script src="assets/js/i18n.js?v=202610072109"></script>
-<script src="assets/js/app.js?v=202610072109"></script>
+<script src="assets/js/i18n.js?v=202610072112"></script>
+<script src="assets/js/app.js?v=202610072112"></script>
 </body>
 </html>

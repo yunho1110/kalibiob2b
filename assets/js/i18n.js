@@ -387,6 +387,7 @@ var I18N = {
     phEmail: { ko: "회신받을 이메일 주소", en: "Email for our reply", zh: "用于回复的邮箱" },
     phPhone: { ko: "선택 입력", en: "Optional", zh: "选填" },
     optSample: { ko: "샘플 요청", en: "Sample request", zh: "样品申请" },
+    optBrochure: { ko: "브로슈어 요청", en: "Brochure request", zh: "索取宣传册" },
     required: { ko: "필수", en: "Required", zh: "必填" },
     sent: { ko: "메일 앱이 열립니다. 열리지 않으면 아래 주소로 직접 보내주세요.", en: "Your mail app will open. If it doesn't, please write to the address below.", zh: "邮件应用将会打开。若未打开，请直接发送至下方邮箱。" }
   },
@@ -479,11 +480,5 @@ var I18N = {
     ek28: { ko: "구취, 충치, 잇몸질환, 치주질환, 시린이 개선 등", en: "Bad breath, cavities, gum disease, periodontal disease, tooth sensitivity — improvement and more", zh: "口臭、蛀牙、牙龈疾病、牙周病、牙齿敏感等改善" },
     ik28: { ko: "칼륨장석, 하이드록시아파타이트, 프로폴리스, 인산삼칼슘, 덴탈타입실리카 등", en: "Potassium feldspar, hydroxyapatite, propolis, tricalcium phosphate, dental-type silica", zh: "钾长石、羟基磷灰石、蜂胶、磷酸三钙、牙用二氧化硅等" },
     uk28: { ko: "시린 이, 구취 고민 등 모든 구강에 사용 가능", en: "Suitable for all oral-care needs, including sensitivity and bad breath", zh: "适用于牙齿敏感、口气等各类口腔护理需求" }
-  },
-  brochure: {
-    title: { ko: "회사 브로슈어", en: "Company Brochure", zh: "企业宣传册" },
-    desc: { ko: "내부 검토용 PDF가 필요하시면 아래에서 내려받으실 수 있습니다.", en: "Need a PDF for internal review? Download it below.", zh: "如需用于内部评估的PDF,可在下方下载。" },
-    ko: { ko: "국문 브로슈어 (PDF)", en: "Brochure — Korean (PDF)", zh: "韩文宣传册(PDF)" },
-    en: { ko: "영문 브로슈어 (PDF)", en: "Brochure — English (PDF)", zh: "英文宣传册(PDF)" }
   }
 };
