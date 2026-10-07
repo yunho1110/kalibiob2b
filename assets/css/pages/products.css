@@ -426,14 +426,54 @@ h3.pd-h{font-size:clamp(1.2rem,1.8vw,1.45rem);color:var(--ink);letter-spacing:-0
   .pp-gallery-main img,.pp-card-media img{transition:none;}
 }
 
-/* 제품 목록 카드 개요 — 이미지 위에 카드별 클릭 영역을 얹는다 (모바일은 가로로 밀어 본다) */
-.pc-ov{max-width:1180px;margin:0 auto clamp(28px,4vw,52px);}
-.pc-ov-in{position:relative;}
-.pc-ov img{display:block;width:100%;height:auto;}
-.pc-ov a{position:absolute;display:block;border-radius:10px;transition:background-color .2s ease;}
-.pc-ov a:hover{background:rgba(27,59,43,0.05);}
-.pc-ov a:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
-@media (max-width:767px){
-  .pc-ov{overflow-x:auto;-webkit-overflow-scrolling:touch;}
-  .pc-ov-in{min-width:860px;}
+/* ========================================================================
+   10.07 제품 카탈로그 — 제품 선택(.pk-select) · 상세(.pk-*) · 기존 pp-/pd- 구성요소 재사용
+   ======================================================================== */
+.pk-lead{margin:18px 0 0;max-width:60ch;font-size:clamp(0.98rem,1.4vw,1.1rem);line-height:1.9;color:var(--ink-soft);word-break:keep-all;}
+.pk-select{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,28px);margin:clamp(28px,4vw,48px) 0 0;padding:0;list-style:none;}
+.pk-card{text-decoration:none;}
+.pk-card-type{margin:16px 18px 0;align-self:flex-start;font-size:0.72rem;font-weight:600;letter-spacing:0.1em;color:var(--lime-text);border:1px solid currentColor;padding:2px 8px;}
+.pk-card .pp-card-name{margin-top:10px;font-family:var(--font-display);font-size:clamp(1.05rem,1.5vw,1.25rem);letter-spacing:0.02em;}
+.pk-card-info{margin:10px 18px 0;font-size:0.8rem;line-height:1.6;color:var(--ink-faint);word-break:keep-all;}
+.pk-page .pd-back{display:inline-block;margin-bottom:clamp(20px,3vw,32px);}
+.pk-table{max-width:820px;margin-top:0;}
+.pk-table th{width:34%;}
+.pk-table td{word-break:keep-all;}
+.pk-links{display:flex;flex-wrap:wrap;align-items:center;gap:8px 22px;margin:20px 0 0;font-size:0.86rem;color:var(--ink-faint);}
+.pk-link{color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink);padding-bottom:1px;}
+.pk-link:hover{color:var(--green);border-color:var(--green);}
+.pk-note{margin:14px 0 0;font-size:0.84rem;line-height:1.7;color:var(--ink-faint);max-width:820px;}
+
+/* 라인업 선택: 농도(구성)마다 독립된 선택지 */
+.pk-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 clamp(22px,3vw,34px);}
+.pk-tab{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-width:92px;padding:12px 20px;
+  background:var(--card-bg);border:1px solid var(--border);border-radius:0;color:var(--ink);cursor:pointer;
+  font-family:var(--font-display);transition:background .2s ease,color .2s ease,border-color .2s ease;
 }
+.pk-tab b{font-size:1.25rem;font-weight:700;letter-spacing:-0.01em;line-height:1.2;}
+.pk-tab span{font-size:0.7rem;font-weight:600;letter-spacing:0.14em;color:var(--ink-faint);}
+.pk-tab:hover{border-color:var(--ink);}
+.pk-tab.is-on{background:var(--ink);border-color:var(--ink);color:#fff;}
+.pk-tab.is-on span{color:rgba(255,255,255,0.72);}
+.pk-tab:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+.pk-panel{transition:opacity .2s ease;}
+.pk-panel.is-out{opacity:0;}
+.pk-var{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(24px,4vw,56px);align-items:start;}
+.pk-var-media{margin:0;background:var(--warm-gray);aspect-ratio:1/1;overflow:hidden;}
+.pk-var-media img{display:block;width:100%;height:100%;object-fit:cover;}
+.pk-var-name{margin:0 0 14px;font-size:clamp(1.3rem,2.2vw,1.7rem);font-weight:600;letter-spacing:-0.03em;color:var(--ink);}
+.pk-inq .pp-h{margin-bottom:12px;}
+.pk-inq .pp-cta{margin-top:clamp(20px,3vw,28px);}
+
+@media (max-width:1023px){ .pk-select{grid-template-columns:repeat(2,minmax(0,1fr));} }
+@media (max-width:767px){
+  .pk-var{grid-template-columns:1fr;}
+  .pk-table th{width:38%;}
+}
+@media (max-width:639px){
+  .pk-select{grid-template-columns:1fr;}
+  .pk-tab{min-width:0;flex:1 1 calc(50% - 8px);}
+  .pk-inq .btn{width:100%;text-align:center;}
+}
+@media (prefers-reduced-motion:reduce){ .pk-panel{transition:none;} }

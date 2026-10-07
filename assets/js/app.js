@@ -116,7 +116,7 @@
     var SUBVIEW_GROUPS = {
       material: ['mat-story'],
       business: ['biz-areas'],
-      products: ['prod-soap', 'prod-paste', 'prod-set'],
+      products: ['prod-main', 'prod-soap', 'prod-paste', 'prod-set'],
       about: ['brand-story', 'brand-process'],
       partnership: ['part-current'],
       contact: ['contact-form', 'contact-faq']
@@ -134,7 +134,7 @@
     var lastStoryView = null;
 
     var SUBVIEW_DEFAULT = {
-      material: 'mat-story', business: 'biz-areas', products: 'prod-soap',
+      material: 'mat-story', business: 'biz-areas', products: 'prod-main',
       about: 'brand-story', partnership: 'part-current', contact: 'contact-form'
     };
     var SUBSECTIONS = {};
@@ -346,6 +346,10 @@
       if (subId) {
         var subLink = document.querySelector('.main-nav [data-subview="' + subId + '"]');
         subName = subLink ? subLink.textContent.trim() : '';
+        /* 소메뉴가 속한 대메뉴 이름을 쓴다 (예: 공정은 '원료/공정' 아래에 있지만 화면은 about 뷰) */
+        var ownerGroup = subLink && subLink.closest ? subLink.closest('.nav-group') : null;
+        var ownerParent = ownerGroup ? ownerGroup.querySelector('.nav-parent') : null;
+        if (ownerParent) { viewLink = ownerParent; viewName = ownerParent.textContent.trim(); }
       }
       document.title = (subName ? subName + ' · ' : '') + viewName + ' | 주식회사 카리바이오';
       if (slot) { slot.textContent = subName || viewName; }
