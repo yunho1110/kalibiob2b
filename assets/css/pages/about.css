@@ -224,61 +224,109 @@ no dot. .tl-node is now the card
 /* 스토리 화면에서는 'BRAND / 스토리' 머리말 대신 배너가 첫 화면이 된다 */
 #about:has(#brand-story:not([hidden])) > .section{padding-top:0;}
 #about:has(#brand-story:not([hidden])) .page-head{display:none;}
-/* 상단은 햄버거 + 로고만 (홈과 같은 규칙) */
-body:has(#about.is-active #brand-story:not([hidden])) .site-nav .main-nav,
-body:has(#about.is-active #brand-story:not([hidden])) .site-nav .site-nav-right,
-body:has(#about.is-active #brand-story:not([hidden])) .app-topbar .topbar-right{display:none;}
 
 /* 떠오르며 나타나기 (Fade-in & Slide-up) */
 .st-rise{opacity:0;transform:translateY(36px);transition:opacity .9s ease,transform .9s cubic-bezier(.22,.61,.36,1);}
 .st-rise.is-in{opacity:1;transform:none;}
 
-/* ---- 메인 배너 ---- */
-.st-banner{
-  position:relative;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);align-items:center;
-  min-height:calc(100svh - var(--st-top));max-width:1320px;margin:0 auto;
-  padding:clamp(48px,8vh,96px) clamp(24px,7vw,112px);gap:clamp(24px,4vw,64px);
+/* ---- 메인 배너 ----
+   텍스트와 원석은 같은 그리드의 서로 다른 칸 — 절대 위치가 없어 겹칠 수 없다.
+   문구 크기는 화면이 아니라 '텍스트 칸' 너비(cqi)에 맞춰 줄어, 3줄이 칸을 넘지 않는다. */
+/* 배너는 화면에 잠시 머무는(Pinned) 구간 — 그동안 원석만 천천히 내려온다 */
+.st-banner{position:relative;height:185svh;}
+.st-banner-stage{
+  position:sticky;top:0;height:100svh;
+  display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);align-items:center;
+  column-gap:clamp(32px,5vw,96px);row-gap:40px;
+  max-width:1320px;margin:0 auto;
+  padding:calc(var(--st-top) + clamp(32px,6vh,72px)) clamp(24px,6vw,112px) clamp(48px,8vh,96px);
 }
+.st-banner-copy{min-width:0;flex-shrink:1;container-type:inline-size;}
 .st-banner-t{
-  margin:0;font-family:var(--st-serif);font-weight:500;color:var(--st-green);
-  font-size:clamp(2rem,4.2vw,4.4rem);line-height:1.12;letter-spacing:-0.01em;
+  margin:0;font-family:var(--st-serif);font-weight:500;color:var(--st-green);word-break:keep-all;
+  font-size:clamp(1.5rem,7.2cqi,4.4rem);line-height:1.12;letter-spacing:-0.01em;
 }
 /* 지시서대로 정확히 3줄 — 줄 안에서는 줄바꿈하지 않는다 */
 .st-banner-t span{display:block;white-space:nowrap;}
-.st-banner-obj{margin:0;justify-self:center;position:relative;width:min(100%,460px);}
-.st-banner-obj img{display:block;width:100%;height:auto;object-fit:contain;position:relative;z-index:1;}
+.st-banner-obj{margin:0;justify-self:center;position:relative;width:min(100%,460px);will-change:transform,opacity;}
+.st-banner-obj img{display:block;max-width:100%;width:100%;height:auto;object-fit:contain;position:relative;z-index:1;}
 /* 장석 아래에만 옅은 그림자 */
 .st-banner-obj::after{
   content:'';position:absolute;left:12%;right:12%;bottom:-6%;height:14%;z-index:0;
   background:radial-gradient(ellipse at center,rgba(27,59,43,.22) 0%,rgba(27,59,43,0) 70%);
   filter:blur(4px);
 }
+@media (min-width:768px) and (max-width:1023px){
+  .st-banner-stage{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);column-gap:clamp(24px,4vw,48px);}
+  .st-banner-obj{width:min(100%,340px);}
+}
+@media (max-width:767px){
+  .st-banner{height:auto;}
+  .st-banner-stage{position:relative;height:auto;grid-template-columns:1fr;padding-top:calc(var(--st-top) + 40px);}
+  .st-banner-t{font-size:clamp(1.3rem,8cqi,2.6rem);}
+  .st-banner-obj{width:min(80%,340px);justify-self:center;}
+}
 
 /* ---- 2단 섹션 ---- */
 .st-sec{
-  display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(32px,6vw,96px);
-  max-width:1320px;margin:0 auto;min-height:calc(90svh - var(--st-top));
-  padding:clamp(80px,12vh,140px) clamp(24px,7vw,112px);
+  position:relative;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(32px,6vw,96px);
+  min-height:calc(100svh - var(--st-top));
+  padding:clamp(96px,14vh,160px) max(clamp(24px,7vw,112px),calc((100% - 1320px) / 2 + 112px));
 }
 .st-h{margin:0 0 clamp(24px,3vw,36px);font-weight:700;letter-spacing:-0.03em;font-size:clamp(1.8rem,3.2vw,2.6rem);line-height:1.25;color:inherit;}
 .st-p{margin:0;font-size:clamp(1rem,1.3vw,1.1rem);line-height:2;letter-spacing:-0.01em;word-break:keep-all;opacity:.92;}
-.st[data-tone="light"] .st-p{color:#333;}
+.st-lead{margin:0 0 clamp(20px,2.4vw,28px);font-size:clamp(1.12rem,1.6vw,1.3rem);font-weight:600;line-height:1.9;letter-spacing:-0.02em;word-break:keep-all;}
 .st-obj{margin:0;display:flex;align-items:center;justify-content:center;}
 .st-obj img{display:block;max-width:100%;height:auto;object-fit:contain;}
-#bs-origin .st-obj img{width:min(100%,360px);}
-#bs-vision .st-obj img{width:min(100%,380px);}
 
-/* 핵심 가치 — 목록이 길어 치약 사진은 화면 가운데 고정 */
-.st-sec--values{align-items:start;}
-.st-obj--pin{position:sticky;top:calc(var(--st-top) + (100svh - var(--st-top)) / 2 - 200px);align-self:start;}
-.st-obj--pin figure{margin:0;}
-.st-obj--pin img{height:min(400px,56vh);width:auto;max-width:100%;}
+/* 기업 기원 — 광산 사진 위 어두운 막 55%, 흰 글씨 */
+#bs-origin{
+  color:#FFFFFF;
+  background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('../../img/story-mine.webp') center/cover no-repeat;
+}
+/* 기업 비전 — 연베이지, 다크 그린 제목 */
+#bs-vision{background:#F7F6F3;color:#333;}
+#bs-vision .st-h{color:#1B3B2B;}
+#bs-vision .st-lead{color:#1B3B2B;}
+#bs-vision .st-p{color:#333;}
+/* 기업 핵심 가치 — 사진 위 어두운 막 55%, 흰 글씨 */
+#bs-values{
+  color:#FFFFFF;align-items:start;
+  background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('../../img/story-values-bg.webp') center/cover no-repeat;
+}
+#bs-values .st-val-desc,#bs-values .st-val-label{opacity:.88;}
 .st-vals{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:clamp(28px,3.4vw,44px);}
 .st-val{display:grid;grid-template-columns:auto 1fr;gap:18px;}
 .st-val-n{font-family:var(--st-serif);font-style:italic;font-size:1.05rem;opacity:.7;padding-top:2px;}
 .st-val-label{margin:0 0 6px;font-family:var(--font-display);font-size:0.72rem;font-weight:700;letter-spacing:0.22em;opacity:.75;}
 .st-val-stat{margin:0 0 8px;font-size:clamp(1.02rem,1.5vw,1.15rem);font-weight:700;line-height:1.55;word-break:keep-all;}
 .st-val-desc{margin:0;font-size:clamp(0.9rem,1.2vw,0.98rem);line-height:1.85;opacity:.8;word-break:keep-all;}
+
+/* ORIGIN — 홈 영문과 같은 세리프, 흰색, 홈보다 확실히 굵게, 은은한 그림자 */
+.st-origin-word{
+  display:block;font-family:'Cormorant Garamond',var(--st-serif);font-weight:700;color:#FFFFFF;
+  font-size:clamp(4rem,10vw,9.5rem);line-height:1;letter-spacing:0.02em;
+  text-shadow:0 10px 32px rgba(0,0,0,.28),0 2px 6px rgba(0,0,0,.18);
+}
+
+/* ---- 스크롤 비주얼 ----
+   각 섹션 오른쪽 칸 안에서만 움직인다(섹션 밖으로 넘치지 않음).
+   화면에 붙어 있는(sticky) 동안 스크롤 진행도만큼 위→아래로 내려가고,
+   섹션 경계 직전에 사라지며 다음 섹션의 비주얼이 이어받는다. 값은 story.js 가 --y / --o 로 준다. */
+.st-sec{overflow:clip;}
+.st-vis-col{position:relative;align-self:stretch;min-height:100%;}
+.st-vis{
+  position:sticky;top:calc(var(--st-top) + 6vh);
+  display:flex;justify-content:center;align-items:center;
+  transform:translate3d(0,var(--y,0px),0);opacity:var(--o,1);will-change:transform,opacity;
+}
+.st-vis img{display:block;max-width:100%;height:auto;object-fit:contain;}
+.st-vis[data-v="cg"] img{width:min(100%,560px);filter:drop-shadow(0 18px 30px rgba(27,59,43,.18));}
+.st-vis[data-v="kali"] img{width:min(86%,460px);filter:drop-shadow(0 8px 24px rgba(0,0,0,.25));}
+@media (min-width:768px){
+  /* 비주얼이 내려갈 자리가 있도록 기원·비전 구간을 조금 길게 (배경·본문은 그대로) */
+  #bs-origin,#bs-vision{min-height:135svh;}
+}
 
 /* ---- 발전 과정: 가로 타임라인 ---- */
 .st-tl-sec{max-width:1320px;margin:0 auto;padding:clamp(80px,12vh,140px) clamp(24px,7vw,112px) clamp(96px,14vh,160px);}
@@ -292,19 +340,23 @@ body:has(#about.is-active #brand-story:not([hidden])) .app-topbar .topbar-right{
 .st-tl-date{margin-top:22px;font-family:var(--font-display);font-size:clamp(1.15rem,1.6vw,1.4rem);font-weight:800;letter-spacing:-0.01em;color:var(--st-green);}
 .st-tl-text{margin:12px 0 0;font-size:0.92rem;line-height:1.75;color:#7A7A72;word-break:keep-all;}
 
-/* ---- 좁은 화면 ---- */
-@media (max-width:860px){
-  .st-banner{grid-template-columns:1fr;text-align:left;min-height:auto;padding-top:56px;}
-  .st-banner-t{font-size:clamp(1.4rem,6.6vw,2.6rem);}
-  .st-p{font-size:0.94rem;}
-  .st-banner-obj{width:min(78%,360px);justify-self:end;}
-  .st-sec{grid-template-columns:1fr;min-height:0;padding:72px 24px;gap:36px;}
-  .st-sec .st-obj{order:2;}
-  .st-obj--pin{position:static;}
-  .st-obj--pin img{height:280px;}
+/* ---- 좁은 화면: 1단, 여행 비주얼 대신 각 섹션의 정지 비주얼 ---- */
+@media (max-width:767px){
+  .st-sec{grid-template-columns:1fr;min-height:0;padding:80px 24px;gap:32px;}
+  .st-sec .st-vis-col{order:2;}
+  .st-vis{position:static;transform:none;opacity:1;}
+  .st-vis[data-v="cg"] img{width:min(100%,360px);}
+  .st-vis[data-v="kali"] img{width:min(70%,260px);}
+  .st-origin-word{font-size:clamp(3.2rem,18vw,5rem);}
 }
 
 @media (prefers-reduced-motion:reduce){
   .st,.st-rise{transition:none;}
   .st-rise{opacity:1;transform:none;}
+  .st-banner{height:auto;}
+  .st-banner-stage{position:relative;}
+  .st-vis{position:static;transform:none !important;opacity:1 !important;}
 }
+/* 배너·타임라인은 자기 바탕색을 직접 가진다 (바깥 톤 전환에 물들지 않게) */
+.st-banner,.st-tl-sec{background:var(--st-beige);}
+.st-tl-sec{max-width:none;padding-left:max(clamp(24px,7vw,112px),calc((100% - 1320px) / 2 + 112px));padding-right:max(clamp(24px,7vw,112px),calc((100% - 1320px) / 2 + 112px));}

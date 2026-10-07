@@ -17,18 +17,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <!-- 스타일시트는 순서가 중요합니다. 토큰 → 기본 → 공통 → 페이지별 순으로 읽힙니다. -->
-<link rel="stylesheet" href="assets/css/tokens.css?v=202610071037">
-<link rel="stylesheet" href="assets/css/base.css?v=202610071037">
-<link rel="stylesheet" href="assets/css/components.css?v=202610071037">
-<link rel="stylesheet" href="assets/css/pages/home.css?v=202610071037">
-<link rel="stylesheet" href="assets/css/pages/about.css?v=202610071037">
-<link rel="stylesheet" href="assets/css/pages/process.css?v=202610071037">
-<link rel="stylesheet" href="assets/css/pages/material.css?v=202610071037">
-<link rel="stylesheet" href="assets/css/pages/products.css?v=202610071037">
-<link rel="stylesheet" href="assets/css/pages/business.css?v=202610071037">
-<link rel="stylesheet" href="assets/css/pages/partnership.css?v=202610071037">
-<link rel="stylesheet" href="assets/css/pages/contact.css?v=202610071037">
-<link rel="stylesheet" href="assets/css/theme.css?v=202610071037">
+<link rel="stylesheet" href="assets/css/tokens.css?v=202610071329">
+<link rel="stylesheet" href="assets/css/base.css?v=202610071329">
+<link rel="stylesheet" href="assets/css/components.css?v=202610071329">
+<link rel="stylesheet" href="assets/css/pages/home.css?v=202610071329">
+<link rel="stylesheet" href="assets/css/pages/about.css?v=202610071329">
+<link rel="stylesheet" href="assets/css/pages/process.css?v=202610071329">
+<link rel="stylesheet" href="assets/css/pages/material.css?v=202610071329">
+<link rel="stylesheet" href="assets/css/pages/products.css?v=202610071329">
+<link rel="stylesheet" href="assets/css/pages/business.css?v=202610071329">
+<link rel="stylesheet" href="assets/css/pages/partnership.css?v=202610071329">
+<link rel="stylesheet" href="assets/css/pages/contact.css?v=202610071329">
+<link rel="stylesheet" href="assets/css/theme.css?v=202610071329">
 </head>
 <body>
 <a class="skip-link" href="#viewport">본문으로 건너뛰기</a>
@@ -83,7 +83,7 @@
 
     <div class="site-nav-right">
       <div class="lang-switch nav-lang" role="group" aria-label="Language">
-        <button type="button" class="lang-btn" data-lang="ko">KO</button>
+        <button type="button" class="lang-btn" data-lang="ko">KR</button>
         <button type="button" class="lang-btn" data-lang="en">EN</button>
         <button type="button" class="lang-btn" data-lang="zh">ZH</button>
       </div>
@@ -103,7 +103,7 @@
   </a>
   <div class="topbar-right">
     <div class="lang-switch topbar-lang" role="group" aria-label="Language">
-      <button type="button" class="lang-btn" data-lang="ko">KO</button>
+      <button type="button" class="lang-btn" data-lang="ko">KR</button>
       <button type="button" class="lang-btn" data-lang="en">EN</button>
       <button type="button" class="lang-btn" data-lang="zh">ZH</button>
     </div>
@@ -167,11 +167,6 @@
       </div>
     </div>
   </nav>
-  <div class="lang-switch drawer-lang" role="group" aria-label="Language">
-    <button type="button" class="lang-btn" data-lang="ko">KO</button>
-    <button type="button" class="lang-btn" data-lang="en">EN</button>
-    <button type="button" class="lang-btn" data-lang="zh">ZH</button>
-  </div>
   <div class="drawer-cta">
     <a href="#contact" class="btn btn-primary btn-block" data-i18n="nav.cta">파트너십 문의</a>
   </div>
@@ -263,7 +258,7 @@
       <span class="hs-label" data-i18n="home.splitPartner">카리바이오 파트너 모집</span>
     </a>
   </div>
-  <script src="assets/js/pages/home.js?v=202610071037"></script>
+  <script src="assets/js/pages/home.js?v=202610071329"></script>
 </section>
 
 <!-- =====================================================================
@@ -576,7 +571,7 @@
       <article class="pd" id="prodDetail" hidden aria-live="polite"></article>
     </div>
   </div>
-  <script src="assets/js/pages/products.js?v=202610071037"></script>
+  <script src="assets/js/pages/products.js?v=202610071329"></script>
 </section>
 
 <!-- =====================================================================
@@ -597,12 +592,14 @@
 
           <!-- 메인 배너 -->
           <section class="st-banner" aria-label="From nature, we create sustainable value and innovation">
+           <div class="st-banner-stage">
             <div class="st-banner-copy st-rise">
               <p class="st-banner-t"><span>From nature,</span><span>we create sustainable value</span><span>and innovation</span></p>
             </div>
             <figure class="st-banner-obj st-rise">
               <img src="assets/img/story-rock.webp" alt="칼륨장석 원석" width="846" height="590" fetchpriority="high">
             </figure>
+           </div>
           </section>
 
           <!-- 1) 기업 기원 -->
@@ -611,20 +608,17 @@
               <h3 class="st-h" data-i18n="about2.originTitle">기업 기원</h3>
               <p class="st-p" data-i18n="about2.originP1"></p>
             </div>
-            <figure class="st-obj st-rise">
-              <img src="assets/img/story-powder.webp" alt="흰색 칼륨장석 분말 더미" width="292" height="283" loading="lazy">
-            </figure>
+            <div class="st-vis-col" aria-hidden="true"><div class="st-vis" data-v="origin"><span class="st-origin-word">ORIGIN</span></div></div>
           </section>
 
           <!-- 2) 기업 비전 -->
           <section class="st-sec" data-tone="light" id="bs-vision">
             <div class="st-text st-rise">
               <h3 class="st-h" data-i18n="about2.visionTitle">기업 비전</h3>
-              <p class="st-p" data-i18n="vision.statement"></p>
+              <p class="st-lead" data-i18n="about2.visionLead">자연에서 시작된 가치,<br>더 나은 일상으로 연결하는 기업이 되겠습니다.</p>
+              <p class="st-p" data-i18n="about2.visionBody"></p>
             </div>
-            <figure class="st-obj st-rise">
-              <img src="assets/img/story-soap.webp" alt="KALI 로고가 새겨진 핑크색 카리비누" width="343" height="344" loading="lazy">
-            </figure>
+            <div class="st-vis-col" aria-hidden="true"><div class="st-vis" data-v="cg"><img src="assets/img/story-ceramic-glass.webp" alt="" width="1100" height="723" loading="lazy"></div></div>
           </section>
 
           <!-- 3) 기업 핵심 가치 — 목록이 길어 오른쪽 치약 사진은 화면 가운데 고정 -->
@@ -639,11 +633,7 @@
                 <li class="st-val st-rise"><span class="st-val-n">05</span><div><p class="st-val-label">INNOVATION</p><p class="st-val-stat" data-i18n="about.value5"></p><p class="st-val-desc" data-i18n="about.value5d"></p></div></li>
               </ol>
             </div>
-            <div class="st-obj st-obj--pin">
-              <figure class="st-rise">
-                <img src="assets/img/story-k28.webp" alt="K.28 치약" width="110" height="376" loading="lazy">
-              </figure>
-            </div>
+            <div class="st-vis-col" aria-hidden="true"><div class="st-vis" data-v="kali"><img src="assets/img/story-kali-white.webp" alt="" width="1200" height="344" loading="lazy"></div></div>
           </section>
 
           <!-- 발전 과정 — 가로 타임라인 -->
@@ -661,7 +651,7 @@
             </div>
           </section>
         </div>
-        <script src="assets/js/pages/story.js?v=202610071037"></script>
+        <script src="assets/js/pages/story.js?v=202610071329"></script>
       </div>
       <div id="brand-process" class="tech-block" hidden>
         <!-- 브랜드 > 공정 — SCROLL TO EXPERIENCE THE PROCESS
@@ -797,7 +787,7 @@
             </div>
           </section>
         </div>
-        <script src="assets/js/pages/process.js?v=202610071037"></script>
+        <script src="assets/js/pages/process.js?v=202610071329"></script>
       </div>
       <div id="about-why" class="info-section" hidden>
         <h3 class="block-title reveal" data-i18n="about2.whyTitle">선택해야 하는 이유</h3>
@@ -996,7 +986,7 @@
         <a class="f-reach" href="mailto:kalibio1101@naver.com"><span data-i18n="footer.emailLabel">이메일</span>kalibio1101@naver.com</a>
         <a class="f-reach" href="https://www.kalibio.co.kr" target="_blank" rel="noopener"><span data-i18n="footer.siteLabel">웹사이트</span>www.kalibio.co.kr</a>
         <div class="lang-switch footer-lang" role="group" aria-label="Language">
-          <button type="button" class="lang-btn" data-lang="ko">KO</button>
+          <button type="button" class="lang-btn" data-lang="ko">KR</button>
           <button type="button" class="lang-btn" data-lang="en">EN</button>
           <button type="button" class="lang-btn" data-lang="zh">ZH</button>
         </div>
@@ -1019,7 +1009,7 @@
 <a href="#contact" class="sticky-cta"><span class="sticky-cta-btn" data-i18n="stickyCta">파트너십 문의</span></a>
 
 
-<script src="assets/js/i18n.js?v=202610071037"></script>
-<script src="assets/js/app.js?v=202610071037"></script>
+<script src="assets/js/i18n.js?v=202610071329"></script>
+<script src="assets/js/app.js?v=202610071329"></script>
 </body>
 </html>
