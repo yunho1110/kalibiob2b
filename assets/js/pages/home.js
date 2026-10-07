@@ -17,6 +17,19 @@
   var FADE = 1600, MORPH = 800;
   var current = 1, z = 1, timer = null;
 
+  /* 어두운 사진(2·3번째)에서는 KALI. 로고를 흰색으로 — 홈 화면이 보일 때만.
+     지시서는 2·4번째라고 했지만 4번째는 밝은 사진이라 흰 로고가 안 보여, 실제 밝기에 맞췄다. */
+  var homeView = document.getElementById('home');
+  var lightNow = false;
+  function applyTone() {
+    var on = lightNow && homeView && homeView.classList.contains('is-active');
+    document.body.classList.toggle('hero-logo-light', !!on);
+  }
+  function setTone(n) { lightNow = (n === 2 || n === 3); applyTone(); }
+  if (homeView && window.MutationObserver) {
+    new MutationObserver(applyTone).observe(homeView, { attributes: true, attributeFilter: ['class'] });
+  }
+
   function showCopy(n) {
     for (var c = 0; c < copies.length; c++) {
       var nums = copies[c].getAttribute('data-copy').split(' ');
@@ -55,6 +68,7 @@
     if (next === 5) { morphTo5(); } else { dissolveTo(next); }
     /* 4 와 5 는 같은 문구 — 모핑 중에도 그대로 둔다 */
     showCopy(next);
+    setTone(next);
     current = next;
     timer = window.setTimeout(step, HOLD[current]);
   }

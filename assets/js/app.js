@@ -614,3 +614,32 @@
     }
   });
 })();
+
+/* 언어 선택(지구본) — 데스크톱은 호버(CSS), 터치 기기는 탭으로 열고 닫는다 */
+(function () {
+  'use strict';
+  var menus = document.querySelectorAll('.lang-menu');
+  function setOpen(menu, on) {
+    menu.classList.toggle('is-open', on);
+    menu.querySelector('.lang-globe').setAttribute('aria-expanded', on ? 'true' : 'false');
+  }
+  function closeAll(except) {
+    for (var i = 0; i < menus.length; i++) { if (menus[i] !== except) { setOpen(menus[i], false); } }
+  }
+  for (var i = 0; i < menus.length; i++) {
+    (function (menu) {
+      menu.querySelector('.lang-globe').addEventListener('click', function () {
+        closeAll(menu);
+        setOpen(menu, !menu.classList.contains('is-open'));
+      });
+      menu.addEventListener('click', function (e) {
+        if (e.target.closest && e.target.closest('.lang-btn')) { setOpen(menu, false); }
+      });
+      menu.addEventListener('mouseleave', function () { setOpen(menu, false); });
+    })(menus[i]);
+  }
+  document.addEventListener('click', function (e) {
+    if (!(e.target.closest && e.target.closest('.lang-menu'))) { closeAll(null); }
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeAll(null); } });
+})();

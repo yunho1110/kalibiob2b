@@ -160,3 +160,42 @@ body .app-content{padding-top:0;}
 
 /* 하위 메뉴가 없는 상위 메뉴(제품)는 +/− 표시 없이 바로 이동 */
 .drawer-nav .nav-group:not(:has(.nav-sub)) > .nav-row > a::before{visibility:hidden;}
+
+/* 10.07 재수정 — 언어 선택: 알약 버튼 대신 지구본 아이콘 하나, 호버(터치) 시 KR/EN/ZH 세로 목록 */
+.lang-menu{position:relative;display:flex;flex-direction:column;align-items:center;}
+.lang-globe{
+  display:flex;align-items:center;justify-content:center;width:36px;height:36px;padding:0;
+  background:none;border:0;border-radius:0;box-shadow:none;color:#111;cursor:pointer;
+}
+.lang-globe:hover,.lang-globe:focus{background:none;}
+.lang-globe:focus-visible{outline:2px solid #111;outline-offset:2px;}
+/* 목록은 지구본 바로 아래에 붙어 있어 호버가 끊기지 않는다 */
+.lang-list{
+  position:absolute;top:100%;left:50%;display:flex;flex-direction:column;align-items:center;gap:2px;
+  padding-top:2px;transform:translate(-50%,-4px);opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .25s ease,transform .25s ease,visibility 0s linear .25s;
+}
+.lang-menu:hover .lang-list,.lang-menu:focus-within .lang-list,.lang-menu.is-open .lang-list{
+  opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0);transition-delay:0s;
+}
+.lang-menu .lang-btn{
+  min-width:0;min-height:0;padding:5px 8px;background:none;border:0;border-radius:0;box-shadow:none;
+  color:#111;font-weight:500;font-size:12.5px;letter-spacing:0.04em;opacity:.7;transition:opacity .2s,font-weight .2s;
+}
+.lang-menu .lang-btn:hover{background:none;opacity:1;font-weight:700;}
+.lang-menu .lang-btn.active{background:none;opacity:1;font-weight:700;}
+.lang-menu .lang-btn.active::after{left:8px;right:8px;bottom:2px;height:1px;background:#111;}
+
+/* 홈 히어로 2·4번째 사진에서는 KALI. 로고를 흰색으로 */
+.site-nav .brand-logo,.app-topbar .brand-logo{transition:filter .6s ease;}
+body.hero-logo-light .site-nav .brand-logo,
+body.hero-logo-light .app-topbar .brand-logo{filter:brightness(0) invert(1);}
+
+/* 어두운 배경(스토리 검정 인트로) 위에서는 헤더 요소를 흰색으로 */
+.menu-toggle span,.lang-globe,.lang-menu .lang-btn{transition:background-color .3s,color .3s;}
+body.nav-on-dark .site-nav .brand-logo,
+body.nav-on-dark .app-topbar .brand-logo{filter:brightness(0) invert(1);}
+body.nav-on-dark .menu-toggle span{background:#fff;}
+body.nav-on-dark .lang-globe,
+body.nav-on-dark .lang-menu .lang-btn{color:#fff;}
+body.nav-on-dark .lang-menu .lang-btn.active::after{background:#fff;}
