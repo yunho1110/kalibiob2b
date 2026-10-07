@@ -23,13 +23,6 @@
     secVariants: { ko: '제품 구성', en: 'Product options', zh: '产品组成' },
     secGallery: { ko: '제품 이미지', en: 'Product images', zh: '产品图片' },
     secSupply: { ko: '공급 정보', en: 'Supply information', zh: '供应信息' },
-    related: { ko: '관련 정보', en: 'Related', zh: '相关信息' },
-    toMaterial: { ko: '칼륨장석 이야기 →', en: 'About potassium feldspar →', zh: '了解钾长石 →' },
-    toTests: { ko: '시험·분석 자료 보기 →', en: 'View tests & analysis →', zh: '查看试验·分析资料 →' },
-    toProcess: { ko: '제조공정 보기 →', en: 'View the manufacturing process →', zh: '查看制造工艺 →' },
-    inqTitle: { ko: '제품 공급에 대해 문의하고 싶으신가요?', en: 'Would you like to ask about product supply?', zh: '想咨询产品供应吗？' },
-    inqDesc: { ko: 'KALIBIO 제품에 대한 자세한 공급 정보를 문의해주세요.', en: 'Please contact us for detailed supply information on KALIBIO products.', zh: '欢迎咨询 KALIBIO 产品的详细供应信息。' },
-    inqBtn: { ko: '제품 공급 문의 →', en: 'Product supply inquiry →', zh: '产品供应咨询 →' },
     interest: { ko: '관심 제품', en: 'Product of interest', zh: '感兴趣的产品' },
     /* 정보 항목 이름 */
     kName: { ko: '제품명', en: 'Product name', zh: '产品名' },
@@ -63,17 +56,19 @@
 
   /* ---------- 제품 데이터 (단일 소스) ----------
      출처: 공식몰(kalibio1102.cafe24.com) 상품 상세. 공식몰에 없는 내용은 넣지 않는다.
-     - 카리비누 05: 공식몰 상세 카드는 단종된 '카리비누 20'(칼륨장석 20%) 내용이라 쓰지 않는다. 05 는 5%·100g·색상만 표시한다.
      - K.28 치약: 공식몰 상세·튜브 라벨에서 확인되는 150g · 28가지 자연 유래 성분만 표시한다.
      TODO(대표님 확인): 제품 코드 · 포장 단위 · 보관 조건 · 최소 주문 수량 · 납기 · 가격 — 공식몰에도 자료가 없다.
-     TODO(대표님 확인): 카리비누 05 의 향·사용 원료 수·주요 원료, 공식몰 05 상세 페이지의 20 카드 교체 필요. */
+     카리비누 05: 향·사용 원료 수·주요 원료는 공식몰 05 상세 카드(은은한 피오니향 · 어성초추출물 · 26가지)를 쓰고, 칼륨장석 함량만 5%로 한다.
+     TODO(대표님 확인): 공식몰 05 상세 카드는 제품명·함량이 '20'으로 적혀 있어 05 용으로 교체가 필요하다. */
   var SOAP = [
     { id: 'karisoap-03', no: '03', pct: '3', img: 'assets/img/soap-03.webp',
       color: { ko: '초록색', en: 'Green', zh: '绿色' },
       scent: { ko: '청량한 피톤치드향', en: 'Fresh phytoncide scent', zh: '清爽的植物精气香' }, ing: 18,
       key: { ko: '칼륨장석 3%, 클로렐라불가리스가루 등', en: 'Potassium feldspar 3%, chlorella vulgaris powder, etc.', zh: '钾长石3%、小球藻粉等' } },
     { id: 'karisoap-05', no: '05', pct: '5', img: 'assets/img/soap-05.webp',
-      color: { ko: '분홍색', en: 'Pink', zh: '粉色' }, scent: null, ing: null, key: null },
+      color: { ko: '분홍색', en: 'Pink', zh: '粉色' },
+      scent: { ko: '은은한 피오니향', en: 'Soft peony scent', zh: '淡雅的牡丹香' }, ing: 26,
+      key: { ko: '칼륨장석 5%, 어성초추출물 등', en: 'Potassium feldspar 5%, houttuynia cordata extract, etc.', zh: '钾长石5%、鱼腥草提取物等' } },
     { id: 'karisoap-08', no: '08', pct: '8', img: 'assets/img/soap-08.webp',
       color: { ko: '파란색', en: 'Blue', zh: '蓝色' },
       scent: { ko: '신선하고 깨끗한 아쿠아향', en: 'Fresh, clean aqua scent', zh: '清新洁净的水生香' }, ing: 20,
@@ -109,9 +104,7 @@
         { src: 'assets/img/soap-03.webp', alt: { ko: '카리비누 03', en: 'KALI Soap 03', zh: '卡里皂 03' } },
         { src: 'assets/img/soap-05.webp', alt: { ko: '카리비누 05', en: 'KALI Soap 05', zh: '卡里皂 05' } },
         { src: 'assets/img/soap-08.webp', alt: { ko: '카리비누 08', en: 'KALI Soap 08', zh: '卡里皂 08' } },
-        { src: 'assets/img/soap-13.webp', alt: { ko: '카리비누 13', en: 'KALI Soap 13', zh: '卡里皂 13' } },
-        { src: 'assets/img/home-best-03.webp', alt: { ko: '카리비누 03 패키지', en: 'KALI Soap 03 package', zh: '卡里皂 03 包装' } },
-        { src: 'assets/img/home-best-05.webp', alt: { ko: '카리비누 05 패키지', en: 'KALI Soap 05 package', zh: '卡里皂 05 包装' } }
+        { src: 'assets/img/soap-13.webp', alt: { ko: '카리비누 13', en: 'KALI Soap 13', zh: '卡里皂 13' } }
       ]
     },
     paste: {
@@ -163,8 +156,7 @@
     }).join('');
     return '<table class="pd-table pk-table ' + (cls || '') + '"><tbody>' + body + '</tbody></table>';
   }
-  function link(href, key) { return '<a class="pk-link" href="' + href + '">' + t(key) + '</a>'; }
-
+  
   /* ---------- 제품 정보 (공통 + 제품별) ---------- */
   function infoRows(g) {
     if (g === 'soap') {
@@ -258,13 +250,11 @@
         '<p class="pp-hero-lead">' + esc(L(G.line)) + '</p></div></section>' +
       '<section class="pp-sec"><p class="pp-label">' + t('secInfo') + '</p><h4 class="pp-h">PRODUCT INFORMATION</h4>' +
         table(infoRows(g)) +
-        '<p class="pk-links"><span>' + t('related') + '</span>' + link('#mat-story', 'toMaterial') + link('#mat-tests', 'toTests') + link('#brand-process', 'toProcess') + '</p></section>' +
+        '</section>' +
       (hasVar ? '<section class="pp-sec"><p class="pp-label">' + t(G.variantLabel) + '</p><h4 class="pp-h">' + esc(G.lineupTitle) + '</h4>' +
         variantTabs(g) + '<div class="pk-panel" data-panel="' + g + '">' + variantPanel(g) + '</div></section>' : '') +
       '<section class="pp-sec"><p class="pp-label">' + t('secGallery') + '</p><h4 class="pp-h">PRODUCT GALLERY</h4>' + gallery(g) + '</section>' +
-      '<section class="pp-sec"><p class="pp-label">' + t('secSupply') + '</p><h4 class="pp-h">SUPPLY INFORMATION</h4>' + supply(g) + '</section>' +
-      '<section class="pp-sec pk-inq"><h4 class="pp-h">' + t('inqTitle') + '</h4><p class="pp-p">' + t('inqDesc') + '</p>' +
-        '<div class="pp-cta"><a class="btn btn-primary js-order" href="#contact" data-inquiry="bulk" data-order="' + esc(G.inqName) + '">' + t('inqBtn') + '</a></div></section>';
+      '<section class="pp-sec"><p class="pp-label">' + t('secSupply') + '</p><h4 class="pp-h">SUPPLY INFORMATION</h4>' + supply(g) + '</section>';
   }
 
   /* ---------- 제품 선택 카드 (PRODUCT 메인) ---------- */
