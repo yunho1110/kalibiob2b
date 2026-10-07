@@ -1,6 +1,5 @@
 /* 브랜드 > 공정 — 스크롤 = 공정 진행 (SCROLL TO EXPERIENCE THE PROCESS)
-   HERO 확대·전환 / OVERVIEW 공정 라인 / SOAP·TOOTHPASTE 고정 사진 전환 /
-   FINALE 문장·제품 등장을 스크롤 위치 하나로 계산한다.
+   SOAP·TOOTHPASTE 고정 사진 전환 / FINALE 문장·배경 등장을 스크롤 위치 하나로 계산한다.
    - 스크롤 핸들러는 rAF 로 한 번만 돌고, transform·opacity·클래스만 바꾼다.
    - 공정 페이지가 보이지 않을 때(다른 메뉴)는 아무것도 계산하지 않는다.
    - prefers-reduced-motion 이면 확대·흐림 없이 상태만 바꾼다 (CSS 가 sticky 도 푼다).
@@ -23,51 +22,7 @@
     return clamp(-r.top / span);
   }
 
-  /* ---------- 1) HERO ---------- */
-  var hero = root.querySelector('.pr-hero');
-  var heroMedia = hero.querySelector('.pr-hero-media');
-  var heroImgs = hero.querySelectorAll('.pr-hero-img');
-  var heroStages = hero.querySelectorAll('.pr-hero-stages li');
-  var heroStage = -1;
-  function updateHero() {
-    var p = progress(hero);
-    if (!reduce) { heroMedia.style.setProperty('--pr-zoom', (1 + p * 0.08).toFixed(4)); }
-    hero.setAttribute('data-progress-gt', p > 0.02 ? '0' : '');
-    var s = p < 0.34 ? 0 : (p < 0.68 ? 1 : 2);
-    if (s === heroStage) { return; }
-    heroStage = s;
-    each(heroImgs, function (img) { img.classList.toggle('is-on', +img.getAttribute('data-stage') === s); });
-    /* 이미 지난 단계도 밑줄을 남겨 '원료 → 공정 → 제품' 흐름이 보이게 */
-    each(heroStages, function (li) { li.classList.toggle('is-on', +li.getAttribute('data-stage') <= s); });
-  }
-
-  /* ---------- 2) OVERVIEW 공정 라인 ---------- */
-  var ov = root.querySelector('.pr-ov');
-  var ORDER = ['raw', 's1', 's2', 's3', 't1', 't2', 't3', 't4'];
-  var nodes = {};
-  each(ov.querySelectorAll('[data-node]'), function (n) { nodes[n.getAttribute('data-node')] = n; });
-  var ovIdx = -1;
-  function setNodes(idx) {
-    if (idx === ovIdx) { return; }
-    ovIdx = idx;
-    var cur = ORDER[idx];
-    var branch = cur.charAt(0);
-    ORDER.forEach(function (key, i) {
-      var n = nodes[key];
-      var done = key === 'raw' ? idx > 0
-        /* 비누 줄은 치약으로 넘어가도 완료로 남는다 */
-        : (key.charAt(0) === branch ? i < idx : (branch === 't' && key.charAt(0) === 's'));
-      n.classList.toggle('is-active', i === idx);
-      n.classList.toggle('is-done', done && i !== idx);
-    });
-  }
-  function updateOverview() {
-    if (reduce) { setNodes(ORDER.length - 1); return; }
-    var p = progress(ov);
-    setNodes(Math.min(ORDER.length - 1, Math.floor(p * ORDER.length)));
-  }
-
-  /* ---------- 4·5) SOAP / TOOTHPASTE ---------- */
+  /* ---------- 2·3) SOAP / TOOTHPASTE ---------- */
   var lines = [];
   each(root.querySelectorAll('.pr-line'), function (sec) {
     var line = {
@@ -132,7 +87,7 @@
     });
   }
 
-  /* ---------- 3) SELECTOR ---------- */
+  /* ---------- 1) SELECTOR ---------- */
   var selBtns = root.querySelectorAll('.pr-select-btn');
   each(selBtns, function (b) {
     /* href="#prSoap" 은 키보드·스크린리더용. 해시를 바꾸면 사이트 라우터가 홈으로
@@ -156,20 +111,20 @@
     });
   }
 
-  /* ---------- 6) FINALE ---------- */
+  /* ---------- 4) FINALE ---------- */
   var fin = root.querySelector('.pr-fin');
   var finLines = fin.querySelectorAll('.pr-fin-line');
-  var finProduct = fin.querySelector('.pr-fin-product');
+  var finBg = fin.querySelector('.pr-fin-bg');
   function updateFinale() {
     if (reduce) {
       each(finLines, function (l) { l.classList.add('is-on'); });
-      finProduct.style.setProperty('--pr-reveal', '1');
+      finBg.style.setProperty('--pr-reveal', '1');
       return;
     }
     var p = progress(fin);
     var at = [0.02, 0.22, 0.42];
     each(finLines, function (l, i) { l.classList.toggle('is-on', p >= at[i]); });
-    finProduct.style.setProperty('--pr-reveal', clamp((p - 0.5) / 0.35).toFixed(3));
+    finBg.style.setProperty('--pr-reveal', clamp((p - 0.5) / 0.35).toFixed(3));
   }
 
   /* ---------- 스크롤 루프 ---------- */
@@ -178,7 +133,7 @@
   function update() {
     ticking = false;
     if (!visible()) { return; }
-    updateHero(); updateOverview(); updateLines(); updateSelector(); updateFinale();
+    updateLines(); updateSelector(); updateFinale();
   }
   function request() {
     if (!ticking) { ticking = true; window.requestAnimationFrame(update); }

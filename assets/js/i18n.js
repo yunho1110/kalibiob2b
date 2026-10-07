@@ -18,9 +18,6 @@ var I18N = {
     process: { ko: "주요 공정", en: "Process", zh: "主要工艺" }
   },
   proc: {
-    heroTitle: { ko: "원료가 제품이 되는 과정", en: "How Raw Material Becomes Product", zh: "原料成为产品的过程" },
-    ovTitle: { ko: "하나의 원료가 제품으로 완성되기까지", en: "From One Raw Material to a Finished Product", zh: "从一种原料到成品" },
-    nRaw: { ko: "칼륨장석 분말", en: "Potassium feldspar powder", zh: "钾长石粉体" },
     soap: { ko: "비누", en: "Soap", zh: "香皂" },
     paste: { ko: "치약", en: "Toothpaste", zh: "牙膏" },
     s1: { ko: "혼합·가열", en: "Mixing &amp; heating", zh: "混合·加热" },
