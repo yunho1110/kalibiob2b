@@ -105,7 +105,8 @@
 @media (max-width:767px){
   /* 모바일: 이미지는 비율 그대로, 문구는 이미지 아래 */
   .pn-hero{background:none;overflow:visible;}
-  .pn-hero-img{height:auto;aspect-ratio:16/9;}
+  /* 가로로 넓은 이미지를 그대로 줄이면 일러스트가 너무 작아진다 — 일러스트가 있는 오른쪽 부분을 정사각형으로 크게 보여 준다 */
+  .pn-hero-img{height:auto;aspect-ratio:1/1;object-position:100% 50%;}
   .pn-hero-copy{position:static;transform:none;width:auto;padding:24px 0 0;}
   .pn-hero .section-title{font-size:clamp(1.5rem,6.4vw,2rem);}
 }
