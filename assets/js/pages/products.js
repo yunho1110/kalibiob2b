@@ -80,13 +80,13 @@
   ];
 
   var SETS = [
-    { id: 'karisoap-set-4', img: 'assets/img/prod-set-soap4.webp',
+    { id: 'karisoap-set-4', img: 'assets/img/prod-set-soap4.webp', bg: '#e9e5e1',
       name: { ko: '카리비누 4구 세트', en: 'KALI Soap 4-Bar Set', zh: '卡里皂4块礼盒' },
       contents: { ko: '카리비누 100g × 4개입', en: 'KALI Soap 100g × 4', zh: '卡里皂100g × 4块' } },
-    { id: 'k28-set-5', img: 'assets/img/prod-set-k28-5.webp',
+    { id: 'k28-set-5', img: 'assets/img/prod-set-k28-5.webp', bg: '#dedfde',
       name: { ko: 'K.28 치약 5개 세트', en: 'K.28 Toothpaste 5-Pack Set', zh: 'K.28牙膏5支礼盒' },
       contents: { ko: 'K.28 치약 150g × 5개', en: 'K.28 Toothpaste 150g × 5', zh: 'K.28牙膏150g × 5支' } },
-    { id: 'gift-set', img: 'assets/img/prod-set-k28-soap.webp',
+    { id: 'gift-set', img: 'assets/img/prod-set-k28-soap.webp', bg: '#dededd',
       name: { ko: 'K.28 치약 2개 + 카리비누 2개 세트', en: 'K.28 Toothpaste × 2 + KALI Soap × 2 Set', zh: 'K.28牙膏2支 + 卡里皂2块礼盒' },
       contents: { ko: 'K.28 치약 2개 + 카리비누 2개', en: '2 × K.28 Toothpaste + 2 × KALI Soap', zh: 'K.28牙膏2支 + 卡里皂2块' } }
   ];
@@ -94,43 +94,43 @@
   /* 그룹(= 제품 상세 페이지) 정의 */
   var GROUPS = {
     soap: {
-      view: 'prod-soap', en: 'SOAP', title: 'KALIBIO SOAP', img: 'assets/img/soap-05.webp',
+      view: 'prod-soap', en: 'SOAP', title: 'KALIBIO SOAP', img: 'assets/img/soap-05.webp', bg: '#d3d3d3',
       type: { ko: '비누', en: 'Soap', zh: '香皂' },
       line: { ko: '칼륨장석을 활용한 KALIBIO의 비누 제품', en: 'KALIBIO soap made with potassium feldspar', zh: '运用钾长石的 KALIBIO 香皂产品' },
       cardInfo: { ko: '칼륨장석 3 · 5 · 8 · 13% 4종 · 100g', en: 'Potassium feldspar 3 · 5 · 8 · 13% — 4 types · 100g', zh: '钾长石 3 · 5 · 8 · 13% 4种 · 100g' },
       inqName: 'KALIBIO SOAP',
       lineupTitle: 'KALIBIO SOAP LINE-UP', variantLabel: 'secLineup',
       gallery: [
-        { src: 'assets/img/soap-03.webp', alt: { ko: '카리비누 03', en: 'KALI Soap 03', zh: '卡里皂 03' } },
-        { src: 'assets/img/soap-05.webp', alt: { ko: '카리비누 05', en: 'KALI Soap 05', zh: '卡里皂 05' } },
-        { src: 'assets/img/soap-08.webp', alt: { ko: '카리비누 08', en: 'KALI Soap 08', zh: '卡里皂 08' } },
-        { src: 'assets/img/soap-13.webp', alt: { ko: '카리비누 13', en: 'KALI Soap 13', zh: '卡里皂 13' } }
+        { src: 'assets/img/soap-03.webp', bg: '#d4d4d4', alt: { ko: '카리비누 03', en: 'KALI Soap 03', zh: '卡里皂 03' } },
+        { src: 'assets/img/soap-05.webp', bg: '#d3d3d3', alt: { ko: '카리비누 05', en: 'KALI Soap 05', zh: '卡里皂 05' } },
+        { src: 'assets/img/soap-08.webp', bg: '#d3d3d3', alt: { ko: '카리비누 08', en: 'KALI Soap 08', zh: '卡里皂 08' } },
+        { src: 'assets/img/soap-13.webp', bg: '#d3d3d3', alt: { ko: '카리비누 13', en: 'KALI Soap 13', zh: '卡里皂 13' } }
       ]
     },
     paste: {
-      view: 'prod-paste', en: 'TOOTHPASTE', title: 'K.28 TOOTHPASTE', img: 'assets/img/home-best-k28.webp',
+      view: 'prod-paste', en: 'TOOTHPASTE', title: 'K.28 TOOTHPASTE', img: 'assets/img/home-best-k28.webp', bg: '#e2e2e2',
       type: { ko: '치약', en: 'Toothpaste', zh: '牙膏' },
       line: { ko: 'KALIBIO의 치약 제품', en: 'The KALIBIO toothpaste', zh: 'KALIBIO 牙膏产品' },
       cardInfo: { ko: '150g', en: '150g', zh: '150g' },
       inqName: 'K.28 TOOTHPASTE',
       gallery: [
-        { src: 'assets/img/home-best-k28.webp', alt: { ko: 'K.28 치약과 패키지', en: 'K.28 toothpaste and package', zh: 'K.28牙膏与包装' } },
-        { src: 'assets/img/about-k28.webp', alt: { ko: 'K.28 치약', en: 'K.28 toothpaste', zh: 'K.28牙膏' } },
-        { src: 'assets/img/k28-lineup.webp', alt: { ko: 'K.28 치약 제품 이미지', en: 'K.28 toothpaste product image', zh: 'K.28牙膏产品图' } }
+        { src: 'assets/img/home-best-k28.webp', bg: '#e2e2e2', alt: { ko: 'K.28 치약과 패키지', en: 'K.28 toothpaste and package', zh: 'K.28牙膏与包装' } },
+        { src: 'assets/img/about-k28.webp', bg: '#dbdbdb', alt: { ko: 'K.28 치약', en: 'K.28 toothpaste', zh: 'K.28牙膏' } },
+        { src: 'assets/img/k28-lineup.webp', bg: '#cdc8c0', alt: { ko: 'K.28 치약 제품 이미지', en: 'K.28 toothpaste product image', zh: 'K.28牙膏产品图' } }
       ]
     },
     set: {
-      view: 'prod-set', en: 'SET', title: 'SOAP & TOOTHPASTE SET', img: 'assets/img/giftset.webp',
+      view: 'prod-set', en: 'SET', title: 'SOAP & TOOTHPASTE SET', img: 'assets/img/giftset.webp', bg: '#ffffff',
       type: { ko: '세트', en: 'Set', zh: '组合' },
       line: { ko: '카리비누와 K.28 치약 구성 세트', en: 'KALI Soap and K.28 Toothpaste sets', zh: '卡里皂与 K.28 牙膏组合' },
       cardInfo: { ko: '구성 3종 선택', en: '3 set options', zh: '3种组合可选' },
       inqName: 'SOAP & TOOTHPASTE SET',
       lineupTitle: 'SET OPTIONS', variantLabel: 'secVariants',
       gallery: [
-        { src: 'assets/img/giftset.webp', alt: { ko: '카리비누·K.28 치약 세트', en: 'KALI Soap and K.28 Toothpaste set', zh: '卡里皂·K.28牙膏组合' } },
-        { src: 'assets/img/prod-set-soap4.webp', alt: { ko: '카리비누 4구 세트', en: 'KALI Soap 4-bar set', zh: '卡里皂4块礼盒' } },
-        { src: 'assets/img/prod-set-k28-5.webp', alt: { ko: 'K.28 치약 5개 세트', en: 'K.28 toothpaste 5-pack set', zh: 'K.28牙膏5支礼盒' } },
-        { src: 'assets/img/prod-set-k28-soap.webp', alt: { ko: 'K.28 치약 2개 + 카리비누 2개 세트', en: 'K.28 ×2 + KALI Soap ×2 set', zh: 'K.28牙膏2支 + 卡里皂2块礼盒' } }
+        { src: 'assets/img/giftset.webp', bg: '#ffffff', alt: { ko: '카리비누·K.28 치약 세트', en: 'KALI Soap and K.28 Toothpaste set', zh: '卡里皂·K.28牙膏组合' } },
+        { src: 'assets/img/prod-set-soap4.webp', bg: '#e9e5e1', alt: { ko: '카리비누 4구 세트', en: 'KALI Soap 4-bar set', zh: '卡里皂4块礼盒' } },
+        { src: 'assets/img/prod-set-k28-5.webp', bg: '#dedfde', alt: { ko: 'K.28 치약 5개 세트', en: 'K.28 toothpaste 5-pack set', zh: 'K.28牙膏5支礼盒' } },
+        { src: 'assets/img/prod-set-k28-soap.webp', bg: '#dededd', alt: { ko: 'K.28 치약 2개 + 카리비누 2개 세트', en: 'K.28 ×2 + KALI Soap ×2 set', zh: 'K.28牙膏2支 + 卡里皂2块礼盒' } }
       ]
     }
   };
@@ -198,7 +198,7 @@
     }).join('') + '</div>';
   }
   function variantPanel(g) {
-    var i = selected[g], img, name, rows;
+    var i = selected[g], img, name, rows, bgOf = GROUPS[g].bg;
     if (g === 'soap') {
       var p = SOAP[i];
       img = p.img; name = L({ ko: '카리비누 ', en: 'KALI Soap ', zh: '卡里皂 ' }) + p.no;
@@ -213,19 +213,19 @@
       ];
     } else {
       var s = SETS[i];
-      img = s.img; name = L(s.name);
+      img = s.img; name = L(s.name); bgOf = s.bg;
       rows = [['kContents', esc(L(s.contents))]];
     }
-    return '<div class="pk-var" role="tabpanel"><figure class="pk-var-media"><img src="' + img + '" alt="' + esc(name) + '" loading="lazy"></figure>' +
+    return '<div class="pk-var" role="tabpanel"><figure class="pk-var-media" style="background:' + bgOf + '"><img src="' + img + '" alt="' + esc(name) + '" loading="lazy"></figure>' +
       '<div class="pk-var-info"><h5 class="pk-var-name">' + esc(name) + '</h5>' + table(rows) + '</div></div>';
   }
 
   /* ---------- 갤러리 (기존 .pp-gallery 마크업·동작 재사용) ---------- */
   function gallery(g) {
     var list = GROUPS[g].gallery;
-    return '<div class="pp-gallery"><figure class="pp-gallery-main"><img src="' + list[0].src + '" alt="' + esc(L(list[0].alt)) + '" loading="lazy"></figure><ul class="pp-thumbs">' +
+    return '<div class="pp-gallery"><figure class="pp-gallery-main" style="background:' + list[0].bg + '"><img src="' + list[0].src + '" alt="' + esc(L(list[0].alt)) + '" loading="lazy"></figure><ul class="pp-thumbs">' +
       list.map(function (it, i) {
-        return '<li><button type="button" class="pp-thumb' + (i === 0 ? ' is-on' : '') + '" data-src="' + it.src + '" data-alt="' + esc(L(it.alt)) + '" aria-label="' + esc((i + 1) + ' — ' + L(it.alt)) + '" aria-pressed="' + (i === 0) + '">' +
+        return '<li><button type="button" class="pp-thumb' + (i === 0 ? ' is-on' : '') + '" data-bg="' + it.bg + '" data-src="' + it.src + '" data-alt=""' + esc(L(it.alt)) + '" aria-label="' + esc((i + 1) + ' — ' + L(it.alt)) + '" aria-pressed="' + (i === 0) + '">' +
           '<img src="' + it.src + '" alt="" loading="lazy"><span>0' + (i + 1) + '</span></button></li>';
       }).join('') + '</ul></div>';
   }
@@ -245,7 +245,7 @@
   function renderGroup(g) {
     var G = GROUPS[g], hasVar = !!G.lineupTitle;
     return '<a class="pd-back" href="#products">' + t('back') + '</a>' +
-      '<section class="pp-hero"><figure class="pp-hero-media"><img src="' + G.img + '" alt="' + esc(G.title) + '"></figure>' +
+      '<section class="pp-hero"><figure class="pp-hero-media" style="background:' + G.bg + '"><img src="' + G.img + '" alt="' + esc(G.title) + '"></figure>' +
         '<div class="pp-hero-copy"><p class="pp-label">' + esc(G.en) + '</p><h3 class="pp-hero-title">' + esc(G.title) + '</h3>' +
         '<p class="pp-hero-lead">' + esc(L(G.line)) + '</p></div></section>' +
       '<section class="pp-sec"><p class="pp-label">' + t('secInfo') + '</p><h4 class="pp-h">PRODUCT INFORMATION</h4>' +
@@ -262,7 +262,7 @@
     return ORDER.map(function (g) {
       var G = GROUPS[g];
       return '<li><a class="pp-card pk-card" href="#' + G.view + '">' +
-        '<span class="pp-card-media"><img src="' + G.img + '" alt="' + esc(G.title) + '" loading="lazy"></span>' +
+        '<span class="pp-card-media" style="background:' + G.bg + '"><img src="' + G.img + '" alt="' + esc(G.title) + '" loading="lazy"></span>' +
         '<span class="pk-card-type">' + esc(L(G.type)) + '</span>' +
         '<span class="pp-card-name">' + esc(G.title) + '</span>' +
         '<span class="pp-card-d">' + esc(L(G.line)) + '</span>' +
@@ -317,7 +317,7 @@
     if (th) {
       var gal = th.closest('.pp-gallery'), mainImg = gal.querySelector('.pp-gallery-main img'), ths = gal.querySelectorAll('.pp-thumb');
       for (var j = 0; j < ths.length; j++) { ths[j].classList.toggle('is-on', ths[j] === th); ths[j].setAttribute('aria-pressed', ths[j] === th ? 'true' : 'false'); }
-      var sw = function () { mainImg.src = th.getAttribute('data-src'); mainImg.alt = th.getAttribute('data-alt'); mainImg.classList.remove('is-out'); };
+      var sw = function () { mainImg.src = th.getAttribute('data-src'); mainImg.alt = th.getAttribute('data-alt'); gal.querySelector('.pp-gallery-main').style.background = th.getAttribute('data-bg'); mainImg.classList.remove('is-out'); };
       if (reduce) { sw(); } else { mainImg.classList.add('is-out'); window.setTimeout(sw, 220); }
       return;
     }

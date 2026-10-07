@@ -226,3 +226,13 @@ body.nav-solid:not(.nav-on-dark).hero-logo-light .menu-toggle span{background:#0
 body.nav-solid:not(.nav-on-dark).hero-logo-light .lang-globe,
 body.nav-solid:not(.nav-on-dark).hero-logo-light .lang-menu .lang-btn{color:#111;}
 body.nav-solid:not(.nav-on-dark).hero-logo-light .lang-menu .lang-btn.active::after{background:#111;}
+
+/* ========================================================================
+   최종 QA (10.07)
+   ======================================================================== */
+/* 모바일·태블릿(1024px 미만) 헤더가 position:relative 라서 스크롤하면 햄버거·지구본이 같이 사라졌다.
+   데스크톱 헤더(.site-nav)처럼 화면 위에 고정한다. 높이는 --topbar-h(60px). */
+.app-topbar{position:fixed;top:0;left:0;right:0;z-index:1200;}
+/* 같은 페이지 안의 앵커(#mat-tests 등)로 이동해도 제목이 고정 헤더에 가려지지 않게. :where() 라서 기존 scroll-margin 규칙(.pr-line)이 우선한다 */
+:where([id]){scroll-margin-top:calc(var(--topbar-h) + 12px);}
+@media (min-width:1024px){ :where([id]){scroll-margin-top:calc(var(--nav-h) + 12px);} }
