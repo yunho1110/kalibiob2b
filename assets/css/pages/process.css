@@ -70,7 +70,7 @@
 }
 .pr-ind li{
   display:flex;align-items:center;gap:6px;padding:5px 9px;background:rgba(251,250,247,.9);
-  font-family:var(--font-display);font-size:0.68rem;font-weight:600;letter-spacing:0.1em;color:var(--ink-faint);
+  font-family:var(--font-display);font-size:0.6875rem;font-weight:600;letter-spacing:0.1em;color:var(--ink-faint);
   transition:color .3s ease,background .3s ease;
 }
 .pr-ind li::before{content:'';width:6px;height:6px;border-radius:50%;border:1px solid currentColor;}

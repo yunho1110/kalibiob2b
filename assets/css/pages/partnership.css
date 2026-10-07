@@ -108,7 +108,7 @@
   /* 가로로 넓은 이미지를 그대로 줄이면 일러스트가 너무 작아진다 — 일러스트가 있는 오른쪽 부분을 정사각형으로 크게 보여 준다 */
   .pn-hero-img{height:auto;aspect-ratio:1/1;object-position:100% 50%;}
   .pn-hero-copy{position:static;transform:none;width:auto;padding:24px 0 0;}
-  .pn-hero .section-title{font-size:clamp(1.5rem,6.4vw,2rem);}
+  .pn-hero .section-title{font-size:clamp(1.9rem,3.6vw,2.9rem);}   /* 다른 페이지 제목과 같은 크기 */
 }
 @media (max-width:639px){
   .bz-grid--5{grid-template-columns:1fr;}
