@@ -199,3 +199,18 @@ body.nav-on-dark .menu-toggle span{background:#fff;}
 body.nav-on-dark .lang-globe,
 body.nav-on-dark .lang-menu .lang-btn{color:#fff;}
 body.nav-on-dark .lang-menu .lang-btn.active::after{background:#fff;}
+
+/* PDF 재수정 — 상단 KALI. 로고 1.5배 (26→39px, 모바일 22→33px). 헤더 높이(76/60px) 안에 들어간다 */
+.site-nav .brand-logo{height:39px;}
+.app-topbar .brand-logo{height:33px;}
+/* 스크롤하면 헤더에 바탕과 은은한 그림자를 줘서 본문과 겹쳐 보이지 않게 (어두운 바탕 위에서는 투명 유지) */
+.site-nav,.app-topbar{transition:background-color .3s ease,box-shadow .3s ease;}
+body.nav-solid:not(.nav-on-dark) .site-nav,
+body.nav-solid:not(.nav-on-dark) .app-topbar{
+  background:rgba(251,250,247,0.96);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+/* 바탕이 생기면 흰색으로 바뀌어 있던 로고는 원래 색으로 */
+body.nav-solid:not(.nav-on-dark).hero-logo-light .site-nav .brand-logo,
+body.nav-solid:not(.nav-on-dark).hero-logo-light .app-topbar .brand-logo{filter:none;}

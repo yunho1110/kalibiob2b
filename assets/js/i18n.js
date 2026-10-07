@@ -6,6 +6,8 @@ var I18N = {
     full: { ko: "카리바이오", en: "KALIBIO", zh: "卡里生物" }
   },
   nav: {
+    kariStory: { ko: "카리 스토리", en: "KALI Story", zh: "卡里故事" },
+    matProc: { ko: "원료/공정", en: "Materials & Process", zh: "原料/工艺" },
     material: { ko: "원료 공급", en: "Materials", zh: "原料供应" },
     business: { ko: "비즈니스", en: "Business", zh: "业务" },
     products: { ko: "제품", en: "Products", zh: "产品" },
@@ -46,11 +48,13 @@ var I18N = {
     ctaPartner: { ko: "파트너십 문의", en: "Partnership inquiry", zh: "合作咨询" }
   },
   navSub: {
+    corpIntro: { ko: "기업 소개", en: "Company", zh: "企业介绍" },
     matStory: { ko: "칼륨장석", en: "Potassium Feldspar", zh: "钾长石" },
     matUses: { ko: "장점과 용처", en: "Strengths &amp; Uses", zh: "优势与用途" },
     matTests: { ko: "시험과 분석", en: "Testing", zh: "检测与分析" },
     bizMaterial: { ko: "사업 분야", en: "Business Areas", zh: "业务领域" },
     prodSoap: { ko: "비누", en: "Soap", zh: "香皂" },
+    prodSet: { ko: "SET", en: "Set", zh: "套装" },
     prodPaste: { ko: "치약", en: "Toothpaste", zh: "牙膏" },
     aboutInfo: { ko: "기업 정보", en: "Company Profile", zh: "企业信息" },
     aboutOrigin: { ko: "기원과 발전과정", en: "Origin &amp; Development", zh: "起源与发展历程" },
