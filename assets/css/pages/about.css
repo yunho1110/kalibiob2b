@@ -371,3 +371,18 @@ no dot. .tl-node is now the card
 html[lang="en"] .st-bn-en{display:none;}
 html[lang="en"] .st-bn-ko{font-family:var(--st-serif);font-size:clamp(1.5rem,7.2cqi,4.4rem);line-height:1.12;letter-spacing:-0.01em;}
 html[lang="en"] .st-bn + .st-bn{margin-top:0;}
+
+/* 10.07 재수정 — 스토리 맨 위 브랜드 인트로: 검정 배경, 로고(가로 폭 40%)와 바로 아래 2줄 소개문만 */
+.st-intro{
+  background:#000;color:#fff;text-align:center;
+  padding:calc(var(--st-top) + clamp(40px,8vh,88px)) 5vw clamp(48px,9vh,96px);
+}
+.st-intro-logo{display:block;width:40vw;max-width:none;height:auto;margin:0 auto;}
+.st-intro-p{margin:clamp(20px,3.6vh,36px) 0 0;font-size:clamp(0.95rem,1.15vw,1.15rem);font-weight:400;line-height:1.7;letter-spacing:-0.01em;}
+.st-intro-p span{display:block;white-space:nowrap;}
+@media (max-width:767px){
+  .st-intro-logo{width:74vw;}
+  .st-intro-p{font-size:clamp(0.68rem,3.05vw,1rem);}
+}
+/* 영어·중국어는 문장이 길어 자연스럽게 줄바꿈 */
+html[lang="en"] .st-intro-p span,html[lang="zh"] .st-intro-p span{white-space:normal;}

@@ -190,3 +190,12 @@ body .app-content{padding-top:0;}
 .site-nav .brand-logo,.app-topbar .brand-logo{transition:filter .6s ease;}
 body.hero-logo-light .site-nav .brand-logo,
 body.hero-logo-light .app-topbar .brand-logo{filter:brightness(0) invert(1);}
+
+/* 어두운 배경(스토리 검정 인트로) 위에서는 헤더 요소를 흰색으로 */
+.menu-toggle span,.lang-globe,.lang-menu .lang-btn{transition:background-color .3s,color .3s;}
+body.nav-on-dark .site-nav .brand-logo,
+body.nav-on-dark .app-topbar .brand-logo{filter:brightness(0) invert(1);}
+body.nav-on-dark .menu-toggle span{background:#fff;}
+body.nav-on-dark .lang-globe,
+body.nav-on-dark .lang-menu .lang-btn{color:#fff;}
+body.nav-on-dark .lang-menu .lang-btn.active::after{background:#fff;}

@@ -17,6 +17,7 @@
   var vision = document.getElementById('bs-vision');
   var values = document.getElementById('bs-values');
   var vis = root.querySelectorAll('.st-vis');
+  var intro = root.querySelector('.st-intro');
 
   /* ---- 떠오르기 (한 번 나타나면 유지) ---- */
   function showAll() { for (var i = 0; i < rises.length; i++) { rises[i].classList.add('is-in'); } }
@@ -87,9 +88,16 @@
     }
   }
 
+  /* 검정 인트로가 헤더 밑에 있는 동안만 헤더(로고·햄버거·지구본)를 흰색으로 */
+  function updateNav() {
+    var on = !!intro && !page.hidden && page.offsetParent !== null && intro.getBoundingClientRect().bottom > 56;
+    document.body.classList.toggle('nav-on-dark', on);
+  }
+
   var ticking = false;
   function update() {
     ticking = false;
+    updateNav();
     if (page.hidden || page.offsetParent === null) { return; }
     var y = window.pageYOffset, vh = window.innerHeight;
     updateTone(); updateRock(y, vh); updateVisuals(y, vh);

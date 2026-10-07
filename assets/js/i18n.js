@@ -152,6 +152,8 @@ var I18N = {
     mark2: { ko: "GREENER PLANET", en: "GREENER PLANET", zh: "GREENER PLANET" },
     mark3: { ko: "GLOBAL PARTNER", en: "GLOBAL PARTNER", zh: "GLOBAL PARTNER" },
     originTitle: { ko: "기업 기원", en: "Our Origin", zh: "企业起源" },
+    introL1: { ko: "카리바이오는 친환경의 가치를 바탕으로,", en: "Built on the value of eco-friendliness,", zh: "卡里生物以环保价值为基础，" },
+    introL2: { ko: "사람과 환경이 함께 지속가능한 방식을 만들어가는 기업입니다.", en: "KALIBIO creates a sustainable way for people and the environment to thrive together.", zh: "致力于打造人与环境共同可持续发展的方式。" },
     bn1: { ko: "자연에서,", en: "From nature,", zh: "从自然出发，" },
     bn2: { ko: "우리는 지속 가능한 가치를", en: "we create sustainable value", zh: "我们创造可持续的价值" },
     bn3: { ko: "그리고 혁신을 만들어 갑니다.", en: "and innovation", zh: "与创新。" },
