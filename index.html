@@ -665,60 +665,11 @@
       </div>
       <div id="brand-process" class="tech-block" hidden>
         <!-- 브랜드 > 공정 — SCROLL TO EXPERIENCE THE PROCESS
-             스크롤이 곧 공정 진행이다: HERO → OVERVIEW → SELECTOR → SOAP → TOOTHPASTE → FINALE → CTA
+             스크롤이 곧 공정 진행이다: SELECTOR → SOAP → TOOTHPASTE → FINALE → CTA
              동작은 js/pages/process.js, 스타일은 pages/process.css -->
         <div class="pr" id="prRoot">
 
-          <!-- 1) HERO — 스크롤하면 원료 → 공정 → 제품으로 넘어간다 -->
-          <section class="pr-hero pr-bleed" data-scene="hero" aria-labelledby="prHeroTitle">
-            <div class="pr-sticky pr-hero-stage">
-              <div class="pr-hero-media" aria-hidden="true">
-                <img class="pr-hero-img is-on" data-stage="0" src="assets/img/about-powder.webp" alt="" width="1400" height="787">
-                <img class="pr-hero-img" data-stage="1" src="assets/img/eq-mixtank.webp" alt="" width="900" height="675" loading="lazy">
-                <img class="pr-hero-img" data-stage="2" src="assets/img/giftset.webp" alt="" width="1125" height="1006" loading="lazy">
-              </div>
-              <div class="pr-hero-copy">
-                <span class="pr-label">BRAND / PROCESS</span>
-                <h3 class="pr-hero-title" id="prHeroTitle" data-i18n="proc.heroTitle">원료가 제품이 되는 과정</h3>
-                <ol class="pr-hero-stages" aria-label="RAW MATERIAL, PROCESS, PRODUCT">
-                  <li class="is-on" data-stage="0">RAW MATERIAL</li>
-                  <li data-stage="1">PROCESS</li>
-                  <li data-stage="2">PRODUCT</li>
-                </ol>
-              </div>
-              <span class="pr-scroll-hint" aria-hidden="true">SCROLL</span>
-            </div>
-          </section>
-
-          <!-- 2) PROCESS OVERVIEW — 공정 라인이 스크롤에 따라 순서대로 켜진다 -->
-          <section class="pr-ov" data-scene="overview" aria-labelledby="prOvTitle">
-            <div class="pr-sticky pr-ov-stage">
-              <div class="pr-head">
-                <span class="pr-label">PROCESS</span>
-                <h3 class="pr-title" id="prOvTitle" data-i18n="proc.ovTitle">하나의 원료가 제품으로 완성되기까지</h3>
-              </div>
-              <div class="pr-tree">
-                <div class="pr-node pr-node--root" data-node="raw"><span class="pr-dot" aria-hidden="true"></span><span class="pr-node-en">RAW MATERIAL</span><span class="pr-node-ko" data-i18n="proc.nRaw">칼륨장석 분말</span></div>
-                <div class="pr-branches">
-                  <ol class="pr-branch" aria-label="SOAP">
-                    <li class="pr-branch-head">SOAP <span data-i18n="proc.soap">비누</span></li>
-                    <li class="pr-node" data-node="s1"><span class="pr-dot" aria-hidden="true"></span><span class="pr-node-en">MIXING &amp; HEATING</span><span class="pr-node-ko" data-i18n="proc.s1">혼합·가열</span></li>
-                    <li class="pr-node" data-node="s2"><span class="pr-dot" aria-hidden="true"></span><span class="pr-node-en">PRESS FORMING</span><span class="pr-node-ko" data-i18n="proc.s2">프레스 성형</span></li>
-                    <li class="pr-node" data-node="s3"><span class="pr-dot" aria-hidden="true"></span><span class="pr-node-en">WRAPPING</span><span class="pr-node-ko" data-i18n="proc.s3">랩포장</span></li>
-                  </ol>
-                  <ol class="pr-branch" aria-label="TOOTHPASTE">
-                    <li class="pr-branch-head">TOOTHPASTE <span data-i18n="proc.paste">치약</span></li>
-                    <li class="pr-node" data-node="t1"><span class="pr-dot" aria-hidden="true"></span><span class="pr-node-en">VACUUM MIXING</span><span class="pr-node-ko" data-i18n="proc.t1">진공 교반</span></li>
-                    <li class="pr-node" data-node="t2"><span class="pr-dot" aria-hidden="true"></span><span class="pr-node-en">AGING</span><span class="pr-node-ko" data-i18n="proc.t2">숙성</span></li>
-                    <li class="pr-node" data-node="t3"><span class="pr-dot" aria-hidden="true"></span><span class="pr-node-en">FILLING</span><span class="pr-node-ko" data-i18n="proc.t3">충진</span></li>
-                    <li class="pr-node" data-node="t4"><span class="pr-dot" aria-hidden="true"></span><span class="pr-node-en">PACKAGING</span><span class="pr-node-ko" data-i18n="proc.t4">포장</span></li>
-                  </ol>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- 3) SELECTOR -->
+          <!-- 1) SELECTOR -->
           <nav class="pr-select" aria-labelledby="prSelTitle">
             <p class="pr-label" id="prSelTitle">WHAT DO YOU WANT TO EXPLORE?</p>
             <div class="pr-select-btns">
@@ -727,7 +678,7 @@
             </div>
           </nav>
 
-          <!-- 4) SOAP PROCESS — 왼쪽 사진 고정, 오른쪽 단계가 흐른다 -->
+          <!-- 2) SOAP PROCESS — 왼쪽 사진 고정, 오른쪽 단계가 흐른다 -->
           <section class="pr-line" id="prSoap" data-scene="line" data-line="s" aria-labelledby="prSoapTitle">
             <div class="pr-head">
               <span class="pr-label">SOAP PROCESS</span>
@@ -737,8 +688,8 @@
               <div class="pr-pin">
                 <div class="pr-pin-media">
                   <img class="pr-pin-img is-on" data-step="1" src="assets/img/eq-mixtank.webp" alt="혼합·가열 탱크" width="900" height="675" loading="lazy">
-                  <img class="pr-pin-img" data-step="2" src="assets/img/eq-press.webp" alt="프레스 성형기" width="900" height="675" loading="lazy">
-                  <img class="pr-pin-img" data-step="3" src="assets/img/eq-wrapper.webp" alt="랩 포장기" width="900" height="675" loading="lazy">
+                  <img class="pr-pin-img" data-step="2" src="assets/img/eq-press.webp" alt="프레스 성형기" width="1600" height="1200" loading="lazy">
+                  <img class="pr-pin-img" data-step="3" src="assets/img/eq-wrapper.webp" alt="랩 포장기" width="1400" height="1050" loading="lazy">
                   <ol class="pr-ind" aria-hidden="true"><li data-step="1">01</li><li data-step="2">02</li><li data-step="3">03</li></ol>
                   <button type="button" class="pr-view" aria-expanded="false"><span aria-hidden="true">+</span> VIEW</button>
                   <div class="pr-pop" hidden></div>
@@ -773,7 +724,7 @@
             </div>
           </section>
 
-          <!-- 5) TOOTHPASTE PROCESS -->
+          <!-- 3) TOOTHPASTE PROCESS -->
           <section class="pr-line" id="prPaste" data-scene="line" data-line="t" aria-labelledby="prPasteTitle">
             <div class="pr-head">
               <span class="pr-label">TOOTHPASTE PROCESS</span>
@@ -825,19 +776,19 @@
             </div>
           </section>
 
-          <!-- 6) FROM RAW MATERIAL TO FINISHED PRODUCT -->
+          <!-- 4) FROM RAW MATERIAL TO FINISHED PRODUCT -->
           <section class="pr-fin pr-bleed" data-scene="finale" aria-label="FROM RAW MATERIAL THROUGH PROCESS TO FINISHED PRODUCT">
             <div class="pr-sticky pr-fin-stage">
-              <p class="pr-fin-line" data-line="0"><span>FROM</span>RAW MATERIAL</p>
-              <p class="pr-fin-line" data-line="1"><span>THROUGH</span>PROCESS</p>
-              <p class="pr-fin-line" data-line="2"><span>TO</span>FINISHED PRODUCT</p>
-              <figure class="pr-fin-product">
-                <img src="assets/img/giftset.webp" alt="카리비누와 K.28 치약 선물세트" width="1125" height="1006" loading="lazy">
-              </figure>
+              <img class="pr-fin-bg" src="assets/img/finale-set.webp" alt="" width="1870" height="770" loading="lazy" aria-hidden="true">
+              <div class="pr-fin-copy">
+                <p class="pr-fin-line" data-line="0"><span>FROM</span>RAW MATERIAL</p>
+                <p class="pr-fin-line" data-line="1"><span>THROUGH</span>PROCESS</p>
+                <p class="pr-fin-line" data-line="2"><span>TO</span>FINISHED PRODUCT</p>
+              </div>
             </div>
           </section>
 
-          <!-- 7) CTA — 기존 버튼 그대로 -->
+          <!-- 5) CTA — 기존 버튼 그대로 -->
           <section class="pr-cta">
             <h3 class="pr-cta-t" data-i18n="proc.ctaTitle">원료에서 제품까지,<br>카리바이오의 제품을 만나보세요.</h3>
             <div class="pr-cta-btns">

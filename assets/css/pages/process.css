@@ -31,104 +31,10 @@
 }
 
 /* ========================================================================
-   1) HERO — 원료 → 공정 → 제품 (스크롤 연동)
-   ======================================================================== */
-.pr-hero{height:calc(var(--pr-vh) * 2.6);margin-top:calc(-1 * clamp(8px,2vw,24px));}
-.pr-hero-stage{background:var(--ink);}
-.pr-hero-media{position:absolute;inset:0;transform:scale(var(--pr-zoom,1));transform-origin:50% 55%;will-change:transform;}
-.pr-hero-img{
-  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-  opacity:0;transition:opacity .7s var(--pr-ease);
-}
-.pr-hero-img.is-on{opacity:1;}
-.pr-hero-img[data-stage="2"]{object-fit:contain;background:#E9E6DF;padding:clamp(24px,6vh,64px) 0;}
-/* 사진 위 글씨가 읽히도록 아래쪽만 아주 옅게 어둡게 */
-.pr-hero-stage::after{
-  content:'';position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(180deg,rgba(26,26,23,0) 40%,rgba(26,26,23,.55) 100%);
-}
-.pr-hero-copy{
-  position:absolute;left:0;right:0;bottom:clamp(36px,8vh,88px);z-index:2;
-  max-width:var(--max);margin:0 auto;padding:0 clamp(18px,4vw,40px);color:#fff;
-}
-.pr-hero-copy .pr-label{color:rgba(255,255,255,.85);}
-.pr-hero-title{
-  margin:14px 0 0;font-weight:500;letter-spacing:-0.04em;line-height:1.15;color:#fff;
-  font-size:clamp(2rem,5.4vw,4.4rem);word-break:keep-all;
-}
-.pr-hero-stages{display:flex;flex-wrap:wrap;gap:6px 28px;margin:clamp(20px,3vh,32px) 0 0;padding:0;list-style:none;}
-.pr-hero-stages li{
-  position:relative;font-family:var(--font-display);font-size:0.76rem;font-weight:600;letter-spacing:0.2em;
-  color:rgba(255,255,255,.45);padding-bottom:6px;transition:color .5s ease;
-}
-.pr-hero-stages li::after{
-  content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:#fff;
-  transform:scaleX(0);transform-origin:left;transition:transform .6s var(--pr-ease);
-}
-.pr-hero-stages li.is-on{color:#fff;}
-.pr-hero-stages li.is-on::after{transform:scaleX(1);}
-.pr-scroll-hint{
-  position:absolute;right:clamp(18px,4vw,40px);bottom:clamp(36px,8vh,88px);z-index:2;
-  font-family:var(--font-display);font-size:0.68rem;letter-spacing:0.3em;color:rgba(255,255,255,.7);
-  writing-mode:vertical-rl;transition:opacity .4s ease;
-}
-.pr-hero[data-progress-gt="0"] .pr-scroll-hint{opacity:0;}
-
-/* ========================================================================
-   2) PROCESS OVERVIEW — 공정 라인
-   ======================================================================== */
-.pr-ov{height:calc(var(--pr-vh) * 3.2);}
-.pr-ov-stage{display:flex;flex-direction:column;justify-content:center;padding:clamp(24px,4vh,48px) 0;}
-.pr-ov .pr-head{margin-bottom:clamp(28px,5vh,56px);}
-.pr-tree{display:flex;flex-direction:column;align-items:center;}
-.pr-branches{
-  position:relative;display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,8vw,120px);
-  width:min(720px,100%);margin-top:clamp(22px,4vh,40px);padding-top:clamp(22px,4vh,40px);
-}
-/* 원료에서 두 갈래로 나뉘는 선 */
-.pr-branches::before{
-  content:'';position:absolute;top:0;left:25%;right:25%;height:1px;background:var(--border);
-}
-.pr-branches::after{
-  content:'';position:absolute;top:calc(-1 * clamp(22px,4vh,40px));left:50%;width:1px;height:clamp(22px,4vh,40px);background:var(--border);
-}
-.pr-branch{position:relative;display:flex;flex-direction:column;align-items:center;gap:clamp(10px,2.2vh,22px);margin:0;padding:0;list-style:none;}
-.pr-branch::before{
-  content:'';position:absolute;top:calc(-1 * clamp(22px,4vh,40px));left:50%;width:1px;bottom:12px;background:var(--border);z-index:0;
-}
-.pr-branch-head{
-  position:relative;z-index:1;background:var(--cream);padding:4px 10px;
-  font-family:var(--font-display);font-size:0.78rem;font-weight:700;letter-spacing:0.18em;color:var(--ink);
-}
-.pr-branch-head span{font-family:inherit;font-weight:500;letter-spacing:0;color:var(--ink-soft);margin-left:4px;}
-
-.pr-node{
-  position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:3px;text-align:center;
-  background:var(--cream);padding:4px 10px;
-  opacity:.35;transform:scale(.96);transition:opacity .5s ease,transform .5s var(--pr-ease);
-}
-.pr-node-en{font-family:var(--font-display);font-size:clamp(0.72rem,1vw,0.82rem);font-weight:600;letter-spacing:0.14em;color:var(--ink);}
-.pr-node-ko{font-size:clamp(0.82rem,1.1vw,0.95rem);color:var(--ink-soft);}
-.pr-dot{
-  width:12px;height:12px;border-radius:50%;border:1px solid var(--ink-faint);background:var(--cream);
-  margin-bottom:4px;transition:background .4s ease,border-color .4s ease,box-shadow .4s ease;
-  display:flex;align-items:center;justify-content:center;
-}
-/* 진행 중: 확대 + 또렷 + 브랜드 그린 + 은은한 빛 */
-.pr-node.is-active{opacity:1;transform:scale(1.08);}
-.pr-node.is-active .pr-dot{background:var(--green);border-color:var(--green);box-shadow:0 0 0 6px rgba(31,74,60,.12);}
-.pr-node.is-active .pr-node-en{color:var(--green);}
-/* 완료: 채운 점 + 체크 */
-.pr-node.is-done{opacity:.9;transform:scale(1);}
-.pr-node.is-done .pr-dot{background:var(--ink);border-color:var(--ink);}
-.pr-node.is-done .pr-dot::after{content:'';width:5px;height:3px;border-left:1.5px solid #fff;border-bottom:1.5px solid #fff;transform:translateY(-1px) rotate(-45deg);}
-.pr-node--root{opacity:1;}
-
-/* ========================================================================
    3) SELECTOR
    ======================================================================== */
 .pr-select{
-  text-align:center;padding:clamp(56px,8vw,104px) 0 clamp(40px,5vw,64px);
+  text-align:center;padding:clamp(24px,4vw,48px) 0 clamp(40px,5vw,64px);
   border-top:1px solid var(--border);
 }
 .pr-select-btns{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:20px;}
@@ -198,7 +104,7 @@
 }
 .pr-step:last-child{min-height:calc(var(--pr-vh) * .9);}
 .pr-step.is-active{opacity:1;}
-.pr-step-n{font-family:var(--font-display);font-size:0.78rem;font-weight:700;letter-spacing:0.2em;color:var(--lime-text);}
+.pr-step-n{font-family:var(--font-display);font-size:1.56rem;line-height:1;font-weight:700;letter-spacing:0.2em;color:var(--lime-text);}
 .pr-step-en{margin:10px 0 0;font-family:var(--font-display);font-size:clamp(1.5rem,2.8vw,2.4rem);font-weight:700;letter-spacing:-0.01em;line-height:1.1;color:var(--ink);}
 .pr-step-ko{margin:8px 0 0;font-size:clamp(1rem,1.4vw,1.15rem);font-weight:500;color:var(--ink);}
 .pr-step-sum{margin:20px 0 0;padding-top:16px;border-top:1px solid var(--border);font-size:0.92rem;font-weight:600;color:var(--ink);}
@@ -211,10 +117,27 @@
    6) FINALE — FROM / THROUGH / TO + 제품 등장
    ======================================================================== */
 .pr-fin{height:calc(var(--pr-vh) * 3);margin-top:clamp(56px,8vw,104px);}
+/* position 은 쓰지 않는다 — 같은 요소의 .pr-sticky 를 덮어써 고정이 풀린다.
+   sticky 자체가 positioned 요소라 .pr-fin-bg 의 기준이 된다. */
 .pr-fin-stage{
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(6px,1.2vh,14px);
+  display:flex;align-items:center;justify-content:center;
   background:var(--paper);text-align:center;padding:0 20px;
 }
+/* 제품 사진은 글자 뒤 전면 배경 — 스크롤 끝에서 투명도 60% 까지 떠오른다 */
+.pr-fin-bg{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:calc(.6 * var(--pr-reveal,0));will-change:opacity;
+}
+/* 사진은 60% 그대로 두고, 글자가 놓이는 가로 띠만 종이색으로 덮어 대비를 확보한다.
+   폭을 꽉 채워 세로로만 흐려지므로 어느 화면에서도 테두리가 보이지 않는다. */
+.pr-fin-stage::after{
+  content:'';position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);height:62%;
+  background:linear-gradient(to bottom,
+    rgba(251,250,247,0) 0%,rgba(251,250,247,.9) 24%,
+    rgba(251,250,247,.9) 76%,rgba(251,250,247,0) 100%);
+}
+.pr-fin-copy{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:clamp(6px,1.2vh,14px);}
+.pr-fin-line span{color:var(--ink);}
 .pr-fin-line{
   margin:0;font-family:var(--font-display);font-weight:700;letter-spacing:-0.01em;line-height:1.05;
   font-size:clamp(1.6rem,5vw,4rem);color:var(--ink);
@@ -222,12 +145,6 @@
 }
 .pr-fin-line span{display:block;font-size:0.72rem;font-weight:600;letter-spacing:0.3em;color:var(--ink-soft);margin-bottom:6px;}
 .pr-fin-line.is-on{opacity:1;transform:none;}
-.pr-fin-product{
-  margin:clamp(14px,3vh,32px) 0 0;width:min(440px,70vw);max-height:38vh;aspect-ratio:1125/1006;
-  opacity:var(--pr-reveal,0);transform:scale(calc(.95 + .05 * var(--pr-reveal,0)));
-  filter:blur(calc(8px - 8px * var(--pr-reveal,0)));will-change:opacity,transform,filter;
-}
-.pr-fin-product img{width:100%;height:100%;object-fit:contain;}
 
 /* ========================================================================
    7) CTA — 기존 버튼 그대로
@@ -246,26 +163,16 @@
   .pr-step{min-height:calc(var(--pr-vh) * .62);padding:28px 0;}
   .pr-step:last-child{min-height:calc(var(--pr-vh) * .7);}
   .pr-pop{bottom:50px;}
-  .pr-branches{gap:16px;}
-  .pr-ov{height:calc(var(--pr-vh) * 2.8);}
 }
-@media (max-width:420px){
-  .pr-node-en{letter-spacing:0.06em;}
-  .pr-branch-head{letter-spacing:0.1em;}
-}
-
 /* ========================================================================
    모션 감소 — 스크롤 연출을 끄고 모든 내용을 그대로 펼쳐 보인다
    ======================================================================== */
 @media (prefers-reduced-motion:reduce){
-  .pr-hero,.pr-ov,.pr-fin{height:auto;}
-  .pr-hero .pr-sticky,.pr-ov .pr-sticky,.pr-fin .pr-sticky{position:relative;top:auto;height:auto;}
-  .pr-hero .pr-hero-stage{height:var(--pr-vh);}
-  .pr-ov-stage{padding:clamp(56px,8vw,104px) 0;}
+  .pr-fin{height:auto;}
+  .pr-fin .pr-sticky{position:relative;top:auto;height:auto;}
   .pr-fin-stage{padding:clamp(72px,10vw,120px) 20px;}
-  .pr-hero-media{transform:none;}
-  .pr-node,.pr-step,.pr-fin-line{opacity:1;transform:none;}
-  .pr-fin-product{opacity:1;transform:none;filter:none;}
-  .pr-pin-img,.pr-hero-img{transition:none;}
+  .pr-step,.pr-fin-line{opacity:1;transform:none;}
+  .pr-fin-bg{opacity:.6;}
+  .pr-pin-img{transition:none;}
   .pr-pin-img.is-leaving{transform:none;}
 }
