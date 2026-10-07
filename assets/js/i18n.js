@@ -6,7 +6,7 @@ var I18N = {
     full: { ko: "카리바이오", en: "KALIBIO", zh: "卡里生物" }
   },
   nav: {
-    kariStory: { ko: "카리 스토리", en: "KALI Story", zh: "卡里故事" },
+    kariStory: { ko: "카리스토리", en: "KALI Story", zh: "卡里故事" },
     matProc: { ko: "원료/공정", en: "Materials & Process", zh: "原料/工艺" },
     material: { ko: "원료 공급", en: "Materials", zh: "原料供应" },
     business: { ko: "비즈니스", en: "Business", zh: "业务" },
