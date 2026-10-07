@@ -58,8 +58,9 @@ textarea:focus-visible{
 *::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}
 }
 
-html[lang="ko"] body,
-html[lang="zh"] body{word-break:keep-all;}
+html[lang="ko"] body{word-break:keep-all;}
+/* 중국어는 띄어쓰기가 없어 keep-all 이면 문장이 넘쳐 겹침 — 글자 단위 줄바꿈 */
+html[lang="zh"] body,html[lang="zh"] body *{word-break:normal !important;line-break:strict;overflow-wrap:break-word;}
 
 html[lang="en"] .vision-statement{max-width:42ch;}
 
@@ -91,3 +92,6 @@ figure img{height:auto;}
   html[lang="en"] .home-cycle .home-cycle-sub{font-size:0.56rem;}
   html[lang="en"] .home-cycle .home-cycle-logo{max-width:80px;}
 }
+
+/* 중국어: nowrap 문구가 좁은 화면에서 넘치지 않게 */
+html[lang="zh"] .mt-m{white-space:normal;}
