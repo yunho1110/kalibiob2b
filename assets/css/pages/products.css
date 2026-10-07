@@ -425,3 +425,15 @@ h3.pd-h{font-size:clamp(1.2rem,1.8vw,1.45rem);color:var(--ink);letter-spacing:-0
   .pp-rise{opacity:1;transform:none;transition:none;}
   .pp-gallery-main img,.pp-card-media img{transition:none;}
 }
+
+/* 제품 목록 카드 개요 — 이미지 위에 카드별 클릭 영역을 얹는다 (모바일은 가로로 밀어 본다) */
+.pc-ov{max-width:1180px;margin:0 auto clamp(28px,4vw,52px);}
+.pc-ov-in{position:relative;}
+.pc-ov img{display:block;width:100%;height:auto;}
+.pc-ov a{position:absolute;display:block;border-radius:10px;transition:background-color .2s ease;}
+.pc-ov a:hover{background:rgba(27,59,43,0.05);}
+.pc-ov a:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+@media (max-width:767px){
+  .pc-ov{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .pc-ov-in{min-width:860px;}
+}

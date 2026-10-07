@@ -17,18 +17,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <!-- 스타일시트는 순서가 중요합니다. 토큰 → 기본 → 공통 → 페이지별 순으로 읽힙니다. -->
-<link rel="stylesheet" href="assets/css/tokens.css?v=202610071629">
-<link rel="stylesheet" href="assets/css/base.css?v=202610071629">
-<link rel="stylesheet" href="assets/css/components.css?v=202610071629">
-<link rel="stylesheet" href="assets/css/pages/home.css?v=202610071629">
-<link rel="stylesheet" href="assets/css/pages/about.css?v=202610071629">
-<link rel="stylesheet" href="assets/css/pages/process.css?v=202610071629">
-<link rel="stylesheet" href="assets/css/pages/material.css?v=202610071629">
-<link rel="stylesheet" href="assets/css/pages/products.css?v=202610071629">
-<link rel="stylesheet" href="assets/css/pages/business.css?v=202610071629">
-<link rel="stylesheet" href="assets/css/pages/partnership.css?v=202610071629">
-<link rel="stylesheet" href="assets/css/pages/contact.css?v=202610071629">
-<link rel="stylesheet" href="assets/css/theme.css?v=202610071629">
+<link rel="stylesheet" href="assets/css/tokens.css?v=202610072113">
+<link rel="stylesheet" href="assets/css/base.css?v=202610072113">
+<link rel="stylesheet" href="assets/css/components.css?v=202610072113">
+<link rel="stylesheet" href="assets/css/pages/home.css?v=202610072113">
+<link rel="stylesheet" href="assets/css/pages/about.css?v=202610072113">
+<link rel="stylesheet" href="assets/css/pages/process.css?v=202610072113">
+<link rel="stylesheet" href="assets/css/pages/material.css?v=202610072113">
+<link rel="stylesheet" href="assets/css/pages/products.css?v=202610072113">
+<link rel="stylesheet" href="assets/css/pages/business.css?v=202610072113">
+<link rel="stylesheet" href="assets/css/pages/partnership.css?v=202610072113">
+<link rel="stylesheet" href="assets/css/pages/contact.css?v=202610072113">
+<link rel="stylesheet" href="assets/css/theme.css?v=202610072113">
 </head>
 <body>
 <a class="skip-link" href="#viewport">본문으로 건너뛰기</a>
@@ -91,7 +91,6 @@
           <button type="button" class="lang-btn" data-lang="zh">ZH</button>
         </div>
       </div>
-      <a href="#contact" class="btn btn-primary nav-cta" data-i18n="nav.cta">파트너십 문의</a>
     </div>
   </div>
 </header>
@@ -176,7 +175,6 @@
     </div>
   </nav>
   <div class="drawer-cta">
-    <a href="#contact" class="btn btn-primary btn-block" data-i18n="nav.cta">파트너십 문의</a>
   </div>
 </div>
 
@@ -203,7 +201,7 @@
       <p class="hh-ko" data-i18n="home.hero1">칼륨장석분말로</p>
     </div>
     <div class="hh-copy hh-copy--2" data-copy="2">
-      <p class="hh-en">to KARI SOAP,</p>
+      <p class="hh-en">to KALI SOAP,</p>
       <p class="hh-ko" data-i18n="home.hero2">카리비누,</p>
     </div>
     <div class="hh-copy hh-copy--3" data-copy="3">
@@ -215,7 +213,7 @@
       <p class="hh-en">Ceramics, Glass, and Beyond.</p>
       <p class="hh-ko" data-i18n="home.hero4">세라믹과 유리, 그리고 더 다양한 산업까지</p>
     </div>
-    <h1 class="hh-sr" data-i18n="home.heroSr">From Potassium Feldspar Powder to KARI SOAP, K.28 Toothpaste, Ceramics, Glass, and Beyond.</h1>
+    <h1 class="hh-sr" data-i18n="home.heroSr">From Potassium Feldspar Powder to KALI SOAP, K.28 Toothpaste, Ceramics, Glass, and Beyond.</h1>
   </div>
 
   <!-- 2) BEST SELLER -->
@@ -266,7 +264,7 @@
       <span class="hs-label" data-i18n="home.splitPartner">카리바이오 파트너 모집</span>
     </a>
   </div>
-  <script src="assets/js/pages/home.js?v=202610071629"></script>
+  <script src="assets/js/pages/home.js?v=202610072113"></script>
 </section>
 
 <!-- =====================================================================
@@ -279,7 +277,7 @@
       <img class="mv-img" src="assets/img/mat-powder.webp" alt="카리바이오의 칼륨장석분말" width="1200" height="1200" fetchpriority="high">
       <div class="mv-title">
         <h2 class="mv-ko" data-i18n="mat.visualTitle">카리바이오의 칼륨장석분말</h2>
-        <p class="mv-en">KARIBIO's Potassium Feldspar Powder</p>
+        <p class="mv-en">KALIBIO's Potassium Feldspar Powder</p>
       </div>
     </div>
     <ul class="mv-checks">
@@ -403,9 +401,6 @@
         <p class="source-note reveal" data-i18n="mat.csFootnote"></p>
 
         <p class="clinical-footnote reveal" data-i18n="tech.certNote"></p>
-        <div class="reveal" style="margin-top:18px;">
-          <a href="#contact" class="btn btn-primary" data-i18n="tech.certCta">성적서 원본 요청하기</a>
-        </div>
       </div>
     </div>
   </div>
@@ -546,6 +541,16 @@
       </div>
 
       <div id="prodList">
+        <!-- 전체 제품 한눈에 보기 — 카드를 누르면 해당 제품 상세로 이동 (가격·구매 요소 없음) -->
+        <div class="pc-ov reveal"><div class="pc-ov-in">
+          <img src="assets/img/product-cards.webp" alt="카리비누 03·05·08·13, K.28 치약, 선물세트 제품 카드" width="2000" height="1116" loading="lazy">
+          <a href="?p=karisoap-03#prod-soap" style="left:2.144%;width:15.044%;top:9.049%;height:84.310%" aria-label="카리비누 03 100g 상세 보기"></a>
+          <a href="?p=karisoap-05#prod-soap" style="left:18.278%;width:15.044%;top:9.049%;height:84.310%" aria-label="카리비누 05 100g 상세 보기"></a>
+          <a href="?p=karisoap-08#prod-soap" style="left:34.411%;width:15.044%;top:9.049%;height:84.310%" aria-label="카리비누 08 100g 상세 보기"></a>
+          <a href="?p=karisoap-13#prod-soap" style="left:50.545%;width:15.044%;top:9.049%;height:84.310%" aria-label="카리비누 13 100g 상세 보기"></a>
+          <a href="?p=k28-toothpaste#prod-paste" style="left:66.679%;width:15.080%;top:9.049%;height:84.310%" aria-label="K.28 치약 150g 상세 보기"></a>
+          <a href="#prod-set" style="left:82.812%;width:15.007%;top:9.049%;height:84.310%" aria-label="선물세트 상세 보기"></a>
+        </div></div>
         <nav class="pp-tabs" aria-label="제품 선택">
           <p class="pp-tabs-label">OUR PRODUCTS</p>
           <div class="pp-tabs-row">
@@ -561,13 +566,9 @@
             <figure class="pp-hero-media"><img src="assets/img/soap-05.webp" alt="카리비누 05"></figure>
             <div class="pp-hero-copy">
               <p class="pp-label">SOAP</p>
-              <h3 class="pp-hero-title">KARI SOAP</h3>
+              <h3 class="pp-hero-title">KALI SOAP</h3>
               <p class="pp-hero-ko" data-i18n="products.ps.name"></p>
               <p class="pp-hero-lead" data-i18n="products.ps.lead"></p>
-              <div class="pp-cta">
-                <a href="#contact" class="btn btn-primary product-cta js-order" data-inquiry="bulk" data-order="카리비누" data-i18n="products.pc.ctaInquiry">제품 문의</a>
-                <a href="#contact" class="btn btn-outline product-cta js-order" data-inquiry="sample" data-order="카리비누" data-i18n="products.pc.ctaSample">샘플 요청</a>
-              </div>
             </div>
           </section>
 
@@ -608,18 +609,6 @@
               </ul>
             </div>
           </section>
-
-          <!-- CONTACT -->
-          <section class="pp-sec pp-contact pp-rise">
-            <p class="pp-label">CONTACT</p>
-            <h4 class="pp-h" data-i18n="products.pc.contactTitle">이 제품에 대해 문의하기</h4>
-            <p class="pp-p" data-i18n="products.pc.contactDesc"></p>
-            <div class="pp-cta">
-              <a href="#contact" class="btn btn-primary product-cta js-order" data-inquiry="bulk" data-order="카리비누" data-i18n="products.pc.ctaInquiry">제품 문의</a>
-              <a href="#contact" class="btn btn-outline product-cta js-order" data-inquiry="sample" data-order="카리비누" data-i18n="products.pc.ctaSample">샘플 요청</a>
-              <a href="#contact" class="btn btn-outline product-cta js-order" data-inquiry="distribution" data-order="카리비누" data-i18n="products.pc.ctaPartner">파트너십 문의</a>
-            </div>
-          </section>
         </div>
 
         <div id="prod-paste" class="pp-panel product-group" hidden>
@@ -631,10 +620,6 @@
               <h3 class="pp-hero-title">K.28 TOOTHPASTE</h3>
               <p class="pp-hero-ko" data-i18n="products.pt.name"></p>
               <p class="pp-hero-lead" data-i18n="products.pt.lead"></p>
-              <div class="pp-cta">
-                <a href="#contact" class="btn btn-primary product-cta js-order" data-inquiry="bulk" data-order="K.28 치약" data-i18n="products.pc.ctaInquiry">제품 문의</a>
-                <a href="#contact" class="btn btn-outline product-cta js-order" data-inquiry="sample" data-order="K.28 치약" data-i18n="products.pc.ctaSample">샘플 요청</a>
-              </div>
             </div>
           </section>
 
@@ -675,18 +660,6 @@
               </ul>
             </div>
           </section>
-
-          <!-- CONTACT -->
-          <section class="pp-sec pp-contact pp-rise">
-            <p class="pp-label">CONTACT</p>
-            <h4 class="pp-h" data-i18n="products.pc.contactTitle">이 제품에 대해 문의하기</h4>
-            <p class="pp-p" data-i18n="products.pc.contactDesc"></p>
-            <div class="pp-cta">
-              <a href="#contact" class="btn btn-primary product-cta js-order" data-inquiry="bulk" data-order="K.28 치약" data-i18n="products.pc.ctaInquiry">제품 문의</a>
-              <a href="#contact" class="btn btn-outline product-cta js-order" data-inquiry="sample" data-order="K.28 치약" data-i18n="products.pc.ctaSample">샘플 요청</a>
-              <a href="#contact" class="btn btn-outline product-cta js-order" data-inquiry="distribution" data-order="K.28 치약" data-i18n="products.pc.ctaPartner">파트너십 문의</a>
-            </div>
-          </section>
         </div>
 
         <div id="prod-set" class="pp-panel product-group" hidden>
@@ -698,10 +671,6 @@
               <h3 class="pp-hero-title">SOAP &amp; TOOTHPASTE SET</h3>
               <p class="pp-hero-ko" data-i18n="products.pset.name"></p>
               <p class="pp-hero-lead" data-i18n="products.pset.lead"></p>
-              <div class="pp-cta">
-                <a href="#contact" class="btn btn-primary product-cta js-order" data-inquiry="bulk" data-order="카리비누·K.28 치약 세트" data-i18n="products.pc.ctaInquiry">제품 문의</a>
-                <a href="#contact" class="btn btn-outline product-cta js-order" data-inquiry="sample" data-order="카리비누·K.28 치약 세트" data-i18n="products.pc.ctaSample">샘플 요청</a>
-              </div>
             </div>
           </section>
 
@@ -742,18 +711,6 @@
               </ul>
             </div>
           </section>
-
-          <!-- CONTACT -->
-          <section class="pp-sec pp-contact pp-rise">
-            <p class="pp-label">CONTACT</p>
-            <h4 class="pp-h" data-i18n="products.pc.contactTitle">이 제품에 대해 문의하기</h4>
-            <p class="pp-p" data-i18n="products.pc.contactDesc"></p>
-            <div class="pp-cta">
-              <a href="#contact" class="btn btn-primary product-cta js-order" data-inquiry="bulk" data-order="카리비누·K.28 치약 세트" data-i18n="products.pc.ctaInquiry">제품 문의</a>
-              <a href="#contact" class="btn btn-outline product-cta js-order" data-inquiry="sample" data-order="카리비누·K.28 치약 세트" data-i18n="products.pc.ctaSample">샘플 요청</a>
-              <a href="#contact" class="btn btn-outline product-cta js-order" data-inquiry="distribution" data-order="카리비누·K.28 치약 세트" data-i18n="products.pc.ctaPartner">파트너십 문의</a>
-            </div>
-          </section>
         </div>
       </div>
 
@@ -761,7 +718,7 @@
       <article class="pd" id="prodDetail" hidden aria-live="polite"></article>
     </div>
   </div>
-  <script src="assets/js/pages/products.js?v=202610071629"></script>
+  <script src="assets/js/pages/products.js?v=202610072113"></script>
 </section>
 
 <!-- =====================================================================
@@ -851,7 +808,7 @@
             </div>
           </section>
         </div>
-        <script src="assets/js/pages/story.js?v=202610071629"></script>
+        <script src="assets/js/pages/story.js?v=202610072113"></script>
       </div>
       <div id="brand-process" class="tech-block" hidden>
         <!-- 브랜드 > 공정 — SCROLL TO EXPERIENCE THE PROCESS
@@ -977,17 +934,8 @@
               </div>
             </div>
           </section>
-
-          <!-- 5) CTA — 기존 버튼 그대로 -->
-          <section class="pr-cta">
-            <h3 class="pr-cta-t" data-i18n="proc.ctaTitle">원료에서 제품까지,<br>카리바이오의 제품을 만나보세요.</h3>
-            <div class="pr-cta-btns">
-              <a href="#prod-soap" class="btn btn-primary" data-i18n="proc.ctaProducts">제품 보기</a>
-              <a href="#contact" class="btn btn-outline" data-i18n="proc.ctaPartner">파트너십 문의</a>
-            </div>
-          </section>
         </div>
-        <script src="assets/js/pages/process.js?v=202610071629"></script>
+        <script src="assets/js/pages/process.js?v=202610072113"></script>
       </div>
       <div id="about-why" class="info-section" hidden>
         <h3 class="block-title reveal" data-i18n="about2.whyTitle">선택해야 하는 이유</h3>
@@ -1067,9 +1015,6 @@
           <div class="recruit-card pt-card"><img src="assets/img/part-r2.webp" alt="" width="900" height="488" loading="lazy"><span data-i18n="recruit.r2"></span></div>
           <div class="recruit-card pt-card"><img src="assets/img/part-r3.webp" alt="" width="900" height="600" loading="lazy"><span data-i18n="recruit.r3"></span></div>
         </div>
-        <div class="reveal" style="margin-top:26px;">
-          <a href="#contact" class="btn btn-primary" data-i18n="nav.cta">파트너십 문의</a>
-        </div>
       </div>
     </div>
   </div>
@@ -1097,20 +1042,6 @@
               <p><a class="underline-link" href="https://www.kalibio.co.kr" target="_blank" rel="noopener">www.kalibio.co.kr</a></p>
             </div>
             <p class="moq-note" data-i18n="contact.moqNote"></p>
-            <div class="contact-direct" style="margin-top:20px;">
-              <strong data-i18n="brochure.title">회사 브로슈어</strong>
-              <p data-i18n="brochure.desc"></p>
-              <div class="brochure-row" style="justify-content:flex-start;">
-                <a class="brochure-btn" href="assets/docs/kalibio-brochure-ko.pdf" download>
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 19h16"/></svg>
-                  <span data-i18n="brochure.ko">국문 브로슈어 (PDF)</span>
-                </a>
-                <a class="brochure-btn" href="assets/docs/kalibio-brochure-en.pdf" download>
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 19h16"/></svg>
-                  <span data-i18n="brochure.en">영문 브로슈어 (PDF)</span>
-                </a>
-              </div>
-            </div>
           </div>
 
           <form class="contact-form reveal" id="contactForm">
@@ -1121,6 +1052,7 @@
                 <option value="bulk" data-i18n="contact.opt2">벌크 구매</option>
                 <option value="distribution" data-i18n="contact.opt3">유통 파트너십</option>
                 <option value="sample" data-i18n="contact.optSample">샘플 요청</option>
+                <option value="brochure" data-i18n="contact.optBrochure">브로슈어 요청</option>
                 <option value="other" data-i18n="contact.opt4">기타</option>
               </select>
             </div>
@@ -1206,10 +1138,9 @@
 </footer>
 </div>
 
-<a href="#contact" class="sticky-cta"><span class="sticky-cta-btn" data-i18n="stickyCta">파트너십 문의</span></a>
 
 
-<script src="assets/js/i18n.js?v=202610071629"></script>
-<script src="assets/js/app.js?v=202610071629"></script>
+<script src="assets/js/i18n.js?v=202610072113"></script>
+<script src="assets/js/app.js?v=202610072113"></script>
 </body>
 </html>
