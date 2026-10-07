@@ -1,285 +1,372 @@
-/* 제품 — B2B 제품 목록 · 필터 · 상세 화면 (10.06 지시서, 다은)
-   ─ 제품 데이터는 이 파일의 PRODUCTS 한 곳에서만 관리한다. 목록과 상세가 같이 쓴다.
-   ─ 문구는 i18n.js 의 기존 키(products.* / specs.* / k28b.*)를 우선 쓰고,
-     없는 것만 여기 {ko,en,zh} 로 둔다.
-   ─ 상세 URL: index.html?p=<제품ID>#prod-soap  (해시 라우팅은 app.js 그대로 사용)
-   ─ 가격·최소 주문 수량·납기·인증은 확인된 데이터가 없어 '문의 필요'로 표시한다.
+/* 제품 — B2B 제품 카탈로그 (10.07 개편)
+   ─ '제품'은 KALIBIO 가 공급하는 제품 자체의 정보만 다룬다.
+     제조공정·칼륨장석 설명·시험/분석·사업/파트너십·기업 소개는 각 메뉴의 고유 콘텐츠이므로 여기서 다시 설명하지 않고 링크만 건다.
+   ─ 구조: PRODUCT(제품 선택) → 제품별 상세(HERO → INFORMATION → LINE-UP → GALLERY → SUPPLY → INQUIRY)
+   ─ 라우팅: 해시(#products · #prod-soap · #prod-paste · #prod-set)는 app.js 가 맡고,
+     이 파일은 각 블록 안을 채운다. ?p=<제품ID> 는 라인업의 선택 항목을 미리 골라 준다(홈의 카드 링크 호환).
+   ─ 확인되지 않은 정보(제품 코드·포장 단위·보관 조건·최소 주문량·납기·가격)는 만들지 않는다.
+     값이 null 인 항목은 화면에 나오지 않고, 아래 TODO(대표님 확인) 주석으로만 남는다.
    이 파일은 제품 담당자만 수정합니다. */
 (function () {
   'use strict';
 
-  /* ---------- 공통 문구 ---------- */
-  var TXT = {
-    all: { ko: '전체', en: 'All', zh: '全部' },
-    soap: { ko: '비누 단독형', en: 'Soap Only', zh: '香皂单品型' },
-    paste: { ko: '치약', en: 'Toothpaste', zh: '牙膏' },
-    set: { ko: '비누·치약 세트형', en: 'Soap + Toothpaste Set', zh: '香皂·牙膏组合型' },
-    detail: { ko: '상세 보기', en: 'View Details', zh: '查看详情' },
-    back: { ko: '← 제품 목록으로', en: '← Back to Products', zh: '← 返回产品列表' },
-    useFor: { ko: '권장 활용처', en: 'Recommended For', zh: '推荐用途' },
-    overview: { ko: '제품 개요', en: 'Overview', zh: '产品概要' },
-    compo: { ko: '구성품 및 옵션', en: 'Contents & Options', zh: '组成与选项' },
-    quality: { ko: '품질 및 신뢰 정보', en: 'Quality & Trust', zh: '品质与信赖' },
-    order: { ko: '주문 정보', en: 'Order Information', zh: '订购信息' },
-    moq: { ko: '최소 주문 수량', en: 'Minimum Order', zh: '最低起订量' },
-    lead: { ko: '납기', en: 'Lead Time', zh: '交期' },
-    price: { ko: '가격', en: 'Price', zh: '价格' },
+  /* ---------- 문구 ({ko,en,zh}) ---------- */
+  var T = {
+    heroTitle: { ko: 'KALIBIO가 선보이는 제품', en: 'Products by KALIBIO', zh: 'KALIBIO 推出的产品' },
+    heroLead: { ko: 'KALIBIO의 제품 라인업과 제품 정보를 확인해보세요.', en: 'Explore the KALIBIO product line-up and product information.', zh: '了解 KALIBIO 的产品系列与产品信息。' },
+    select: { ko: '제품 선택', en: 'Select a product', zh: '选择产品' },
+    detail: { ko: '제품 상세 보기 →', en: 'View product details →', zh: '查看产品详情 →' },
+    back: { ko: '← 제품 선택으로', en: '← Back to products', zh: '← 返回产品选择' },
+    secInfo: { ko: '제품 정보', en: 'Product information', zh: '产品信息' },
+    secLineup: { ko: '제품 라인업', en: 'Product line-up', zh: '产品系列' },
+    secVariants: { ko: '제품 구성', en: 'Product options', zh: '产品组成' },
+    secGallery: { ko: '제품 이미지', en: 'Product images', zh: '产品图片' },
+    secSupply: { ko: '공급 정보', en: 'Supply information', zh: '供应信息' },
+    related: { ko: '관련 정보', en: 'Related', zh: '相关信息' },
+    toMaterial: { ko: '칼륨장석 이야기 →', en: 'About potassium feldspar →', zh: '了解钾长石 →' },
+    toTests: { ko: '시험·분석 자료 보기 →', en: 'View tests & analysis →', zh: '查看试验·分析资料 →' },
+    toProcess: { ko: '제조공정 보기 →', en: 'View the manufacturing process →', zh: '查看制造工艺 →' },
+    inqTitle: { ko: '제품 공급에 대해 문의하고 싶으신가요?', en: 'Would you like to ask about product supply?', zh: '想咨询产品供应吗？' },
+    inqDesc: { ko: 'KALIBIO 제품에 대한 자세한 공급 정보를 문의해주세요.', en: 'Please contact us for detailed supply information on KALIBIO products.', zh: '欢迎咨询 KALIBIO 产品的详细供应信息。' },
+    inqBtn: { ko: '제품 공급 문의 →', en: 'Product supply inquiry →', zh: '产品供应咨询 →' },
+    interest: { ko: '관심 제품', en: 'Product of interest', zh: '感兴趣的产品' },
+    /* 정보 항목 이름 */
+    kName: { ko: '제품명', en: 'Product name', zh: '产品名' },
+    kType: { ko: '제품 유형', en: 'Product type', zh: '产品类型' },
+    kMaterial: { ko: '주요 원료', en: 'Main material', zh: '主要原料' },
+    kContent: { ko: '칼륨장석 함량', en: 'Potassium feldspar content', zh: '钾长石含量' },
+    kWeight: { ko: '중량', en: 'Weight', zh: '重量' },
+    kVolume: { ko: '용량', en: 'Net content', zh: '容量' },
+    kForm: { ko: '형태', en: 'Form', zh: '形态' },
+    kColor: { ko: '제품 색상', en: 'Color', zh: '产品颜色' },
+    kScent: { ko: '향', en: 'Scent', zh: '香型' },
+    kIngCount: { ko: '사용 원료 수', en: 'Number of ingredients', zh: '使用原料数' },
+    kIngKey: { ko: '핵심 성분', en: 'Key ingredients', zh: '核心成分' },
+    kIngNat: { ko: '구성 성분', en: 'Composition', zh: '成分构成' },
+    kFormula: { ko: '제형', en: 'Formula', zh: '剂型' },
+    kFree: { ko: '무첨가', en: 'Free of', zh: '无添加' },
+    kPreserv: { ko: '보존제', en: 'Preservative', zh: '防腐剂' },
+    kContents: { ko: '구성', en: 'Contents', zh: '组成' },
+    kOptions: { ko: '구성 옵션', en: 'Set options', zh: '组合选项' },
+    kSupplyForm: { ko: '공급 형태', en: 'Supply form', zh: '供应形态' },
+    kMoq: { ko: '최소 주문 수량', en: 'Minimum order', zh: '最低起订量' },
+    kLead: { ko: '납기', en: 'Lead time', zh: '交期' },
+    kPrice: { ko: '가격', en: 'Price', zh: '价格' },
     ask: { ko: '문의 필요', en: 'On request', zh: '需咨询' },
-    optAsk: { ko: '패키지·수량·구성 변경은 기업 주문 문의로 협의합니다.', en: 'Packaging, quantity and composition can be arranged through a corporate order inquiry.', zh: '包装、数量及组合调整可通过企业订购咨询协商。' },
-    q1: { ko: '칼륨장석 성분: 한국광해광업공단 기술연구원 시험 (2024.4.30~5.22)', en: 'Potassium feldspar composition: tested by KOMIR Research Institute (30 Apr – 22 May 2024)', zh: '钾长石成分：韩国矿害矿业公团技术研究院检测 (2024.4.30~5.22)' },
-    q2: { ko: '칼륨장석 분말 인체적용시험: 한국바이오임상연구센터 · 피험자 12명', en: 'Human application study of the powder: Korea Bio Research Center · 12 subjects', zh: '钾长石粉体人体应用试验：韩国生物临床研究中心 · 受试者12名' },
-    orderNote: { ko: '이 제품으로 문의하면 문의 내용에 제품명이 자동으로 입력됩니다.', en: 'The product name is filled in for you when you inquire from this page.', zh: '从此页面咨询时，产品名称会自动填入。' },
-    interest: { ko: '관심 제품', en: 'Product of interest', zh: '感兴趣的产品' }
+    supplyNote: { ko: '패키지·수량·구성 변경은 기업 주문 문의로 협의합니다.', en: 'Packaging, quantity and composition can be arranged through a corporate order inquiry.', zh: '包装、数量及组成的变更可通过企业订单咨询协商。' },
+    finished: { ko: '완제품', en: 'Finished product', zh: '成品' },
+    finishedSet: { ko: '세트 구성 완제품', en: 'Finished product set', zh: '组合成品' },
+    feldspar: { ko: '칼륨장석', en: 'Potassium feldspar', zh: '钾长石' }
   };
-  var USES = [
-    { t: { ko: '기업 행사', en: 'Corporate Events', zh: '企业活动' },
-      d: { ko: '창립 기념일·세미나·박람회 등 행사 기념품으로', en: 'Keepsakes for anniversaries, seminars and trade shows', zh: '用作周年庆、研讨会、展会等活动纪念品' } },
-    { t: { ko: '고객 증정', en: 'Client Gifts', zh: '客户赠礼' },
-      d: { ko: '주요 고객·파트너사에 전하는 감사 선물로', en: 'A thank-you gift for key clients and partners', zh: '赠予重要客户与合作伙伴的感谢礼物' } },
-    { t: { ko: '임직원 복지', en: 'Employee Welfare', zh: '员工福利' },
-      d: { ko: '명절·기념일 임직원 복지 선물로', en: 'Holiday and anniversary gifts for employees', zh: '节日与纪念日员工福利礼品' } }
-  ];
 
   /* ---------- 제품 데이터 (단일 소스) ----------
-     name/bullets/specs 는 i18n 키, 그 외는 인라인 문구. type: soap | paste | set */
-  var SOAP_USES = [0, 1, 2], SET_USES = [0, 1, 2];
-  var PRODUCTS = [
-    { id: 'karisoap-03', type: 'soap', view: 'prod-soap', img: 'assets/img/soap-03.webp', hover: 'assets/img/home-best-03.webp',
-      name: 'products.soap03.name', size: '100g', bullets: ['products.soap03.b1', 'products.soap03.b2', 'products.soap03.b3'],
-      specs: ['specs.e03', 'specs.i03', 'specs.u03'], uses: SOAP_USES },
-    { id: 'karisoap-05', type: 'soap', view: 'prod-soap', img: 'assets/img/soap-05.webp', hover: 'assets/img/home-best-05.webp',
-      name: 'products.soap05.name', size: '100g', bullets: ['products.soap05.b1', 'products.soap05.b2', 'products.soap05.b3'],
-      specs: ['specs.e05', 'specs.i05', 'specs.u05'], uses: SOAP_USES },
-    { id: 'karisoap-08', type: 'soap', view: 'prod-soap', img: 'assets/img/soap-08.webp',
-      name: 'products.soap08.name', size: '100g', bullets: ['products.soap08.b1', 'products.soap08.b2', 'products.soap08.b3'],
-      specs: ['specs.e08', 'specs.i08', 'specs.u08'], uses: SOAP_USES },
-    { id: 'karisoap-13', type: 'soap', view: 'prod-soap', img: 'assets/img/soap-13.webp',
-      name: 'products.soap13.name', size: '100g', bullets: ['products.soap13.b1', 'products.soap13.b2', 'products.soap13.b3'],
-      specs: ['specs.e13', 'specs.i13', 'specs.u13'], uses: SOAP_USES },
-    { id: 'karisoap-set-4', type: 'soap', view: 'prod-set', img: 'assets/img/prod-set-soap4.webp', isSet: true,
-      nameTxt: { ko: '카리비누 4구 세트', en: 'KALI Soap 4-Bar Set', zh: '卡里皂4块礼盒' },
-      compo: { ko: '카리비누 4개 (구성 비누는 문의 시 선택)', en: '4 bars of KALI Soap (variants chosen on inquiry)', zh: '卡里皂4块（品种于咨询时选择）' },
-      featTxt: [
-        { ko: '카리비누 단독형 선물세트', en: 'A soap-only gift set', zh: '香皂单品型礼盒' },
-        { ko: '칼륨장석 3%·5%·8%·13% 라인업에서 구성 선택', en: 'Choose from the 3% / 5% / 8% / 13% potassium feldspar line-up', zh: '可从钾长石3%·5%·8%·13%系列中选择' }
-      ], uses: SET_USES },
-    { id: 'k28-toothpaste', type: 'paste', view: 'prod-paste', img: 'assets/img/home-best-k28.webp', hover: 'assets/img/home-best-k28-hover.webp',
-      name: 'products.k28.name', size: '150g', bullets: ['products.k28.b1', 'products.k28.b2', 'products.k28.b3'],
-      specs: ['specs.ek28', 'specs.ik28', 'specs.uk28'], strengths: true, uses: SOAP_USES },
-    { id: 'k28-set-5', type: 'paste', view: 'prod-set', img: 'assets/img/prod-set-k28-5.webp', isSet: true,
-      nameTxt: { ko: 'K.28 치약 5개 세트', en: 'K.28 Toothpaste 5-Pack Set', zh: 'K.28牙膏5支礼盒' },
-      compo: { ko: 'K.28 치약 5개', en: '5 tubes of K.28 Toothpaste', zh: 'K.28牙膏5支' },
-      featTxt: [
-        { ko: '28가지 자연 유래 성분, 70일 저온 숙성', en: '28 naturally derived ingredients, 70-day cold aging', zh: '28种天然来源成分，70天低温熟成' },
-        { ko: '합성 계면활성제(SLS) 무첨가', en: 'No synthetic surfactants (SLS)', zh: '不添加合成表面活性剂(SLS)' }
-      ], strengths: true, uses: SET_USES },
-    { id: 'gift-set', type: 'set', view: 'prod-set', img: 'assets/img/prod-set-k28-soap.webp', isSet: true,
-      nameTxt: { ko: '카리비누·K.28 치약 세트', en: 'KALI Soap + K.28 Toothpaste Set', zh: '卡里皂·K.28牙膏礼盒' },
-      compo: { ko: 'K.28 치약 2개 + 카리비누 2개', en: '2 × K.28 Toothpaste + 2 × KALI Soap', zh: 'K.28牙膏2支 + 卡里皂2块' },
-      featTxt: [
-        { ko: '비누와 치약을 함께 담은 세트형 구성', en: 'Soap and toothpaste together in one set', zh: '香皂与牙膏同装的组合型' },
-        { ko: '칼륨장석을 담은 데일리 케어 두 가지를 한 번에', en: 'Two potassium-feldspar daily-care products at once', zh: '一次送出两款含钾长石的日常护理产品' }
-      ], strengths: true, uses: SET_USES }
+     확인된 정보만 둔다. 출처: 기존 사이트 문구 + 공식몰(kalibio1102.cafe24.com) 상품 상세.
+     TODO(대표님 확인): 제품 코드 · 포장 단위 · 보관 조건 · 최소 주문 수량 · 납기 · 가격 — 아직 확인된 자료가 없다.
+     TODO(대표님 확인): 카리비누 05 — 공식몰 상세 카드에는 '카리비누 20 · 칼륨장석 20%'로 적혀 있어 B2B 사이트의 5%와 다르다.
+                       그래서 05 는 향·원료 수를 비워 두고 기존 사이트의 핵심 성분만 쓴다.
+     TODO(대표님 확인): 카리비누 08·13 의 핵심 성분 — 공식몰 상세 카드(편백오일 등 / 알로에베라잎추출물)를 따랐고, 기존 사이트 문구와 달랐다. */
+  var SOAP = [
+    { id: 'karisoap-03', no: '03', pct: '3', img: 'assets/img/soap-03.webp',
+      color: { ko: '초록색', en: 'Green', zh: '绿色' },
+      scent: { ko: '청량한 피톤치드향', en: 'Fresh phytoncide scent', zh: '清爽的植物精气香' }, ing: 18,
+      key: { ko: '칼륨장석 3%, 클로렐라불가리스가루 등', en: 'Potassium feldspar 3%, chlorella vulgaris powder, etc.', zh: '钾长石3%、小球藻粉等' } },
+    { id: 'karisoap-05', no: '05', pct: '5', img: 'assets/img/soap-05.webp',
+      color: { ko: '분홍색', en: 'Pink', zh: '粉色' }, scent: null, ing: null,
+      key: { ko: '칼륨장석 5%, 유기농 코코넛, 세라마이드 등', en: 'Potassium feldspar 5%, organic coconut, ceramide, etc.', zh: '钾长石5%、有机椰子、神经酰胺等' } },
+    { id: 'karisoap-08', no: '08', pct: '8', img: 'assets/img/soap-08.webp',
+      color: { ko: '파란색', en: 'Blue', zh: '蓝色' },
+      scent: { ko: '신선하고 깨끗한 아쿠아향', en: 'Fresh, clean aqua scent', zh: '清新洁净的水生香' }, ing: 20,
+      key: { ko: '칼륨장석 8%, 편백오일, 은행나무잎추출물, 소나무잎추출물 등', en: 'Potassium feldspar 8%, hinoki cypress oil, ginkgo leaf extract, pine leaf extract, etc.', zh: '钾长石8%、扁柏油、银杏叶提取物、松叶提取物等' } },
+    { id: 'karisoap-13', no: '13', pct: '13', img: 'assets/img/soap-13.webp',
+      color: { ko: '베이지색', en: 'Beige', zh: '米色' },
+      scent: { ko: '상쾌한 은방울꽃향', en: 'Refreshing lily-of-the-valley scent', zh: '清爽的铃兰香' }, ing: 19,
+      key: { ko: '칼륨장석 13%, 알로에베라잎추출물 등', en: 'Potassium feldspar 13%, aloe vera leaf extract, etc.', zh: '钾长石13%、芦荟叶提取物等' } }
   ];
-  var BY_ID = {};
-  PRODUCTS.forEach(function (p) { BY_ID[p.id] = p; });
 
-  /* ---------- 번역 도우미 ---------- */
+  var SETS = [
+    { id: 'karisoap-set-4', img: 'assets/img/prod-set-soap4.webp',
+      name: { ko: '카리비누 4구 세트', en: 'KALI Soap 4-Bar Set', zh: '卡里皂4块礼盒' },
+      contents: { ko: '카리비누 100g × 4개입 (비누 종류는 문의 시 선택)', en: 'KALI Soap 100g × 4 (variants chosen on inquiry)', zh: '卡里皂100g × 4块（品种于咨询时选择）' } },
+    { id: 'k28-set-5', img: 'assets/img/prod-set-k28-5.webp',
+      name: { ko: 'K.28 치약 5개 세트', en: 'K.28 Toothpaste 5-Pack Set', zh: 'K.28牙膏5支礼盒' },
+      contents: { ko: 'K.28 치약 150g × 5개', en: 'K.28 Toothpaste 150g × 5', zh: 'K.28牙膏150g × 5支' } },
+    { id: 'gift-set', img: 'assets/img/prod-set-k28-soap.webp',
+      name: { ko: 'K.28 치약 2개 + 카리비누 2개 세트', en: 'K.28 Toothpaste × 2 + KALI Soap × 2 Set', zh: 'K.28牙膏2支 + 卡里皂2块礼盒' },
+      contents: { ko: 'K.28 치약 2개 + 카리비누 2개', en: '2 × K.28 Toothpaste + 2 × KALI Soap', zh: 'K.28牙膏2支 + 卡里皂2块' } }
+  ];
+
+  /* 그룹(= 제품 상세 페이지) 정의 */
+  var GROUPS = {
+    soap: {
+      view: 'prod-soap', en: 'SOAP', title: 'KALIBIO SOAP', img: 'assets/img/soap-05.webp',
+      type: { ko: '비누', en: 'Soap', zh: '香皂' },
+      line: { ko: '칼륨장석을 활용한 KALIBIO의 비누 제품', en: 'KALIBIO soap made with potassium feldspar', zh: '运用钾长石的 KALIBIO 香皂产品' },
+      cardInfo: { ko: '칼륨장석 3 · 5 · 8 · 13% 4종 · 100g', en: 'Potassium feldspar 3 · 5 · 8 · 13% — 4 types · 100g', zh: '钾长石 3 · 5 · 8 · 13% 4种 · 100g' },
+      inqName: 'KALIBIO SOAP',
+      lineupTitle: 'KALIBIO SOAP LINE-UP', variantLabel: 'secLineup',
+      gallery: [
+        { src: 'assets/img/soap-03.webp', alt: { ko: '카리비누 03', en: 'KALI Soap 03', zh: '卡里皂 03' } },
+        { src: 'assets/img/soap-05.webp', alt: { ko: '카리비누 05', en: 'KALI Soap 05', zh: '卡里皂 05' } },
+        { src: 'assets/img/soap-08.webp', alt: { ko: '카리비누 08', en: 'KALI Soap 08', zh: '卡里皂 08' } },
+        { src: 'assets/img/soap-13.webp', alt: { ko: '카리비누 13', en: 'KALI Soap 13', zh: '卡里皂 13' } },
+        { src: 'assets/img/home-best-03.webp', alt: { ko: '카리비누 03 패키지', en: 'KALI Soap 03 package', zh: '卡里皂 03 包装' } },
+        { src: 'assets/img/home-best-05.webp', alt: { ko: '카리비누 05 패키지', en: 'KALI Soap 05 package', zh: '卡里皂 05 包装' } }
+      ]
+    },
+    paste: {
+      view: 'prod-paste', en: 'TOOTHPASTE', title: 'K.28 TOOTHPASTE', img: 'assets/img/home-best-k28.webp',
+      type: { ko: '치약', en: 'Toothpaste', zh: '牙膏' },
+      line: { ko: 'KALIBIO의 치약 제품', en: 'The KALIBIO toothpaste', zh: 'KALIBIO 牙膏产品' },
+      cardInfo: { ko: '150g', en: '150g', zh: '150g' },
+      inqName: 'K.28 TOOTHPASTE',
+      gallery: [
+        { src: 'assets/img/home-best-k28.webp', alt: { ko: 'K.28 치약과 패키지', en: 'K.28 toothpaste and package', zh: 'K.28牙膏与包装' } },
+        { src: 'assets/img/about-k28.webp', alt: { ko: 'K.28 치약', en: 'K.28 toothpaste', zh: 'K.28牙膏' } },
+        { src: 'assets/img/k28-lineup.webp', alt: { ko: 'K.28 치약 제품 이미지', en: 'K.28 toothpaste product image', zh: 'K.28牙膏产品图' } }
+      ]
+    },
+    set: {
+      view: 'prod-set', en: 'SET', title: 'SOAP & TOOTHPASTE SET', img: 'assets/img/giftset.webp',
+      type: { ko: '세트', en: 'Set', zh: '组合' },
+      line: { ko: '카리비누와 K.28 치약 구성 세트', en: 'KALI Soap and K.28 Toothpaste sets', zh: '卡里皂与 K.28 牙膏组合' },
+      cardInfo: { ko: '구성 3종 선택', en: '3 set options', zh: '3种组合可选' },
+      inqName: 'SOAP & TOOTHPASTE SET',
+      lineupTitle: 'SET OPTIONS', variantLabel: 'secVariants',
+      gallery: [
+        { src: 'assets/img/giftset.webp', alt: { ko: '카리비누·K.28 치약 세트', en: 'KALI Soap and K.28 Toothpaste set', zh: '卡里皂·K.28牙膏组合' } },
+        { src: 'assets/img/prod-set-soap4.webp', alt: { ko: '카리비누 4구 세트', en: 'KALI Soap 4-bar set', zh: '卡里皂4块礼盒' } },
+        { src: 'assets/img/prod-set-k28-5.webp', alt: { ko: 'K.28 치약 5개 세트', en: 'K.28 toothpaste 5-pack set', zh: 'K.28牙膏5支礼盒' } },
+        { src: 'assets/img/prod-set-k28-soap.webp', alt: { ko: 'K.28 치약 2개 + 카리비누 2개 세트', en: 'K.28 ×2 + KALI Soap ×2 set', zh: 'K.28牙膏2支 + 卡里皂2块礼盒' } }
+      ]
+    }
+  };
+  var ORDER = ['soap', 'paste', 'set'];
+  /* ?p=<제품ID> → { 그룹, 선택 항목 } (홈의 베스트 카드 링크와 옛 주소 호환) */
+  var BY_ID = {};
+  SOAP.forEach(function (p, i) { BY_ID[p.id] = { g: 'soap', i: i }; });
+  SETS.forEach(function (p, i) { BY_ID[p.id] = { g: 'set', i: i }; });
+  BY_ID['k28-toothpaste'] = { g: 'paste', i: 0 };
+  var selected = { soap: 1, paste: 0, set: 0 };   /* 비누는 05(대표 이미지)에서 시작 */
+
+  /* ---------- 도우미 ---------- */
   function lang() { var l = document.documentElement.getAttribute('lang'); return /^(ko|en|zh)$/.test(l) ? l : 'ko'; }
   function L(o) { return o ? (o[lang()] !== undefined ? o[lang()] : o.ko) : ''; }
-  function K(key) {
-    var cur = window.I18N, parts = key.split('.');
-    for (var i = 0; i < parts.length && cur; i++) { cur = cur[parts[i]]; }
-    return cur ? L(cur) : '';
-  }
-  function strip(html) { var d = document.createElement('div'); d.innerHTML = html; return d.textContent; }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
-  function nameOf(p) { return p.name ? strip(K(p.name)) + (p.size ? ' ' + p.size : '') : L(p.nameTxt); }
-  function typeOf(p) { return L(TXT[p.type]); }
-  function feats(p) { return p.bullets ? p.bullets.map(K) : p.featTxt.map(L); }
-  function urlOf(p) { return '?p=' + p.id + '#' + p.view; }
-
-  var list = document.getElementById('prodList');
-  var detail = document.getElementById('prodDetail');
-  if (!list || !detail) { return; }
+  function t(k) { return esc(L(T[k])); }
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- 탭별 라인업 카드 (단일 데이터 소스 PRODUCTS 에서) ----------
-     비누 탭: 낱개 비누 4종 / 치약 탭: K.28 · K.28 5개 세트 / 세트 탭: 세트 3종 */
-  function inLineup(type, p) {
-    if (type === 'soap') { return p.type === 'soap' && !p.isSet; }
-    if (type === 'paste') { return p.type === 'paste'; }
-    return !!p.isSet;
+  /* 정보표: 값이 비어 있는(null) 항목은 그리지 않는다 */
+  function table(rows, cls) {
+    var body = rows.filter(function (r) { return r && r[1] !== null && r[1] !== ''; }).map(function (r) {
+      return '<tr><th>' + t(r[0]) + '</th><td>' + r[1] + '</td></tr>';
+    }).join('');
+    return '<table class="pd-table pk-table ' + (cls || '') + '"><tbody>' + body + '</tbody></table>';
   }
-  function renderLineups() {
-    var boxes = document.querySelectorAll('.pp-lineup');
-    for (var i = 0; i < boxes.length; i++) {
-      var type = boxes[i].getAttribute('data-type');
-      boxes[i].innerHTML = PRODUCTS.filter(function (p) { return inLineup(type, p); }).map(function (p) {
-        var f = feats(p)[0] || '';
-        return '<li><a class="pp-card" href="' + urlOf(p) + '" data-product="' + p.id + '">' +
-          '<span class="pp-card-media"><img src="' + p.img + '" alt="' + esc(nameOf(p)) + '" loading="lazy"></span>' +
-          '<span class="pp-card-name">' + esc(nameOf(p)) + '</span>' +
-          '<span class="pp-card-d">' + f + '</span>' +
-          '<span class="pp-card-more">' + esc(L(TXT.detail)) + ' →</span></a></li>';
-      }).join('');
+  function link(href, key) { return '<a class="pk-link" href="' + href + '">' + t(key) + '</a>'; }
+
+  /* ---------- 제품 정보 (공통 + 제품별) ---------- */
+  function infoRows(g) {
+    if (g === 'soap') {
+      return [
+        ['kName', 'KALIBIO SOAP · ' + esc(L({ ko: '카리비누', en: 'KALI Soap', zh: '卡里皂' }))],
+        ['kType', esc(L({ ko: '비누 (고체 비누)', en: 'Soap (solid bar)', zh: '香皂（固体皂）' }))],
+        ['kMaterial', t('feldspar')],
+        ['kContent', esc(L({ ko: '3% · 5% · 8% · 13% (4종)', en: '3% · 5% · 8% · 13% (4 types)', zh: '3% · 5% · 8% · 13%（4种）' }))],
+        ['kWeight', esc(L({ ko: '100g (개당)', en: '100g per bar', zh: '每块100g' }))],
+        ['kForm', esc(L({ ko: '원형 고체 비누 · KALI 로고 각인', en: 'Round solid bar · embossed KALI logo', zh: '圆形固体皂 · 压印 KALI 标志' }))]
+      ];
     }
-  }
-
-  /* ---------- 갤러리: 썸네일을 누르면 큰 사진이 부드럽게 바뀐다 ---------- */
-  document.addEventListener('click', function (e) {
-    var t = e.target.closest && e.target.closest('.pp-thumb');
-    if (!t) { return; }
-    var gal = t.closest('.pp-gallery');
-    var main = gal.querySelector('.pp-gallery-main img');
-    var thumbs = gal.querySelectorAll('.pp-thumb');
-    for (var i = 0; i < thumbs.length; i++) {
-      thumbs[i].classList.toggle('is-on', thumbs[i] === t);
-      thumbs[i].setAttribute('aria-pressed', thumbs[i] === t ? 'true' : 'false');
+    if (g === 'paste') {
+      return [
+        ['kName', 'KALIBIO K.28 TOOTHPASTE · ' + esc(L({ ko: 'K.28 치약', en: 'K.28 Toothpaste', zh: 'K.28牙膏' }))],
+        ['kType', esc(L(GROUPS.paste.type))],
+        ['kMaterial', t('feldspar')],
+        ['kVolume', '150g'],
+        ['kIngNat', esc(L({ ko: '28가지 자연 유래 성분', en: '28 naturally derived ingredients', zh: '28种天然来源成分' }))],
+        ['kIngKey', esc(L({ ko: '칼륨장석, 하이드록시아파타이트, 프로폴리스, 인산삼칼슘, 덴탈타입실리카 등', en: 'Potassium feldspar, hydroxyapatite, propolis, tricalcium phosphate, dental-type silica, etc.', zh: '钾长石、羟基磷灰石、蜂胶、磷酸三钙、牙膏用二氧化硅等' }))],
+        ['kFormula', esc(L({ ko: '고농축 · 고점도 (정제수 6.5%)', en: 'Highly concentrated, high-viscosity (purified water 6.5%)', zh: '高浓缩·高粘度（纯净水6.5%）' }))],
+        ['kFree', esc(L({ ko: '합성 계면활성제(SLS) · 불소', en: 'Synthetic surfactant (SLS) · fluoride', zh: '合成表面活性剂(SLS) · 氟' }))],
+        ['kPreserv', esc(L({ ko: '천연 보존제 E-폴리리신', en: 'Natural preservative ε-polylysine', zh: '天然防腐剂 ε-聚赖氨酸' }))]
+      ];
     }
-    var swap = function () { main.src = t.getAttribute('data-src'); main.alt = t.getAttribute('data-alt'); main.classList.remove('is-out'); };
-    if (reduce) { swap(); return; }
-    main.classList.add('is-out');
-    window.setTimeout(swap, 220);
-  });
-
-  /* ---------- 제조 과정 → 브랜드 > 공정의 비누/치약 구간으로 ---------- */
-  document.addEventListener('click', function (e) {
-    var a = e.target.closest && e.target.closest('.pp-goto');
-    if (!a) { return; }
-    var id = a.getAttribute('data-goto');
-    /* 공정 메뉴로 이동한 뒤(라우터가 맨 위로 맞춘 다음) 해당 공정 구간까지 내려간다 */
-    window.setTimeout(function () {
-      var el = document.getElementById(id);
-      if (el) { el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); }
-    }, 1400);
-  });
-
-  /* ---------- 섹션이 화면에 들어올 때 부드럽게 (opacity·translateY 20px) ---------- */
-  var rises = document.querySelectorAll('#products .pp-rise');
-  if (reduce || !('IntersectionObserver' in window)) {
-    for (var r = 0; r < rises.length; r++) { rises[r].classList.add('is-in'); }
-  } else {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); } });
-    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.06 });
-    for (var q = 0; q < rises.length; q++) { io.observe(rises[q]); }
+    return [
+      ['kName', 'KALIBIO SOAP & TOOTHPASTE SET'],
+      ['kType', esc(L({ ko: '세트 (카리비누 · K.28 치약 구성)', en: 'Set (KALI Soap · K.28 Toothpaste)', zh: '组合（卡里皂 · K.28牙膏）' }))],
+      ['kMaterial', t('feldspar')],
+      ['kContents', esc(L({ ko: '카리비누 100g · K.28 치약 150g', en: 'KALI Soap 100g · K.28 Toothpaste 150g', zh: '卡里皂100g · K.28牙膏150g' }))],
+      ['kOptions', esc(L({ ko: '아래 구성 3종 · 카리비누 세트는 2구 · 3구 · 4구 (개당 100g, 비누 종류 선택 가능)', en: '3 options below · KALI Soap sets of 2, 3 or 4 bars (100g each, variants selectable)', zh: '下列3种组合 · 卡里皂组合有2块、3块、4块（每块100g，品种可选）' }))]
+    ];
   }
 
-  /* ---------- 상세 ---------- */
-  function renderDetail(p) {
-    var specs = '';
-    if (p.specs) {
-      var heads = ['specs.effect', 'specs.ingr', 'specs.use'];
-      specs = '<table class="pd-table"><tbody>' + p.specs.map(function (k, i) {
-        return '<tr><th>' + K(heads[i]) + '</th><td>' + K(k) + '</td></tr>';
-      }).join('') + '</tbody></table>';
-    }
-    var strengths = '';
-    if (p.strengths && window.I18N && window.I18N.k28b) {
-      strengths = '<h3 class="pd-h">' + K('k28b.badge') + '</h3><ul class="pd-strengths">' +
-        [1, 2, 3, 4].map(function (n) { return '<li><b>' + K('k28b.b' + n) + '</b><span>' + K('k28b.b' + n + 'd') + '</span></li>'; }).join('') + '</ul>';
-    }
-    var compo = p.compo ? L(p.compo) : nameOf(p);
-    detail.innerHTML =
-      '<a class="pd-back" href="#' + p.view + '">' + esc(L(TXT.back)) + '</a>' +
-      '<div class="pd-top">' +
-        '<div class="pd-media"><img src="' + p.img + '" alt="' + esc(nameOf(p)) + '"></div>' +
-        '<div class="pd-info">' +
-          '<span class="pd-type">' + esc(typeOf(p)) + '</span>' +
-          '<h3 class="pd-name">' + esc(nameOf(p)) + '</h3>' +
-          '<h4 class="pd-h">' + esc(L(TXT.overview)) + '</h4>' +
-          '<ul class="pd-feats">' + feats(p).map(function (t) { return '<li>' + t + '</li>'; }).join('') + '</ul>' +
-          specs +
-          '<h4 class="pd-h">' + esc(L(TXT.compo)) + '</h4>' +
-          '<p class="pd-p">' + esc(compo) + '</p><p class="pd-p pd-muted">' + esc(L(TXT.optAsk)) + '</p>' +
-          '<h4 class="pd-h">' + esc(L(TXT.useFor)) + '</h4>' +
-          '<ul class="pd-uses">' + p.uses.map(function (i) { return '<li><b>' + esc(L(USES[i].t)) + '</b> ' + esc(L(USES[i].d)) + '</li>'; }).join('') + '</ul>' +
-          '<h4 class="pd-h">' + esc(L(TXT.quality)) + '</h4>' +
-          '<ul class="pd-quality"><li>' + esc(L(TXT.q1)) + '</li><li>' + esc(L(TXT.q2)) + '</li></ul>' +
-          '<h4 class="pd-h">' + esc(L(TXT.order)) + '</h4>' +
-          '<dl class="pd-order"><dt>' + esc(L(TXT.moq)) + '</dt><dd>' + esc(L(TXT.ask)) + '</dd><dt>' + esc(L(TXT.lead)) + '</dt><dd>' + esc(L(TXT.ask)) + '</dd><dt>' + esc(L(TXT.price)) + '</dt><dd>' + esc(L(TXT.ask)) + '</dd></dl>' +
-          '<div class="pd-actions"><a class="btn btn-outline" href="#' + p.view + '">' + esc(L(TXT.back).replace('← ', '')) + '</a></div>' +
-          '<p class="pd-note">' + esc(L(TXT.orderNote)) + '</p>' +
-        '</div>' +
-      '</div>' + strengths;
+  /* ---------- 라인업 / 구성 선택 ---------- */
+  function variantTabs(g) {
+    var items = g === 'soap'
+      ? SOAP.map(function (p) { return { big: p.pct + '%', small: p.no }; })
+      : SETS.map(function (p, i) { return { big: String(i + 1), small: L(p.name) }; });
+    return '<div class="pk-tabs" role="tablist" aria-label="' + esc(GROUPS[g].lineupTitle) + '">' + items.map(function (it, i) {
+      return '<button type="button" role="tab" class="pk-tab' + (i === selected[g] ? ' is-on' : '') + '" data-g="' + g + '" data-i="' + i + '" aria-selected="' + (i === selected[g]) + '">' +
+        '<b>' + esc(it.big) + '</b>' + (g === 'soap' ? '<span>' + esc(it.small) + '</span>' : '') + '</button>';
+    }).join('') + '</div>';
   }
-
-  /* ---------- 상태 ---------- */
-  var baseTitle = null;
-  function currentId() {
-    var m = /[?&]p=([\w-]+)/.exec(window.location.search);
-    return m && BY_ID[m[1]] ? m[1] : null;
-  }
-  function render() {
-    var id = currentId();
-    var inProducts = document.getElementById('products').classList.contains('is-active');
-    if (id && inProducts) {
-      var p = BY_ID[id];
-      renderDetail(p);
-      list.hidden = true; detail.hidden = false;
-      document.title = nameOf(p) + ' | 주식회사 카리바이오';
-      var meta = document.querySelector('meta[name="description"]');
-      if (meta) { if (baseTitle === null) { baseTitle = meta.getAttribute('content'); } meta.setAttribute('content', nameOf(p) + ' — ' + strip(feats(p)[0] || '')); }
+  function variantPanel(g) {
+    var i = selected[g], img, name, rows;
+    if (g === 'soap') {
+      var p = SOAP[i];
+      img = p.img; name = L({ ko: '카리비누 ', en: 'KALI Soap ', zh: '卡里皂 ' }) + p.no;
+      rows = [
+        ['kContent', p.pct + '%'],
+        ['kWeight', '100g'],
+        ['kForm', esc(L({ ko: '원형 고체 비누', en: 'Round solid bar', zh: '圆形固体皂' }))],
+        ['kColor', esc(L(p.color))],
+        ['kScent', p.scent ? esc(L(p.scent)) : null],
+        ['kIngCount', p.ing ? esc(L({ ko: p.ing + '가지', en: p.ing, zh: p.ing + '种' })) : null],
+        ['kIngKey', esc(L(p.key))]
+      ];
     } else {
-      detail.hidden = true; list.hidden = false;
-      if (baseTitle !== null) { document.querySelector('meta[name="description"]').setAttribute('content', baseTitle); }
-      renderLineups();
+      var s = SETS[i];
+      img = s.img; name = L(s.name);
+      rows = [['kContents', esc(L(s.contents))]];
     }
+    return '<div class="pk-var" role="tabpanel"><figure class="pk-var-media"><img src="' + img + '" alt="' + esc(name) + '" loading="lazy"></figure>' +
+      '<div class="pk-var-info"><h5 class="pk-var-name">' + esc(name) + '</h5>' + table(rows) + '</div></div>';
   }
 
-  /* 같은 해시 안에서 ?p= 만 바뀌는 이동은 pushState 로 처리 (페이지 새로고침 없음).
-     해시가 달라지면 app.js 가 뷰를 바꾸도록 hashchange 를 직접 알린다. */
+  /* ---------- 갤러리 (기존 .pp-gallery 마크업·동작 재사용) ---------- */
+  function gallery(g) {
+    var list = GROUPS[g].gallery;
+    return '<div class="pp-gallery"><figure class="pp-gallery-main"><img src="' + list[0].src + '" alt="' + esc(L(list[0].alt)) + '" loading="lazy"></figure><ul class="pp-thumbs">' +
+      list.map(function (it, i) {
+        return '<li><button type="button" class="pp-thumb' + (i === 0 ? ' is-on' : '') + '" data-src="' + it.src + '" data-alt="' + esc(L(it.alt)) + '" aria-label="' + esc((i + 1) + ' — ' + L(it.alt)) + '" aria-pressed="' + (i === 0) + '">' +
+          '<img src="' + it.src + '" alt="" loading="lazy"><span>0' + (i + 1) + '</span></button></li>';
+      }).join('') + '</ul></div>';
+  }
+
+  /* ---------- 공급 정보 ---------- */
+  function supply(g) {
+    return table([
+      ['kSupplyForm', t(g === 'set' ? 'finishedSet' : 'finished')],
+      ['kMoq', t('ask')],
+      ['kLead', t('ask')],
+      ['kPrice', t('ask')]
+    ]) + '<p class="pk-note">' + t('supplyNote') + '</p>';
+  }
+
+  /* ---------- 상세 한 페이지 ---------- */
+  function renderGroup(g) {
+    var G = GROUPS[g], hasVar = !!G.lineupTitle;
+    return '<a class="pd-back" href="#products">' + t('back') + '</a>' +
+      '<section class="pp-hero"><figure class="pp-hero-media"><img src="' + G.img + '" alt="' + esc(G.title) + '"></figure>' +
+        '<div class="pp-hero-copy"><p class="pp-label">' + esc(G.en) + '</p><h3 class="pp-hero-title">' + esc(G.title) + '</h3>' +
+        '<p class="pp-hero-lead">' + esc(L(G.line)) + '</p></div></section>' +
+      '<section class="pp-sec"><p class="pp-label">' + t('secInfo') + '</p><h4 class="pp-h">PRODUCT INFORMATION</h4>' +
+        table(infoRows(g)) +
+        '<p class="pk-links"><span>' + t('related') + '</span>' + link('#mat-story', 'toMaterial') + link('#mat-tests', 'toTests') + link('#brand-process', 'toProcess') + '</p></section>' +
+      (hasVar ? '<section class="pp-sec"><p class="pp-label">' + t(G.variantLabel) + '</p><h4 class="pp-h">' + esc(G.lineupTitle) + '</h4>' +
+        variantTabs(g) + '<div class="pk-panel" data-panel="' + g + '">' + variantPanel(g) + '</div></section>' : '') +
+      '<section class="pp-sec"><p class="pp-label">' + t('secGallery') + '</p><h4 class="pp-h">PRODUCT GALLERY</h4>' + gallery(g) + '</section>' +
+      '<section class="pp-sec"><p class="pp-label">' + t('secSupply') + '</p><h4 class="pp-h">SUPPLY INFORMATION</h4>' + supply(g) + '</section>' +
+      '<section class="pp-sec pk-inq"><h4 class="pp-h">' + t('inqTitle') + '</h4><p class="pp-p">' + t('inqDesc') + '</p>' +
+        '<div class="pp-cta"><a class="btn btn-primary js-order" href="#contact" data-inquiry="bulk" data-order="' + esc(G.inqName) + '">' + t('inqBtn') + '</a></div></section>';
+  }
+
+  /* ---------- 제품 선택 카드 (PRODUCT 메인) ---------- */
+  function renderSelect() {
+    return ORDER.map(function (g) {
+      var G = GROUPS[g];
+      return '<li><a class="pp-card pk-card" href="#' + G.view + '">' +
+        '<span class="pp-card-media"><img src="' + G.img + '" alt="' + esc(G.title) + '" loading="lazy"></span>' +
+        '<span class="pk-card-type">' + esc(L(G.type)) + '</span>' +
+        '<span class="pp-card-name">' + esc(G.title) + '</span>' +
+        '<span class="pp-card-d">' + esc(L(G.line)) + '</span>' +
+        '<span class="pk-card-info">' + esc(L(G.cardInfo)) + '</span>' +
+        '<span class="pp-card-more">' + t('detail') + '</span></a></li>';
+    }).join('');
+  }
+
+  /* ---------- 그리기 ---------- */
+  var pageEls = {};
+  function render() {
+    var main = document.getElementById('pkSelect');
+    if (main) { main.innerHTML = renderSelect(); }
+    var h = document.getElementById('pkHeroTitle'), l = document.getElementById('pkHeroLead');
+    if (h) { h.textContent = L(T.heroTitle); }
+    if (l) { l.textContent = L(T.heroLead); }
+    ORDER.forEach(function (g) {
+      var el = pageEls[g] || (pageEls[g] = document.querySelector('[data-pk="' + g + '"]'));
+      if (el) { el.innerHTML = renderGroup(g); }
+    });
+  }
+  function renderPanel(g) {
+    var panel = document.querySelector('[data-panel="' + g + '"]');
+    if (!panel) { return; }
+    var swap = function () { panel.innerHTML = variantPanel(g); panel.classList.remove('is-out'); };
+    if (reduce) { swap(); } else { panel.classList.add('is-out'); window.setTimeout(swap, 160); }
+  }
+
+  /* ?p=<제품ID> 로 들어오면 그 항목을 미리 고른다 */
+  function applyQuery() {
+    var m = /[?&]p=([\w-]+)/.exec(window.location.search);
+    if (m && BY_ID[m[1]]) { selected[BY_ID[m[1]].g] = BY_ID[m[1]].i; return BY_ID[m[1]]; }
+    return null;
+  }
+
+  /* ---------- 이벤트 ---------- */
+  document.addEventListener('click', function (e) {
+    var tab = e.target.closest && e.target.closest('.pk-tab');
+    if (tab) {
+      var g = tab.getAttribute('data-g'), i = parseInt(tab.getAttribute('data-i'), 10);
+      if (selected[g] === i) { return; }
+      selected[g] = i;
+      var tabs = tab.parentNode.querySelectorAll('.pk-tab');
+      for (var k = 0; k < tabs.length; k++) { tabs[k].classList.toggle('is-on', tabs[k] === tab); tabs[k].setAttribute('aria-selected', tabs[k] === tab ? 'true' : 'false'); }
+      renderPanel(g);
+      var id = g === 'soap' ? SOAP[i].id : SETS[i].id;
+      window.history.replaceState(null, '', '?p=' + id + '#' + GROUPS[g].view);
+      return;
+    }
+    /* 갤러리: 썸네일을 누르면 큰 사진이 부드럽게 바뀐다 */
+    var th = e.target.closest && e.target.closest('.pp-thumb');
+    if (th) {
+      var gal = th.closest('.pp-gallery'), mainImg = gal.querySelector('.pp-gallery-main img'), ths = gal.querySelectorAll('.pp-thumb');
+      for (var j = 0; j < ths.length; j++) { ths[j].classList.toggle('is-on', ths[j] === th); ths[j].setAttribute('aria-pressed', ths[j] === th ? 'true' : 'false'); }
+      var sw = function () { mainImg.src = th.getAttribute('data-src'); mainImg.alt = th.getAttribute('data-alt'); mainImg.classList.remove('is-out'); };
+      if (reduce) { sw(); } else { mainImg.classList.add('is-out'); window.setTimeout(sw, 220); }
+      return;
+    }
+    /* 제품 문의 → 문의 폼의 유형과 관심 제품을 채운다 */
+    var ord = e.target.closest && e.target.closest('.js-order');
+    if (ord) {
+      var sel = document.getElementById('inquiryType');
+      if (sel) { sel.value = ord.getAttribute('data-inquiry') || 'bulk'; }
+      var nm = ord.getAttribute('data-order'), msg = document.getElementById('message');
+      if (msg && nm && msg.value.indexOf(nm) === -1) { msg.value = L(T.interest) + ': ' + nm + '\n' + msg.value; }
+    }
+  });
+
+  /* ?p= 가 붙은 카드(홈 베스트 등)는 새로고침 없이 이동 */
   function go(url) {
     var prevHash = window.location.hash;
     window.history.pushState(null, '', url);
-    if (window.location.hash !== prevHash) {
-      window.dispatchEvent(new HashChangeEvent('hashchange'));
-    }
-    window.setTimeout(function () { render(); window.scrollTo(0, 0); }, 0);
+    if (window.location.hash !== prevHash) { window.dispatchEvent(new HashChangeEvent('hashchange')); }
+    window.setTimeout(function () { applyQuery(); render(); window.scrollTo(0, 0); }, 0);
   }
-
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a');
     if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey) { return; }
     var pid = a.getAttribute('data-product');
-    if (pid && BY_ID[pid]) { e.preventDefault(); go(urlOf(BY_ID[pid])); return; }
-    /* 상세(?p=)를 보던 중 일반 메뉴 링크를 누르면 ?p= 를 지우고 그대로 이동 */
+    if (pid && BY_ID[pid]) { e.preventDefault(); go('?p=' + pid + '#' + GROUPS[BY_ID[pid].g].view); return; }
+    /* 상세를 보던 중 일반 메뉴 링크를 누르면 ?p= 를 지우고 그대로 이동 */
     var href = a.getAttribute('href') || '';
     if (href.charAt(0) === '#' && window.location.search) {
       window.history.replaceState(null, '', window.location.pathname + window.location.hash);
-      if (href === window.location.hash) { e.preventDefault(); render(); window.scrollTo(0, 0); }
+      if (href === window.location.hash) { e.preventDefault(); window.scrollTo(0, 0); }
     }
   }, true);
 
-  /* 기업 주문 문의 → 문의 폼의 유형과 관심 제품을 채운다 */
-  document.addEventListener('click', function (e) {
-    var a = e.target.closest && e.target.closest('.js-order');
-    if (!a) { return; }
-    var sel = document.getElementById('inquiryType');
-    if (sel) { sel.value = a.getAttribute('data-inquiry') || 'bulk'; }
-    var name = a.getAttribute('data-order');
-    var msg = document.getElementById('message');
-    if (msg && name && msg.value.indexOf(name) === -1) {
-      msg.value = L(TXT.interest) + ': ' + name + '\n' + msg.value;
-    }
-  });
-
-
-  /* ?p= 가 붙은 항목 사이를 뒤로/앞으로 이동하면 브라우저가 hashchange 를 보내지 않는다.
-     app.js 가 뷰를 다시 고르도록 직접 알린다. */
-  window.addEventListener('popstate', function () {
-    window.dispatchEvent(new HashChangeEvent('hashchange'));
-    window.setTimeout(render, 0);
-  });
-  window.addEventListener('hashchange', function () { window.setTimeout(render, 0); });
-  /* app.js 가 비누/치약 블록의 hidden 을 바꾸거나 언어를 바꾸면 다시 그린다 */
+  window.addEventListener('popstate', function () { window.dispatchEvent(new HashChangeEvent('hashchange')); window.setTimeout(function () { applyQuery(); render(); }, 0); });
   if ('MutationObserver' in window) {
-    new MutationObserver(function () { window.setTimeout(render, 0); })
-      .observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
-    var prodView = document.getElementById('products');
-    new MutationObserver(function () { window.setTimeout(render, 0); })
-      .observe(prodView, { attributes: true, attributeFilter: ['class'] });
+    new MutationObserver(function () { window.setTimeout(render, 0); }).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
   }
+  applyQuery();
   render();
 })();
