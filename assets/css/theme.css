@@ -214,3 +214,15 @@ body.nav-solid:not(.nav-on-dark) .app-topbar{
 /* 바탕이 생기면 흰색으로 바뀌어 있던 로고는 원래 색으로 */
 body.nav-solid:not(.nav-on-dark).hero-logo-light .site-nav .brand-logo,
 body.nav-solid:not(.nav-on-dark).hero-logo-light .app-topbar .brand-logo{filter:none;}
+
+/* 햄버거(☰)·지구본(·KR/EN/ZH)은 항상 KALI. 로고와 같은 색 — 로고가 흰색이면 흰색 */
+.menu-toggle span,.lang-globe,.lang-menu .lang-btn,.lang-menu .lang-btn.active::after{transition:background-color .6s ease,color .6s ease;}
+body.hero-logo-light .menu-toggle span{background:#fff;}
+body.hero-logo-light .lang-globe,
+body.hero-logo-light .lang-menu .lang-btn{color:#fff;}
+body.hero-logo-light .lang-menu .lang-btn.active::after{background:#fff;}
+/* 헤더에 바탕이 생기면(스크롤) 로고가 원래 색으로 돌아오므로 햄버거·지구본도 함께 */
+body.nav-solid:not(.nav-on-dark).hero-logo-light .menu-toggle span{background:#0d0d0b;}
+body.nav-solid:not(.nav-on-dark).hero-logo-light .lang-globe,
+body.nav-solid:not(.nav-on-dark).hero-logo-light .lang-menu .lang-btn{color:#111;}
+body.nav-solid:not(.nav-on-dark).hero-logo-light .lang-menu .lang-btn.active::after{background:#111;}
