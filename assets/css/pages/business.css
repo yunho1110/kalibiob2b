@@ -357,3 +357,9 @@
 @media (max-width:639px){
   .bz-lead br,.bz-sec .block-desc br,.bz-card-d br,.bz-band-desc br,.bz-cta-d br,.bz-why-ko br{display:none;}
 }
+
+/* 10.14 — 공급망 단계: 한글(위)이 중심, 영문(아래)은 얇은 보조 문구. 크기·색·대문자 표기는 그대로 */
+.bz-step-ko{font-weight:700;}
+.bz-step-en{font-weight:300;}
+/* 얇아진 영문이 어두운 배경에서도 또렷하도록 색은 흰색 그대로, 밝은 띠에서는 진한 잉크색 */
+.bz-flow--light .bz-step-ko{color:var(--ink);}
