@@ -135,6 +135,8 @@ var I18N = {
     c3d: { ko: "원료 선정부터 제품 개발, 제조, <br>패키징까지 기업의 브랜드를 함께 만듭니다.", en: "From material selection to product development, manufacturing <br>and packaging, we build your brand together.", zh: "从原料选择到产品开发、制造、 <br>包装，与企业共同打造品牌。" },
     c3proc: { ko: "기획 → 원료 선정 → 처방 개발 → 샘플 → 제조 → 패키징", en: "Planning → Material selection → Formulation → Sample → Manufacturing → Packaging", zh: "策划 → 原料选择 → 配方开发 → 样品 → 制造 → 包装" },
     c3b: { ko: "OEM·ODM 문의 →", en: "OEM·ODM inquiry →", zh: "OEM·ODM咨询 →" },
+    modelTitle: { ko: "비즈니스 모델", en: "Business Model", zh: "商业模式" },
+    flowTitle: { ko: "원료에서 비즈니스까지", en: "From Material to Business", zh: "从原料到商业" },
     flowDesc: { ko: "원료에서 제품, 제조와 공급까지 <br>하나의 연결된 비즈니스 구조를 만들어갑니다.", en: "From material to product, manufacturing and supply, <br>we build one connected business structure.", zh: "从原料到产品、制造与供应， <br>构建一体化的业务结构。" },
     f1: { ko: "칼륨장석 기반 원료", en: "Potassium feldspar–based material", zh: "钾长石基原料" },
     f2: { ko: "시험·분석을 통한 소재 검증", en: "Material verification through testing and analysis", zh: "通过试验与分析验证材料" },
