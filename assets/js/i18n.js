@@ -157,6 +157,9 @@ var I18N = {
     ch3b: { ko: "OEM·ODM 문의 →", en: "OEM·ODM inquiry →", zh: "OEM·ODM咨询 →" }
   },
   pn: {
+    typeTitle: { ko: "협력 방식", en: "How We Collaborate", zh: "合作方式" },
+    procTitle: { ko: "협력 절차", en: "Partnership Process", zh: "合作流程" },
+    ourTitle: { ko: "함께하는 기관들", en: "Our Partners", zh: "合作伙伴" },
     heroTitle: { ko: "함께 만들고, 함께 확장합니다.", en: "Building together, expanding together.", zh: "共同创造，共同拓展。" },
     heroLead: { ko: "카리바이오는 원료 공급부터 제품 개발, 제조, 유통까지 <br>다양한 파트너와 함께 새로운 비즈니스 기회를 만들어갑니다.", en: "From material supply to product development, manufacturing and distribution, <br>KALIBIO creates new business opportunities with a wide range of partners.", zh: "从原料供应到产品开发、制造和经销， <br>卡里生物与各类合作伙伴共同创造新的商业机会。" },
     typeDesc: { ko: "기업의 목적과 역할에 따라 <br>다양한 방식으로 협력할 수 있습니다.", en: "Depending on your goals and role, <br>there are many ways to collaborate.", zh: "根据企业的目的与角色， <br>可以采用多种方式合作。" },

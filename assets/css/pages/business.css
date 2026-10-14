@@ -363,3 +363,6 @@
 .bz-step-en{font-weight:300;}
 /* 얇아진 영문이 어두운 배경에서도 또렷하도록 색은 흰색 그대로, 밝은 띠에서는 진한 잉크색 */
 .bz-flow--light .bz-step-ko{color:var(--ink);}
+
+/* 10/14 지시서 — 영문 라벨 삭제 후 '원료에서 비즈니스까지' 소제목을 '비즈니스 모델'(.block-title)과 같은 크기·굵기로 */
+#business .bz-band-title{font-size:clamp(1.3rem,2.3vw,1.75rem);font-weight:500;letter-spacing:-0.03em;line-height:1.3;}
