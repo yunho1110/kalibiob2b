@@ -51,7 +51,14 @@
     bulk: { ko: '답례품 · 각종 기념품 · 명절 선물 등 대량 구매 문의', en: 'Bulk orders for return gifts, commemorative items, holiday gifts, etc.', zh: '回礼、各类纪念品、节日礼品等批量采购咨询' },
     finished: { ko: '완제품', en: 'Finished product', zh: '成品' },
     finishedSet: { ko: '세트 구성 완제품', en: 'Finished product set', zh: '组合成品' },
-    feldspar: { ko: '칼륨장석', en: 'Potassium feldspar', zh: '钾长石' }
+    feldspar: { ko: '칼륨장석', en: 'Potassium feldspar', zh: '钾长石' },
+    sLineup: { ko: '라인업', en: 'Line-up', zh: '系列' },
+    sTypes4: { ko: '4종', en: '4 types', zh: '4种' },
+    sOpt3: { ko: '3종', en: '3 options', zh: '3种' },
+    sIng28: { ko: '28가지 자연 유래 성분', en: '28 naturally derived', zh: '28种天然来源成分' },
+    sSetItems: { ko: '카리비누 · K.28 치약', en: 'KALI Soap · K.28 Toothpaste', zh: '卡里皂 · K.28牙膏' },
+    lineupNote: { ko: '칼륨장석 함량만 다른 4종입니다. 중량·형태는 모두 같습니다.', en: 'Four bars that differ only in potassium feldspar content. Weight and form are identical.', zh: '仅钾长石含量不同的4款，重量与形态相同。' },
+    setNote: { ko: '아래 3종 구성 중에서 선택합니다.', en: 'Choose from the three set options below.', zh: '可从下列3种组合中选择。' }
   };
 
   /* ---------- 제품 데이터 (단일 소스) ----------
@@ -98,7 +105,8 @@
       line: { ko: '칼륨장석을 활용한 KALIBIO의 비누 제품', en: 'KALI SOAP made with potassium feldspar', zh: '运用钾长石的 KALIBIO 香皂产品' },
       cardInfo: { ko: '칼륨장석 3 · 5 · 8 · 13% 4종 · 100g', en: 'Potassium feldspar 3 · 5 · 8 · 13% — 4 types · 100g', zh: '钾长石 3 · 5 · 8 · 13% 4种 · 100g' },
       inqName: 'KALI SOAP',
-      lineupTitle: 'KALI SOAP LINE-UP', variantLabel: 'secLineup',
+      lineupTitle: 'KALI SOAP LINE-UP', variantLabel: 'secLineup', lineupNote: 'lineupNote',
+      stats: [['sLineup', 'sTypes4'], ['feldspar', { ko: '3 · 5 · 8 · 13%', en: '3 · 5 · 8 · 13%', zh: '3 · 5 · 8 · 13%' }], ['kWeight', { ko: '100g', en: '100g', zh: '100g' }]],
       gallery: [
         { src: 'assets/img/soap-03.webp', bg: '#d4d4d4', alt: { ko: '카리비누 03.', en: 'KALI Soap 03.', zh: '卡里皂 03.' } },
         { src: 'assets/img/soap-05.webp', bg: '#d3d3d3', alt: { ko: '카리비누 05.', en: 'KALI Soap 05.', zh: '卡里皂 05.' } },
@@ -112,6 +120,7 @@
       line: { ko: 'KALIBIO의 치약 제품', en: 'The KALIBIO toothpaste', zh: 'KALIBIO 牙膏产品' },
       cardInfo: { ko: '150g', en: '150g', zh: '150g' },
       inqName: 'K.28 TOOTHPASTE',
+      stats: [['kVolume', { ko: '150g', en: '150g', zh: '150g' }], ['kIngNat', 'sIng28']],
       gallery: [
         { src: 'assets/img/home-best-k28.webp', bg: '#e2e2e2', alt: { ko: 'K.28 치약과 패키지', en: 'K.28 toothpaste and package', zh: 'K.28牙膏与包装' } },
         { src: 'assets/img/about-k28.webp', bg: '#dbdbdb', alt: { ko: 'K.28 치약', en: 'K.28 toothpaste', zh: 'K.28牙膏' } },
@@ -124,7 +133,8 @@
       line: { ko: '카리비누와 K.28 치약 구성 세트', en: 'KALI Soap and K.28 Toothpaste sets', zh: '卡里皂与 K.28 牙膏组合' },
       cardInfo: { ko: '구성 3종 선택', en: '3 set options', zh: '3种组合可选' },
       inqName: 'SOAP & TOOTHPASTE SET',
-      lineupTitle: 'SET OPTIONS', variantLabel: 'secVariants',
+      lineupTitle: 'SET OPTIONS', variantLabel: 'secVariants', lineupNote: 'setNote',
+      stats: [['kOptions', 'sOpt3'], ['kContents', 'sSetItems']],
       gallery: [
         { src: 'assets/img/giftset.webp', bg: '#ffffff', alt: { ko: '카리비누·K.28 치약 세트', en: 'KALI Soap and K.28 Toothpaste set', zh: '卡里皂·K.28牙膏组合' } },
         { src: 'assets/img/prod-set-soap4.webp', bg: '#e9e5e1', alt: { ko: '카리비누 4구 세트', en: 'KALI Soap 4-bar set', zh: '卡里皂4块礼盒' } },
@@ -139,7 +149,7 @@
   SOAP.forEach(function (p, i) { BY_ID[p.id] = { g: 'soap', i: i }; });
   SETS.forEach(function (p, i) { BY_ID[p.id] = { g: 'set', i: i }; });
   BY_ID['k28-toothpaste'] = { g: 'paste', i: 0 };
-  var selected = { soap: 1, paste: 0, set: 0 };   /* 비누는 05(대표 이미지)에서 시작 */
+  var focusId = null;   /* ?p= 로 지목된 품목 — 라인업에서 표시하고 그 자리로 보낸다 */
 
   /* ---------- 도우미 ---------- */
   function lang() { var l = document.documentElement.getAttribute('lang'); return /^(ko|en|zh)$/.test(l) ? l : 'ko'; }
@@ -186,37 +196,53 @@
     ];
   }
 
-  /* ---------- 라인업 / 구성 선택 ---------- */
-  function variantTabs(g) {
-    var items = g === 'soap'
-      ? SOAP.map(function (p) { return { big: p.pct + '%', small: p.no }; })
-      : SETS.map(function (p, i) { return { big: String(i + 1), small: L(p.name) }; });
-    return '<div class="pk-tabs" role="tablist" aria-label="' + esc(GROUPS[g].lineupTitle) + '">' + items.map(function (it, i) {
-      return '<button type="button" role="tab" class="pk-tab' + (i === selected[g] ? ' is-on' : '') + '" data-g="' + g + '" data-i="' + i + '" aria-selected="' + (i === selected[g]) + '">' +
-        '<b>' + esc(it.big) + '</b>' + (g === 'soap' ? '<span>' + esc(it.small) + '</span>' : '') + '</button>';
-    }).join('') + '</div>';
-  }
-  function variantPanel(g) {
-    var i = selected[g], img, name, rows, bgOf = GROUPS[g].bg;
+  /* ---------- 라인업 / 구성 — 전 품목을 한 화면에 ----------
+     대표님 피드백(10/16): 탭으로 한 종씩 보여 주니 카리비누 05 만 본다.
+     03 · 05 · 08 · 13 을 동시에 펼쳐 한눈에 비교하게 한다.
+     중량·형태처럼 4종이 같은 값은 위 PRODUCT INFORMATION 에 이미 있으므로
+     여기서는 종류마다 다른 항목(함량 · 색상 · 향 · 원료 수 · 핵심 성분)만 적는다. */
+  function soapName(p) { return L({ ko: '카리비누 ', en: 'KALI Soap ', zh: '卡里皂 ' }) + p.no + '.'; }
+  function lineupItems(g) {
     if (g === 'soap') {
-      var p = SOAP[i];
-      img = p.img; name = L({ ko: '카리비누 ', en: 'KALI Soap ', zh: '卡里皂 ' }) + p.no + '.';
-      rows = [
-        ['kContent', p.pct + '%'],
-        ['kWeight', '100g'],
-        ['kForm', esc(L({ ko: '원형 고체 비누', en: 'Round solid bar', zh: '圆形固体皂' }))],
-        ['kColor', esc(L(p.color))],
-        ['kScent', p.scent ? esc(L(p.scent)) : null],
-        ['kIngCount', p.ing ? esc(typeof p.ing === 'object' ? L(p.ing) : L({ ko: p.ing + '가지', en: p.ing, zh: p.ing + '种' })) : null],
-        ['kIngKey', p.key ? esc(L(p.key)) : null]
-      ];
-    } else {
-      var s = SETS[i];
-      img = s.img; name = L(s.name); bgOf = s.bg;
-      rows = [['kContents', esc(L(s.contents))]];
+      return SOAP.map(function (p) {
+        return {
+          id: p.id, img: p.img, bg: GROUPS.soap.bg, name: soapName(p), short: p.no + '.',
+          rows: [
+            ['kContent', p.pct + '%'],
+            ['kColor', esc(L(p.color))],
+            ['kScent', p.scent ? esc(L(p.scent)) : null],
+            ['kIngCount', p.ing ? esc(typeof p.ing === 'object' ? L(p.ing) : L({ ko: p.ing + '가지', en: p.ing, zh: p.ing + '种' })) : null],
+            ['kIngKey', p.key ? esc(L(p.key)) : null]
+          ]
+        };
+      });
     }
-    return '<div class="pk-var" role="tabpanel"><figure class="pk-var-media" style="background:' + bgOf + '"><img src="' + img + '" alt="' + esc(name) + '" loading="lazy"></figure>' +
-      '<div class="pk-var-info"><h5 class="pk-var-name">' + esc(name) + '</h5>' + table(rows) + '</div></div>';
+    return SETS.map(function (sx) {
+      return { id: sx.id, img: sx.img, bg: sx.bg, name: L(sx.name), short: L(sx.name), rows: [['kContents', esc(L(sx.contents))]] };
+    });
+  }
+  /* 표가 아니라 dl 로 그린다 — 항목들이 subgrid 로 같은 줄에 맞춰져야 비교가 된다
+     (.pk-item-spec 은 display:contents, 각 행이 바깥 격자의 줄을 그대로 쓴다) */
+  function lineupGrid(g) {
+    var items = lineupItems(g);
+    var rowCount = items[0].rows.length;
+    return '<ul class="pk-grid pk-grid--' + items.length + '" style="--pk-rows:' + (rowCount + 2) + '">' + items.map(function (it) {
+      return '<li class="pk-item" id="v-' + it.id + '">' +
+        '<figure class="pk-item-media" style="background:' + it.bg + '"><img src="' + it.img + '" alt="' + esc(it.name) + '" loading="lazy"></figure>' +
+        '<h5 class="pk-item-name">' + esc(it.name) + '</h5>' +
+        '<dl class="pk-item-spec">' + it.rows.filter(function (r) { return r && r[1] !== null && r[1] !== ''; }).map(function (r) {
+          return '<div><dt>' + t(r[0]) + '</dt><dd>' + r[1] + '</dd></div>';
+        }).join('') + '</dl></li>';
+    }).join('') + '</ul>';
+  }
+
+  /* 상세 히어로의 요약 지표 — 확인된 값만 (GROUPS[].stats) */
+  function heroStats(g) {
+    var st = GROUPS[g].stats;
+    if (!st) { return ''; }
+    return '<dl class="pk-stats">' + st.map(function (r) {
+      return '<div><dt>' + t(r[0]) + '</dt><dd>' + esc(typeof r[1] === 'string' ? L(T[r[1]]) : L(r[1])) + '</dd></div>';
+    }).join('') + '</dl>';
   }
 
   /* ---------- 갤러리 (기존 .pp-gallery 마크업·동작 재사용) ---------- */
@@ -224,7 +250,7 @@
     var list = GROUPS[g].gallery;
     return '<div class="pp-gallery"><figure class="pp-gallery-main" style="background:' + list[0].bg + '"><img src="' + list[0].src + '" alt="' + esc(L(list[0].alt)) + '" loading="lazy"></figure><ul class="pp-thumbs">' +
       list.map(function (it, i) {
-        return '<li><button type="button" class="pp-thumb' + (i === 0 ? ' is-on' : '') + '" data-bg="' + it.bg + '" data-src="' + it.src + '" data-alt=""' + esc(L(it.alt)) + '" aria-label="' + esc((i + 1) + ' — ' + L(it.alt)) + '" aria-pressed="' + (i === 0) + '">' +
+        return '<li><button type="button" class="pp-thumb' + (i === 0 ? ' is-on' : '') + '" data-bg="' + it.bg + '" data-src="' + it.src + '" data-alt="' + esc(L(it.alt)) + '" aria-label="' + esc((i + 1) + ' — ' + L(it.alt)) + '" aria-pressed="' + (i === 0) + '">' +
           '<img src="' + it.src + '" alt="" loading="lazy"><span>0' + (i + 1) + '</span></button></li>';
       }).join('') + '</ul></div>';
   }
@@ -246,17 +272,26 @@
     return '<a class="pd-back" href="#products">' + t('back') + '</a>' +
       '<section class="pp-hero"><figure class="pp-hero-media" style="background:' + G.bg + '"><img src="' + G.img + '" alt="' + esc(G.title) + '"></figure>' +
         '<div class="pp-hero-copy"><p class="pp-label">' + esc(G.en) + '</p><h3 class="pp-hero-title">' + esc(G.title) + '</h3>' +
-        '<p class="pp-hero-lead">' + esc(L(G.line)) + '</p></div></section>' +
+        '<p class="pp-hero-lead">' + esc(L(G.line)) + '</p>' + heroStats(g) + '</div></section>' +
       '<section class="pp-sec"><p class="pp-label">' + t('secInfo') + '</p><h4 class="pp-h">PRODUCT INFORMATION</h4>' +
         table(infoRows(g)) +
         '</section>' +
       (hasVar ? '<section class="pp-sec"><p class="pp-label">' + t(G.variantLabel) + '</p><h4 class="pp-h">' + esc(G.lineupTitle) + '</h4>' +
-        variantTabs(g) + '<div class="pk-panel" data-panel="' + g + '">' + variantPanel(g) + '</div></section>' : '') +
+        '<p class="pk-grid-note">' + t(G.lineupNote) + '</p>' + lineupGrid(g) + '</section>' : '') +
       '<section class="pp-sec"><p class="pp-label">' + t('secGallery') + '</p><h4 class="pp-h">PRODUCT GALLERY</h4>' + gallery(g) + '</section>' +
       '<section class="pp-sec"><p class="pp-label">' + t('secSupply') + '</p><h4 class="pp-h">SUPPLY INFORMATION</h4>' + supply(g) + '</section>';
   }
 
-  /* ---------- 제품 선택 카드 (PRODUCT 메인) ---------- */
+  /* ---------- 제품 선택 카드 (PRODUCT 메인) ----------
+     대표님 피드백(10/16): 선택 화면에서도 카리비누 4종이 보여야 한다. */
+  function cardVariants(g) {
+    if (!GROUPS[g].lineupTitle) { return ''; }
+    return '<span class="pk-card-vars">' + lineupItems(g).map(function (it) {
+      return '<span class="pk-cv"><img src="' + it.img + '" alt="" loading="lazy" style="background:' + it.bg + '"><b>' + esc(it.short) + '</b></span>';
+    }).join('') + '</span>';
+  }
+
+
   function renderSelect() {
     return ORDER.map(function (g) {
       var G = GROUPS[g];
@@ -265,7 +300,7 @@
         '<span class="pk-card-type">' + esc(L(G.type)) + '</span>' +
         '<span class="pp-card-name">' + esc(G.title) + '</span>' +
         '<span class="pp-card-d">' + esc(L(G.line)) + '</span>' +
-        '<span class="pk-card-info">' + esc(L(G.cardInfo)) + '</span>' +
+        '<span class="pk-card-info">' + esc(L(G.cardInfo)) + '</span>' + cardVariants(g) +
         '<span class="pp-card-more">' + t('detail') + '</span></a></li>';
     }).join('');
   }
@@ -282,35 +317,19 @@
       var el = pageEls[g] || (pageEls[g] = document.querySelector('[data-pk="' + g + '"]'));
       if (el) { el.innerHTML = renderGroup(g); }
     });
+    var f = focusEl();
+    if (f) { f.classList.add('is-target'); }
   }
-  function renderPanel(g) {
-    var panel = document.querySelector('[data-panel="' + g + '"]');
-    if (!panel) { return; }
-    var swap = function () { panel.innerHTML = variantPanel(g); panel.classList.remove('is-out'); };
-    if (reduce) { swap(); } else { panel.classList.add('is-out'); window.setTimeout(swap, 160); }
-  }
-
-  /* ?p=<제품ID> 로 들어오면 그 항목을 미리 고른다 */
+  /* ?p=<제품ID> 로 들어오면 라인업의 그 품목을 표시한다 */
   function applyQuery() {
     var m = /[?&]p=([\w-]+)/.exec(window.location.search);
-    if (m && BY_ID[m[1]]) { selected[BY_ID[m[1]].g] = BY_ID[m[1]].i; return BY_ID[m[1]]; }
-    return null;
+    focusId = (m && BY_ID[m[1]]) ? m[1] : null;
+    return focusId ? BY_ID[focusId] : null;
   }
+  function focusEl() { return focusId ? document.getElementById('v-' + focusId) : null; }
 
   /* ---------- 이벤트 ---------- */
   document.addEventListener('click', function (e) {
-    var tab = e.target.closest && e.target.closest('.pk-tab');
-    if (tab) {
-      var g = tab.getAttribute('data-g'), i = parseInt(tab.getAttribute('data-i'), 10);
-      if (selected[g] === i) { return; }
-      selected[g] = i;
-      var tabs = tab.parentNode.querySelectorAll('.pk-tab');
-      for (var k = 0; k < tabs.length; k++) { tabs[k].classList.toggle('is-on', tabs[k] === tab); tabs[k].setAttribute('aria-selected', tabs[k] === tab ? 'true' : 'false'); }
-      renderPanel(g);
-      var id = g === 'soap' ? SOAP[i].id : SETS[i].id;
-      window.history.replaceState(null, '', '?p=' + id + '#' + GROUPS[g].view);
-      return;
-    }
     /* 갤러리: 썸네일을 누르면 큰 사진이 부드럽게 바뀐다 */
     var th = e.target.closest && e.target.closest('.pp-thumb');
     if (th) {
@@ -335,7 +354,11 @@
     var prevHash = window.location.hash;
     window.history.pushState(null, '', url);
     if (window.location.hash !== prevHash) { window.dispatchEvent(new HashChangeEvent('hashchange')); }
-    window.setTimeout(function () { applyQuery(); render(); window.scrollTo(0, 0); }, 0);
+    window.setTimeout(function () {
+      applyQuery(); render();
+      var f = focusEl();
+      if (f) { f.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' }); } else { window.scrollTo(0, 0); }
+    }, 0);
   }
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a');
