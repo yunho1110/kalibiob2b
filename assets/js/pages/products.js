@@ -100,7 +100,9 @@
   /* 그룹(= 제품 상세 페이지) 정의 */
   var GROUPS = {
     soap: {
-      view: 'prod-soap', en: 'SOAP', title: 'KALI SOAP', img: 'assets/img/soap-05.webp', bg: '#d3d3d3',
+      /* 커버 사진은 K2O 라벨을 지운 판을 쓴다 — 함량은 바로 옆 요약 지표와 라인업에 글자로 있다.
+         라인업·갤러리는 종류 구분이 되도록 라벨이 있는 원본을 그대로 쓴다. */
+      view: 'prod-soap', en: 'SOAP', title: 'KALI SOAP', img: 'assets/img/soap-05-hero.webp', bg: '#d3d3d3',
       type: { ko: '비누', en: 'Soap', zh: '香皂' },
       line: { ko: '칼륨장석을 활용한 KALIBIO의 비누 제품', en: 'KALI SOAP made with potassium feldspar', zh: '运用钾长石的 KALIBIO 香皂产品' },
       cardInfo: { ko: '칼륨장석 3 · 5 · 8 · 13% 4종 · 100g', en: 'Potassium feldspar 3 · 5 · 8 · 13% — 4 types · 100g', zh: '钾长石 3 · 5 · 8 · 13% 4种 · 100g' },
