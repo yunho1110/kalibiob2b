@@ -444,40 +444,59 @@ h3.pd-h{font-size:clamp(1.2rem,1.8vw,1.45rem);color:var(--ink);letter-spacing:-0
 .pk-link:hover{color:var(--green);border-color:var(--green);}
 .pk-note{margin:14px 0 0;font-size:0.84rem;line-height:1.7;color:var(--ink-faint);max-width:820px;}
 
-/* 라인업 선택: 농도(구성)마다 독립된 선택지 */
-.pk-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 clamp(22px,3vw,34px);}
-.pk-tab{
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-width:92px;padding:12px 20px;
-  background:var(--card-bg);border:1px solid var(--border);border-radius:0;color:var(--ink);cursor:pointer;
-  font-family:var(--font-display);transition:background .2s ease,color .2s ease,border-color .2s ease;
-}
-.pk-tab b{font-size:1.25rem;font-weight:700;letter-spacing:-0.01em;line-height:1.2;}
-.pk-tab span{font-size:0.7rem;font-weight:600;letter-spacing:0.14em;color:var(--ink-faint);}
-.pk-tab:hover{border-color:var(--ink);}
-.pk-tab.is-on{background:var(--ink);border-color:var(--ink);color:#fff;}
-.pk-tab.is-on span{color:rgba(255,255,255,0.72);}
-.pk-tab:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
-.pk-panel{transition:opacity .2s ease;}
-.pk-panel.is-out{opacity:0;}
-.pk-var{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(24px,4vw,56px);align-items:start;}
-.pk-var-media{margin:0;background:var(--warm-gray);aspect-ratio:1/1;overflow:hidden;}
-.pk-var-media img{display:block;width:100%;height:100%;object-fit:cover;}
-.pk-var-name{margin:0 0 14px;font-size:clamp(1.3rem,2.2vw,1.7rem);font-weight:600;letter-spacing:-0.03em;color:var(--ink);}
+/* 라인업: 탭으로 한 종씩이 아니라 전 품목을 한 화면에 펼친다 (10/16 대표님 피드백) */
+.pk-grid-note{margin:0 0 clamp(20px,3vw,30px);font-size:0.88rem;line-height:1.7;color:var(--ink-faint);word-break:keep-all;}
+.pk-grid{display:grid;gap:clamp(20px,2.6vw,36px);margin:0;padding:0;list-style:none;}
+.pk-grid--4{grid-template-columns:repeat(4,minmax(0,1fr));}
+.pk-grid--3{grid-template-columns:repeat(3,minmax(0,1fr));}
+.pk-grid{grid-template-rows:repeat(var(--pk-rows,7),auto);}
+.pk-item{display:grid;grid-row:span var(--pk-rows,7);grid-template-rows:subgrid;min-width:0;}
+.pk-item-spec{display:contents;}
+.pk-item-spec div{display:flex;gap:10px;align-items:baseline;padding:8px 0;border-top:1px solid var(--border);}
+.pk-item-spec dt{flex:0 0 40%;margin:0;font-size:0.76rem;font-weight:600;color:var(--ink-faint);word-break:keep-all;}
+.pk-item-spec dd{flex:1 1 0;min-width:0;margin:0;font-size:0.82rem;line-height:1.6;color:var(--ink);word-break:keep-all;}
+.pk-item-media{margin:0;background:var(--warm-gray);aspect-ratio:1/1;overflow:hidden;}
+.pk-item-media img{display:block;width:100%;height:100%;object-fit:contain;}
+.pk-item-name{margin:16px 0 10px;font-family:var(--font-display);font-size:clamp(1.05rem,1.5vw,1.3rem);font-weight:600;letter-spacing:-0.02em;color:var(--ink);}
+/* ?p= 로 지목돼 들어온 품목 */
+.pk-item.is-target .pk-item-media{outline:2px solid var(--green);outline-offset:3px;}
+
+/* 제품 선택 카드의 라인업 미리보기 */
+.pk-card-vars{display:flex;gap:6px;margin:14px 18px 0;}
+.pk-cv{flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;gap:4px;}
+.pk-cv img{display:block;width:100%;aspect-ratio:1/1;object-fit:contain;}
+.pk-cv b{font-size:0.66rem;font-weight:600;line-height:1.4;letter-spacing:0.02em;color:var(--ink-faint);text-align:center;word-break:keep-all;
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;}
+
+/* 상세 히어로의 요약 지표 */
+.pk-stats{display:flex;flex-wrap:wrap;gap:clamp(18px,3vw,40px);margin:clamp(22px,3vw,30px) 0 0;padding:clamp(16px,2vw,20px) 0 0;border-top:1px solid var(--border);}
+.pk-stats div{min-width:0;}
+.pk-stats dt{font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint);}
+.pk-stats dd{margin:6px 0 0;font-family:var(--font-display);font-size:clamp(0.95rem,1.3vw,1.1rem);font-weight:600;color:var(--ink);word-break:keep-all;}
+
 .pk-inq .pp-h{margin-bottom:12px;}
 .pk-inq .pp-cta{margin-top:clamp(20px,3vw,28px);}
 
-@media (max-width:1023px){ .pk-select{grid-template-columns:repeat(2,minmax(0,1fr));} }
+@media (max-width:1023px){
+  .pk-select{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .pk-grid--4,.pk-grid--3{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
 @media (max-width:767px){
-  .pk-var{grid-template-columns:1fr;}
   .pk-table th{width:38%;}
 }
 @media (max-width:639px){
   .pk-select{grid-template-columns:1fr;}
-  .pk-tab{min-width:0;flex:1 1 calc(50% - 8px);}
+  /* 한 줄에 하나씩 — 줄 맞춤(subgrid)은 비교할 이웃이 없으므로 푼다 */
+  .pk-grid{grid-template-rows:none;}
+  .pk-grid--4,.pk-grid--3{grid-template-columns:1fr;}
+  .pk-item{grid-row:auto;grid-template-rows:none;grid-template-columns:minmax(0,104px) minmax(0,1fr);column-gap:14px;align-items:start;}
+  .pk-item-media{grid-row:1 / span 2;}
+  .pk-item-name{grid-column:2;margin:0 0 4px;}
+  .pk-item-spec{display:block;grid-column:2;}
+  .pk-item-spec div:first-child{border-top:0;padding-top:0;}
   .pk-inq .btn{width:100%;text-align:center;}
 }
-@media (prefers-reduced-motion:reduce){ .pk-panel{transition:none;} }
 
 /* 최종 QA — 제품 사진은 틀에 맞춰 자르지 않고 전체가 보이게 한다 (틀 배경은 사진 가장자리 색, products.js 에서 지정).
    가로로 긴 K.28·세트 사진이 정사각형 틀에서 26~35% 잘리고, 정사각형 비누 사진이 갤러리 대표 틀에서 38% 잘려 K₂O 라벨이 가려졌다. */
-.pk-page .pp-hero-media img,.pk-page .pp-gallery-main img,.pk-page .pk-var-media img,.pk-select .pp-card-media img{object-fit:contain;}
+.pk-page .pp-hero-media img,.pk-page .pp-gallery-main img,.pk-select .pp-card-media img{object-fit:contain;}
