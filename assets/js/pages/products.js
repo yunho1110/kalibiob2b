@@ -58,8 +58,7 @@
      출처: 공식몰(kalibio1102.cafe24.com) 상품 상세. 공식몰에 없는 내용은 넣지 않는다.
      - K.28 치약: 공식몰 상세·튜브 라벨에서 확인되는 150g · 28가지 자연 유래 성분만 표시한다.
      TODO(대표님 확인): 제품 코드 · 포장 단위 · 보관 조건 · 최소 주문 수량 · 납기 · 가격 — 공식몰에도 자료가 없다.
-     카리비누 05: 향·사용 원료 수·주요 원료는 공식몰 05 상세 카드(은은한 피오니향 · 어성초추출물 · 26가지)를 쓰고, 칼륨장석 함량만 5%로 한다.
-     TODO(대표님 확인): 공식몰 05 상세 카드는 제품명·함량이 '20'으로 적혀 있어 05 용으로 교체가 필요하다. */
+     카리비누 05: 향·사용 원료 수·핵심 성분은 10/16 지시서 확정값(연꽃아로마향 · 31종 · 칼륨장석 5%, 은행나무잎 추출물, 병풀추출물 등). */
   var SOAP = [
     { id: 'karisoap-03', no: '03', pct: '3', img: 'assets/img/soap-03.webp',
       color: { ko: '초록색', en: 'Green', zh: '绿色' },
@@ -67,8 +66,8 @@
       key: { ko: '칼륨장석 3%, 클로렐라불가리스가루 등', en: 'Potassium feldspar 3%, chlorella vulgaris powder, etc.', zh: '钾长石3%、小球藻粉等' } },
     { id: 'karisoap-05', no: '05', pct: '5', img: 'assets/img/soap-05.webp',
       color: { ko: '분홍색', en: 'Pink', zh: '粉色' },
-      scent: { ko: '은은한 피오니향', en: 'Soft peony scent', zh: '淡雅的牡丹香' }, ing: 26,
-      key: { ko: '칼륨장석 5%, 어성초추출물 등', en: 'Potassium feldspar 5%, houttuynia cordata extract, etc.', zh: '钾长石5%、鱼腥草提取物等' } },
+      scent: { ko: '연꽃아로마향', en: 'Lotus aroma scent', zh: '莲花香氛' }, ing: { ko: '31종', en: '31', zh: '31种' },
+      key: { ko: '칼륨장석 5%, 은행나무잎 추출물, 병풀추출물 등', en: 'Potassium feldspar 5%, ginkgo leaf extract, centella asiatica extract, etc.', zh: '钾长石5%、银杏叶提取物、积雪草提取物等' } },
     { id: 'karisoap-08', no: '08', pct: '8', img: 'assets/img/soap-08.webp',
       color: { ko: '파란색', en: 'Blue', zh: '蓝色' },
       scent: { ko: '신선하고 깨끗한 아쿠아향', en: 'Fresh, clean aqua scent', zh: '清新洁净的水生香' }, ing: 20,
@@ -94,17 +93,17 @@
   /* 그룹(= 제품 상세 페이지) 정의 */
   var GROUPS = {
     soap: {
-      view: 'prod-soap', en: 'SOAP', title: 'KALIBIO SOAP', img: 'assets/img/soap-05.webp', bg: '#d3d3d3',
+      view: 'prod-soap', en: 'SOAP', title: 'KALI SOAP', img: 'assets/img/soap-05.webp', bg: '#d3d3d3',
       type: { ko: '비누', en: 'Soap', zh: '香皂' },
-      line: { ko: '칼륨장석을 활용한 KALIBIO의 비누 제품', en: 'KALIBIO soap made with potassium feldspar', zh: '运用钾长石的 KALIBIO 香皂产品' },
+      line: { ko: '칼륨장석을 활용한 KALIBIO의 비누 제품', en: 'KALI SOAP made with potassium feldspar', zh: '运用钾长石的 KALIBIO 香皂产品' },
       cardInfo: { ko: '칼륨장석 3 · 5 · 8 · 13% 4종 · 100g', en: 'Potassium feldspar 3 · 5 · 8 · 13% — 4 types · 100g', zh: '钾长石 3 · 5 · 8 · 13% 4种 · 100g' },
-      inqName: 'KALIBIO SOAP',
-      lineupTitle: 'KALIBIO SOAP LINE-UP', variantLabel: 'secLineup',
+      inqName: 'KALI SOAP',
+      lineupTitle: 'KALI SOAP LINE-UP', variantLabel: 'secLineup',
       gallery: [
-        { src: 'assets/img/soap-03.webp', bg: '#d4d4d4', alt: { ko: '카리비누 03', en: 'KALI Soap 03', zh: '卡里皂 03' } },
-        { src: 'assets/img/soap-05.webp', bg: '#d3d3d3', alt: { ko: '카리비누 05', en: 'KALI Soap 05', zh: '卡里皂 05' } },
-        { src: 'assets/img/soap-08.webp', bg: '#d3d3d3', alt: { ko: '카리비누 08', en: 'KALI Soap 08', zh: '卡里皂 08' } },
-        { src: 'assets/img/soap-13.webp', bg: '#d3d3d3', alt: { ko: '카리비누 13', en: 'KALI Soap 13', zh: '卡里皂 13' } }
+        { src: 'assets/img/soap-03.webp', bg: '#d4d4d4', alt: { ko: '카리비누 03.', en: 'KALI Soap 03.', zh: '卡里皂 03.' } },
+        { src: 'assets/img/soap-05.webp', bg: '#d3d3d3', alt: { ko: '카리비누 05.', en: 'KALI Soap 05.', zh: '卡里皂 05.' } },
+        { src: 'assets/img/soap-08.webp', bg: '#d3d3d3', alt: { ko: '카리비누 08.', en: 'KALI Soap 08.', zh: '卡里皂 08.' } },
+        { src: 'assets/img/soap-13.webp', bg: '#d3d3d3', alt: { ko: '카리비누 13.', en: 'KALI Soap 13.', zh: '卡里皂 13.' } }
       ]
     },
     paste: {
@@ -161,7 +160,7 @@
   function infoRows(g) {
     if (g === 'soap') {
       return [
-        ['kName', 'KALIBIO SOAP · ' + esc(L({ ko: '카리비누', en: 'KALI Soap', zh: '卡里皂' }))],
+        ['kName', 'KALI SOAP · ' + esc(L({ ko: '카리비누', en: 'KALI Soap', zh: '卡里皂' }))],
         ['kType', esc(L({ ko: '비누 (고체 비누)', en: 'Soap (solid bar)', zh: '香皂（固体皂）' }))],
         ['kMaterial', t('feldspar')],
         ['kContent', esc(L({ ko: '3% · 5% · 8% · 13% (4종)', en: '3% · 5% · 8% · 13% (4 types)', zh: '3% · 5% · 8% · 13%（4种）' }))],
@@ -179,7 +178,7 @@
       ];
     }
     return [
-      ['kName', 'KALIBIO SOAP & TOOTHPASTE SET'],
+      ['kName', 'KALI SOAP & TOOTHPASTE SET'],
       ['kType', esc(L({ ko: '세트 (카리비누 · K.28 치약 구성)', en: 'Set (KALI Soap · K.28 Toothpaste)', zh: '组合（卡里皂 · K.28牙膏）' }))],
       ['kMaterial', t('feldspar')],
       ['kContents', esc(L({ ko: '카리비누 100g · K.28 치약 150g', en: 'KALI Soap 100g · K.28 Toothpaste 150g', zh: '卡里皂100g · K.28牙膏150g' }))],
@@ -201,14 +200,14 @@
     var i = selected[g], img, name, rows, bgOf = GROUPS[g].bg;
     if (g === 'soap') {
       var p = SOAP[i];
-      img = p.img; name = L({ ko: '카리비누 ', en: 'KALI Soap ', zh: '卡里皂 ' }) + p.no;
+      img = p.img; name = L({ ko: '카리비누 ', en: 'KALI Soap ', zh: '卡里皂 ' }) + p.no + '.';
       rows = [
         ['kContent', p.pct + '%'],
         ['kWeight', '100g'],
         ['kForm', esc(L({ ko: '원형 고체 비누', en: 'Round solid bar', zh: '圆形固体皂' }))],
         ['kColor', esc(L(p.color))],
         ['kScent', p.scent ? esc(L(p.scent)) : null],
-        ['kIngCount', p.ing ? esc(L({ ko: p.ing + '가지', en: p.ing, zh: p.ing + '种' })) : null],
+        ['kIngCount', p.ing ? esc(typeof p.ing === 'object' ? L(p.ing) : L({ ko: p.ing + '가지', en: p.ing, zh: p.ing + '种' })) : null],
         ['kIngKey', p.key ? esc(L(p.key)) : null]
       ];
     } else {
