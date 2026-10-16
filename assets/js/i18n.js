@@ -53,6 +53,7 @@ var I18N = {
     matUses: { ko: "장점과 용처", en: "Strengths &amp; Uses", zh: "优势与用途" },
     matTests: { ko: "시험과 분석", en: "Testing", zh: "检测与分析" },
     bizMaterial: { ko: "사업 분야", en: "Business Areas", zh: "业务领域" },
+    prodAll: { ko: "전체", en: "All", zh: "全部" },
     prodSoap: { ko: "비누", en: "Soap", zh: "香皂" },
     prodSet: { ko: "SET", en: "Set", zh: "套装" },
     prodPaste: { ko: "치약", en: "Toothpaste", zh: "牙膏" },
