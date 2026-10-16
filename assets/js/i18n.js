@@ -384,7 +384,7 @@ var I18N = {
       f3d: { ko: "세라마이드 · 히알루론산 보습 베이스로 세정 후 당김을 줄이도록 설계했습니다.", en: "A ceramide and hyaluronic acid base designed to minimize tightness after cleansing.", zh: "神经酰胺与透明质酸保湿基底，减少洁面后的紧绷感。" },
       f4t: { ko: "100g 원형 고체 비누", en: "100g Round Bar", zh: "100g 圆形固体皂" },
       f4d: { ko: "KALI 로고가 새겨진 둥근 고체 비누로, 제품별 색으로 구분됩니다.", en: "A round bar embossed with the KALI logo, color-coded by variant.", zh: "刻有KALI标志的圆形皂，按款式以颜色区分。" },
-      madeTitle: { ko: "카리바이오의 비누가 만들어지는 과정을 확인해 보세요.", en: "See how KALIBIO soap is made.", zh: "了解卡里生物香皂的制作过程。" }
+      madeTitle: { ko: "카리바이오의 비누가 만들어지는 과정을 확인해 보세요.", en: "See how KALI SOAP is made.", zh: "了解卡里生物香皂的制作过程。" }
     },
     pt: {
       name: { ko: "K.28 치약", en: "K.28 Toothpaste", zh: "K.28 牙膏" },
@@ -423,25 +423,25 @@ var I18N = {
     qualityTitle: { ko: "검증된 품질과 실용성을 갖춘 기업 선물", en: "A Corporate Gift With Proven Quality and Real Usefulness", zh: "兼具可靠品质与实用性的企业礼品" },
     qualityDesc: { ko: "자연 유래 미네랄 원료를 사용하고 공인기관 시험 및 임상 데이터를 바탕으로 제품의 품질과 신뢰성을 확보했습니다. 수령자의 실제 사용 경험까지 고려한 실용적인 구성으로, 주요 고객과 임직원에게 기업의 세심한 가치를 효과적으로 전달할 수 있습니다.", en: "Made with naturally derived mineral ingredients, with quality and reliability backed by accredited testing and clinical data. A practical composition that considers how recipients will actually use it — an effective way to convey your company's care to key clients and employees.", zh: "采用天然来源矿物原料，并以公认机构检测及临床数据确保产品品质与可靠性。兼顾收礼人实际使用体验的实用组合，能有效向重要客户与员工传达企业的用心。" },
     soap03: {
-      name: { ko: "카리비누 03", en: "KALI Soap 03", zh: "卡里皂 03" },
+      name: { ko: "카리비누 03.", en: "KALI Soap 03.", zh: "卡里皂 03." },
       b1: { ko: "은행나무잎·뽕나무·병풀·약모밀 등 식물 추출물 배합", en: "Formulated with ginkgo leaf, mulberry, centella asiatica, and houttuynia cordata extracts", zh: "配方含银杏叶、桑树、积雪草、鱼腥草等植物萃取成分" },
       b2: { ko: "시어버터·아보카도오일·호호바씨오일 등 보습 오일 베이스", en: "Moisture base with shea butter, avocado oil, and jojoba seed oil", zh: "含乳木果油、牛油果油、荷荷巴籽油等保湿油脂基底" },
       b3: { ko: "세라마이드·히알루론산 배합으로 세정 후 당김 최소화 설계", en: "Formulated with ceramide and hyaluronic acid to minimize tightness after cleansing", zh: "添加神经酰胺与透明质酸,减少洁面后的紧绷感" }
     },
     soap05: {
-      name: { ko: "카리비누 05", en: "KALI Soap 05", zh: "卡里皂 05" },
+      name: { ko: "카리비누 05.", en: "KALI Soap 05.", zh: "卡里皂 05." },
       b1: { ko: "저자극 데일리 케어에 최적화된 칼륨장석 5% 함유 제형", en: "A gentle, everyday formulation with 5% potassium feldspar", zh: "含钾长石5%,专为温和日常护理设计的配方" },
       b2: { ko: "세라마이드·히알루론산 보습 베이스로 산뜻한 사용감", en: "Ceramide and hyaluronic acid moisture base for a light, refreshing feel", zh: "神经酰胺与透明质酸保湿基底,带来清爽使用感" },
       b3: { ko: "건조로 인한 가려움 케어에 초점을 맞춘 순한 진정 라인", en: "A gentle, soothing line focused on caring for dryness-related itching", zh: "专注干燥引起的瘙痒护理的温和舒缓系列" }
     },
     soap08: {
-      name: { ko: "카리비누 08", en: "KALI Soap 08", zh: "卡里皂 08" },
+      name: { ko: "카리비누 08.", en: "KALI Soap 08.", zh: "卡里皂 08." },
       b1: { ko: "편백잎·노니 추출물 배합, 씨솔트와 결합한 미네랄 세정", en: "Formulated with hinoki cypress leaf and noni extract, combined with sea salt for mineral cleansing", zh: "配方含扁柏叶、诺丽果萃取,与海盐结合形成矿物洁净配方" },
       b2: { ko: "토코페릴아세테이트(비타민E) 등 항산화 성분 배합", en: "Formulated with antioxidant ingredients including tocopheryl acetate (vitamin E)", zh: "配方含生育酚醋酸酯(维生素E)等抗氧化成分" },
       b3: { ko: "세라마이드·히알루론산 보습 베이스로 세정 후 밸런스 유지", en: "Ceramide and hyaluronic acid moisture base maintains balance after cleansing", zh: "神经酰胺与透明质酸保湿基底,维持洁面后的肌肤平衡" }
     },
     soap13: {
-      name: { ko: "카리비누 13", en: "KALI Soap 13", zh: "卡里皂 13" },
+      name: { ko: "카리비누 13.", en: "KALI Soap 13.", zh: "卡里皂 13." },
       b1: { ko: "율금(강황)·참마·알로에 등 한방 유래 성분 배합", en: "Formulated with turmeric root, Chinese yam, and aloe vera extracts", zh: "配方含郁金(姜黄)、山药、芦荟等本草类成分" },
       b2: { ko: "고농축 천연 오일과 식물성 뮤신 성분으로 보습 강화 설계", en: "Enhanced moisture design with concentrated natural oils and plant-derived mucin", zh: "高浓缩天然油脂与植物黏蛋白成分,强化保湿设计" },
       b3: { ko: "칼륨장석 13% 고함량 배합의 한방 케어 제형", en: "High-content herbal formulation with 13% potassium feldspar", zh: "钾长石13%高含量草本配方" }
@@ -487,7 +487,7 @@ var I18N = {
     nameLabel: { ko: "상호", en: "Company", zh: "公司名称" },
     repLabel: { ko: "대표", en: "CEO", zh: "代表" },
     nameValue: { ko: "주식회사 카리바이오 (KALIBIO Co., Ltd.)", en: "KALIBIO Co., Ltd.", zh: "卡里生物股份有限公司 (KALIBIO Co., Ltd.)" },
-    repValue: { ko: "김준영 (Kim Jun-young)", en: "Kim Jun-young", zh: "金俊荣 (Kim Jun-young)" },
+    repValue: { ko: "김준영 (KIM JOON-YOUNG)", en: "KIM JOON-YOUNG", zh: "金俊荣 (KIM JOON-YOUNG)" },
     addrLabel: { ko: "주소", en: "Address", zh: "地址" },
     addrValue: { ko: "전남광주통합특별시 순천시 해룡면 율촌산단4로 13, 303호 (전남테크노파크 지식산업센터)", en: "303, 13, Yulchonsandan 4-ro, Haeryong-myeon, Suncheon-si, Jeonnam-Gwangju Unified Metropolitan City, South Korea", zh: "韩国全南光州统合特别市顺天市海龙面栗村产业园4路13号303室" },
     phoneLabel: { ko: "전화", en: "Phone", zh: "电话" },
@@ -505,7 +505,7 @@ var I18N = {
     tType: { ko: "사업 형태", en: "Business Type", zh: "企业形态" },
     vType: { ko: "중소기업", en: "Small &amp; Medium-sized Enterprise (SME)", zh: "中小企业" },
     tCeo: { ko: "대표이사", en: "CEO", zh: "法定代表人" },
-    vCeo: { ko: "김준영", en: "Kim Jun-young", zh: "金俊荣" },
+    vCeo: { ko: "김준영 (KIM JOON-YOUNG)", en: "KIM JOON-YOUNG", zh: "金俊荣 (KIM JOON-YOUNG)" },
     tFounded: { ko: "설립일", en: "Founded", zh: "成立日期" },
     vFounded: { ko: "2023년 10월 23일", en: "October 23, 2023", zh: "2023年10月23日" },
     tAddr: { ko: "주소", en: "Address", zh: "地址" },
