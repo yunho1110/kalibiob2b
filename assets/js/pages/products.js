@@ -37,6 +37,7 @@
     kIngCount: { ko: '사용 원료 수', en: 'Number of ingredients', zh: '使用原料数' },
     kIngKey: { ko: '핵심 성분', en: 'Key ingredients', zh: '核心成分' },
     kIngNat: { ko: '구성 성분', en: 'Composition', zh: '成分构成' },
+    kEffect: { ko: '효과', en: 'Benefits', zh: '功效' },
     kFormula: { ko: '제형', en: 'Formula', zh: '剂型' },
     kFree: { ko: '무첨가', en: 'Free of', zh: '无添加' },
     kPreserv: { ko: '보존제', en: 'Preservative', zh: '防腐剂' },
@@ -108,7 +109,8 @@
       cardInfo: { ko: '칼륨장석 3 · 5 · 8 · 13% 4종 · 100g', en: 'Potassium feldspar 3 · 5 · 8 · 13% — 4 types · 100g', zh: '钾长石 3 · 5 · 8 · 13% 4种 · 100g' },
       inqName: 'KALI SOAP',
       lineupTitle: 'KALI SOAP LINE-UP', variantLabel: 'secLineup', lineupNote: 'lineupNote',
-      stats: [['sLineup', 'sTypes4'], ['feldspar', { ko: '3 · 5 · 8 · 13%', en: '3 · 5 · 8 · 13%', zh: '3 · 5 · 8 · 13%' }], ['kWeight', { ko: '100g', en: '100g', zh: '100g' }]],
+      /* 10/21: 상단 요약 지표·한 줄 설명 대신 문장 하나 (HTML — nowrap 으로 어색한 줄바꿈 방지) */
+      heroDesc: { ko: '씻어내는 것에서 그치지 않고, 피부에 필요한 것을 채우는 것까지가 <span class="nw">카리비누의 역할입니다.</span>', en: 'KALI Soap does not stop at washing away — it goes on to put back what skin needs.', zh: '卡里香皂不止于清洁，更为肌肤补充所需。' },
       gallery: [
         { src: 'assets/img/soap-03.webp', bg: '#d4d4d4', alt: { ko: '카리비누 03.', en: 'KALI Soap 03.', zh: '卡里皂 03.' } },
         { src: 'assets/img/soap-05.webp', bg: '#d3d3d3', alt: { ko: '카리비누 05.', en: 'KALI Soap 05.', zh: '卡里皂 05.' } },
@@ -122,7 +124,7 @@
       line: { ko: 'KALIBIO의 치약 제품', en: 'The KALIBIO toothpaste', zh: 'KALIBIO 牙膏产品' },
       cardInfo: { ko: '150g', en: '150g', zh: '150g' },
       inqName: 'K.28 TOOTHPASTE',
-      stats: [['kVolume', { ko: '150g', en: '150g', zh: '150g' }], ['kIngNat', 'sIng28']],
+      heroDesc: { ko: '매일 쓰는 치약이니까, 자연에서 온 <span class="nw">28가지 성분으로</span> 입속을 개운하게 관리하세요.', en: 'Because you use it every day — keep your mouth feeling fresh with <span class="nw">28 ingredients</span> from nature.', zh: '每天都要用的牙膏，用来自自然的<span class="nw">28种成分</span>让口腔清爽洁净。' },
       gallery: [
         { src: 'assets/img/home-best-k28.webp', bg: '#e2e2e2', alt: { ko: 'K.28 치약과 패키지', en: 'K.28 toothpaste and package', zh: 'K.28牙膏与包装' } },
         { src: 'assets/img/about-k28.webp', bg: '#dbdbdb', alt: { ko: 'K.28 치약', en: 'K.28 toothpaste', zh: 'K.28牙膏' } },
@@ -186,7 +188,8 @@
         ['kType', esc(L(GROUPS.paste.type))],
         ['kMaterial', t('feldspar')],
         ['kVolume', '150g'],
-        ['kIngNat', esc(L({ ko: '28가지 자연 유래 성분', en: '28 naturally derived ingredients', zh: '28种天然来源成分' }))]
+        ['kIngNat', esc(L({ ko: '28가지 자연 유래 성분', en: '28 naturally derived ingredients', zh: '28种天然来源成分' }))],
+        ['kEffect', esc(L({ ko: '미네랄 케어, 잇몸 진정 케어, 내추럴 클렌징, 상큼한 숨결', en: 'Mineral care, soothing gum care, natural cleansing, fresh breath', zh: '矿物护理、牙龈舒缓护理、天然清洁、清新口气' }))]
       ];
     }
     return [
@@ -274,7 +277,7 @@
     return '<a class="pd-back" href="#products">' + t('back') + '</a>' +
       '<section class="pp-hero"><figure class="pp-hero-media" style="background:' + G.bg + '"><img src="' + G.img + '" alt="' + esc(G.title) + '"></figure>' +
         '<div class="pp-hero-copy"><p class="pp-label">' + esc(G.en) + '</p><h3 class="pp-hero-title">' + esc(G.title) + '</h3>' +
-        '<p class="pp-hero-lead">' + esc(L(G.line)) + '</p>' + heroStats(g) + '</div></section>' +
+        (G.heroDesc ? '<p class="pp-hero-desc">' + L(G.heroDesc) + '</p>' : '<p class="pp-hero-lead">' + esc(L(G.line)) + '</p>' + heroStats(g)) + '</div></section>' +
       '<section class="pp-sec"><p class="pp-label">' + t('secInfo') + '</p><h4 class="pp-h">PRODUCT INFORMATION</h4>' +
         table(infoRows(g)) +
         '</section>' +
