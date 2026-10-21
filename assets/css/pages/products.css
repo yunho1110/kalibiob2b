@@ -500,3 +500,11 @@ h3.pd-h{font-size:clamp(1.2rem,1.8vw,1.45rem);color:var(--ink);letter-spacing:-0
 /* 최종 QA — 제품 사진은 틀에 맞춰 자르지 않고 전체가 보이게 한다 (틀 배경은 사진 가장자리 색, products.js 에서 지정).
    가로로 긴 K.28·세트 사진이 정사각형 틀에서 26~35% 잘리고, 정사각형 비누 사진이 갤러리 대표 틀에서 38% 잘려 K₂O 라벨이 가려졌다. */
 .pk-page .pp-hero-media img,.pk-page .pp-gallery-main img,.pk-select .pp-card-media img{object-fit:contain;}
+
+/* 10/21 — 비누·치약 상단: 한 줄 설명·요약 지표 대신 문장 한 문단 (기존 한 줄 설명보다 약간 크고 굵게, 구분선 유지) */
+.pp-hero-desc{
+  margin:clamp(22px,3vw,30px) 0 0;padding:clamp(16px,2vw,20px) 0 0;border-top:1px solid var(--border);
+  font-size:clamp(1.05rem,1.55vw,1.25rem);font-weight:500;line-height:1.75;color:var(--ink);
+  word-break:keep-all;max-width:34ch;
+}
+.pp-hero-desc .nw{white-space:nowrap;}
