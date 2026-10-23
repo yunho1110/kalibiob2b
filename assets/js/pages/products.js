@@ -145,10 +145,10 @@
       lineupTitle: 'SET OPTIONS', variantLabel: 'secVariants', lineupNote: 'setNote',
       stats: [['kOptions', 'sOpt3'], ['kContents', 'sSetItems']],
       gallery: [
-        { src: 'assets/img/giftset.webp', bg: '#ffffff', alt: { ko: '카리비누·K.28 치약 세트', en: 'KALI Soap and K.28 Toothpaste set', zh: '卡里皂·K.28牙膏组合' } },
-        { src: 'assets/img/prod-set-soap4.webp', bg: '#e9e5e1', alt: { ko: '카리비누 4구 세트', en: 'KALI Soap 4-bar set', zh: '卡里皂4块礼盒' } },
-        { src: 'assets/img/prod-set-k28-5.webp', bg: '#dedfde', alt: { ko: 'K.28 치약 5개 세트', en: 'K.28 toothpaste 5-pack set', zh: 'K.28牙膏5支礼盒' } },
-        { src: 'assets/img/prod-set-k28-soap.webp', bg: '#dededd', alt: { ko: 'K.28 치약 2개 + 카리비누 2개 세트', en: 'K.28 ×2 + KALI Soap ×2 set', zh: 'K.28牙膏2支 + 卡里皂2块礼盒' } }
+        /* 지시서(SET 메뉴 이미지): 사진 3장만, 프레임 없이 페이지 배경 위에 — bg 는 투명 */
+        { src: 'assets/img/set-photo-1.webp', bg: 'transparent', alt: { ko: 'K.28 치약 2개 + 카리비누 2개 세트', en: 'K.28 ×2 + KALI Soap ×2 set', zh: 'K.28牙膏2支 + 卡里皂2块礼盒' } },
+        { src: 'assets/img/set-photo-2.webp', bg: 'transparent', alt: { ko: '카리비누 4구 세트', en: 'KALI Soap 4-bar set', zh: '卡里皂4块礼盒' } },
+        { src: 'assets/img/set-photo-3.webp', bg: 'transparent', alt: { ko: 'K.28 치약 5개 세트', en: 'K.28 toothpaste 5-pack set', zh: 'K.28牙膏5支礼盒' } }
       ]
     }
   };
