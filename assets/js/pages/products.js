@@ -36,6 +36,7 @@
     kScent: { ko: '향', en: 'Scent', zh: '香型' },
     kIngCount: { ko: '사용 원료 수', en: 'Number of ingredients', zh: '使用原料数' },
     kIngKey: { ko: '핵심 성분', en: 'Key ingredients', zh: '核心成分' },
+    kBenefit: { ko: '주요 효능', en: 'Key benefits', zh: '主要功效' },
     kIngNat: { ko: '구성 성분', en: 'Composition', zh: '成分构成' },
     kEffect: { ko: '효과', en: 'Benefits', zh: '功效' },
     kFormula: { ko: '제형', en: 'Formula', zh: '剂型' },
@@ -68,19 +69,23 @@
      TODO(대표님 확인): 제품 코드 · 포장 단위 · 보관 조건 · 최소 주문 수량 · 납기 · 가격 — 공식몰에도 자료가 없다.
      카리비누 05: 향·사용 원료 수·핵심 성분은 10/16 지시서 확정값(연꽃아로마향 · 31가지 · 칼륨장석 5%, 은행나무잎 추출물, 병풀추출물 등). */
   var SOAP = [
-    { id: 'karisoap-03', no: '03', pct: '3', img: 'assets/img/soap-03.webp',
+    { id: 'karisoap-03', no: '03',
+      benefit: { head: { ko: '진정 &amp; 밸런스', en: 'Soothing &amp; Balance', zh: '舒缓与平衡' }, list: { ko: '진정 케어, 보습 밸런스, 저자극 포뮬라', en: 'Soothing care, Moisture balance, Low-irritation formula', zh: '舒缓护理、保湿平衡、低刺激配方' } }, pct: '3', img: 'assets/img/soap-03.webp',
       color: { ko: '초록색', en: 'Green', zh: '绿色' },
       scent: { ko: '청량한 피톤치드향', en: 'Fresh phytoncide scent', zh: '清爽的植物精气香' }, ing: 18,
       key: { ko: '칼륨장석 3%, 클로렐라불가리스가루 등', en: 'Potassium feldspar 3%, chlorella vulgaris powder, etc.', zh: '钾长石3%、小球藻粉等' } },
-    { id: 'karisoap-05', no: '05', pct: '5', img: 'assets/img/soap-05.webp',
+    { id: 'karisoap-05', no: '05',
+      benefit: { head: { ko: '생기 &amp; 톤업', en: 'Radiance &amp; Tone-up', zh: '焕活与提亮' }, list: { ko: '생기 케어, 피부 톤 케어, 부드러운 클렌징', en: 'Radiance care, Skin tone care, Gentle cleansing', zh: '焕活护理、肤色护理、温和清洁' } }, pct: '5', img: 'assets/img/soap-05.webp',
       color: { ko: '분홍색', en: 'Pink', zh: '粉色' },
       scent: { ko: '연꽃아로마향', en: 'Lotus aroma scent', zh: '莲花香氛' }, ing: 31,
       key: { ko: '칼륨장석 5%, 은행나무잎 추출물, 병풀추출물 등', en: 'Potassium feldspar 5%, ginkgo leaf extract, centella asiatica extract, etc.', zh: '钾长石5%、银杏叶提取物、积雪草提取物等' } },
-    { id: 'karisoap-08', no: '08', pct: '8', img: 'assets/img/soap-08.webp',
+    { id: 'karisoap-08', no: '08',
+      benefit: { head: { ko: '딥 클렌징 &amp; 보습', en: 'Deep Cleansing &amp; Moisture', zh: '深层清洁与保湿' }, list: { ko: '딥 클렌징, 수분 케어, 모공 케어', en: 'Deep cleansing, Hydration care, Pore care', zh: '深层清洁、补水护理、毛孔护理' } }, pct: '8', img: 'assets/img/soap-08.webp',
       color: { ko: '파란색', en: 'Blue', zh: '蓝色' },
       scent: { ko: '신선하고 깨끗한 아쿠아향', en: 'Fresh, clean aqua scent', zh: '清新洁净的水生香' }, ing: 20,
       key: { ko: '칼륨장석 8%, 편백오일, 은행나무잎추출물, 소나무잎추출물 등', en: 'Potassium feldspar 8%, hinoki cypress oil, ginkgo leaf extract, pine leaf extract, etc.', zh: '钾长石8%、扁柏油、银杏叶提取物、松叶提取物等' } },
-    { id: 'karisoap-13', no: '13', pct: '13', img: 'assets/img/soap-13.webp',
+    { id: 'karisoap-13', no: '13',
+      benefit: { head: { ko: '모이스처 &amp; 순한 클렌징', en: 'Moisture &amp; Gentle Cleansing', zh: '保湿与温和清洁' }, list: { ko: '보습 케어, 순한 클렌징, 민감 피부 케어', en: 'Moisture care, Gentle cleansing, Sensitive skin care', zh: '保湿护理、温和清洁、敏感肌护理' } }, pct: '13', img: 'assets/img/soap-13.webp',
       color: { ko: '베이지색', en: 'Beige', zh: '米色' },
       scent: { ko: '상쾌한 은방울꽃향', en: 'Refreshing lily-of-the-valley scent', zh: '清爽的铃兰香' }, ing: 19,
       key: { ko: '칼륨장석 13%, 알로에베라잎추출물 등', en: 'Potassium feldspar 13%, aloe vera leaf extract, etc.', zh: '钾长石13%、芦荟叶提取物等' } }
@@ -213,6 +218,8 @@
         return {
           id: p.id, img: p.img, bg: GROUPS.soap.bg, name: soapName(p), short: p.no + '.',
           rows: [
+            /* 회사소개서 13p 'Product Line-up and Key Features' — 주요 효능 */
+            ['kBenefit', p.benefit ? '<b class="pk-benefit">' + L(p.benefit.head) + '</b>' + esc(L(p.benefit.list)) : null],
             ['kContent', p.pct + '%'],
             ['kColor', esc(L(p.color))],
             ['kScent', p.scent ? esc(L(p.scent)) : null],
