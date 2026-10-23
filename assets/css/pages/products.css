@@ -508,3 +508,6 @@ h3.pd-h{font-size:clamp(1.2rem,1.8vw,1.45rem);color:var(--ink);letter-spacing:-0
   word-break:keep-all;max-width:34ch;
 }
 .pp-hero-desc .nw{white-space:nowrap;}
+
+/* 카리비누 라인업 '주요 효능' — 대표 문구 한 줄 + 효능 3가지 */
+.pk-benefit{display:block;margin:0 0 4px;font-weight:700;color:var(--ink);}
