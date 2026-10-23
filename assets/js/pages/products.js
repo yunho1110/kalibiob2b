@@ -66,7 +66,7 @@
      출처: 공식몰(kalibio1102.cafe24.com) 상품 상세. 공식몰에 없는 내용은 넣지 않는다.
      - K.28 치약: 공식몰 상세·튜브 라벨에서 확인되는 150g · 28가지 자연 유래 성분만 표시한다.
      TODO(대표님 확인): 제품 코드 · 포장 단위 · 보관 조건 · 최소 주문 수량 · 납기 · 가격 — 공식몰에도 자료가 없다.
-     카리비누 05: 향·사용 원료 수·핵심 성분은 10/16 지시서 확정값(연꽃아로마향 · 31종 · 칼륨장석 5%, 은행나무잎 추출물, 병풀추출물 등). */
+     카리비누 05: 향·사용 원료 수·핵심 성분은 10/16 지시서 확정값(연꽃아로마향 · 31가지 · 칼륨장석 5%, 은행나무잎 추출물, 병풀추출물 등). */
   var SOAP = [
     { id: 'karisoap-03', no: '03', pct: '3', img: 'assets/img/soap-03.webp',
       color: { ko: '초록색', en: 'Green', zh: '绿色' },
@@ -74,7 +74,7 @@
       key: { ko: '칼륨장석 3%, 클로렐라불가리스가루 등', en: 'Potassium feldspar 3%, chlorella vulgaris powder, etc.', zh: '钾长石3%、小球藻粉等' } },
     { id: 'karisoap-05', no: '05', pct: '5', img: 'assets/img/soap-05.webp',
       color: { ko: '분홍색', en: 'Pink', zh: '粉色' },
-      scent: { ko: '연꽃아로마향', en: 'Lotus aroma scent', zh: '莲花香氛' }, ing: { ko: '31종', en: '31', zh: '31种' },
+      scent: { ko: '연꽃아로마향', en: 'Lotus aroma scent', zh: '莲花香氛' }, ing: 31,
       key: { ko: '칼륨장석 5%, 은행나무잎 추출물, 병풀추출물 등', en: 'Potassium feldspar 5%, ginkgo leaf extract, centella asiatica extract, etc.', zh: '钾长石5%、银杏叶提取物、积雪草提取物等' } },
     { id: 'karisoap-08', no: '08', pct: '8', img: 'assets/img/soap-08.webp',
       color: { ko: '파란색', en: 'Blue', zh: '蓝色' },
