@@ -53,6 +53,7 @@
     bulk: { ko: '답례품 · 각종 기념품 · 명절 선물 등 대량 구매 문의', en: 'Bulk orders for return gifts, commemorative items, holiday gifts, etc.', zh: '回礼、各类纪念品、节日礼品等批量采购咨询' },
     finished: { ko: '완제품', en: 'Finished product', zh: '成品' },
     finishedSet: { ko: '세트 구성 완제품', en: 'Finished product set', zh: '组合成品' },
+    customNote: { ko: '요청 시 원하시는 구성으로 세트 맞춤 제작이 가능합니다.', en: 'Custom sets with the composition you want are available on request.', zh: '可根据需求定制您想要的组合礼盒。' },
     feldspar: { ko: '칼륨장석', en: 'Potassium feldspar', zh: '钾长石' },
     sLineup: { ko: '라인업', en: 'Line-up', zh: '系列' },
     sTypes4: { ko: '4종', en: '4 types', zh: '4种' },
@@ -278,11 +279,22 @@
     ]);
   }
 
+  /* 상세 히어로 사진 — 비누는 라인업 사진 4장을 2×2 로 (11/05: 03. → 05. → 08. → 13.) */
+  function heroMedia(g) {
+    var G = GROUPS[g];
+    if (g === 'soap') {
+      return '<figure class="pp-hero-media pp-hero-quad" style="background:transparent">' + SOAP.map(function (p) {
+        return '<span class="pp-quad-cell" style="background:' + G.bg + '"><img src="' + p.img + '" alt="' + esc(soapName(p)) + '"></span>';
+      }).join('') + '</figure>';
+    }
+    return '<figure class="pp-hero-media" style="background:' + G.bg + '"><img src="' + G.img + '" alt="' + esc(G.title) + '"></figure>';
+  }
+
   /* ---------- 상세 한 페이지 ---------- */
   function renderGroup(g) {
     var G = GROUPS[g], hasVar = !!G.lineupTitle;
     return '<a class="pd-back" href="#products">' + t('back') + '</a>' +
-      '<section class="pp-hero"><figure class="pp-hero-media" style="background:' + G.bg + '"><img src="' + G.img + '" alt="' + esc(G.title) + '"></figure>' +
+      '<section class="pp-hero">' + heroMedia(g) +
         '<div class="pp-hero-copy"><p class="pp-label">' + esc(G.en) + '</p><h3 class="pp-hero-title">' + esc(G.title) + '</h3>' +
         (G.heroDesc ? '<p class="pp-hero-desc">' + L(G.heroDesc) + '</p>' : '<p class="pp-hero-lead">' + esc(L(G.line)) + '</p>' + heroStats(g)) + '</div></section>' +
       '<section class="pp-sec"><p class="pp-label">' + t('secInfo') + '</p><h4 class="pp-h">PRODUCT INFORMATION</h4>' +
@@ -291,7 +303,8 @@
       (hasVar ? '<section class="pp-sec"><p class="pp-label">' + t(G.variantLabel) + '</p><h4 class="pp-h">' + esc(G.lineupTitle) + '</h4>' +
         '<p class="pk-grid-note">' + t(G.lineupNote) + '</p>' + lineupGrid(g) + '</section>' : '') +
       '<section class="pp-sec"><p class="pp-label">' + t('secGallery') + '</p><h4 class="pp-h">PRODUCT GALLERY</h4>' + gallery(g) + '</section>' +
-      '<section class="pp-sec"><p class="pp-label">' + t('secSupply') + '</p><h4 class="pp-h">SUPPLY INFORMATION</h4>' + supply(g) + '</section>';
+      '<section class="pp-sec"><p class="pp-label">' + t('secSupply') + '</p><h4 class="pp-h">SUPPLY INFORMATION</h4>' + supply(g) +
+        (g === 'set' ? '<p class="pk-custom-note">' + t('customNote') + '</p>' : '') + '</section>';
   }
 
   /* ---------- 제품 선택 카드 (PRODUCT 메인) ----------
