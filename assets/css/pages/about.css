@@ -279,10 +279,10 @@ no dot. .tl-node is now the card
 .st-obj{margin:0;display:flex;align-items:center;justify-content:center;}
 .st-obj img{display:block;max-width:100%;height:auto;object-fit:contain;}
 
-/* 기업 기원 — 광산 사진 위 어두운 막 55%, 흰 글씨 */
+/* 기업 기원 — 숲 사진(11/05 교체, 기존 광산 사진) 위 어두운 막 55%, 흰 글씨 */
 #bs-origin{
   color:#FFFFFF;
-  background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('../../img/story-mine.webp') center/cover no-repeat;
+  background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('../../img/story-origin-forest.webp') center/cover no-repeat;
 }
 /* 기업 비전 — 연베이지, 다크 그린 제목 */
 #bs-vision{background:#F7F6F3;color:#333;}
