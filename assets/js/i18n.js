@@ -1,6 +1,9 @@
 /* KALIBIO — translation dictionary (ko / en / zh)
    한 문자열당 한 줄. index.html 의 data-i18n / data-i18n-attr 에서 참조됩니다. */
 var I18N = {
+  langUi: {
+    cur: { ko: "KR", en: "EN", zh: "ZH" }
+  },
   brand: {
     sub: { ko: "주식회사 카리바이오", en: "KALIBIO Co., Ltd.", zh: "卡里生物股份有限公司" },
     full: { ko: "카리바이오", en: "KALIBIO", zh: "卡里生物" }
@@ -71,7 +74,7 @@ var I18N = {
     brandProcess: { ko: "공정", en: "Process", zh: "生产工艺" }
   },
   home: {
-    hero1: { ko: "칼륨장석분말로", en: "", zh: "从钾长石粉体" },
+    hero1: { ko: "칼륨장석분말", en: "", zh: "钾长石粉体" },
     hero2: { ko: "카리비누,", en: "", zh: "到卡里香皂、" },
     hero3: { ko: "K.28 치약,", en: "", zh: "K.28 牙膏、" },
     hero4: { ko: "세라믹과 유리, 그리고 더 다양한 산업까지", en: "", zh: "陶瓷与玻璃，乃至更多产业" },

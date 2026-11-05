@@ -236,3 +236,36 @@ body.nav-solid:not(.nav-on-dark).hero-logo-light .lang-menu .lang-btn.active::af
 /* 같은 페이지 안의 앵커(#mat-tests 등)로 이동해도 제목이 고정 헤더에 가려지지 않게. :where() 라서 기존 scroll-margin 규칙(.pr-line)이 우선한다 */
 :where([id]){scroll-margin-top:calc(var(--topbar-h) + 12px);}
 @media (min-width:1024px){ :where([id]){scroll-margin-top:calc(var(--nav-h) + 12px);} }
+
+/* 11/05 — 언어 전환 버튼: 지구본·글씨 약 1.4배, 누르는 영역 44px 이상, 처음부터 항상 보이게.
+   PC·태블릿(768px 이상): 지구본 + KR · EN · ZH 를 같은 줄에 늘 펼쳐 둔다 (호버 필요 없음).
+   휴대폰: 로고 옆 자리가 좁아 4개를 44px 로 펼칠 수 없으므로, 같은 자리에 지구본 + 현재 언어(KR)
+   버튼을 크게 늘 보여 주고 누르면 목록이 열린다. 연한 글씨·반투명 처리 없음. */
+.lang-menu .lang-globe svg{width:28px;height:28px;flex:0 0 auto;}
+.lang-menu .lang-btn{opacity:1;font-size:17px;font-weight:500;min-width:44px;min-height:44px;padding:0 8px;display:inline-flex;align-items:center;justify-content:center;}
+.lang-menu .lang-btn.active{font-weight:700;}
+.lang-menu .lang-btn.active::after{left:10px;right:10px;bottom:9px;}
+.lang-cur{display:none;font-size:17px;font-weight:700;letter-spacing:0.04em;line-height:1;}
+.site-nav-right,.app-topbar .topbar-right{top:10px;}
+@media (min-width:768px){
+  .lang-menu{flex-direction:row;align-items:center;gap:0;}
+  .lang-menu .lang-globe{width:44px;height:44px;cursor:default;}
+  .lang-list,
+  .lang-menu:hover .lang-list,.lang-menu:focus-within .lang-list,.lang-menu.is-open .lang-list{
+    position:static;flex-direction:row;align-items:center;gap:0;padding:0;
+    transform:none;opacity:1;visibility:visible;pointer-events:auto;transition:none;
+  }
+}
+@media (max-width:767px){
+  .site-nav-right,.app-topbar .topbar-right{right:8px;}
+  .lang-menu .lang-globe{width:auto;min-width:44px;height:44px;padding:0 6px;gap:6px;}
+  .lang-cur{display:inline-block;}
+  .lang-list{padding-top:4px;}
+}
+@media (max-width:767px){
+  /* 휴대폰: 목록은 버튼을 눌렀을 때만(is-open) — 고른 뒤 포커스가 남아 열려 있지 않게 */
+  .lang-menu:not(.is-open) .lang-list{opacity:0;visibility:hidden;pointer-events:none;}
+  .lang-list{background:rgba(251,250,247,0.97);box-shadow:0 4px 14px rgba(0,0,0,0.12);padding:4px 0;}
+  .lang-list .lang-btn,body.hero-logo-light .lang-list .lang-btn,body.nav-on-dark .lang-list .lang-btn{color:#111;}
+  .lang-list .lang-btn.active::after,body.hero-logo-light .lang-list .lang-btn.active::after,body.nav-on-dark .lang-list .lang-btn.active::after{background:#111;}
+}

@@ -621,7 +621,7 @@
   });
 })();
 
-/* 언어 선택(지구본) — 데스크톱은 호버(CSS), 터치 기기는 탭으로 열고 닫는다 */
+/* 언어 선택 — PC·태블릿은 KR/EN/ZH 가 늘 펼쳐져 있고(CSS), 휴대폰은 지구본·현재 언어 버튼을 탭해 연다 */
 (function () {
   'use strict';
   var menus = document.querySelectorAll('.lang-menu');
@@ -639,7 +639,7 @@
         setOpen(menu, !menu.classList.contains('is-open'));
       });
       menu.addEventListener('click', function (e) {
-        if (e.target.closest && e.target.closest('.lang-btn')) { setOpen(menu, false); }
+        if (e.target.closest && e.target.closest('.lang-btn')) { setOpen(menu, false); e.target.closest('.lang-btn').blur(); }
       });
       menu.addEventListener('mouseleave', function () { setOpen(menu, false); });
     })(menus[i]);
