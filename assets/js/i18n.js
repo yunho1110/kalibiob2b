@@ -487,6 +487,19 @@ var I18N = {
     required: { ko: "필수", en: "Required", zh: "必填" },
     sent: { ko: "메일 앱이 열립니다. 열리지 않으면 아래 주소로 직접 보내주세요.", en: "Your mail app will open. If it doesn't, please write to the address below.", zh: "邮件应用将会打开。若未打开，请直接发送至下方邮箱。" }
   },
+  consent: {
+    title: { ko: "개인정보 수집·이용 동의 (필수)", en: "Consent to collection and use of personal information (required)", zh: "个人信息收集·使用同意（必填）" },
+    kPurpose: { ko: "수집·이용 목적", en: "Purpose", zh: "收集·使用目的" },
+    vPurpose: { ko: "문의 내용 확인 및 상담·회신", en: "Reviewing your inquiry and replying to it", zh: "确认咨询内容并进行咨询与回复" },
+    kItems: { ko: "수집 항목", en: "Items collected", zh: "收集项目" },
+    vItems: { ko: "회사명, 담당자명, 이메일, 국가, 문의 내용 (선택: 연락처, 예상 물량)", en: "Company, contact name, email, country, message (optional: phone, expected volume)", zh: "公司名称、负责人姓名、电子邮箱、国家、咨询内容（选填：联系电话、预计数量）" },
+    kPeriod: { ko: "보유·이용 기간", en: "Retention period", zh: "保有·使用期限" },
+    vPeriod: { ko: "문의 처리 완료 후 1년", en: "One year after the inquiry is closed", zh: "咨询处理完成后1年" },
+    refuse: { ko: "동의를 거부하실 수 있습니다. 다만 이 경우 문의 접수와 회신이 불가능합니다.", en: "You may refuse to consent. In that case, however, we cannot receive or reply to your inquiry.", zh: "您可以拒绝同意。但此时我们将无法接收并回复您的咨询。" },
+    agree: { ko: "위 내용을 확인했으며 개인정보 수집·이용에 동의합니다.", en: "I have read the above and consent to the collection and use of my personal information.", zh: "本人已确认上述内容并同意收集·使用个人信息。" },
+    policyLink: { ko: "개인정보 처리방침 보기", en: "View Privacy Policy", zh: "查看个人信息处理方针" },
+    error: { ko: "개인정보 수집·이용에 동의하셔야 문의를 보낼 수 있습니다.", en: "You must consent to the collection and use of your personal information before sending.", zh: "须同意收集·使用个人信息后方可发送咨询。" }
+  },
   footer: {
     nameLabel: { ko: "상호", en: "Company", zh: "公司名称" },
     repLabel: { ko: "대표", en: "CEO", zh: "代表" },
@@ -500,7 +513,9 @@ var I18N = {
     bizLabel: { ko: "사업자등록번호", en: "Business Registration No.", zh: "营业执照注册号" },
     mailorderLabel: { ko: "통신판매업 신고", en: "Mail Order Business Reg.", zh: "邮购经营备案号" },
     mailorderValue: { ko: "제2024-전남순천-6152호", en: "No. 2024-Jeonnam Suncheon-6152", zh: "第2024-全罗南道顺天-6152号" },
-    copyright: { ko: "© 2026 주식회사 카리바이오. All rights reserved.", en: "© 2026 KALIBIO Co., Ltd. All rights reserved.", zh: "© 2026 卡里生物股份有限公司. All rights reserved." }
+    copyright: { ko: "© 2026 주식회사 카리바이오. All rights reserved.", en: "© 2026 KALIBIO Co., Ltd. All rights reserved.", zh: "© 2026 卡里生物股份有限公司. All rights reserved." },
+    privacy: { ko: "개인정보 처리방침", en: "Privacy Policy", zh: "个人信息处理方针" },
+    notice: { ko: "이용 및 저작권 안내", en: "Site Use and Copyright", zh: "使用及版权说明" }
   },
   stickyCta: { ko: "파트너십 제안하기", en: "Propose a Partnership", zh: "提出合作提案" },
   overview: {

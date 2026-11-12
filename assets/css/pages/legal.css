@@ -1,0 +1,44 @@
+/* LEGAL — 개인정보 처리방침 · 이용 및 저작권 안내
+   읽는 문서이므로 한 단 고정폭, 본문 대비는 다른 페이지와 같은 토큰을 쓴다. */
+#legal .container{max-width:860px;}
+.legal-title{margin:0;font-family:var(--font-display);font-weight:700;letter-spacing:-0.02em;line-height:1.15;
+  font-size:clamp(1.7rem,3.4vw,2.6rem);color:var(--ink);}
+.legal-eff{margin:12px 0 0;font-size:0.78rem;font-weight:600;letter-spacing:0.12em;color:var(--ink-faint);}
+.legal-lead{margin:clamp(20px,3vw,28px) 0 0;font-size:clamp(0.95rem,1.2vw,1.05rem);line-height:1.9;color:var(--ink-soft);word-break:keep-all;}
+.legal-box{margin:clamp(18px,2.4vw,24px) 0 0;padding:clamp(16px,2.4vw,22px);background:var(--card-bg);border-left:3px solid var(--green);
+  font-size:0.92rem;line-height:1.85;color:var(--ink);word-break:keep-all;}
+.legal-sec{margin:clamp(32px,4.5vw,52px) 0 0;}
+.legal-sec h3{margin:0 0 14px;font-size:clamp(1rem,1.5vw,1.15rem);font-weight:700;letter-spacing:-0.01em;color:var(--ink);}
+.legal-sec p{margin:0 0 12px;font-size:0.92rem;line-height:1.9;color:var(--ink-soft);word-break:keep-all;}
+.legal-sec p:last-child{margin-bottom:0;}
+.legal-ul{margin:0;padding-left:1.1em;}
+.legal-ul li{margin:0 0 8px;font-size:0.92rem;line-height:1.85;color:var(--ink-soft);word-break:keep-all;}
+.legal-table{width:100%;border-collapse:collapse;margin:14px 0 0;}
+.legal-table th,.legal-table td{padding:12px 14px;border-top:1px solid var(--border);text-align:left;vertical-align:top;
+  font-size:0.88rem;line-height:1.8;word-break:keep-all;}
+.legal-table th{width:30%;font-weight:600;color:var(--ink);background:var(--card-bg);}
+.legal-table td{color:var(--ink-soft);}
+
+/* 푸터 법적 고지 링크 */
+.footer-legal{display:flex;flex-wrap:wrap;gap:8px 22px;margin:clamp(20px,3vw,28px) 0 0;padding:clamp(16px,2.4vw,20px) 0 0;border-top:1px solid var(--f-border,rgba(255,255,255,0.18));}
+.footer-legal a{font-size:0.82rem;color:inherit;text-decoration:none;border-bottom:1px solid transparent;}
+.footer-legal a:hover,.footer-legal a:focus-visible{border-bottom-color:currentColor;}
+.footer-legal a.is-strong{font-weight:700;}
+
+/* 문의 폼 개인정보 수집·이용 동의 */
+.form-consent{margin:clamp(18px,2.4vw,24px) 0 0;padding:clamp(14px,2vw,18px);background:var(--card-bg);border:1px solid var(--border);}
+.form-consent-h{margin:0 0 10px;font-size:0.82rem;font-weight:700;letter-spacing:0.02em;color:var(--ink);}
+.form-consent-table{width:100%;border-collapse:collapse;margin:0 0 12px;}
+.form-consent-table th,.form-consent-table td{padding:7px 10px;border-top:1px solid var(--border);text-align:left;vertical-align:top;
+  font-size:0.78rem;line-height:1.7;color:var(--ink-soft);word-break:keep-all;}
+.form-consent-table tr:first-child th,.form-consent-table tr:first-child td{border-top:0;}
+.form-consent-table th{width:28%;font-weight:600;color:var(--ink);}
+.form-consent-note{margin:0 0 12px;font-size:0.76rem;line-height:1.7;color:var(--ink-faint);word-break:keep-all;}
+.form-consent-check{display:flex;gap:10px;align-items:flex-start;font-size:0.84rem;line-height:1.6;color:var(--ink);cursor:pointer;}
+.form-consent-check input{flex:0 0 auto;width:18px;height:18px;margin:1px 0 0;accent-color:var(--green);cursor:pointer;}
+.form-consent-check a{color:inherit;}
+.form-consent-check + .form-consent-check{margin-top:10px;}
+.form-error{margin:12px 0 0;font-size:0.84rem;line-height:1.6;color:#B3261E;}
+@media (max-width:639px){
+  .legal-table th,.form-consent-table th{width:38%;}
+}
