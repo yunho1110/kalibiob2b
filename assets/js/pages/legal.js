@@ -6,13 +6,14 @@
        · 문의 폼은 입력값으로 mailto: 링크를 만들 뿐, 사이트가 전송·저장하지 않는다.
        · 쿠키·localStorage·sessionStorage·분석도구(GA 등)를 쓰지 않는다. (코드 전수 확인)
        · 외부 요청은 Google Fonts 한 곳뿐이다.
-   ─ TODO(운영자 확인)는 화면에 그대로 노출된다. 확정 전까지 공개하지 말 것. */
+   ─ 운영자 확정값(2026-11-12): 보유기간 = 문의 처리 완료 후 1년,
+     보호책임자 = 대표(법 제31조제2항), 호스팅 = GitHub Pages.
+     호스팅은 실측으로 확인했다 — 저장소에 CNAME 이 없고 github.io 가 응답한다.
+     자체 도메인으로 옮기면 5항의 호스팅 수탁자를 반드시 바꿀 것. */
 (function () {
   'use strict';
   var root = document.getElementById('legal');
   if (!root) { return; }
-
-  var TODO = { ko: '※ 운영자 확인 필요', en: '* To be confirmed by the operator', zh: '※ 需运营方确认' };
 
   /* 확정된 기업 정보 — 푸터에 이미 공개된 값만 쓴다 */
   var CORP = {
@@ -86,14 +87,14 @@
           h: { ko: '3. 개인정보의 처리 및 보유 기간', en: '3. Processing and retention period', zh: '3. 个人信息的处理及保有期限' },
           p: [
             {
-              ko: '회사는 문의 처리가 완료된 후 아래 기간까지 보유하며, 기간이 지나면 지체 없이 파기합니다. 다만 관계 법령에 따라 보존 의무가 있는 경우에는 그 기간을 따릅니다.',
-              en: 'The Company retains the information for the period below after the inquiry has been handled, and destroys it without delay thereafter, except where a retention obligation applies under other statutes.',
-              zh: '公司在咨询处理完成后保有至下述期限，期满后立即销毁。但依相关法令负有保存义务的，依其期限。'
+              ko: '회사는 문의를 통해 받은 개인정보를 문의 처리가 완료된 날부터 1년간 보유하며, 기간이 지나면 지체 없이 파기합니다. 다만 관계 법령에 따라 보존 의무가 있는 경우에는 그 기간을 따릅니다.',
+              en: 'The Company retains personal information received through an inquiry for one year from the date the inquiry is closed, and destroys it without delay thereafter, except where a retention obligation applies under other statutes.',
+              zh: '公司将通过咨询收到的个人信息自咨询处理完成之日起保有1年，期满后立即销毁。但依相关法令负有保存义务的，依其期限。'
             },
             {
-              ko: '보유 기간: ' + L(TODO) + ' — 문의 메일의 실제 보관 기간을 확정해 주세요. (예: 문의 처리 완료 후 1년)',
-              en: 'Retention period: ' + L(TODO) + ' — please confirm how long inquiry emails are actually kept (e.g. one year after the inquiry is closed).',
-              zh: '保有期限：' + L(TODO) + ' — 请确认咨询邮件的实际保管期限（例如：咨询处理完成后1年）。'
+              ko: '보유 기간: 문의 처리 완료 후 1년',
+              en: 'Retention period: one year after the inquiry is closed',
+              zh: '保有期限：咨询处理完成后1年'
             }
           ]
         },
@@ -113,7 +114,7 @@
             zh: '公司为接收咨询使用下列服务，个人信息在该范围内被处理。'
           }],
           table: [
-            [{ ko: '웹사이트 호스팅', en: 'Website hosting', zh: '网站托管' }, { ko: 'GitHub, Inc. (GitHub Pages) — 웹사이트 파일 제공. 접속 시 IP 주소 등 접속기록이 서비스 제공자 측에 기록될 수 있습니다. ' + L(TODO) + ' 운영 도메인(www.kalibio.co.kr)의 실제 호스팅 사업자를 확정해 주세요.', en: 'GitHub, Inc. (GitHub Pages) — serving website files. Access logs including IP addresses may be recorded by the provider. ' + L(TODO) + ' Please confirm the actual hosting provider for the production domain (www.kalibio.co.kr).', zh: 'GitHub, Inc.（GitHub Pages）— 提供网站文件。访问时IP地址等访问记录可能被服务商记录。' + L(TODO) + ' 请确认运营域名（www.kalibio.co.kr）的实际托管服务商。' }],
+            [{ ko: '웹사이트 호스팅', en: 'Website hosting', zh: '网站托管' }, { ko: 'GitHub, Inc. (GitHub Pages, 미국) — 웹사이트 파일 제공. 접속 시 IP 주소 등 접속기록이 서비스 제공자 측에 기록될 수 있습니다.', en: 'GitHub, Inc. (GitHub Pages, United States) — serving website files. Access logs including IP addresses may be recorded by the provider.', zh: 'GitHub, Inc.（GitHub Pages，美国）— 提供网站文件。访问时IP地址等访问记录可能被服务商记录。' }],
             [{ ko: '문의 메일 수신', en: 'Receiving inquiry email', zh: '咨询邮件接收' }, { ko: '네이버 메일 (' + CORP.mail + ') — 문의 메일의 수신 및 보관', en: 'NAVER Mail (' + CORP.mail + ') — receiving and storing inquiry emails', zh: 'NAVER邮箱（' + CORP.mail + '）— 咨询邮件的接收与保管' }],
             [{ ko: '웹 글꼴', en: 'Web fonts', zh: '网页字体' }, { ko: 'Google LLC (Google Fonts) — 글꼴 파일 제공. 자세한 내용은 아래 7항을 참고하십시오.', en: 'Google LLC (Google Fonts) — serving font files. See section 7 below.', zh: 'Google LLC（Google Fonts）— 提供字体文件。详见下文第7项。' }]
           ]
@@ -162,7 +163,7 @@
             zh: '依据该法第31条第2款，公司的业主或代表人担任个人信息保护负责人。有关个人信息处理的咨询、投诉与救济，请联系下述方式。'
           }],
           table: [
-            [{ ko: '개인정보 보호책임자', en: 'Privacy Officer', zh: '个人信息保护负责人' }, { ko: L(CORP.rep) + ' (대표) ' + L(TODO) + ' 별도의 담당자를 두실 경우 성명·부서를 알려 주세요.', en: L(CORP.rep) + ' (Representative) ' + L(TODO) + ' If a separate officer is appointed, please provide the name and department.', zh: L(CORP.rep) + '（代表） ' + L(TODO) + ' 如另设负责人，请提供姓名与部门。' }],
+            [{ ko: '개인정보 보호책임자', en: 'Privacy Officer', zh: '个人信息保护负责人' }, { ko: L(CORP.rep) + ' (대표)', en: L(CORP.rep) + ' (Representative)', zh: L(CORP.rep) + '（代表）' }],
             [{ ko: '전화', en: 'Telephone', zh: '电话' }, { ko: CORP.tel, en: CORP.tel, zh: CORP.tel }],
             [{ ko: '전자우편', en: 'Email', zh: '电子邮件' }, { ko: CORP.mail, en: CORP.mail, zh: CORP.mail }]
           ]

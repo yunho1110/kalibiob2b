@@ -494,7 +494,7 @@ var I18N = {
     kItems: { ko: "수집 항목", en: "Items collected", zh: "收集项目" },
     vItems: { ko: "회사명, 담당자명, 이메일, 국가, 문의 내용 (선택: 연락처, 예상 물량)", en: "Company, contact name, email, country, message (optional: phone, expected volume)", zh: "公司名称、负责人姓名、电子邮箱、国家、咨询内容（选填：联系电话、预计数量）" },
     kPeriod: { ko: "보유·이용 기간", en: "Retention period", zh: "保有·使用期限" },
-    vPeriod: { ko: "문의 처리 완료 후 파기", en: "Destroyed once the inquiry has been handled", zh: "咨询处理完成后销毁" },
+    vPeriod: { ko: "문의 처리 완료 후 1년", en: "One year after the inquiry is closed", zh: "咨询处理完成后1年" },
     refuse: { ko: "동의를 거부하실 수 있습니다. 다만 이 경우 문의 접수와 회신이 불가능합니다.", en: "You may refuse to consent. In that case, however, we cannot receive or reply to your inquiry.", zh: "您可以拒绝同意。但此时我们将无法接收并回复您的咨询。" },
     agree: { ko: "위 내용을 확인했으며 개인정보 수집·이용에 동의합니다.", en: "I have read the above and consent to the collection and use of my personal information.", zh: "本人已确认上述内容并同意收集·使用个人信息。" },
     policyLink: { ko: "개인정보 처리방침 보기", en: "View Privacy Policy", zh: "查看个人信息处理方针" },
