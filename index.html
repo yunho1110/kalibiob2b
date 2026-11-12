@@ -28,6 +28,7 @@
 <link rel="stylesheet" href="assets/css/pages/business.css?v=202611051830">
 <link rel="stylesheet" href="assets/css/pages/partnership.css?v=202611051830">
 <link rel="stylesheet" href="assets/css/pages/contact.css?v=202611051830">
+<link rel="stylesheet" href="assets/css/pages/legal.css?v=202611051830">
 <link rel="stylesheet" href="assets/css/theme.css?v=202611051830">
 </head>
 <body>
@@ -942,6 +943,24 @@
               <label for="message"><span data-i18n="contact.f5">메시지</span> <span class="req" data-i18n="contact.required"></span></label>
               <textarea id="message" name="message" rows="5" required></textarea>
             </div>
+            <!-- 개인정보 수집·이용 동의 — 「개인정보 보호법」 제15조제2항 각 호(목적·항목·보유기간·거부권)를
+                 모두 고지하고, 제22조제1항에 따라 동의를 구분해 받는다. 필수 동의 없이는 전송하지 않는다. -->
+            <fieldset class="form-consent">
+              <legend class="form-consent-h" data-i18n="consent.title">개인정보 수집·이용 동의 (필수)</legend>
+              <table class="form-consent-table">
+                <tbody>
+                  <tr><th data-i18n="consent.kPurpose">수집·이용 목적</th><td data-i18n="consent.vPurpose">문의 내용 확인 및 상담·회신</td></tr>
+                  <tr><th data-i18n="consent.kItems">수집 항목</th><td data-i18n="consent.vItems">회사명, 담당자명, 이메일, 국가, 문의 내용 (선택: 연락처, 예상 물량)</td></tr>
+                  <tr><th data-i18n="consent.kPeriod">보유·이용 기간</th><td data-i18n="consent.vPeriod">문의 처리 완료 후 파기</td></tr>
+                </tbody>
+              </table>
+              <p class="form-consent-note" data-i18n="consent.refuse">동의를 거부하실 수 있습니다. 다만 이 경우 문의 접수와 회신이 불가능합니다.</p>
+              <label class="form-consent-check">
+                <input type="checkbox" id="consentRequired" name="consentRequired" required>
+                <span><span data-i18n="consent.agree">위 내용을 확인했으며 개인정보 수집·이용에 동의합니다.</span> <a href="#legal-privacy" data-subview="legal-privacy" class="underline-link" data-i18n="consent.policyLink">개인정보 처리방침 보기</a></span>
+              </label>
+            </fieldset>
+            <p class="form-error" id="formError" hidden role="alert" data-i18n="consent.error">개인정보 수집·이용에 동의하셔야 문의를 보낼 수 있습니다.</p>
             <button type="submit" class="btn btn-primary btn-block" data-i18n="contact.submit">문의 보내기</button>
             <p class="form-note" id="formNote" hidden data-i18n="contact.sent">문의가 접수되었습니다. 빠르게 답변드리겠습니다.</p>
           </form>
@@ -965,6 +984,22 @@
 </main>
 
 <!-- ===================== FOOTER ===================== -->
+<!-- =====================================================================
+     LEGAL — 개인정보 처리방침 · 이용 및 저작권 안내
+     내용은 assets/js/pages/legal.js 가 채운다(국·영·중). 메인 메뉴에는 두지 않고
+     푸터에서만 연결한다. 개인정보 처리방침은 「개인정보 보호법」 제30조제2항에 따라
+     상시 공개되어야 하므로 모든 페이지의 푸터에서 한 번에 닿을 수 있게 했다.
+     ===================================================================== -->
+<section class="view" id="legal">
+  <div class="section">
+    <div class="container">
+      <div id="legal-privacy" class="tech-block"></div>
+      <div id="legal-notice" class="tech-block" hidden></div>
+    </div>
+  </div>
+  <script src="assets/js/pages/legal.js?v=202611051830"></script>
+</section>
+
 <footer class="site-footer">
   <div class="container">
     <div class="footer-top">
@@ -990,6 +1025,11 @@
       <div class="f-fact"><dt data-i18n="footer.mailorderLabel">통신판매업 신고</dt><dd data-i18n="footer.mailorderValue"></dd></div>
       <div class="f-fact f-fact-wide"><dt data-i18n="footer.addrLabel">주소</dt><dd data-i18n="footer.addrValue"></dd></div>
     </dl>
+
+    <nav class="footer-legal" aria-label="법적 고지">
+      <a href="#legal-privacy" data-subview="legal-privacy" class="is-strong" data-i18n="footer.privacy">개인정보 처리방침</a>
+      <a href="#legal-notice" data-subview="legal-notice" data-i18n="footer.notice">이용 및 저작권 안내</a>
+    </nav>
 
     <div class="footer-bottom"><p data-i18n="footer.copyright"></p></div>
   </div>

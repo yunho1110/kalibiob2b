@@ -111,7 +111,7 @@
     }
 
     /* ===== Hash routing ===== */
-    var VALID_VIEWS = ['home', 'material', 'business', 'products', 'about', 'partnership', 'contact'];
+    var VALID_VIEWS = ['home', 'material', 'business', 'products', 'about', 'partnership', 'contact', 'legal'];
     var HASH_ALIASES = { hero: 'home', why: 'about', partners: 'partnership', technology: 'material' };
     var SUBVIEW_GROUPS = {
       material: ['mat-story'],
@@ -119,7 +119,9 @@
       products: ['prod-main', 'prod-soap', 'prod-paste', 'prod-set'],
       about: ['brand-story', 'brand-process'],
       partnership: ['part-current'],
-      contact: ['contact-form', 'contact-faq']
+      contact: ['contact-form', 'contact-faq'],
+      /* 법적 고지 — 메인 메뉴에는 없고 푸터에서만 연결한다 */
+      legal: ['legal-privacy', 'legal-notice']
     };
     /* 메뉴 한 칸이 여러 블록을 묶는 경우. 없으면 같은 id 블록 하나를 쓴다. */
     var SUBVIEW_BLOCKS = {
@@ -135,7 +137,8 @@
 
     var SUBVIEW_DEFAULT = {
       material: 'mat-story', business: 'biz-areas', products: 'prod-main',
-      about: 'brand-story', partnership: 'part-current', contact: 'contact-form'
+      about: 'brand-story', partnership: 'part-current', contact: 'contact-form',
+      legal: 'legal-privacy'
     };
     var SUBSECTIONS = {};
     Object.keys(SUBVIEW_GROUPS).forEach(function (view) {
@@ -329,6 +332,14 @@
         document.title = '주식회사 카리바이오 — 천연 미네랄 소재';
         return;
       }
+      if (viewId === 'legal') {
+        /* 법적 고지는 메인 네비에 항목이 없다 — 문서 제목(legal.js 가 그린 h2)을 그대로 쓴다 */
+        var lh = document.querySelector('#' + (subId || 'legal-privacy') + ' .legal-title');
+        var ln = lh ? lh.textContent.trim() : 'LEGAL';
+        document.title = ln + ' | 주식회사 카리바이오';
+        if (slot) { slot.textContent = ln; }
+        return;
+      }
       var viewLink = document.querySelector('.main-nav [data-view="' + viewId + '"]');
       if (!viewLink) {
         /* 한 대메뉴가 여러 뷰를 묶는 경우(비즈니스 = business + partnership)
@@ -511,8 +522,17 @@
     var form = document.getElementById('contactForm');
     var formNote = document.getElementById('formNote');
     if (form) {
+      var formError = document.getElementById('formError');
       form.addEventListener('submit', function (e) {
         e.preventDefault();
+        /* 개인정보 수집·이용 동의는 전송의 전제다. 동의가 없으면 메일 작성 자체를 열지 않는다. */
+        var consent = document.getElementById('consentRequired');
+        if (consent && !consent.checked) {
+          if (formError) { formError.hidden = false; }
+          consent.focus();
+          return;
+        }
+        if (formError) { formError.hidden = true; }
         var type = form.inquiryType.options[form.inquiryType.selectedIndex].text;
         var subject = encodeURIComponent('[Partnership Inquiry] ' + type + ' - ' + form.company.value);
         var body = encodeURIComponent(
